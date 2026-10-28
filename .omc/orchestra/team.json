@@ -1,0 +1,15 @@
+{
+  "team": "문워크 오케스트라",
+  "project": "한벗 – 음성 기반 개인 맞춤형 AI 친구",
+  "conductor": { "provider": "claude-code", "model": "claude-opus-5-5", "role": "총괄 지휘·합성·Wiki 적재" },
+  "orchestra": [
+    { "name": "critic",  "provider": "codex",  "model": "gpt-6-astra",     "role": "계획·보고서 비판" },
+    { "name": "scanner", "provider": "gemini", "model": "gemini-4-argon",  "role": "광역 리서치 스캔" }
+  ],
+  "subagents": [
+    { "name": "researcher", "provider": "claude-code", "model": "claude-sonnet-5-5", "role": "트랙별 딥리서치", "parallel": true },
+    { "name": "verifier",   "provider": "codex",       "model": "gpt-6.1-sol",       "role": "출처·수치 검증, 신뢰도 등급" }
+  ],
+  "wiki": { "path": ".omc/wiki", "viewer": "http://127.0.0.1:8791", "port": 8791 },
+  "grades": { "A": "원출처 확인·수치 일치", "B": "2차 출처만 확인 또는 수치 근사", "C": "미확인·추정" }
+}
