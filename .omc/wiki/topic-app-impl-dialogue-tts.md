@@ -1,10 +1,10 @@
 ---
 title: "topic-app-impl-dialogue-tts"
-tags: ["app-design", "implementation", "dialogue", "tts", "typecast", "elevenlabs", "summary", "topic", "paper-evidence", "meeting-followup"]
+tags: ["app-design", "implementation", "dialogue", "tts", "typecast", "elevenlabs", "summary", "topic", "paper-evidence", "meeting-followup", "opensource"]
 created: 2026-10-25T14:46:30.845Z
-updated: 2026-11-07T11:40:23.797Z
+updated: 2026-11-07T18:12:53.094Z
 sources: ["reports/한벗 앱 설계서.md#5-6-7-12"]
-links: ["overview-app-design.md", "claim-tech-7-dialogue-mode-strategy.md", "claim-tech-3-stt-tts-vendors.md", "topic-app-impl-safety-crisis.md", "src-pipecat-2026-docs-tts-aggregation.md", "topic-app-cost-latency-budget.md", "src-pipecat-2026-typecast-service.md", "src-typecast-2026-streaming-tts-api.md", "src-elevenlabs-2026-websocket-tts.md", "src-elevenlabs-2026-models.md", "src-typecast-2026-developers-latency.md", "src-typecast-2026-api-pricing.md", "topic-app-impl-memory.md", "src-kang-2024-esconv-llm-limits.md", "src-acl-2021-esconv.md", "src-du-2024-cosyvoice2.md", "topic-app-paper-evidence.md", "topic-tts-humanlike-techniques.md"]
+links: ["overview-app-design.md", "claim-tech-7-dialogue-mode-strategy.md", "claim-tech-3-stt-tts-vendors.md", "topic-app-impl-safety-crisis.md", "src-pipecat-2026-docs-tts-aggregation.md", "topic-app-cost-latency-budget.md", "src-pipecat-2026-typecast-service.md", "src-typecast-2026-streaming-tts-api.md", "src-elevenlabs-2026-websocket-tts.md", "src-elevenlabs-2026-models.md", "src-typecast-2026-developers-latency.md", "src-typecast-2026-api-pricing.md", "topic-app-impl-memory.md", "src-kang-2024-esconv-llm-limits.md", "src-acl-2021-esconv.md", "src-du-2024-cosyvoice2.md", "topic-app-paper-evidence.md", "topic-tts-humanlike-techniques.md", "topic-tts-opensource-candidates-2026-11.md"]
 category: pattern
 confidence: medium
 schemaVersion: 1
@@ -59,3 +59,13 @@ schemaVersion: 1
 - 기법 7가지: previous_text/next_text 맥락, 사용자 감정에 맞춘 톤, 맞장구 클립, 필러 쿨다운, 감정 태그 + PatternPairAggregator, audio_tempo 0.9~0.95, 응답 첫 소리 1~1.5초 목표.
 - 가장 싼 실험부터: Typecast 그대로 + 맥락 + 감정 톤 전후 비교 → 클립 연결 → ElevenLabs v4 Turbo 블라인드 비교.
 - 확인 필요: Typecast 첫 소리 지연 수치, Pipecat 플러그인 v31 지원 시점.
+
+---
+
+## Update (2026-11-07T18:12:53.094Z)
+
+## 2026-11-08 OSS 음성 조사 반영
+- 1차 구현은 Typecast 유지. 오픈소스 TTS는 W4 블라인드 테스트 후 비용 단계에서 검토([[topic-tts-opensource-candidates-2026-11]]).
+- 후보 3개: Qwen3-TTS 1.7B CustomVoice(Apache-2.0), VoxCPM2(Apache-2.0), Fun-CosyVoice3 0.5B(Apache-2.0).
+- 제작사 지연값(Qwen 97ms, CosyVoice 150ms, Fish 약 100ms)은 한국어·한벗 환경 실측이 아니므로 Pipecat에서 p50/p90 직접 측정.
+- Typecast $0.075/1천 자는 Lite 포함분 환산 단가이고 초과분은 $0.09/1천 크레딧(월정액 조건 존재).

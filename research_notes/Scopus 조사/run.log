@@ -1,0 +1,32 @@
+[ser_korean] total=26
+[ser_korean] saved 26 → research_notes/Scopus 조사/raw/ser_korean.jsonl
+[ser_cross_corpus] total=351
+[ser_cross_corpus] saved 150 → research_notes/Scopus 조사/raw/ser_cross_corpus.jsonl
+[ser_preprocessing_features] total=1270
+[ser_preprocessing_features] saved 200 → research_notes/Scopus 조사/raw/ser_preprocessing_features.jsonl
+[ser_ssl_models] total=422
+[ser_ssl_models] saved 200 → research_notes/Scopus 조사/raw/ser_ssl_models.jsonl
+[ser_calibration_uncertainty] total=93
+[ser_calibration_uncertainty] saved 93 → research_notes/Scopus 조사/raw/ser_calibration_uncertainty.jsonl
+[ser_label_taxonomy] total=794
+[ser_label_taxonomy] saved 150 → research_notes/Scopus 조사/raw/ser_label_taxonomy.jsonl
+[ser_naturalistic_spontaneous] total=269
+[ser_naturalistic_spontaneous] saved 150 → research_notes/Scopus 조사/raw/ser_naturalistic_spontaneous.jsonl
+[multimodal_text_audio_fusion] total=758
+[multimodal_text_audio_fusion] saved 200 → research_notes/Scopus 조사/raw/multimodal_text_audio_fusion.jsonl
+[erc_conversation_context] total=735
+[erc_conversation_context] saved 150 → research_notes/Scopus 조사/raw/erc_conversation_context.jsonl
+[ser_low_arousal_depression_loneliness] total=326
+[ser_low_arousal_depression_loneliness] saved 150 → research_notes/Scopus 조사/raw/ser_low_arousal_depression_loneliness.jsonl
+[ser_noise_codec_robustness] total=824
+[ser_noise_codec_robustness] saved 150 → research_notes/Scopus 조사/raw/ser_noise_codec_robustness.jsonl
+[emotional_tts_expressive] total=288
+[emotional_tts_expressive] saved 150 → research_notes/Scopus 조사/raw/emotional_tts_expressive.jsonl
+[empathetic_voice_agent] total=206
+[empathetic_voice_agent] saved 150 → research_notes/Scopus 조사/raw/empathetic_voice_agent.jsonl
+[unist_emotion] total=21
+[unist_emotion] saved 21 → research_notes/Scopus 조사/raw/unist_emotion.jsonl
+[korea_emotion_speech_top] total=424
+[korea_emotion_speech_top] saved 200 → research_notes/Scopus 조사/raw/korea_emotion_speech_top.jsonl
+[_all_dedup] saved 1818 → research_notes/Scopus 조사/raw/_all_dedup.jsonl
+총 2140건, 중복 제거 1818건

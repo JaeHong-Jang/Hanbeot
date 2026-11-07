@@ -1,10 +1,10 @@
 ---
 title: "topic-ser-label-scheme-and-fusion"
-tags: ["ser", "label-scheme", "fusion", "weights", "valence-arousal", "crisis", "unconfirmed", "topic"]
+tags: ["ser", "label-scheme", "fusion", "weights", "valence-arousal", "crisis", "unconfirmed", "topic", "scopus-2026-11"]
 created: 2026-11-07T11:32:27.096Z
-updated: 2026-11-07T11:32:27.096Z
+updated: 2026-11-07T18:46:18.398Z
 sources: ["research_notes/회의 후속 조사/EF_텍스트단위_감정분류.md", "research_notes/회의 후속 조사/GH_라벨기준_복합감정.md", "research_notes/회의 후속 조사/J_음성텍스트_가중치.md", "research_notes/회의 후속 조사/J2_가중치_근거보강.md"]
-links: ["topic-meeting-followup-ser-2026-11.md", "topic-app-impl-ser-cues.md", "claim-app-3-emotion-cue-confirmation-rules.md", "src-demszky-2020-goemotions.md", "topic-data-korean-emotion-speech-datasets.md", "src-busso-2025-msp-podcast-labels.md", "src-wang-2023-speech-emotion-diarization.md", "src-atmaja-2021-multimodal-dimensional.md", "src-harm-2024-taltech-odyssey.md", "src-macary-2021-continuous-ser.md", "src-wagner-2023-transformer-era.md", "claim-app-5-crisis-ops-and-tel109.md", "claim-app-10-crisis-state-machine-and-evaluation.md"]
+links: ["topic-meeting-followup-ser-2026-11.md", "topic-app-impl-ser-cues.md", "claim-app-3-emotion-cue-confirmation-rules.md", "src-demszky-2020-goemotions.md", "topic-data-korean-emotion-speech-datasets.md", "src-busso-2025-msp-podcast-labels.md", "src-wang-2023-speech-emotion-diarization.md", "src-atmaja-2021-multimodal-dimensional.md", "src-harm-2024-taltech-odyssey.md", "src-macary-2021-continuous-ser.md", "src-wagner-2023-transformer-era.md", "claim-app-5-crisis-ops-and-tel109.md", "claim-app-10-crisis-state-machine-and-evaluation.md", "topic-ser-label-count-calibration-evidence.md"]
 category: reference
 confidence: medium
 schemaVersion: 1
@@ -54,4 +54,14 @@ schemaVersion: 1
 ## 확인 필요
 - IEMOCAP κ(0.27 vs 0.48), KEMDy20 평가자 수, AI Hub 라벨링 가이드 원문
 - 형태소 분석기별 감정 분류 비교 논문: 못 찾음
+
+---
+
+## Update (2026-11-07T18:46:18.398Z)
+
+## 2026-11-08 Scopus 문헌 반영
+- 결론: 6감정 이상으로 확대하지 않는다. 클래스 수를 늘려 얻는 이득의 증거를 검토한 초록에서 찾지 못했고, 분포·축·보류가 증거와 맞다 (제안, 최적성 미검증). 평가 4 + 정서가·각성 3단계 + 분포 + 보류 곡선, 제품 5 + 판정보류 + 2축(불안은 글 중심, 가라앉음은 축 정의). [[topic-ser-label-count-calibration-evidence]]
+- 정정: GoEmotions 묶음의 분류 수는 중립 포함 28→7→4 (F1 .46→.64→.69 수치는 일치).
+- 정서가=텍스트/각성=음성은 배타적 규칙이 아니라 설계 해석(Wagner는 음성만으로 정서가 CCC 0.638). 0.65:0.35 가중치는 논문값이 아닌 추론 시작값.
+- 맥락 6~10턴은 실험 계획값. 외부 연구는 맥락의 이득만 보이며 창 길이 최적성은 미확정.
 

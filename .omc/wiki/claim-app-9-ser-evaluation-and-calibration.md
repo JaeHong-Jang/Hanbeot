@@ -1,10 +1,10 @@
 ---
 title: "claim-app-9-ser-evaluation-and-calibration"
-tags: ["app-design", "decision", "ser", "evaluation", "calibration", "h3", "paper-evidence", "meeting-followup"]
+tags: ["app-design", "decision", "ser", "evaluation", "calibration", "h3", "paper-evidence", "meeting-followup", "scopus-2026-11"]
 created: 2026-10-26T05:46:21.137Z
-updated: 2026-11-07T11:39:44.989Z
+updated: 2026-11-07T18:46:07.741Z
 sources: ["reports/한벗 기술 논문 근거.md#2-1"]
-links: ["overview-app-design.md", "topic-app-paper-evidence.md", "topic-app-impl-ser-cues.md", "claim-app-3-emotion-cue-confirmation-rules.md", "claim-tech-1-ser-model.md", "src-ma-2024-emotion2vec.md", "src-sereval-2024-whisper-crosslingual.md", "src-ma-2024-emobox.md", "src-sogang-2024-aihub-hubert.md", "src-romana-2025-switchboard-affect.md", "src-kawaoto-2025-acted-natural-ser.md", "src-chou-2023-ser-calibration.md", "src-ren-2024-emo-codec.md", "claim-app-8-hypotheses-h1-h5.md", "topic-meeting-followup-ser-2026-11.md", "topic-ser-papers-synthesis.md", "topic-data-korean-emotion-speech-datasets.md", "src-harm-2024-taltech-odyssey.md", "src-shin-2024-aihub-script-leak.md"]
+links: ["overview-app-design.md", "topic-app-paper-evidence.md", "topic-app-impl-ser-cues.md", "claim-app-3-emotion-cue-confirmation-rules.md", "claim-tech-1-ser-model.md", "src-ma-2024-emotion2vec.md", "src-sereval-2024-whisper-crosslingual.md", "src-ma-2024-emobox.md", "src-sogang-2024-aihub-hubert.md", "src-romana-2025-switchboard-affect.md", "src-kawaoto-2025-acted-natural-ser.md", "src-chou-2023-ser-calibration.md", "src-ren-2024-emo-codec.md", "claim-app-8-hypotheses-h1-h5.md", "topic-meeting-followup-ser-2026-11.md", "topic-ser-papers-synthesis.md", "topic-data-korean-emotion-speech-datasets.md", "src-harm-2024-taltech-odyssey.md", "src-shin-2024-aihub-script-leak.md", "topic-ser-label-count-calibration-evidence.md", "src-sridhar-2020-uncertainty-reject.md", "src-sridhar-2021-softlabel-reject.md"]
 category: decision
 confidence: medium
 schemaVersion: 1
@@ -55,3 +55,14 @@ UA 0.70 미달, Opus 후 급락, 분노 질문 정밀도 미달, H3 반증 시 S
 - 시작 가중치(텍스트:음성) 정서가 0.65:0.35, 각성 0.1:0.9, 5감정 0.55:0.45를 KEMDy20·AI Hub 화자 분리 5겹 실험으로 조정, 온도 보정 병행 [[src-harm-2024-taltech-odyssey]].
 - 90%대 한국어 수치는 같은 대본·화자 분리 미보고라 인용 금지 [[src-shin-2024-aihub-script-leak]].
 - 1차 데이터는 약 110GB(AI Hub 263, 107·71631 Validation 등).
+
+---
+
+## Update (2026-11-07T18:46:07.741Z)
+
+## 2026-11-08 Scopus 문헌 반영
+- 평가 세트는 4감정 + 정서가·각성 3단계 + 평가자 분포(발화당 3명 이상) + 판정보류 커버리지-위험 곡선으로 보고한다 (제안, 최적성 미검증). 상세 [[topic-ser-label-count-calibration-evidence]].
+- 판정보류 시작값은 약 25%(커버리지 약 75%). 근거: 불확실도 상위 25% 거부 시 CCC 상대 정서가 +13.73% ([[src-sridhar-2020-uncertainty-reject]]), 60% 커버리지 정서가 +16.85% ([[src-sridhar-2021-softlabel-reject]]). 회귀(CCC) 결과이며 한국어 최적 정책이라는 근거는 아님. W3 calib 세트로 60/75/100% 곡선 확정.
+- ECE는 한벗 데이터로 직접 측정한다. 참고: Chou 2023 본문 표 1은 ECE 0.335→0.276(BCE), 0.311→0.263(클래스 균형)을 보고(검증자 확인, 초록에는 없음). [[src-chou-2023-ser-calibration]]
+- 한계: KoHMT 77.01%(AI-HUB 7감정 9:1 분할, 화자 독립 불명)와 KEMDy19 64.69%/CCC 0.5473은 지표·분할이 달라 비교 금지.
+

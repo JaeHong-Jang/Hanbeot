@@ -1,10 +1,10 @@
 ---
 title: "claim-app-3-emotion-cue-confirmation-rules"
-tags: ["app-design", "decision", "ser", "emotion-cue", "confirmation-question", "temporary-criteria", "paper-evidence", "meeting-followup"]
+tags: ["app-design", "decision", "ser", "emotion-cue", "confirmation-question", "temporary-criteria", "paper-evidence", "meeting-followup", "scopus-2026-11", "confirmation-rules"]
 created: 2026-10-25T14:50:05.792Z
-updated: 2026-11-07T11:39:41.951Z
+updated: 2026-11-07T18:46:10.334Z
 sources: ["reports/한벗 앱 설계서.md#5-4"]
-links: ["overview-app-design.md", "topic-app-impl-ser-cues.md", "claim-bench-8-emotion-cue-as-question.md", "src-emotion2vec-2024-github.md", "src-funasr-2026-model-license.md", "src-arxiv-2026-audio-flamingo-iemocap.md", "src-sogang-2024-aihub-hubert.md", "claim-tech-1-ser-model.md", "claim-app-8-hypotheses-h1-h5.md", "claim-app-7-schedule-gates-and-cuts.md", "claim-app-6-consent-and-deletion.md", "claim-app-9-ser-evaluation-and-calibration.md", "topic-meeting-followup-ser-2026-11.md", "topic-ser-label-scheme-and-fusion.md", "src-busso-2025-msp-podcast-labels.md", "topic-ser-context-personalization.md", "src-sridhar-2022-unsupervised-personalization.md"]
+links: ["overview-app-design.md", "topic-app-impl-ser-cues.md", "claim-bench-8-emotion-cue-as-question.md", "src-emotion2vec-2024-github.md", "src-funasr-2026-model-license.md", "src-arxiv-2026-audio-flamingo-iemocap.md", "src-sogang-2024-aihub-hubert.md", "claim-tech-1-ser-model.md", "claim-app-8-hypotheses-h1-h5.md", "claim-app-7-schedule-gates-and-cuts.md", "claim-app-6-consent-and-deletion.md", "claim-app-9-ser-evaluation-and-calibration.md", "topic-meeting-followup-ser-2026-11.md", "topic-ser-label-scheme-and-fusion.md", "src-busso-2025-msp-podcast-labels.md", "topic-ser-context-personalization.md", "src-sridhar-2022-unsupervised-personalization.md", "topic-ser-label-count-calibration-evidence.md", "src-briganti-2025-depression-voice-review.md", "src-yamada-2021-loneliness-speech.md"]
 category: decision
 confidence: medium
 schemaVersion: 1
@@ -57,3 +57,13 @@ schemaVersion: 1
 - 불일치 되물음 규칙 제안: 말과 목소리 불일치를 평균과 따로 검사, **3턴에 1번·10턴에 2번**까지 (현재 규칙의 "직전 5턴 확인 질문 없음"과의 관계는 회의 확인 필요).
 - 맥락 턴: 직전 6~10턴을 화자 표시와 함께 전달, 0/2/6/10턴 실험 [[topic-ser-context-personalization]].
 - 개인화 기준선: 사용자별 평소 목소리 기준 z-score, 예시 1→3→7개로 UA 69.8→73.2→75.7% [[src-sridhar-2022-unsupervised-personalization]].
+
+---
+
+## Update (2026-11-07T18:46:10.334Z)
+
+## 2026-11-08 Scopus 문헌 반영
+- 확인 질문 규칙 v2 (제안): 일치·확신이면 질문 없이 가볍게 되받음 / 글·소리 불일치면 소프트 확인 / 판정보류면 라벨을 말하지 않고 열린 질문 / 저각성 부정은 개인 기준선 대비 지속 변화일 때만 부드러운 체크인 / 위기는 텍스트 max 규칙의 별도 흐름. 표는 [[topic-ser-label-count-calibration-evidence]] §6.
+- "우울"·"외로움" 단어는 말하지 않는다. 근거(청년 일반 대화 오탐률은 미지, 연구는 임상군·고령자·외래 집단): [[src-briganti-2025-depression-voice-review]], [[src-yamada-2021-loneliness-speech]].
+- 한계: 오탐 방어 정책(기준선·지속 변화·열린 질문)의 효과와 질문 빈도 상한(3턴 1회, 10턴 2회)은 모두 미검증(검증 C).
+

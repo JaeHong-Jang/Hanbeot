@@ -1,10 +1,10 @@
 ---
 title: "claim-tech-3-stt-tts-vendors"
-tags: ["tech", "voice-pipeline-latency-cost", "grade-A", "grade-C", "decision", "stt", "tts", "returnzero", "typecast", "elevenlabs", "korean", "meeting-followup"]
+tags: ["tech", "voice-pipeline-latency-cost", "grade-A", "grade-C", "decision", "stt", "tts", "returnzero", "typecast", "elevenlabs", "korean", "meeting-followup", "opensource", "license"]
 created: 2026-10-25T07:32:59.607Z
-updated: 2026-11-07T11:40:26.540Z
+updated: 2026-11-07T18:12:55.737Z
 sources: []
-links: ["topic-tech-voice-pipeline-latency-cost.md", "overview-technology.md", "src-rtzr-2026-korean-stt-benchmark.md", "src-rtzr-2026-pricing.md", "src-openai-2026-realtime-pricing.md", "src-buzzasr-2025-whisper-korean.md", "src-elevenlabs-2026-api-pricing.md", "src-typecast-2026-api-pricing.md", "src-naver-2026-clova-speech-voice.md", "claim-tech-6-sensitive-data-consent.md", "topic-tts-humanlike-techniques.md", "src-lee-2026-elderly-whisper-asr.md", "topic-ser-model-comparison-whisper-spectrogram.md"]
+links: ["topic-tech-voice-pipeline-latency-cost.md", "overview-technology.md", "src-rtzr-2026-korean-stt-benchmark.md", "src-rtzr-2026-pricing.md", "src-openai-2026-realtime-pricing.md", "src-buzzasr-2025-whisper-korean.md", "src-elevenlabs-2026-api-pricing.md", "src-typecast-2026-api-pricing.md", "src-naver-2026-clova-speech-voice.md", "claim-tech-6-sensitive-data-consent.md", "topic-tts-humanlike-techniques.md", "src-lee-2026-elderly-whisper-asr.md", "topic-ser-model-comparison-whisper-spectrogram.md", "topic-tts-opensource-candidates-2026-11.md"]
 category: decision
 confidence: medium
 schemaVersion: 1
@@ -56,3 +56,13 @@ schemaVersion: 1
 - 오픈소스 1순위 Qwen3-TTS(첫 소리 약 97ms, Apache-2.0)는 비용·자체 서버 단계에서 검토.
 - 응답 첫 소리 1~1.5초 이내 목표 언급.
 - STT: 한국어 노인 Whisper CER Large-v3 5.5% (기준선 조건 불명확) [[src-lee-2026-elderly-whisper-asr]]. RTZR 대비 비교는 [[topic-ser-model-comparison-whisper-spectrogram]].
+
+---
+
+## Update (2026-11-07T18:12:55.737Z)
+
+## 2026-11-08 OSS 음성 조사 반영
+- W4 블라인드 테스트 후보(Typecast ssfm-v31 옆): Qwen3-TTS 1.7B CustomVoice, VoxCPM2, Fun-CosyVoice3 0.5B. 상세 [[topic-tts-opensource-candidates-2026-11]].
+- 라이선스 주의: Fish Audio Community License는 연 매출 USD 500,000 미만(관계사 합산, 직전 12개월)만 무료 상업, 호스팅은 별도 계약(자체 제품 조수 응답 음성 등 예외 있어 법무 확인). S2-Pro 가중치는 Research License.
+- 상업 불가/제한: OmniVoice 가중치 CC-BY-NC, F5-TTS 가중치 CC-BY-NC, Higgs Audio v3 비상업(v2 가중치도 자체 라이선스), Raon-Speech 모델카드 CC-BY-NC-4.0, XTTS v2 CPML, IndexTTS는 bilibili 약관.
+- Chatterbox(MIT)는 2026-08 retired, Supertonic은 archived.

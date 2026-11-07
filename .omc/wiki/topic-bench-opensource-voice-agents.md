@@ -1,10 +1,10 @@
 ---
 title: "topic-bench-opensource-voice-agents"
-tags: ["benchmark", "github", "opensource", "pipecat", "memory", "topic"]
+tags: ["benchmark", "github", "opensource", "pipecat", "memory", "topic", "voice-agent", "jarvis", "raon-speech"]
 created: 2026-11-07T11:34:27.863Z
-updated: 2026-11-07T11:34:27.863Z
+updated: 2026-11-07T18:12:57.795Z
 sources: ["research_notes/유사앱 조사/similar_apps_github.md"]
-links: ["topic-app-stack-and-forks.md", "overview-benchmark.md", "overview-technology.md", "topic-ser-label-scheme-and-fusion.md", "claim-tech-2-memory-architecture.md"]
+links: ["topic-app-stack-and-forks.md", "overview-benchmark.md", "overview-technology.md", "topic-ser-label-scheme-and-fusion.md", "claim-tech-2-memory-architecture.md", "topic-voice-agent-frameworks-jarvis-2026-11.md", "src-krafton-2026-raon-speech.md", "src-kyutai-2026-unmute.md"]
 category: reference
 confidence: medium
 schemaVersion: 1
@@ -54,3 +54,12 @@ schemaVersion: 1
 - 일부 세부(ChatPsychiatrist, ESConv 전략 목록, SMILE, MentalLLaMA, SoulChat, Letta core/archival)는 README 본문 미열람.
 - KEMDy19/20을 쓴 공개 GitHub 코드는 못 찾음. AI Hub 감성대화·웰니스의 상업 이용 조건은 AI Hub에서 직접 확인.
 
+---
+
+## Update (2026-11-07T18:12:57.795Z)
+
+## 2026-11-08 OSS 음성 조사 반영
+- JARVIS류 상위 저장소는 README 기준 데스크톱 명령 실행형 취미/데모 프로젝트라 운율·백채널·감정 참고 가치가 낮음. 단 코드는 미열람이고 isair/jarvis는 기억 기능이 있어 일반화는 제한적. 상세 [[topic-voice-agent-frameworks-jarvis-2026-11]].
+- Raon-Speech(KRAFTON): 기반 9B는 영·한이나 풀듀플렉스·백채널 SpeechChat은 영어 대화이며 모델카드 모두 CC-BY-NC-4.0. 상업 불가, 참고용([[src-krafton-2026-raon-speech]]).
+- Unmute TTS 지연 단일 L40S 약 750ms, 분산 약 450ms(제작사 보고, [[src-kyutai-2026-unmute]]).
+- Open-LLM-VTuber 별은 14,626(이전 47은 오류). Ultravox는 음성 입력 -> 텍스트 출력이라 S2S 아님.

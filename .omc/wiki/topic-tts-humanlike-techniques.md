@@ -1,10 +1,10 @@
 ---
 title: "topic-tts-humanlike-techniques"
-tags: ["tts", "typecast", "elevenlabs", "backchannel", "filler", "latency", "topic"]
+tags: ["tts", "typecast", "elevenlabs", "backchannel", "filler", "latency", "topic", "opensource"]
 created: 2026-11-07T11:34:24.685Z
-updated: 2026-11-07T11:34:24.685Z
+updated: 2026-11-07T18:12:50.712Z
 sources: ["research_notes/목소리(TTS) 조사/hanbeot_voice_tts.md"]
-links: ["topic-app-impl-dialogue-tts.md", "claim-tech-3-stt-tts-vendors.md", "overview-technology.md", "topic-app-impl-ser-cues.md", "src-pipecat-2026-docs-tts-aggregation.md", "claim-tech-5-latency-target.md"]
+links: ["topic-app-impl-dialogue-tts.md", "claim-tech-3-stt-tts-vendors.md", "overview-technology.md", "topic-app-impl-ser-cues.md", "src-pipecat-2026-docs-tts-aggregation.md", "claim-tech-5-latency-target.md", "topic-tts-opensource-candidates-2026-11.md"]
 category: reference
 confidence: medium
 schemaVersion: 1
@@ -50,3 +50,13 @@ schemaVersion: 1
 ## 확인 필요
 상용 엔진 한국어 음질, Typecast 첫 소리 지연 수치와 Pipecat v31 지원, ElevenLabs 태그의 한국어 효과, Gemini TTS의 Pipecat 지원, Hume 종료 공지, CosyVoice3 가중치 라이선스, 어르신 대상 말 속도 연구의 최신 TTS 적합성.
 
+---
+
+## Update (2026-11-07T18:12:50.712Z)
+
+## 2026-11-08 OSS 음성 조사 반영
+- 오픈소스 후보 상세·비교표는 [[topic-tts-opensource-candidates-2026-11]]. W4 블라인드 후보: Qwen3-TTS 1.7B CustomVoice, VoxCPM2, Fun-CosyVoice3(0.5B).
+- 정정: Qwen3-TTS instruct는 1.7B CustomVoice·VoiceDesign만(Base, 0.6B CustomVoice 미지원). Higgs Audio v2 가중치는 Apache 아님(Boson 자체 라이선스).
+- 선행 노트 샘플은 Qwen·VoxCPM2·OmniVoice·MeloTTS 4종이며 CosyVoice3 샘플은 없음.
+- 한국어에서 청취 검증된 비언어 태그 OSS와 캐스케이드용 백채널 OSS 구현은 이번 조사에서 못 찾음(부재 증명 아님).
+- "Typecast previous_text가 한국어 유일 경로"는 "현재 한벗이 쓰는 경로"로 한정(유일성 미입증).
