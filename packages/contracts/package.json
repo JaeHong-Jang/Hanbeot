@@ -1,0 +1,12 @@
+{
+  "name": "@hanbeot/contracts",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "gen:types": "openapi-typescript openapi.yaml -o ../../apps/web/src/entities/generated/api.d.ts && node gen-events.mjs"
+  },
+  "devDependencies": {
+    "json-schema-to-typescript": "^15.0.0",
+    "openapi-typescript": "^7.4.0"
+  }
+}

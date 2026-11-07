@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hanbeot.local/events/safe_mode_entered.schema.json",
+  "title": "SafeModeEntered",
+  "description": "안전 모드 진입. 카드에 109와 지역 센터를 보여준다.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type","level","card"],
+  "properties": {"type":{"const":"safe_mode_entered"},"level":{"enum":["L1","L2"]},"card":{"type":"object","additionalProperties":false,"required":["tel"],"properties":{"tel":{"const":"109"},"center_name":{"type":"string"}}}}
+}

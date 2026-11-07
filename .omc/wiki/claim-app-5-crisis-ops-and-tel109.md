@@ -1,10 +1,10 @@
 ---
 title: "claim-app-5-crisis-ops-and-tel109"
-tags: ["app-design", "decision", "crisis", "safety", "tel109", "operations", "paper-evidence"]
+tags: ["app-design", "decision", "crisis", "safety", "tel109", "operations", "paper-evidence", "meeting-followup"]
 created: 2026-10-25T14:50:41.464Z
-updated: 2026-10-26T05:47:43.978Z
+updated: 2026-11-07T11:39:58.485Z
 sources: ["reports/한벗 앱 설계서.md#5-9"]
-links: ["overview-app-design.md", "topic-app-impl-safety-crisis.md", "claim-tech-8-crisis-referral-flow.md", "src-wysa-2024-ai-crisis-detection-study.md", "claim-bench-3-safety-protocol.md", "topic-tech-safety-crisis-detection.md", "claim-app-7-schedule-gates-and-cuts.md", "claim-app-10-crisis-state-machine-and-evaluation.md"]
+links: ["overview-app-design.md", "topic-app-impl-safety-crisis.md", "claim-tech-8-crisis-referral-flow.md", "src-wysa-2024-ai-crisis-detection-study.md", "claim-bench-3-safety-protocol.md", "topic-tech-safety-crisis-detection.md", "claim-app-7-schedule-gates-and-cuts.md", "claim-app-10-crisis-state-machine-and-evaluation.md", "topic-meeting-followup-ser-2026-11.md", "topic-ser-label-scheme-and-fusion.md", "topic-data-text-and-eval-datasets.md", "topic-data-korean-emotion-speech-datasets.md", "topic-bench-commercial-similar-apps-2026-11.md"]
 category: decision
 confidence: medium
 schemaVersion: 1
@@ -46,3 +46,13 @@ schemaVersion: 1
 - 2단 구조 효과는 가정하지 않고 키워드/태그/결합 비교 + STT 포함 전체 경로로 평가. 중간 위험·수동적 사고 유형을 추가하고 유형별 최소 성능·미달 조치를 평가 전 확정.
 - 오탐 목표를 턴 단위와 대화 단위로 분리. WHO/AFSP 안전 메시징 원문 미확보(W1~W3).
 
+---
+
+## Update (2026-11-07T11:39:58.485Z)
+
+## 2026-11-07 회의 후속 조사 반영 (미확정)
+- 11/9 회의 결정 전 제안. 종합: [[topic-meeting-followup-ser-2026-11]].
+- 위기 위험도 = max(텍스트, 음성): 음성은 위험도를 올리기만 하고 낮추지 않음 [[topic-ser-label-scheme-and-fusion]].
+- 평가셋: 공개 한국어 자살·우울 텍스트는 거의 없어 C-SSRS 단계 체계 + 전문가 검수 합성 시나리오로 직접 구축 [[topic-data-text-and-eval-datasets]].
+- 119 신고 음성 71768(3,064h, 불안/걱정 53.6%)을 불안·다급함 감지 후보로 [[topic-data-korean-emotion-speech-datasets]].
+- 동종 서비스: 위기 대응은 LLM과 분리된 독립 레이어 + 사람 연결이 표준, 차단 대신 대화 유지 + 109 안내 [[topic-bench-commercial-similar-apps-2026-11]].

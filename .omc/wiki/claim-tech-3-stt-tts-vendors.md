@@ -1,10 +1,10 @@
 ---
 title: "claim-tech-3-stt-tts-vendors"
-tags: ["tech", "voice-pipeline-latency-cost", "grade-A", "grade-C", "decision", "stt", "tts", "returnzero", "typecast", "elevenlabs", "korean"]
+tags: ["tech", "voice-pipeline-latency-cost", "grade-A", "grade-C", "decision", "stt", "tts", "returnzero", "typecast", "elevenlabs", "korean", "meeting-followup"]
 created: 2026-10-25T07:32:59.607Z
-updated: 2026-10-25T07:32:59.607Z
+updated: 2026-11-07T11:40:26.540Z
 sources: []
-links: ["topic-tech-voice-pipeline-latency-cost.md", "overview-technology.md", "src-rtzr-2026-korean-stt-benchmark.md", "src-rtzr-2026-pricing.md", "src-openai-2026-realtime-pricing.md", "src-buzzasr-2025-whisper-korean.md", "src-elevenlabs-2026-api-pricing.md", "src-typecast-2026-api-pricing.md", "src-naver-2026-clova-speech-voice.md", "claim-tech-6-sensitive-data-consent.md"]
+links: ["topic-tech-voice-pipeline-latency-cost.md", "overview-technology.md", "src-rtzr-2026-korean-stt-benchmark.md", "src-rtzr-2026-pricing.md", "src-openai-2026-realtime-pricing.md", "src-buzzasr-2025-whisper-korean.md", "src-elevenlabs-2026-api-pricing.md", "src-typecast-2026-api-pricing.md", "src-naver-2026-clova-speech-voice.md", "claim-tech-6-sensitive-data-consent.md", "topic-tts-humanlike-techniques.md", "src-lee-2026-elderly-whisper-asr.md", "topic-ser-model-comparison-whisper-spectrogram.md"]
 category: decision
 confidence: medium
 schemaVersion: 1
@@ -46,3 +46,13 @@ schemaVersion: 1
 - CLOVA Speech/Voice·Supertone 단가, Daglo
 - 각 벤더 **no-training·국외이전 약관** → [[claim-tech-6-sensitive-data-consent]]
 
+---
+
+## Update (2026-11-07T11:40:26.540Z)
+
+## 2026-11-07 회의 후속 조사 반영 (미확정)
+- 기존 결정 유지, 비교 후보만 추가 (11/9 회의 결정 전). 상세: [[topic-tts-humanlike-techniques]].
+- 엔진 1순위 비교: Typecast ssfm-v31 vs ElevenLabs v4 Turbo(약 100ms/165ms, 1천 자당 약 $0.04). Gemini 3.8 Flash-Lite TTS와 Azure MAI-Voice-2는 후보. OpenAI TTS는 2027-01-06 종료 예정으로 제외.
+- 오픈소스 1순위 Qwen3-TTS(첫 소리 약 97ms, Apache-2.0)는 비용·자체 서버 단계에서 검토.
+- 응답 첫 소리 1~1.5초 이내 목표 언급.
+- STT: 한국어 노인 Whisper CER Large-v3 5.5% (기준선 조건 불명확) [[src-lee-2026-elderly-whisper-asr]]. RTZR 대비 비교는 [[topic-ser-model-comparison-whisper-spectrogram]].

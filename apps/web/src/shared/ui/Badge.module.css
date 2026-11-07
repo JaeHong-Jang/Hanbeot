@@ -1,0 +1,15 @@
+.badge {
+  display: inline-block;
+  padding: 2px var(--space-2);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  background: var(--color-border);
+}
+.info {
+  background: #dbeafe;
+  color: #1e3a8a;
+}
+.ok {
+  background: #dcfce7;
+  color: #14532d;
+}

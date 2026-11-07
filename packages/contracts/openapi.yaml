@@ -1,0 +1,249 @@
+openapi: 3.1.0
+info:
+  title: 한벗 API
+  version: 0.1.0
+  description: |
+    계약 우선(contract-first). 이 파일을 먼저 고치고, 서버·프런트가 여기에 맞춘다.
+    설계서 5절 ⑩(동의), ⑧(기억 4상태), ⑫(요약), 삭제표(5⑩-4) 기준.
+servers:
+  - url: /api
+paths:
+  /health:
+    get:
+      operationId: getHealth
+      summary: 상태 확인
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [status]
+                properties:
+                  status: { type: string, const: ok }
+  /sessions:
+    post:
+      operationId: createSession
+      summary: 통화 세션 생성 (WebRTC 오퍼 교환 주소 반환)
+      responses:
+        '201':
+          description: 생성됨
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SessionCreated' }
+        default: { $ref: '#/components/responses/Problem' }
+  /sessions/{sessionId}/end:
+    post:
+      operationId: endSession
+      summary: 통화 세션 종료
+      parameters:
+        - $ref: '#/components/parameters/SessionId'
+      responses:
+        '204': { description: 종료됨 }
+        default: { $ref: '#/components/responses/Problem' }
+  /consents:
+    get:
+      operationId: getConsents
+      summary: 3단 동의 조회
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Consent' }
+        default: { $ref: '#/components/responses/Problem' }
+    put:
+      operationId: putConsents
+      summary: 3단 동의 변경 (통화 중 철회 포함)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/Consent' }
+      responses:
+        '200':
+          description: 변경됨
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Consent' }
+        default: { $ref: '#/components/responses/Problem' }
+  /memories:
+    get:
+      operationId: listMemories
+      summary: 기억 목록
+      parameters:
+        - name: state
+          in: query
+          required: false
+          schema: { $ref: '#/components/schemas/MemoryState' }
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Memory' }
+        default: { $ref: '#/components/responses/Problem' }
+  /memories/{memoryId}:
+    parameters:
+      - $ref: '#/components/parameters/MemoryId'
+    patch:
+      operationId: updateMemory
+      summary: 기억 수정 ("내가 말한 것"만)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [text]
+              properties:
+                text: { type: string, minLength: 1 }
+      responses:
+        '200':
+          description: 수정됨
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Memory' }
+        default: { $ref: '#/components/responses/Problem' }
+    delete:
+      operationId: deleteMemory
+      summary: 기억 삭제
+      responses:
+        '204': { description: 삭제됨 }
+        default: { $ref: '#/components/responses/Problem' }
+  /memories/{memoryId}/approve:
+    post:
+      operationId: approveMemory
+      summary: 기억 후보 승인 (사용자가 직접 눌렀을 때만)
+      parameters:
+        - $ref: '#/components/parameters/MemoryId'
+      responses:
+        '200':
+          description: 승인됨
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Memory' }
+        default: { $ref: '#/components/responses/Problem' }
+  /summaries/{sessionId}:
+    get:
+      operationId: getSummary
+      summary: 통화 후 요약과 기억 후보
+      parameters:
+        - $ref: '#/components/parameters/SessionId'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Summary' }
+        default: { $ref: '#/components/responses/Problem' }
+  /deletion:
+    post:
+      operationId: requestDeletion
+      summary: 데이터 삭제 요청 (삭제 큐)
+      responses:
+        '202':
+          description: 접수됨
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/DeletionRequest' }
+        default: { $ref: '#/components/responses/Problem' }
+components:
+  parameters:
+    SessionId:
+      name: sessionId
+      in: path
+      required: true
+      schema: { type: string }
+    MemoryId:
+      name: memoryId
+      in: path
+      required: true
+      schema: { type: string }
+  responses:
+    Problem:
+      description: 오류 (RFC 9457)
+      content:
+        application/problem+json:
+          schema: { $ref: '#/components/schemas/Problem' }
+  schemas:
+    SessionCreated:
+      type: object
+      required: [session_id, webrtc_offer_url]
+      properties:
+        session_id: { type: string }
+        webrtc_offer_url: { type: string }
+    Consent:
+      type: object
+      description: 3단 동의 (설계서 5⑩-2). basic=R, voice=V(원본 음성 보관, MVP 비활성), sensitive=S(목소리 감정 단서).
+      required: [basic, voice, sensitive]
+      properties:
+        basic: { type: boolean }
+        voice: { type: boolean }
+        sensitive: { type: boolean }
+    MemoryState:
+      type: string
+      enum: [stated, inferred, confirmed, approved]
+    Memory:
+      type: object
+      required: [id, kind, state, text, created_at]
+      properties:
+        id: { type: string }
+        kind:
+          type: string
+          enum: [stated, inferred]
+          description: stated = 내가 말한 것, inferred = 한벗이 느낀 것
+        state: { $ref: '#/components/schemas/MemoryState' }
+        text: { type: string }
+        created_at: { type: string, format: date-time }
+        expires_at:
+          type: string
+          format: date-time
+          description: inferred 기억만 TTL 만료 시각
+    MemoryCandidate:
+      type: object
+      required: [id, kind, state, text]
+      properties:
+        id: { type: string }
+        kind:
+          type: string
+          enum: [stated, inferred]
+        state:
+          type: string
+          enum: [stated, confirmed]
+        text: { type: string }
+        evidence: { type: string, description: 근거 발화 요약 }
+    Summary:
+      type: object
+      required: [session_id, summary, memory_candidates]
+      properties:
+        session_id: { type: string }
+        duration_min: { type: integer }
+        summary:
+          type: array
+          maxItems: 3
+          items: { type: string }
+        next_step:
+          type: [string, 'null']
+        memory_candidates:
+          type: array
+          items: { $ref: '#/components/schemas/MemoryCandidate' }
+    DeletionRequest:
+      type: object
+      required: [request_id, eta_hours]
+      properties:
+        request_id: { type: string }
+        eta_hours: { type: integer }
+    Problem:
+      type: object
+      description: RFC 9457 Problem Details
+      required: [type, title, status]
+      properties:
+        type: { type: string }
+        title: { type: string }
+        status: { type: integer }
+        detail: { type: string }
+        instance: { type: string }

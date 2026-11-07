@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "manifest row",
+  "description": "manifest.jsonl의 한 줄 = 샘플 하나",
+  "type": "object",
+  "required": ["id", "speaker_id", "split", "label", "label_scheme", "source", "license"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "speaker_id": { "type": "string", "minLength": 1 },
+    "split": { "enum": ["train", "dev", "calib", "test"] },
+    "label": { "type": "string" },
+    "label_scheme": { "type": "string", "description": "예: 4class, 5class" },
+    "source": { "type": "string" },
+    "license": { "enum": ["open", "research-only", "restricted"] },
+    "audio_path": { "type": "string" },
+    "text": { "type": "string" }
+  },
+  "oneOf": [
+    { "required": ["audio_path"], "not": { "required": ["text"] } },
+    { "required": ["text"], "not": { "required": ["audio_path"] } }
+  ],
+  "additionalProperties": true
+}

@@ -1,10 +1,10 @@
 ---
 title: "claim-app-4-memory-four-states"
-tags: ["app-design", "decision", "memory", "four-states", "approval", "pgvector"]
+tags: ["app-design", "decision", "memory", "four-states", "approval", "pgvector", "meeting-followup"]
 created: 2026-10-25T14:50:22.142Z
-updated: 2026-10-25T14:50:22.142Z
+updated: 2026-11-07T11:39:50.679Z
 sources: ["reports/한벗 앱 설계서.md#5-8"]
-links: ["overview-app-design.md", "topic-app-impl-memory.md", "claim-tech-2-memory-architecture.md", "topic-app-screen-flow.md", "src-replika-2026-help-how-memory-works.md", "src-kindroid-2026-subscription-docs.md", "src-nomi-2026-mind-map.md", "src-mem0-2026-pgvector-docs.md", "src-mem0-2025-locomo-paper.md", "src-letta-2025-memory-blocks.md", "claim-app-8-hypotheses-h1-h5.md", "claim-app-7-schedule-gates-and-cuts.md", "claim-app-6-consent-and-deletion.md"]
+links: ["overview-app-design.md", "topic-app-impl-memory.md", "claim-tech-2-memory-architecture.md", "topic-app-screen-flow.md", "src-replika-2026-help-how-memory-works.md", "src-kindroid-2026-subscription-docs.md", "src-nomi-2026-mind-map.md", "src-mem0-2026-pgvector-docs.md", "src-mem0-2025-locomo-paper.md", "src-letta-2025-memory-blocks.md", "claim-app-8-hypotheses-h1-h5.md", "claim-app-7-schedule-gates-and-cuts.md", "claim-app-6-consent-and-deletion.md", "topic-meeting-followup-ser-2026-11.md", "src-bae-2022-carecall-memory-update.md", "src-packer-2023-memgpt.md"]
 category: decision
 confidence: medium
 schemaVersion: 1
@@ -34,3 +34,12 @@ schemaVersion: 1
 - W4 말 승인·삭제 미완성 → 기억 저장을 끄고 통화 후 요약만 제공 ([[claim-app-7-schedule-gates-and-cuts]]).
 - 삭제·철회 연동은 [[claim-app-6-consent-and-deletion]].
 
+---
+
+## Update (2026-11-07T11:39:50.679Z)
+
+## 2026-11-07 회의 후속 조사 반영 (미확정)
+- 안건 M 제안, 11/9 회의 결정 전. 종합: [[topic-meeting-followup-ser-2026-11]].
+- 기억 3층 구조: 직전 6~10턴만 Claude에 / 원문 전체는 DB에만 / 통화 후 기억 에이전트가 요약·유지/교체/추가/삭제.
+- 기억 에이전트의 PASS/REPLACE/APPEND/DELETE 연산은 현재 4상태와 매핑 검토 필요. CareCall: 갱신 56.59 > 누적 50.31, 누적만 하면 5세션째 -0.67 [[src-bae-2022-carecall-memory-update]].
+- MemGPT 회상 32.1% → 92.5% [[src-packer-2023-memgpt]]. 후보를 사용자에게 보여 승인받는 단계를 넣기 쉬움.

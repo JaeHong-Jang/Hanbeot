@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "memory record",
+  "description": "기억 50문항 평가용 레코드 등 (설계서 5⑧-1)",
+  "type": "object",
+  "required": ["id", "block", "state", "text"],
+  "properties": {
+    "id": { "type": "string" },
+    "block": { "type": "string" },
+    "state": { "enum": ["stated", "inferred", "confirmed", "approved"] },
+    "text": { "type": "string" },
+    "evidence_utterance_id": { "type": ["integer", "null"] },
+    "expires_at": { "type": ["string", "null"], "format": "date-time" }
+  },
+  "additionalProperties": false
+}

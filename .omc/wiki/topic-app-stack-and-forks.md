@@ -1,10 +1,10 @@
 ---
 title: "topic-app-stack-and-forks"
-tags: ["app-design", "tech-stack", "fork", "license", "topic"]
+tags: ["app-design", "tech-stack", "fork", "license", "topic", "meeting-followup"]
 created: 2026-10-25T14:47:47.402Z
-updated: 2026-10-25T14:47:47.402Z
+updated: 2026-11-07T11:40:31.369Z
 sources: ["reports/한벗 앱 설계서.md#6"]
-links: ["overview-app-design.md", "claim-app-1-pipecat-orchestrator.md", "topic-tech-mvp-stack.md", "src-pipecat-2026-docs-js-client.md", "src-pipecat-2026-voice-ui-kit.md", "src-livekit-2026-components-js.md", "src-pipecat-2026-github.md", "src-livekit-2026-agents-github.md", "src-pipecat-2026-smart-turn.md", "src-livekit-2026-turn-detector.md", "claim-tech-3-stt-tts-vendors.md", "src-rtzr-2026-pricing.md", "src-emotion2vec-2024-github.md", "src-funasr-2026-model-license.md", "src-audeering-2026-opensmile-python.md", "src-pipecat-2026-typecast-service.md", "src-elevenlabs-2026-models.md", "src-typecast-2026-api-pricing.md", "src-mem0-2026-github.md", "src-hume-2026-evi-docs.md", "src-pipecat-2026-docs-supported-services.md", "src-pipecat-2026-examples.md", "src-livekit-2026-agent-starter-react.md", "src-livekit-2026-agent-starter-python.md", "src-xiaoyan43-2026-cyber-companion.md", "src-msh9184-2026-nemo-voice-agent-ko.md", "src-open-llm-vtuber-2026-license.md", "src-livekit-2026-docs-tts-models.md", "topic-app-impl-audio-stt-turn.md", "topic-app-cost-latency-budget.md"]
+links: ["overview-app-design.md", "claim-app-1-pipecat-orchestrator.md", "topic-tech-mvp-stack.md", "src-pipecat-2026-docs-js-client.md", "src-pipecat-2026-voice-ui-kit.md", "src-livekit-2026-components-js.md", "src-pipecat-2026-github.md", "src-livekit-2026-agents-github.md", "src-pipecat-2026-smart-turn.md", "src-livekit-2026-turn-detector.md", "claim-tech-3-stt-tts-vendors.md", "src-rtzr-2026-pricing.md", "src-emotion2vec-2024-github.md", "src-funasr-2026-model-license.md", "src-audeering-2026-opensmile-python.md", "src-pipecat-2026-typecast-service.md", "src-elevenlabs-2026-models.md", "src-typecast-2026-api-pricing.md", "src-mem0-2026-github.md", "src-hume-2026-evi-docs.md", "src-pipecat-2026-docs-supported-services.md", "src-pipecat-2026-examples.md", "src-livekit-2026-agent-starter-react.md", "src-livekit-2026-agent-starter-python.md", "src-xiaoyan43-2026-cyber-companion.md", "src-msh9184-2026-nemo-voice-agent-ko.md", "src-open-llm-vtuber-2026-license.md", "src-livekit-2026-docs-tts-models.md", "topic-app-impl-audio-stt-turn.md", "topic-app-cost-latency-budget.md", "topic-bench-opensource-voice-agents.md", "topic-bench-commercial-similar-apps-2026-11.md"]
 category: pattern
 confidence: medium
 schemaVersion: 1
@@ -44,3 +44,13 @@ Pipecat 우선은 RTZR·Typecast 연동이 모두 Pipecat 공식 목록에 있�
 
 LiveKit 공식 TTS 목록에서 Typecast 플러그인을 찾지 못했으나 부재가 입증된 것은 아니다(C) [[src-livekit-2026-docs-tts-models]]. 구현 상세는 [[topic-app-impl-audio-stt-turn]] 등 impl 페이지, 비용은 [[topic-app-cost-latency-budget]].
 
+---
+
+## Update (2026-11-07T11:40:31.369Z)
+
+## 2026-11-07 회의 후속 조사 반영 (미확정)
+- 오픈소스 조사 추가 후보 (38개), 11/9 회의 결정 전. 상세: [[topic-bench-opensource-voice-agents]].
+- 프레임워크 비교: livekit/agents, TEN-framework(TEN VAD), openai-realtime-console(디버그 UI), moshi(지연 160~200ms 기준점).
+- SER 보조: SenseVoice(울음·웃음 이벤트 + 감정), speechbrain 레시피, faster-whisper 폴백.
+- 메모리: mem0, letta, graphiti, zep. 안전: PurpleLlama, pipecat-flows.
+- 상용 유사앱 비교: [[topic-bench-commercial-similar-apps-2026-11]].

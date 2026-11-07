@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hanbeot.local/events/turn_ended.schema.json",
+  "title": "TurnEnded",
+  "description": "사용자 발화 종료. t0_speech_end_ms는 TTFA의 시작점(설계서 7.2).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type","utterance_id","t0_speech_end_ms"],
+  "properties": {"type":{"const":"turn_ended"},"utterance_id":{"type":"string"},"t0_speech_end_ms":{"type":"number"}}
+}

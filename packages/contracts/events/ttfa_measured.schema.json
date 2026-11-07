@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hanbeot.local/events/ttfa_measured.schema.json",
+  "title": "TtfaMeasured",
+  "description": "TTFA = t1(첫 오디오 재생) - t0(발화 종료). 설계서 7.2.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type","t0","t1","ttfa_ms"],
+  "properties": {"type":{"const":"ttfa_measured"},"t0":{"type":"number"},"t1":{"type":"number"},"ttfa_ms":{"type":"number"}}
+}

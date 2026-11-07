@@ -1,0 +1,50 @@
+# 한벗 domain 규칙 값. 설계서 5④-2·5⑨·5⑪ 임시 운영 기준.
+# "미확정" 표시는 11/9 회의 결정 후 숫자만 바꾼다. 함수 시그니처는 바꾸지 않는다.
+
+# 설계서 5④-2: 발화 조건 점수. 보정 전에는 확률이 아니라 순위용 값. (임시)
+ser_score_threshold: 0.6
+# 설계서 5④-2: 직전 5턴에 확인 질문 없음. (임시)
+ser_min_turn_gap: 5
+# 직전 N턴 윈도우. 미확정(M): 6~10, 기본값 10 (구현-계획 §4)
+context_window_turns: 10
+# 설계서 5⑪: 일일 60분 / 주 6일. 임시 운영 기준(근거 없음, W6 조정)
+usage_daily_minutes: 60
+usage_weekly_days: 6
+# 설계서 5⑩ / README §5: affect_cues TTL 30일 초안. 미확정
+affect_ttl_days: 30
+# 감정 체계. 미확정(11/9): 평가용 4 / 서비스용 5. 기본값 4class (구현-계획 §4)
+label_scheme: 4class
+
+# 설계서 5④-1 라벨 → 제품 확인 질문 범주. null = 질문하지 않음.
+# 체계 미확정이므로 데이터로 분리했다. 범주 값: frustrated(답답함), low(가라앉음·지침), bright(밝음)
+label_map:
+  angry: frustrated
+  sad: low
+  happy: bright
+  neutral: null
+  fearful: null     # 벤치마크 제외 = 평가되지 않은 범주
+  disgusted: null
+  surprised: null
+  other: null
+  unknown: null
+
+# 음성·텍스트 불일치(미확정 J). 긍정 텍스트 극성 하한. 임시
+mismatch_text_polarity_min: 0.3
+# 불일치로 볼 음성 범주. 미확정 J
+mismatch_voice_categories: [low, frustrated]
+
+# 위기 L2 누적(설계서 5⑨-1). 모두 임시 운영 기준
+crisis_l2_text_points: 1.0
+crisis_l2_voice_points: 0.5
+crisis_l2_notice_every: 2.0
+crisis_l2_notice_max: 2
+# 안전 모드 해제: "안전해" 이후 연속 L1 없음 턴 수 (임시)
+crisis_release_clean_turns: 3
+
+# 위기 키워드 사전. 자리표시자 — 전문가 자문 후 확정(PM·안전). 코드에 실제 사전을 넣지 않는다.
+crisis_keywords:
+  - "__PLACEHOLDER_KEYWORD_1__"
+  - "__PLACEHOLDER_KEYWORD_2__"
+
+# 위험도 결합 규칙. 미확정(J): max(텍스트, 음성). 결정 전 기본값은 텍스트만 (구현-계획 §4)
+crisis_combine_rule: text_only   # text_only | max

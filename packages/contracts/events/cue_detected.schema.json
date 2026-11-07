@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hanbeot.local/events/cue_detected.schema.json",
+  "title": "CueDetected",
+  "description": "목소리 감정 단서. score는 순위용 값이며 확률/확신으로 표시하지 않는다(보정 전).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type","category","score","utterance_id"],
+  "properties": {"type":{"const":"cue_detected"},"category":{"type":"string"},"score":{"type":"number","description":"순위용 값. 보정 전에는 확률로 해석하지 않는다."},"utterance_id":{"type":"string"}}
+}

@@ -1,10 +1,10 @@
 ---
 title: "claim-tech-1-ser-model"
-tags: ["tech", "speech-emotion-recognition", "grade-A", "grade-C", "decision", "ser", "emotion2vec", "sensevoice"]
+tags: ["tech", "speech-emotion-recognition", "grade-A", "grade-C", "decision", "ser", "emotion2vec", "sensevoice", "meeting-followup"]
 created: 2026-10-25T07:32:41.900Z
-updated: 2026-10-25T07:32:41.900Z
+updated: 2026-11-07T11:39:38.380Z
 sources: []
-links: ["topic-tech-speech-emotion-recognition.md", "overview-technology.md", "src-ma-2024-emotion2vec.md", "src-emotion2vec-2024-github.md", "src-funaudiollm-2024-sensevoice.md", "src-sereval-2024-whisper-crosslingual.md", "src-ahfe-2024-kemdy19-ccc.md", "src-sogang-2024-aihub-hubert.md", "src-hume-2026-evi-docs.md", "src-ahelm-2025-audio-benchmark.md", "claim-tech-5-latency-target.md", "src-etri-2020-kemdy.md", "src-aihub-2024-terms.md"]
+links: ["topic-tech-speech-emotion-recognition.md", "overview-technology.md", "src-ma-2024-emotion2vec.md", "src-emotion2vec-2024-github.md", "src-funaudiollm-2024-sensevoice.md", "src-sereval-2024-whisper-crosslingual.md", "src-ahfe-2024-kemdy19-ccc.md", "src-sogang-2024-aihub-hubert.md", "src-hume-2026-evi-docs.md", "src-ahelm-2025-audio-benchmark.md", "claim-tech-5-latency-target.md", "src-etri-2020-kemdy.md", "src-aihub-2024-terms.md", "topic-meeting-followup-ser-2026-11.md", "topic-ser-model-comparison-whisper-spectrogram.md", "src-ma-2025-lora-whisper-ser.md", "src-chen-2022-wavlm.md", "src-kim-2024-dementia-ser.md", "topic-ser-label-scheme-and-fusion.md"]
 category: decision
 confidence: medium
 schemaVersion: 1
@@ -44,3 +44,14 @@ schemaVersion: 1
 - 한국어 SER 공개 성능 부재(검토 자료 기준), 모바일 실행 성능
 - 세그먼트 단축 시 정확도 하락 수치(포스터 미확인)
 
+---
+
+## Update (2026-11-07T11:39:38.380Z)
+
+## 2026-11-07 회의 후속 조사 반영 (미확정)
+- 11/9 회의 결정 전 제안이며 기존 결정은 유지. 종합: [[topic-meeting-followup-ser-2026-11]].
+- emotion2vec+ 유지, W3에 emotion2vec+ vs Whisper 고정 vs Whisper+LoRA를 KEMDy20·AI Hub 화자 분리로 1회 비교 제안. Whisper 고정 43~64%(11/7 정정), LoRA 77%(IEMOCAP), 한국어 감정 평가 없음 [[topic-ser-model-comparison-whisper-spectrogram]], [[src-ma-2025-lora-whisper-ser]].
+- emotion2vec+는 영어 262h 사전학습 후 의사 라벨 42,526h, 9감정 softmax 확률 출력, 한국어 학습·평가 기록 없음.
+- 스펙트로그램 CNN은 메인 부적합(log-mel 35% vs WavLM 71%), 울음·흥분 보조 감지기로만 [[src-chen-2022-wavlm]].
+- 감정 목표를 "3감정 + 텍스트 결합 약 70%"로 재정의하는 제안: 독거노인 실발화 음성만 6감정 51.4%, 3감정 64.7%, 2단계 69.3% [[src-kim-2024-dementia-ser]].
+- 가중치와 체계: [[topic-ser-label-scheme-and-fusion]].

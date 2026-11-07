@@ -1,10 +1,10 @@
 ---
 title: "overview-hanbeot-project"
-tags: ["한벗", "overview", "문워크", "사업개요", "project", "paper-evidence"]
+tags: ["한벗", "overview", "문워크", "사업개요", "project", "paper-evidence", "meeting-followup", "hanbeot", "target"]
 created: 2026-10-25T06:41:02.286Z
-updated: 2026-10-26T05:47:57.791Z
+updated: 2026-11-07T17:35:07.895Z
 sources: []
-links: ["overview-orchestra-team.md", "overview-problem-definition.md", "overview-market-demand.md", "overview-technology.md", "overview-benchmark.md", "overview-researcher-collaboration.md", "overview-research-cycle-1.md", "src-professor-2026-feedback-deliverable-1.md", "claim-feedback-1-reflect-professor-round1.md", "overview-app-design.md", "claim-feedback-2-professor-answer-draft-round1.md", "topic-app-paper-evidence.md"]
+links: ["overview-orchestra-team.md", "overview-problem-definition.md", "overview-market-demand.md", "overview-technology.md", "overview-benchmark.md", "overview-researcher-collaboration.md", "overview-research-cycle-1.md", "src-professor-2026-feedback-deliverable-1.md", "claim-feedback-1-reflect-professor-round1.md", "overview-app-design.md", "claim-feedback-2-professor-answer-draft-round1.md", "topic-app-paper-evidence.md", "topic-market-tam-sam-som-assembly.md", "claim-app-8-hypotheses-h1-h5.md", "bench-clova-carecall.md", "claim-app-9-ser-evaluation-and-calibration.md", "topic-meeting-followup-ser-2026-11.md", "src-kim-2024-dementia-ser.md", "src-lee-2026-elderly-whisper-asr.md"]
 category: architecture
 confidence: high
 schemaVersion: 1
@@ -63,4 +63,29 @@ schemaVersion: 1
 
 ## 2026-10-26 논문 보강
 - 외부 피드백: 교수님 1차 피드백 답변 초안(2026-10-26) 요지는 [[claim-feedback-2-professor-answer-draft-round1]], 기술별 논문 근거(P1~P101)는 [[topic-app-paper-evidence]].
+
+---
+
+## Update (2026-11-07T11:40:38.843Z)
+
+## 열린 질문 (2026-11-07)
+- 회의 후속 조사 노트의 예시와 비교 조건(독거노인 133명·평균 80.6세, 노인 음성 인식, 고령자 구술 데이터)이 고령층을 가리킨다. 현재 Wiki의 1차 타깃은 대학생이다. 타깃 변경인지 2차 확장인지 팀 확인 필요.
+
+---
+
+## Update (2026-11-07T17:35:07.895Z)
+
+## 결정: 1차 타깃 변경 (2026-11-08)
+
+"열린 질문 (2026-11-07)"에 대한 답. 팀장(장재홍)이 2026-11-08에 **1차 타깃을 대학생에서 고령층(혼자 지내는 고령자 중심)으로 변경**했다고 확인했다. 대학생은 2차 확장 후보로 내린다. 기록: `docs/adr/ADR-0005-target-shift-to-older-adults.md`.
+
+영향을 받는 페이지 (재검토 필요, 아직 수정 전):
+- 문제 정의·시장: [[overview-problem-definition]], [[overview-market-demand]], [[topic-market-tam-sam-som-assembly]], claim-problem-*, claim-market-* — 대학생 통계 기반. 고령층 통계(고독사·독거노인 수·정서 지원 수요)로 다시 조립해야 한다.
+- 가설: [[claim-app-8-hypotheses-h1-h5]] — H1~H5의 모집단이 바뀐다.
+- 벤치마크: [[overview-benchmark]] — 가장 가까운 선례가 [[bench-clova-carecall]](B2G)로 바뀌고, B2C 차별점 재정의.
+- SER 목표: [[claim-app-9-ser-evaluation-and-calibration]], [[topic-meeting-followup-ser-2026-11]] — 고령 실제 발화 기준(음성만 3감정 64.7%, 2단계 69.3%, [[src-kim-2024-dementia-ser]]). 저각성 감정 미탐 위험.
+- STT: [[src-lee-2026-elderly-whisper-asr]] — 고령·방언 CER 별도 측정.
+- 교수님 답변 초안·UNIST 면접 대본·설계서 0.1절 페르소나는 대학생 기준으로 작성됐다.
+
+미정: 연령 하한, 거주 형태, 채널(앱 vs 전화 수신), 보호자·기관 연계, 결제 주체.
 

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hanbeot.local/events/consent_withdrawn.schema.json",
+  "title": "ConsentWithdrawn",
+  "description": "통화 중 동의 철회(설계서 5⑩-3)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type","scope"],
+  "properties": {"type":{"const":"consent_withdrawn"},"scope":{"enum":["basic","memory","sensitive"]}}
+}

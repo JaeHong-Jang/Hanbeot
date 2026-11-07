@@ -1,0 +1,32 @@
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: hanbeot
+      POSTGRES_PASSWORD: hanbeot
+      POSTGRES_DB: hanbeot
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U hanbeot -d hanbeot"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  # TODO: api 서비스 (apps/api Dockerfile 작성 후)
+  # api:
+  #   build: ../apps/api
+  #   env_file: ../apps/api/.env
+  #   depends_on:
+  #     db: { condition: service_healthy }
+  #   ports: ["8000:8000"]
+
+  # TODO: web 서비스 (apps/web Dockerfile 작성 후)
+  # web:
+  #   build: ../apps/web
+  #   ports: ["5173:5173"]
+
+volumes:
+  pgdata:

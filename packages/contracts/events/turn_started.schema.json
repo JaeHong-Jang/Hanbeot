@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hanbeot.local/events/turn_started.schema.json",
+  "title": "TurnStarted",
+  "description": "사용자 발화 시작",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type","utterance_id","at_ms"],
+  "properties": {"type":{"const":"turn_started"},"utterance_id":{"type":"string"},"at_ms":{"type":"number"}}
+}

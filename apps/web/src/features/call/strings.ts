@@ -1,0 +1,17 @@
+export const callStrings = {
+  connect: '통화 시작',
+  hangUp: '종료',
+  hold: '보류',
+  resume: '보류 해제',
+  mute: '음소거',
+  unmute: '음소거 해제',
+  bargeIn: '탭하여 끊기',
+  captions: '자막',
+  modeLabel: '대화 모드',
+  modes: { listen: '들어줘', organize: '정리', advise: '조언' },
+  orb: { listening: '듣는 중', thinking: '생각 중', speaking: '말하는 중' },
+  connecting: '연결하는 중…',
+  user: '나',
+  ai: '한벗',
+  sos: 'SOS',
+} as const;

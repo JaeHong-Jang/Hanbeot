@@ -2395,6 +2395,201 @@
 - **Pages:** claim-collab-6-pilot-study-design-ask.md, claim-market-7-price-anchor.md, src-a16z-2026-top100-genai-apps.md, src-aihub-2024-terms.md, src-etri-2020-kemdy.md, src-everytime-2020-malicious-comments-incident.md, src-hannam-2024-enrollment-namuwiki.md, src-itworld-2025-chatbot-loneliness-studies.md, src-livekit-2026-docs-tts-models.md, src-meng-dai-2021-chatbot-emotional-support.md, src-mirror-eval-2026-companion-harm.md, src-mohw-2021-covid-mental-health-survey.md, src-naver-2026-clova-speech-voice.md, src-pipecat-2026-rtzr-service-unverified.md, src-scatterlab-2025-zeta-subscriber-age.md, src-univtomorrow-2025-genz-ai-usage.md, src-voxbooster-2026-companion-usage-hours.md, src-wang-2026-aies-chatgpt-youth.md, topic-app-paper-evidence.md, topic-app-risks.md, topic-collab-unverified-candidates.md, claim-collab-1-guidelines-demand-expert-validation.md, src-etri-2018-kesdy18.md, src-livekit-2025-turn-detector.md, src-naver-2023-carecall-chi-best-paper.md, src-pipecat-2026-docs-custom-frame-processor.md, topic-app-architecture.md, topic-collab-candidate-researchers-map.md, topic-market-adoption-rate.md, topic-tech-empathetic-dialogue.md
 - **Summary:** Lint: 33 issues (0 orphan, 0 stale, 0 broken, 12 contradictions)
 
+## [2026-11-07T11:31:15.841Z] ingest
+- **Pages:** topic-meeting-followup-ser-2026-11.md
+- **Summary:** Created new page "topic-meeting-followup-ser-2026-11"
+
+## [2026-11-07T11:31:18.019Z] ingest
+- **Pages:** topic-ser-context-personalization.md
+- **Summary:** Created new page "topic-ser-context-personalization"
+
+## [2026-11-07T11:32:25.032Z] ingest
+- **Pages:** topic-ser-model-comparison-whisper-spectrogram.md
+- **Summary:** Created new page "topic-ser-model-comparison-whisper-spectrogram"
+
+## [2026-11-07T11:32:27.096Z] ingest
+- **Pages:** topic-ser-label-scheme-and-fusion.md
+- **Summary:** Created new page "topic-ser-label-scheme-and-fusion"
+
+## [2026-11-07T11:33:30.998Z] ingest
+- **Pages:** topic-data-korean-emotion-speech-datasets.md
+- **Summary:** Created new page "topic-data-korean-emotion-speech-datasets"
+
+## [2026-11-07T11:33:33.152Z] ingest
+- **Pages:** topic-data-text-and-eval-datasets.md
+- **Summary:** Created new page "topic-data-text-and-eval-datasets"
+
+## [2026-11-07T11:34:24.685Z] ingest
+- **Pages:** topic-tts-humanlike-techniques.md
+- **Summary:** Created new page "topic-tts-humanlike-techniques"
+
+## [2026-11-07T11:34:27.863Z] ingest
+- **Pages:** topic-bench-opensource-voice-agents.md
+- **Summary:** Created new page "topic-bench-opensource-voice-agents"
+
+## [2026-11-07T11:34:30.642Z] ingest
+- **Pages:** topic-bench-commercial-similar-apps-2026-11.md
+- **Summary:** Created new page "topic-bench-commercial-similar-apps-2026-11"
+
+## [2026-11-07T11:35:18.148Z] ingest
+- **Pages:** topic-ser-papers-synthesis.md
+- **Summary:** Created new page "topic-ser-papers-synthesis"
+
+## [2026-11-07T11:36:05.902Z] ingest
+- **Pages:** src-kim-2024-dementia-ser.md
+- **Summary:** Created new page "src-kim-2024-dementia-ser"
+
+## [2026-11-07T11:36:08.557Z] ingest
+- **Pages:** src-kim-2021-emoberta.md
+- **Summary:** Created new page "src-kim-2021-emoberta"
+
+## [2026-11-07T11:36:10.916Z] ingest
+- **Pages:** src-lei-2024-instructerc.md
+- **Summary:** Created new page "src-lei-2024-instructerc"
+
+## [2026-11-07T11:36:13.525Z] ingest
+- **Pages:** src-sridhar-2022-unsupervised-personalization.md
+- **Summary:** Created new page "src-sridhar-2022-unsupervised-personalization"
+
+## [2026-11-07T11:36:15.900Z] ingest
+- **Pages:** src-bae-2022-carecall-memory-update.md
+- **Summary:** Created new page "src-bae-2022-carecall-memory-update"
+
+## [2026-11-07T11:36:18.568Z] ingest
+- **Pages:** src-packer-2023-memgpt.md
+- **Summary:** Created new page "src-packer-2023-memgpt"
+
+## [2026-11-07T11:36:22.063Z] ingest
+- **Pages:** src-ma-2025-lora-whisper-ser.md
+- **Summary:** Created new page "src-ma-2025-lora-whisper-ser"
+
+## [2026-11-07T11:36:25.003Z] ingest
+- **Pages:** src-chen-2022-wavlm.md
+- **Summary:** Created new page "src-chen-2022-wavlm"
+
+## [2026-11-07T11:36:27.375Z] ingest
+- **Pages:** src-wang-2023-speech-emotion-diarization.md
+- **Summary:** Created new page "src-wang-2023-speech-emotion-diarization"
+
+## [2026-11-07T11:36:29.368Z] ingest
+- **Pages:** src-busso-2025-msp-podcast-labels.md
+- **Summary:** Created new page "src-busso-2025-msp-podcast-labels"
+
+## [2026-11-07T11:37:24.531Z] ingest
+- **Pages:** src-harm-2024-taltech-odyssey.md
+- **Summary:** Created new page "src-harm-2024-taltech-odyssey"
+
+## [2026-11-07T11:37:27.335Z] ingest
+- **Pages:** src-macary-2021-continuous-ser.md
+- **Summary:** Created new page "src-macary-2021-continuous-ser"
+
+## [2026-11-07T11:37:29.634Z] ingest
+- **Pages:** src-atmaja-2021-multimodal-dimensional.md
+- **Summary:** Created new page "src-atmaja-2021-multimodal-dimensional"
+
+## [2026-11-07T11:37:32.091Z] ingest
+- **Pages:** src-demszky-2020-goemotions.md
+- **Summary:** Created new page "src-demszky-2020-goemotions"
+
+## [2026-11-07T11:37:34.475Z] ingest
+- **Pages:** src-lee-2026-elderly-whisper-asr.md
+- **Summary:** Created new page "src-lee-2026-elderly-whisper-asr"
+
+## [2026-11-07T11:37:36.857Z] ingest
+- **Pages:** src-wagner-2023-transformer-era.md
+- **Summary:** Created new page "src-wagner-2023-transformer-era"
+
+## [2026-11-07T11:37:39.403Z] ingest
+- **Pages:** src-goncalves-2024-odyssey-challenge.md
+- **Summary:** Created new page "src-goncalves-2024-odyssey-challenge"
+
+## [2026-11-07T11:37:42.385Z] ingest
+- **Pages:** src-chen-2025-listen.md
+- **Summary:** Created new page "src-chen-2025-listen"
+
+## [2026-11-07T11:37:44.914Z] ingest
+- **Pages:** src-jeong-2023-kemdy20-context.md
+- **Summary:** Created new page "src-jeong-2023-kemdy20-context"
+
+## [2026-11-07T11:37:47.574Z] ingest
+- **Pages:** src-shin-2024-aihub-script-leak.md
+- **Summary:** Created new page "src-shin-2024-aihub-script-leak"
+
+## [2026-11-07T11:39:38.380Z] ingest
+- **Pages:** claim-tech-1-ser-model.md
+- **Summary:** Updated "claim-tech-1-ser-model" with new content
+
+## [2026-11-07T11:39:41.951Z] ingest
+- **Pages:** claim-app-3-emotion-cue-confirmation-rules.md
+- **Summary:** Updated "claim-app-3-emotion-cue-confirmation-rules" with new content
+
+## [2026-11-07T11:39:44.989Z] ingest
+- **Pages:** claim-app-9-ser-evaluation-and-calibration.md
+- **Summary:** Updated "claim-app-9-ser-evaluation-and-calibration" with new content
+
+## [2026-11-07T11:39:47.697Z] ingest
+- **Pages:** topic-app-impl-ser-cues.md
+- **Summary:** Updated "topic-app-impl-ser-cues" with new content
+
+## [2026-11-07T11:39:50.679Z] ingest
+- **Pages:** claim-app-4-memory-four-states.md
+- **Summary:** Updated "claim-app-4-memory-four-states" with new content
+
+## [2026-11-07T11:39:53.449Z] ingest
+- **Pages:** topic-app-impl-memory.md
+- **Summary:** Updated "topic-app-impl-memory" with new content
+
+## [2026-11-07T11:39:55.888Z] ingest
+- **Pages:** claim-tech-2-memory-architecture.md
+- **Summary:** Updated "claim-tech-2-memory-architecture" with new content
+
+## [2026-11-07T11:39:58.485Z] ingest
+- **Pages:** claim-app-5-crisis-ops-and-tel109.md
+- **Summary:** Updated "claim-app-5-crisis-ops-and-tel109" with new content
+
+## [2026-11-07T11:40:00.971Z] ingest
+- **Pages:** claim-app-10-crisis-state-machine-and-evaluation.md
+- **Summary:** Updated "claim-app-10-crisis-state-machine-and-evaluation" with new content
+
+## [2026-11-07T11:40:23.797Z] ingest
+- **Pages:** topic-app-impl-dialogue-tts.md
+- **Summary:** Updated "topic-app-impl-dialogue-tts" with new content
+
+## [2026-11-07T11:40:26.540Z] ingest
+- **Pages:** claim-tech-3-stt-tts-vendors.md
+- **Summary:** Updated "claim-tech-3-stt-tts-vendors" with new content
+
+## [2026-11-07T11:40:28.928Z] ingest
+- **Pages:** topic-collab-datasets-and-irb.md
+- **Summary:** Updated "topic-collab-datasets-and-irb" with new content
+
+## [2026-11-07T11:40:31.369Z] ingest
+- **Pages:** topic-app-stack-and-forks.md
+- **Summary:** Updated "topic-app-stack-and-forks" with new content
+
+## [2026-11-07T11:40:33.647Z] ingest
+- **Pages:** overview-technology.md
+- **Summary:** Updated "overview-technology" with new content
+
+## [2026-11-07T11:40:36.029Z] ingest
+- **Pages:** overview-app-design.md
+- **Summary:** Updated "overview-app-design" with new content
+
+## [2026-11-07T11:40:38.843Z] ingest
+- **Pages:** overview-hanbeot-project.md
+- **Summary:** Updated "overview-hanbeot-project" with new content
+
+## [2026-11-07T11:40:49.765Z] lint
+- **Pages:** claim-collab-6-pilot-study-design-ask.md, claim-market-7-price-anchor.md, src-a16z-2026-top100-genai-apps.md, src-aihub-2024-terms.md, src-etri-2020-kemdy.md, src-everytime-2020-malicious-comments-incident.md, src-hannam-2024-enrollment-namuwiki.md, src-itworld-2025-chatbot-loneliness-studies.md, src-livekit-2026-docs-tts-models.md, src-meng-dai-2021-chatbot-emotional-support.md, src-mirror-eval-2026-companion-harm.md, src-mohw-2021-covid-mental-health-survey.md, src-naver-2026-clova-speech-voice.md, src-pipecat-2026-rtzr-service-unverified.md, src-scatterlab-2025-zeta-subscriber-age.md, src-univtomorrow-2025-genz-ai-usage.md, src-voxbooster-2026-companion-usage-hours.md, src-wang-2026-aies-chatgpt-youth.md, topic-app-paper-evidence.md, topic-app-risks.md, topic-collab-unverified-candidates.md, topic-ser-label-scheme-and-fusion.md, claim-collab-1-guidelines-demand-expert-validation.md, src-etri-2018-kesdy18.md, src-livekit-2025-turn-detector.md, src-naver-2023-carecall-chi-best-paper.md, src-pipecat-2026-docs-custom-frame-processor.md, topic-app-architecture.md, topic-bench-business-metrics.md, topic-collab-candidate-researchers-map.md, topic-market-adoption-rate.md, topic-tech-empathetic-dialogue.md
+- **Summary:** Lint: 35 issues (0 orphan, 0 stale, 1 broken, 13 contradictions)
+
+## [2026-11-07T11:41:08.850Z] lint
+- **Pages:** claim-collab-6-pilot-study-design-ask.md, claim-market-7-price-anchor.md, src-a16z-2026-top100-genai-apps.md, src-aihub-2024-terms.md, src-etri-2020-kemdy.md, src-everytime-2020-malicious-comments-incident.md, src-hannam-2024-enrollment-namuwiki.md, src-itworld-2025-chatbot-loneliness-studies.md, src-livekit-2026-docs-tts-models.md, src-meng-dai-2021-chatbot-emotional-support.md, src-mirror-eval-2026-companion-harm.md, src-mohw-2021-covid-mental-health-survey.md, src-naver-2026-clova-speech-voice.md, src-pipecat-2026-rtzr-service-unverified.md, src-scatterlab-2025-zeta-subscriber-age.md, src-univtomorrow-2025-genz-ai-usage.md, src-voxbooster-2026-companion-usage-hours.md, src-wang-2026-aies-chatgpt-youth.md, topic-app-paper-evidence.md, topic-app-risks.md, topic-collab-unverified-candidates.md, claim-collab-1-guidelines-demand-expert-validation.md, src-etri-2018-kesdy18.md, src-livekit-2025-turn-detector.md, src-naver-2023-carecall-chi-best-paper.md, src-pipecat-2026-docs-custom-frame-processor.md, topic-app-architecture.md, topic-bench-business-metrics.md, topic-collab-candidate-researchers-map.md, topic-market-adoption-rate.md, topic-tech-empathetic-dialogue.md
+- **Summary:** Lint: 34 issues (0 orphan, 0 stale, 0 broken, 13 contradictions)
+
+## [2026-11-07T17:35:07.895Z] ingest
+- **Pages:** overview-hanbeot-project.md
+- **Summary:** Updated "overview-hanbeot-project" with new content
 ## [2026-11-07T00:00:00.000Z] edit
 - **Pages:** overview-hanbeot-project.md, bench-clova-carecall.md, lab-khcu-ko-jeongeun.md
 - **Summary:** 고령층을 한벗 대상(3차 확장 포함)에서 제외. 타깃은 대학생 → 취준생·직장인. 고령층 관련 벤치마크·연구자는 참고 사례로만 유지

@@ -1,10 +1,10 @@
 ---
 title: "claim-app-3-emotion-cue-confirmation-rules"
-tags: ["app-design", "decision", "ser", "emotion-cue", "confirmation-question", "temporary-criteria", "paper-evidence"]
+tags: ["app-design", "decision", "ser", "emotion-cue", "confirmation-question", "temporary-criteria", "paper-evidence", "meeting-followup"]
 created: 2026-10-25T14:50:05.792Z
-updated: 2026-10-26T05:47:41.450Z
+updated: 2026-11-07T11:39:41.951Z
 sources: ["reports/한벗 앱 설계서.md#5-4"]
-links: ["overview-app-design.md", "topic-app-impl-ser-cues.md", "claim-bench-8-emotion-cue-as-question.md", "src-emotion2vec-2024-github.md", "src-funasr-2026-model-license.md", "src-arxiv-2026-audio-flamingo-iemocap.md", "src-sogang-2024-aihub-hubert.md", "claim-tech-1-ser-model.md", "claim-app-8-hypotheses-h1-h5.md", "claim-app-7-schedule-gates-and-cuts.md", "claim-app-6-consent-and-deletion.md", "claim-app-9-ser-evaluation-and-calibration.md"]
+links: ["overview-app-design.md", "topic-app-impl-ser-cues.md", "claim-bench-8-emotion-cue-as-question.md", "src-emotion2vec-2024-github.md", "src-funasr-2026-model-license.md", "src-arxiv-2026-audio-flamingo-iemocap.md", "src-sogang-2024-aihub-hubert.md", "claim-tech-1-ser-model.md", "claim-app-8-hypotheses-h1-h5.md", "claim-app-7-schedule-gates-and-cuts.md", "claim-app-6-consent-and-deletion.md", "claim-app-9-ser-evaluation-and-calibration.md", "topic-meeting-followup-ser-2026-11.md", "topic-ser-label-scheme-and-fusion.md", "src-busso-2025-msp-podcast-labels.md", "topic-ser-context-personalization.md", "src-sridhar-2022-unsupervised-personalization.md"]
 category: decision
 confidence: medium
 schemaVersion: 1
@@ -46,3 +46,14 @@ schemaVersion: 1
 - W6 핵심 비교가 ON/OFF에서 "SER 기반 질문 vs 같은 빈도 일반 확인 질문"으로 바뀜(기억 이월 차단).
 - 평가에 Opus 전후·성별·길이 구간·모델 카드 추가 [P33][P34][P40][P44].
 
+---
+
+## Update (2026-11-07T11:39:41.951Z)
+
+## 2026-11-07 회의 후속 조사 반영 (미확정)
+- 11/9 회의 결정 전 제안. 기존 확인 질문 규칙은 유지한 채 검토할 변경안. 종합: [[topic-meeting-followup-ser-2026-11]].
+- 감정 체계 변경 제안: 평가용 4감정(기쁨·슬픔·분노·중립) + 서비스용 5감정(+불안) + **판정보류** + 긍정–부정·흥분 점수 [[topic-ser-label-scheme-and-fusion]].
+- 확률 분포로 전달하고 1·2위가 비슷하면 되물음. 근거: 사람 라벨도 MSP-Podcast κ 0.41, 약 18% 합의 실패 [[src-busso-2025-msp-podcast-labels]].
+- 불일치 되물음 규칙 제안: 말과 목소리 불일치를 평균과 따로 검사, **3턴에 1번·10턴에 2번**까지 (현재 규칙의 "직전 5턴 확인 질문 없음"과의 관계는 회의 확인 필요).
+- 맥락 턴: 직전 6~10턴을 화자 표시와 함께 전달, 0/2/6/10턴 실험 [[topic-ser-context-personalization]].
+- 개인화 기준선: 사용자별 평소 목소리 기준 z-score, 예시 1→3→7개로 UA 69.8→73.2→75.7% [[src-sridhar-2022-unsupervised-personalization]].

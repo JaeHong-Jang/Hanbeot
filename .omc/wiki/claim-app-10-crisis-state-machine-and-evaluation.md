@@ -1,10 +1,10 @@
 ---
 title: "claim-app-10-crisis-state-machine-and-evaluation"
-tags: ["app-design", "decision", "crisis", "state-machine", "evaluation", "tel109", "paper-evidence"]
+tags: ["app-design", "decision", "crisis", "state-machine", "evaluation", "tel109", "paper-evidence", "meeting-followup"]
 created: 2026-10-26T05:46:22.855Z
-updated: 2026-10-26T05:46:22.855Z
+updated: 2026-11-07T11:40:00.971Z
 sources: ["reports/한벗 기술 논문 근거.md#2-2"]
-links: ["overview-app-design.md", "topic-app-paper-evidence.md", "topic-app-impl-safety-crisis.md", "claim-app-5-crisis-ops-and-tel109.md", "claim-tech-8-crisis-referral-flow.md", "src-judd-2025-llm-suicide-signals.md", "src-cmaj-2026-chatbot-suicide-prevention.md", "src-psycrisisbench-2025.md", "src-park-2020-military-suicide-risk.md", "src-mcbain-2025-llm-suicide-alignment.md", "src-mohw-2026-109-hotline.md"]
+links: ["overview-app-design.md", "topic-app-paper-evidence.md", "topic-app-impl-safety-crisis.md", "claim-app-5-crisis-ops-and-tel109.md", "claim-tech-8-crisis-referral-flow.md", "src-judd-2025-llm-suicide-signals.md", "src-cmaj-2026-chatbot-suicide-prevention.md", "src-psycrisisbench-2025.md", "src-park-2020-military-suicide-risk.md", "src-mcbain-2025-llm-suicide-alignment.md", "src-mohw-2026-109-hotline.md", "topic-meeting-followup-ser-2026-11.md", "topic-ser-label-scheme-and-fusion.md", "topic-data-text-and-eval-datasets.md", "topic-bench-opensource-voice-agents.md"]
 category: decision
 confidence: medium
 schemaVersion: 1
@@ -43,3 +43,12 @@ schemaVersion: 1
 - WHO·AFSP 안전 메시징 원문은 미확보: PM·안전이 W1~W3 확보, W5 전문가 검수에서 문구·다중 턴 전이 대조. 109 공식 연동 API 미확인, MVP는 번호·전화 링크.
 - 팀 결정 필요(W1): 평가 세트 동결 시점, 시나리오 수 N, 비명시 유형 합격선, API 시간 초과 기준, 임박 위험 분리.
 
+---
+
+## Update (2026-11-07T11:40:00.971Z)
+
+## 2026-11-07 회의 후속 조사 반영 (미확정)
+- 11/9 회의 결정 전 제안. 종합: [[topic-meeting-followup-ser-2026-11]].
+- 위기 위험도 = max(텍스트, 음성) 아이디어: 음성이 위험도를 낮추는 일은 없게 [[topic-ser-label-scheme-and-fusion]].
+- C-SSRS 5단계(지지·지표·사고·행동·시도) 단계 라벨을 상태 기계의 평가 라벨로 쓰는 아이디어, PsyCrisis-Bench 평가 5차원(공감·정서조절·탐색·위험평가·외부연계)을 응답 루브릭으로 [[topic-data-text-and-eval-datasets]].
+- 오픈소스 참고: pipecat-flows로 위기 안내 단계 고정, PurpleLlama 출력 Guard [[topic-bench-opensource-voice-agents]].

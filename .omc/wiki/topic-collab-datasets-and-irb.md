@@ -1,10 +1,10 @@
 ---
 title: "topic-collab-datasets-and-irb"
-tags: ["collab", "dataset", "irb", "privacy", "grade-B"]
+tags: ["collab", "dataset", "irb", "privacy", "grade-B", "meeting-followup"]
 created: 2026-10-25T07:26:46.311Z
-updated: 2026-10-25T07:26:46.311Z
+updated: 2026-11-07T11:40:28.928Z
 sources: []
-links: ["src-etri-epretx-kemdy-kesdy-datasets.md", "lab-etri-noh-kyoungju-kemdy.md", "src-cms-2023-kemdy19-wav2vec-hubert-vad.md", "src-aihub-emotion-dialogue-corpus-usage.md", "src-aihub-irb-safezone-guideline-v32.md", "src-skku-irb-bioethics-act-articles-15-36.md", "src-public-irb-eirb-korea.md", "lab-kaist-lee-sungju.md", "src-mohw-2026-genai-mental-health-guideline.md", "claim-collab-4-irb-pathway.md", "claim-collab-5-korean-speech-emotion-data-access.md", "overview-researcher-collaboration.md"]
+links: ["src-etri-epretx-kemdy-kesdy-datasets.md", "lab-etri-noh-kyoungju-kemdy.md", "src-cms-2023-kemdy19-wav2vec-hubert-vad.md", "src-aihub-emotion-dialogue-corpus-usage.md", "src-aihub-irb-safezone-guideline-v32.md", "src-skku-irb-bioethics-act-articles-15-36.md", "src-public-irb-eirb-korea.md", "lab-kaist-lee-sungju.md", "src-mohw-2026-genai-mental-health-guideline.md", "claim-collab-4-irb-pathway.md", "claim-collab-5-korean-speech-emotion-data-access.md", "overview-researcher-collaboration.md", "topic-data-korean-emotion-speech-datasets.md"]
 category: pattern
 confidence: medium
 schemaVersion: 1
@@ -36,3 +36,13 @@ schemaVersion: 1
 
 관련: [[claim-collab-4-irb-pathway]], [[claim-collab-5-korean-speech-emotion-data-access]], [[overview-researcher-collaboration]]
 
+---
+
+## Update (2026-11-07T11:40:28.928Z)
+
+## 2026-11-07 회의 후속 조사 반영 (미확정)
+- AI Hub 용량표(I)와 추가 데이터(L) 반영, 11/9 회의 결정 전. 상세: [[topic-data-korean-emotion-speech-datasets]].
+- 핵심 6종 압축 약 3.05TB, 71703만 2.44TB. 1차는 약 110GB만 받는 안.
+- 71703은 감정 종류 라벨 없음(유무 1/0), 구술자 우울·불안 점수(0~4) 포함 → 민감정보 취급 필요.
+- 분할 zip이라 Linux/WSL 필요, Claude API로 AI Hub 원문을 보내는 것은 NIA 확인 전 금지.
+- 신규 후보 1순위 71517·71558, 119 신고 71768.

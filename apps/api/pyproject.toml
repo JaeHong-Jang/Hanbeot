@@ -1,0 +1,50 @@
+[project]
+name = "hanbeot-api"
+version = "0.1.0"
+description = "한벗 API: FastAPI + Pipecat 음성 파이프라인"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "fastapi",
+  "uvicorn[standard]",
+  "pydantic",
+  "pydantic-settings",
+  "pyyaml",
+  "sqlalchemy[asyncio]",
+  "asyncpg",
+  "pgvector",
+  "structlog",
+]
+
+[project.optional-dependencies]
+voice = ["pipecat-ai[silero]", "anthropic"]
+
+[dependency-groups]
+dev = ["pytest", "pytest-asyncio", "ruff", "mypy", "types-PyYAML", "httpx"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["app"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "app.domain.*"
+strict = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+pythonpath = ["."]

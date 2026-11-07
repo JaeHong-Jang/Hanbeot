@@ -1,10 +1,10 @@
 ---
 title: "topic-app-impl-ser-cues"
-tags: ["app-design", "implementation", "ser", "emotion2vec", "prosody", "opensmile", "topic", "paper-evidence"]
+tags: ["app-design", "implementation", "ser", "emotion2vec", "prosody", "opensmile", "topic", "paper-evidence", "meeting-followup"]
 created: 2026-10-25T14:46:11.638Z
-updated: 2026-10-26T05:47:05.493Z
+updated: 2026-11-07T11:39:47.697Z
 sources: ["reports/한벗 앱 설계서.md#5-4-5"]
-links: ["overview-app-design.md", "claim-app-3-emotion-cue-confirmation-rules.md", "claim-tech-1-ser-model.md", "claim-bench-8-emotion-cue-as-question.md", "src-emotion2vec-2024-github.md", "src-pipecat-2026-docs-custom-frame-processor.md", "src-sogang-2024-aihub-hubert.md", "src-funasr-2026-model-license.md", "src-audeering-2026-opensmile-python.md", "src-audeering-2026-opensmile-usage.md", "src-ma-2024-emotion2vec.md", "src-sereval-2024-whisper-crosslingual.md", "src-ma-2024-emobox.md", "src-chou-2023-ser-calibration.md", "src-romana-2025-switchboard-affect.md", "src-ren-2024-emo-codec.md", "claim-app-9-ser-evaluation-and-calibration.md", "topic-app-paper-evidence.md"]
+links: ["overview-app-design.md", "claim-app-3-emotion-cue-confirmation-rules.md", "claim-tech-1-ser-model.md", "claim-bench-8-emotion-cue-as-question.md", "src-emotion2vec-2024-github.md", "src-pipecat-2026-docs-custom-frame-processor.md", "src-sogang-2024-aihub-hubert.md", "src-funasr-2026-model-license.md", "src-audeering-2026-opensmile-python.md", "src-audeering-2026-opensmile-usage.md", "src-ma-2024-emotion2vec.md", "src-sereval-2024-whisper-crosslingual.md", "src-ma-2024-emobox.md", "src-chou-2023-ser-calibration.md", "src-romana-2025-switchboard-affect.md", "src-ren-2024-emo-codec.md", "claim-app-9-ser-evaluation-and-calibration.md", "topic-app-paper-evidence.md", "topic-meeting-followup-ser-2026-11.md", "topic-ser-label-scheme-and-fusion.md", "topic-ser-context-personalization.md", "topic-ser-model-comparison-whisper-spectrogram.md"]
 category: pattern
 confidence: medium
 schemaVersion: 1
@@ -66,3 +66,15 @@ schemaVersion: 1
 - 분노("답답함") 질문 보류: 영어 전화 대화에서 Emotion2Vec 분노 F1 0.000 [P31 [[src-romana-2025-switchboard-affect]]], 연기→자연 발화 저하 [P30].
 - W3 평가에 Opus 전후 [P34 [[src-ren-2024-emo-codec]]], 성별 [P40], 길이 구간 [P33], 모델 카드 [P44] 추가. 상세: [[claim-app-9-ser-evaluation-and-calibration]], 전체: [[topic-app-paper-evidence]].
 
+---
+
+## Update (2026-11-07T11:39:47.697Z)
+
+## 2026-11-07 회의 후속 조사 반영 (미확정)
+- 11/9 회의 결정 전 제안이며 위 구현 설계는 그대로다. 종합: [[topic-meeting-followup-ser-2026-11]].
+- 감정 체계 변경 제안: 4감정(평가) / 5감정(서비스, +불안) + 판정보류 + 긍정–부정·흥분 점수. 현재 표의 "제외 범주"(fearful 등)와의 매핑 재검토 [[topic-ser-label-scheme-and-fusion]].
+- 출력은 확률 분포 전달, 불일치 되물음(3턴 1번·10턴 2번), 위기 위험도 = max(텍스트, 음성).
+- 맥락 턴: 직전 6~10턴 + 화자 표시, 0/2/6/10턴 비교 [[topic-ser-context-personalization]].
+- 개인화 기준선: 사용자별 기준선·예시를 pgvector에 저장, 기준선 대비 편차 해석.
+- W3 비교: emotion2vec+ vs Whisper 고정 vs Whisper+LoRA [[topic-ser-model-comparison-whisper-spectrogram]].
+- 주의: 외로움·우울은 각성이 낮아 SER이 중립으로 놓치기 쉬움, 편안함은 범주에 없음.

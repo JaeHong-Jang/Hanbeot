@@ -21,3 +21,23 @@ __pycache__/
 
 # 논문 PDF 원문 (저작권) — 공개 저장소에 올리지 않음
 papers/
+
+# 하네스 (docs/harness)
+data/raw/
+data/interim/
+data/processed/
+data/eval/**/audio/
+!data/raw/.gitkeep
+!data/raw/sensitive/README.md
+.env
+.venv/
+node_modules/
+dist/
+# uv.lock은 커밋한다 (무시하지 않음)
+
+# 캐시
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.vite/
+coverage/

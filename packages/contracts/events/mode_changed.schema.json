@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hanbeot.local/events/mode_changed.schema.json",
+  "title": "ModeChanged",
+  "description": "대화 모드 변경",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type","mode"],
+  "properties": {"type":{"const":"mode_changed"},"mode":{"enum":["listen","organize","advise"]}}
+}

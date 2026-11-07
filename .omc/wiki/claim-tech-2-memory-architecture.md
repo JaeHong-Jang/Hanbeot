@@ -1,10 +1,10 @@
 ---
 title: "claim-tech-2-memory-architecture"
-tags: ["tech", "long-term-memory", "grade-A", "grade-C", "decision", "mem0", "letta", "user-stated", "ai-inferred"]
+tags: ["tech", "long-term-memory", "grade-A", "grade-C", "decision", "mem0", "letta", "user-stated", "ai-inferred", "meeting-followup"]
 created: 2026-10-25T07:32:50.473Z
-updated: 2026-10-25T07:32:50.473Z
+updated: 2026-11-07T11:39:55.888Z
 sources: []
-links: ["topic-tech-long-term-memory.md", "overview-technology.md", "src-letta-2025-memory-blocks.md", "src-mem0-2025-locomo-paper.md", "src-wu-2024-longmemeval.md", "src-arxiv-2026-memory-benchmarks.md", "src-zep-2025-graphiti.md", "src-mem0-2026-research-page.md", "claim-tech-6-sensitive-data-consent.md"]
+links: ["topic-tech-long-term-memory.md", "overview-technology.md", "src-letta-2025-memory-blocks.md", "src-mem0-2025-locomo-paper.md", "src-wu-2024-longmemeval.md", "src-arxiv-2026-memory-benchmarks.md", "src-zep-2025-graphiti.md", "src-mem0-2026-research-page.md", "claim-tech-6-sensitive-data-consent.md", "topic-meeting-followup-ser-2026-11.md", "topic-bench-opensource-voice-agents.md", "src-packer-2023-memgpt.md", "src-bae-2022-carecall-memory-update.md"]
 category: decision
 confidence: medium
 schemaVersion: 1
@@ -50,3 +50,13 @@ schemaVersion: 1
 - 한국어 장기 기억 벤치마크 미발견
 - 민감정보 처리 요건과의 결합 → [[claim-tech-6-sensitive-data-consent]]
 
+---
+
+## Update (2026-11-07T11:39:55.888Z)
+
+## 2026-11-07 회의 후속 조사 반영 (미확정)
+- 안건 M 제안 (11/9 회의 결정 전). 종합: [[topic-meeting-followup-ser-2026-11]].
+- 3층 구조(최근 6~10턴 / 원문 DB 전용 / 통화 후 기억 에이전트)와 기억 에이전트를 응답 생성 경로 밖 비동기로 두는 안.
+- 오픈소스 후보: mem0(Pipecat Mem0MemoryService), letta, graphiti(`valid_to` 시간 무효화), zep [[topic-bench-opensource-voice-agents]].
+- 근거 수치: MemGPT 32.1% → 92.5% [[src-packer-2023-memgpt]], 누적만 하면 5세션째 역효과 [[src-bae-2022-carecall-memory-update]].
+- 확인 필요: 한국어 노인 대화에서 기억 에이전트 유무의 만족도 차이는 직접 측정 연구 없음.

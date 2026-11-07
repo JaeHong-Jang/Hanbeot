@@ -1,10 +1,10 @@
 ---
 title: "overview-app-design"
-tags: ["app-design", "overview", "mvp", "hanbeot", "hypothesis", "paper-evidence"]
+tags: ["app-design", "overview", "mvp", "hanbeot", "hypothesis", "paper-evidence", "meeting-followup"]
 created: 2026-10-25T14:51:55.321Z
-updated: 2026-10-26T05:47:03.646Z
+updated: 2026-11-07T11:40:36.029Z
 sources: ["reports/한벗 앱 설계서.md"]
-links: ["overview-hanbeot-project.md", "overview-technology.md", "overview-benchmark.md", "overview-research-cycle-1.md", "claim-bench-7-no-therapy-positioning.md", "claim-bench-8-emotion-cue-as-question.md", "topic-tech-mvp-stack.md", "claim-app-8-hypotheses-h1-h5.md", "claim-tech-1-ser-model.md", "claim-tech-3-stt-tts-vendors.md", "claim-tech-4-voice-pipeline-architecture.md", "claim-tech-2-memory-architecture.md", "claim-tech-8-crisis-referral-flow.md", "claim-tech-5-latency-target.md", "topic-app-benchmark-map.md", "topic-app-feature-spec.md", "topic-app-screen-flow.md", "topic-app-architecture.md", "topic-app-impl-audio-stt-turn.md", "topic-app-impl-ser-cues.md", "topic-app-impl-dialogue-tts.md", "topic-app-impl-memory.md", "topic-app-impl-safety-crisis.md", "topic-app-impl-consent-privacy.md", "topic-app-stack-and-forks.md", "topic-app-cost-latency-budget.md", "topic-app-schedule-7weeks.md", "topic-app-risks.md", "topic-app-critic-review-1.md", "claim-app-1-pipecat-orchestrator.md", "claim-app-2-call-screen-gemini-live.md", "claim-app-3-emotion-cue-confirmation-rules.md", "claim-app-4-memory-four-states.md", "claim-app-5-crisis-ops-and-tel109.md", "claim-app-6-consent-and-deletion.md", "claim-app-7-schedule-gates-and-cuts.md", "topic-app-paper-evidence.md", "claim-app-9-ser-evaluation-and-calibration.md", "claim-app-10-crisis-state-machine-and-evaluation.md", "claim-app-11-data-flow-retention-and-deletion.md", "claim-feedback-2-professor-answer-draft-round1.md"]
+links: ["overview-hanbeot-project.md", "overview-technology.md", "overview-benchmark.md", "overview-research-cycle-1.md", "claim-bench-7-no-therapy-positioning.md", "claim-bench-8-emotion-cue-as-question.md", "topic-tech-mvp-stack.md", "claim-app-8-hypotheses-h1-h5.md", "claim-tech-1-ser-model.md", "claim-tech-3-stt-tts-vendors.md", "claim-tech-4-voice-pipeline-architecture.md", "claim-tech-2-memory-architecture.md", "claim-tech-8-crisis-referral-flow.md", "claim-tech-5-latency-target.md", "topic-app-benchmark-map.md", "topic-app-feature-spec.md", "topic-app-screen-flow.md", "topic-app-architecture.md", "topic-app-impl-audio-stt-turn.md", "topic-app-impl-ser-cues.md", "topic-app-impl-dialogue-tts.md", "topic-app-impl-memory.md", "topic-app-impl-safety-crisis.md", "topic-app-impl-consent-privacy.md", "topic-app-stack-and-forks.md", "topic-app-cost-latency-budget.md", "topic-app-schedule-7weeks.md", "topic-app-risks.md", "topic-app-critic-review-1.md", "claim-app-1-pipecat-orchestrator.md", "claim-app-2-call-screen-gemini-live.md", "claim-app-3-emotion-cue-confirmation-rules.md", "claim-app-4-memory-four-states.md", "claim-app-5-crisis-ops-and-tel109.md", "claim-app-6-consent-and-deletion.md", "claim-app-7-schedule-gates-and-cuts.md", "topic-app-paper-evidence.md", "claim-app-9-ser-evaluation-and-calibration.md", "claim-app-10-crisis-state-machine-and-evaluation.md", "claim-app-11-data-flow-retention-and-deletion.md", "claim-feedback-2-professor-answer-draft-round1.md", "topic-meeting-followup-ser-2026-11.md", "topic-ser-context-personalization.md", "topic-data-korean-emotion-speech-datasets.md", "topic-ser-papers-synthesis.md"]
 category: architecture
 confidence: medium
 schemaVersion: 1
@@ -84,3 +84,9 @@ schemaVersion: 1
 - 신규 결정: [[claim-app-9-ser-evaluation-and-calibration]] (SER 평가·보정·W6 비교), [[claim-app-10-crisis-state-machine-and-evaluation]] (위기 등급·상태 전이·평가), [[claim-app-11-data-flow-retention-and-deletion]] (데이터 흐름·종료 조건·삭제 범위).
 - 교수님 답변 초안 요지: [[claim-feedback-2-professor-answer-draft-round1]].
 
+---
+
+## Update (2026-11-07T11:40:36.029Z)
+
+## 2026-11-07 회의 후속 조사 반영 (미확정)
+- 새 topic 페이지(11/9 회의 결정 전 제안): [[topic-meeting-followup-ser-2026-11]] · [[topic-ser-context-personalization]] · [[topic-data-korean-emotion-speech-datasets]] · [[topic-ser-papers-synthesis]]

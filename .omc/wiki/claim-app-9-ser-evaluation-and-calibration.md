@@ -1,10 +1,10 @@
 ---
 title: "claim-app-9-ser-evaluation-and-calibration"
-tags: ["app-design", "decision", "ser", "evaluation", "calibration", "h3", "paper-evidence"]
+tags: ["app-design", "decision", "ser", "evaluation", "calibration", "h3", "paper-evidence", "meeting-followup"]
 created: 2026-10-26T05:46:21.137Z
-updated: 2026-10-26T05:46:21.137Z
+updated: 2026-11-07T11:39:44.989Z
 sources: ["reports/한벗 기술 논문 근거.md#2-1"]
-links: ["overview-app-design.md", "topic-app-paper-evidence.md", "topic-app-impl-ser-cues.md", "claim-app-3-emotion-cue-confirmation-rules.md", "claim-tech-1-ser-model.md", "src-ma-2024-emotion2vec.md", "src-sereval-2024-whisper-crosslingual.md", "src-ma-2024-emobox.md", "src-sogang-2024-aihub-hubert.md", "src-romana-2025-switchboard-affect.md", "src-kawaoto-2025-acted-natural-ser.md", "src-chou-2023-ser-calibration.md", "src-ren-2024-emo-codec.md", "claim-app-8-hypotheses-h1-h5.md"]
+links: ["overview-app-design.md", "topic-app-paper-evidence.md", "topic-app-impl-ser-cues.md", "claim-app-3-emotion-cue-confirmation-rules.md", "claim-tech-1-ser-model.md", "src-ma-2024-emotion2vec.md", "src-sereval-2024-whisper-crosslingual.md", "src-ma-2024-emobox.md", "src-sogang-2024-aihub-hubert.md", "src-romana-2025-switchboard-affect.md", "src-kawaoto-2025-acted-natural-ser.md", "src-chou-2023-ser-calibration.md", "src-ren-2024-emo-codec.md", "claim-app-8-hypotheses-h1-h5.md", "topic-meeting-followup-ser-2026-11.md", "topic-ser-papers-synthesis.md", "topic-data-korean-emotion-speech-datasets.md", "src-harm-2024-taltech-odyssey.md", "src-shin-2024-aihub-script-leak.md"]
 category: decision
 confidence: medium
 schemaVersion: 1
@@ -44,3 +44,14 @@ schemaVersion: 1
 ## 재검토 조건
 UA 0.70 미달, Opus 후 급락, 분노 질문 정밀도 미달, H3 반증 시 SER을 P2로 강등 ([[claim-app-8-hypotheses-h1-h5]]). 미확인 항목은 [[topic-app-paper-evidence]] 4절 참조.
 
+---
+
+## Update (2026-11-07T11:39:44.989Z)
+
+## 2026-11-07 회의 후속 조사 반영 (미확정)
+- 11/9 회의 결정 전 제안. 종합: [[topic-meeting-followup-ser-2026-11]].
+- 평가 지표 제안: UA + 부정 감정 재현율. 화자 분리 평가, UA·macro-F1 보고, "중립 착각" 비율 확인 [[topic-ser-papers-synthesis]].
+- 평가용 4감정 / 서비스용 5감정 매핑표를 먼저 확정(AI Hub 7감정은 최소 3버전) [[topic-data-korean-emotion-speech-datasets]].
+- 시작 가중치(텍스트:음성) 정서가 0.65:0.35, 각성 0.1:0.9, 5감정 0.55:0.45를 KEMDy20·AI Hub 화자 분리 5겹 실험으로 조정, 온도 보정 병행 [[src-harm-2024-taltech-odyssey]].
+- 90%대 한국어 수치는 같은 대본·화자 분리 미보고라 인용 금지 [[src-shin-2024-aihub-script-leak]].
+- 1차 데이터는 약 110GB(AI Hub 263, 107·71631 Validation 등).

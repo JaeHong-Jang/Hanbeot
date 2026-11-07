@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "turn event",
+  "description": "TTFA 측정 한 줄 (설계서 7.2). 발화 내용은 담지 않는다.",
+  "type": "object",
+  "required": ["turn_id", "t0_speech_end_ms", "t1_first_audio_ms"],
+  "properties": {
+    "turn_id": { "type": "integer", "minimum": 0 },
+    "t0_speech_end_ms": { "type": "integer", "minimum": 0 },
+    "t1_first_audio_ms": { "type": "integer", "minimum": 0 },
+    "ttfa_ms": { "type": "integer" }
+  },
+  "additionalProperties": false
+}

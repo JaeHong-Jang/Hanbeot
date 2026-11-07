@@ -1,10 +1,10 @@
 ---
 title: "topic-app-impl-memory"
-tags: ["app-design", "implementation", "memory", "pgvector", "mem0", "four-states", "topic", "paper-evidence"]
+tags: ["app-design", "implementation", "memory", "pgvector", "mem0", "four-states", "topic", "paper-evidence", "meeting-followup"]
 created: 2026-10-25T14:46:47.083Z
-updated: 2026-10-26T05:47:15.859Z
+updated: 2026-11-07T11:39:53.449Z
 sources: ["reports/한벗 앱 설계서.md#5-8"]
-links: ["overview-app-design.md", "claim-app-4-memory-four-states.md", "claim-tech-2-memory-architecture.md", "src-mem0-2026-pgvector-docs.md", "src-mem0-2026-github.md", "src-letta-2025-memory-blocks.md", "topic-app-screen-flow.md", "topic-app-benchmark-map.md", "src-mem0-2025-locomo-paper.md", "topic-app-impl-consent-privacy.md", "topic-app-feature-spec.md", "src-chen-2026-ai-never-forgets.md", "src-arxiv-2026-algorithmic-self-portrait.md", "src-wu-2024-longmemeval.md", "src-memctrl-2026-memory-control.md", "src-cox-2023-chatbot-memory-reference.md", "claim-app-11-data-flow-retention-and-deletion.md", "topic-app-paper-evidence.md"]
+links: ["overview-app-design.md", "claim-app-4-memory-four-states.md", "claim-tech-2-memory-architecture.md", "src-mem0-2026-pgvector-docs.md", "src-mem0-2026-github.md", "src-letta-2025-memory-blocks.md", "topic-app-screen-flow.md", "topic-app-benchmark-map.md", "src-mem0-2025-locomo-paper.md", "topic-app-impl-consent-privacy.md", "topic-app-feature-spec.md", "src-chen-2026-ai-never-forgets.md", "src-arxiv-2026-algorithmic-self-portrait.md", "src-wu-2024-longmemeval.md", "src-memctrl-2026-memory-control.md", "src-cox-2023-chatbot-memory-reference.md", "claim-app-11-data-flow-retention-and-deletion.md", "topic-app-paper-evidence.md", "topic-meeting-followup-ser-2026-11.md", "topic-ser-context-personalization.md", "src-packer-2023-memgpt.md", "src-bae-2022-carecall-memory-update.md", "topic-data-text-and-eval-datasets.md"]
 category: pattern
 confidence: medium
 schemaVersion: 1
@@ -62,3 +62,14 @@ MVP는 Postgres + pgvector 단순 RAG(k=2, 256토큰) + `block` 메타데이터.
 - 삭제 후 프롬프트·검색 재등장 0건 + 재생성 시험(원천 전사 잔존, 재시도·철회·재시작·백업 복원) [P68 [[src-memctrl-2026-memory-control]], B]. 결과는 "시험한 N개 시나리오 내"로 표기.
 - 기억 언급 시 축어 인용 금지, 재진술 [P64 [[src-cox-2023-chatbot-memory-reference]]]. 삭제 범위: [[claim-app-11-data-flow-retention-and-deletion]]. 전체: [[topic-app-paper-evidence]].
 
+---
+
+## Update (2026-11-07T11:39:53.449Z)
+
+## 2026-11-07 회의 후속 조사 반영 (미확정)
+- 안건 M 기억 3층 구조·기억 에이전트 제안 (11/9 회의 결정 전). 종합: [[topic-meeting-followup-ser-2026-11]].
+- 실시간 경로: 최근 창 6~10턴 + 검색 기억 3~5개(pgvector) + 사용자 프로필 1단락, 중요한 정보는 프롬프트 처음과 끝에 배치(Lost in the Middle).
+- 비동기 경로: 통화 종료 후 기억 에이전트가 관찰 문장 추출 → 기존 기억과 비교 → PASS/REPLACE/APPEND/DELETE, 감정 기준선 통계 갱신.
+- 저장소 제안: conversation_raw, memory_items, user_profile, user_affect_baseline [[topic-ser-context-personalization]].
+- 근거 [[src-packer-2023-memgpt]], [[src-bae-2022-carecall-memory-update]]. LoCoMo 사람 F1 87.9 vs 긴 문맥 37.8.
+- 평가 데이터: LongMemEval 한국어 각색, AI Hub 71630 [[topic-data-text-and-eval-datasets]].
