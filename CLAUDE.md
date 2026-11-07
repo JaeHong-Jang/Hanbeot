@@ -5,6 +5,7 @@
 - 구조와 모듈 책임: `docs/harness/README.md`
 - 코딩 규약(함수·인덱스/튜플·데이터 구분): `docs/harness/코딩-규약.md`
 - 구현 계획(P0 → 모듈 → 주차 → 검증): `docs/harness/구현-계획.md`
+- 감정 인식 계획(라벨 체계·결합·검증·중단 기준): `docs/harness/감정-인식-계획.md`
 - 설계 근거: `reports/한벗 앱 설계서.md`(절 번호로 인용), `reports/한벗 기술 논문 근거.md`([P#]), Wiki `overview-app-design`
 
 ## 꼭 지킬 것
