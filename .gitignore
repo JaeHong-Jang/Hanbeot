@@ -18,3 +18,6 @@ Thumbs.db
 desktop.ini
 __pycache__/
 *.pyc
+
+# 논문 PDF 원문 (저작권) — 공개 저장소에 올리지 않음
+papers/
