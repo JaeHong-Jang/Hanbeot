@@ -1,0 +1,57 @@
+# Scopus 2차 쿼리 (2026-11-08). 실행: python3 tools/scopus_search.py run "research_notes/Scopus 조사/queries_round2.yaml" --out "research_notes/Scopus 조사/raw2"
+# 목적: ① 사람처럼 들리는 TTS·대화 음성 ② SER 성능 향상 기법(SCI급 논문 설계용) ③ 한국어 특화.
+default_max: 150
+queries:
+  # --- TTS: 사람처럼 들리는 목소리 ---
+  - name: tts_naturalness_humanlike
+    query: TITLE-ABS-KEY(("text-to-speech" OR "speech synthesis") AND (naturalness OR "human-like" OR humanlike OR "mean opinion score" OR MOS) AND (conversational OR spontaneous OR dialogue OR expressive)) AND PUBYEAR > 2019
+    max: 200
+  - name: tts_prosody_context
+    query: TITLE-ABS-KEY(("text-to-speech" OR "speech synthesis") AND (prosody OR intonation OR "prosodic") AND (context OR "dialogue history" OR "conversational context" OR "contextual")) AND PUBYEAR > 2018
+  - name: tts_paralinguistic_nonverbal
+    query: TITLE-ABS-KEY(("speech synthesis" OR "text-to-speech" OR TTS) AND (laughter OR breath OR breathing OR filler OR fillers OR disfluency OR disfluencies OR backchannel OR "non-verbal" OR nonverbal OR "paralinguistic"))
+  - name: tts_streaming_latency
+    query: TITLE-ABS-KEY(("text-to-speech" OR "speech synthesis") AND (streaming OR "low-latency" OR "low latency" OR "real-time" OR incremental) AND (latency OR "first packet" OR "time to first")) AND PUBYEAR > 2019
+  - name: tts_llm_codec_zeroshot
+    query: TITLE-ABS-KEY(("text-to-speech" OR "speech synthesis") AND ("zero-shot" OR "voice cloning" OR "language model" OR "neural codec" OR "flow matching" OR diffusion)) AND PUBYEAR > 2022
+    max: 200
+  - name: tts_korean
+    query: TITLE-ABS-KEY(("text-to-speech" OR "speech synthesis" OR TTS) AND (korean OR korea OR hangul))
+    max: 200
+  - name: tts_emotion_controllable
+    query: TITLE-ABS-KEY(("text-to-speech" OR "speech synthesis") AND (emotion OR emotional OR "style transfer" OR "style control") AND (controllable OR control OR intensity OR "emotion transfer")) AND PUBYEAR > 2019
+    max: 200
+  - name: voice_perception_trust_empathy
+    query: TITLE-ABS-KEY(("synthetic voice" OR "synthesized speech" OR "voice assistant" OR "conversational agent" OR chatbot) AND (voice OR speech) AND (trust OR likability OR warmth OR empathy OR "social presence" OR "uncanny") AND (perception OR "user study" OR experiment)) AND PUBYEAR > 2017
+  # --- 대화 음성: 전이중·턴테이킹·맞장구 ---
+  - name: spoken_dialogue_full_duplex_s2s
+    query: TITLE-ABS-KEY(("full-duplex" OR "speech-to-speech" OR "spoken dialogue model" OR "end-to-end spoken dialogue" OR "speech language model") AND (dialogue OR conversation OR conversational)) AND PUBYEAR > 2022
+  - name: turn_taking_backchannel_prediction
+    query: TITLE-ABS-KEY(("turn-taking" OR "turn taking" OR "end-of-turn" OR endpointing OR backchannel OR "backchannel prediction" OR "response timing") AND (spoken OR speech OR conversational OR dialogue)) AND PUBYEAR > 2017
+    max: 200
+  # --- SER: 성능 향상 기법 (논문 설계용) ---
+  - name: ser_sota_training_methods
+    query: TITLE-ABS-KEY("speech emotion recognition" AND ("knowledge distillation" OR "multi-task" OR "multitask" OR contrastive OR curriculum OR "label smoothing" OR "speaker disentanglement" OR "speaker-independent" OR "domain generalization" OR "mixture of experts" OR "ensemble")) AND PUBYEAR > 2021
+    max: 200
+  - name: ser_audio_llm_instruction
+    query: TITLE-ABS-KEY(("speech emotion recognition" OR "emotion recognition" OR "paralinguistic") AND (speech OR audio) AND ("large language model" OR "audio language model" OR "speech LLM" OR "instruction tuning" OR "in-context")) AND PUBYEAR > 2022
+    max: 200
+  - name: ser_synthetic_tts_data
+    query: TITLE-ABS-KEY("speech emotion recognition" AND (synthetic OR "text-to-speech" OR "voice conversion" OR generated OR "data generation") AND (training OR augmentation OR "data scarcity"))
+  - name: ser_challenges_benchmarks
+    query: TITLE-ABS-KEY(("MSP-Podcast" OR "Odyssey" OR "emotion recognition challenge" OR "SER challenge" OR EmoBox OR "benchmark") AND ("speech emotion" OR "emotion recognition" AND speech)) AND PUBYEAR > 2021
+  - name: ser_dimensional_valence_arousal
+    query: TITLE-ABS-KEY("speech emotion recognition" AND (valence OR arousal OR dimensional OR "continuous emotion") AND (CCC OR regression OR prediction)) AND PUBYEAR > 2018
+  - name: ser_selective_prediction_ood
+    query: TITLE-ABS-KEY(("speech emotion recognition" OR "emotion recognition") AND speech AND ("selective prediction" OR "out-of-distribution" OR "rejection" OR "abstention" OR "confidence" OR "reliability")) AND PUBYEAR > 2018
+  - name: ser_personalization_speaker_adaptation
+    query: TITLE-ABS-KEY("speech emotion recognition" AND (personalization OR personalized OR "speaker adaptation" OR "few-shot" OR "test-time adaptation" OR "speaker normalization"))
+  # --- 한국어 ---
+  - name: korean_emotion_affect_broad
+    query: TITLE-ABS-KEY(("emotion recognition" OR "affect recognition" OR "emotion classification" OR "sentiment") AND (korean OR hangul OR KEMDy OR "AI Hub" OR "AIHub") AND (speech OR voice OR audio OR multimodal OR dialogue)) AND PUBYEAR > 2017
+    max: 200
+  - name: korean_prosody_speech_science
+    query: TITLE-ABS-KEY(korean AND (prosody OR intonation OR "prosodic" OR "speech rate" OR pause) AND (emotion OR affect OR attitude OR politeness))
+  - name: unist_speech_voice
+    query: AFFIL(unist OR "ulsan national institute of science") AND TITLE-ABS-KEY(speech OR voice OR "text-to-speech" OR "spoken" OR acoustic)
+    max: 200
