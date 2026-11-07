@@ -73,19 +73,10 @@ schemaVersion: 1
 
 ---
 
-## Update (2026-11-07T17:35:07.895Z)
+## Update (2026-11-08)
 
-## 결정: 1차 타깃 변경 (2026-11-08)
+## 결정: 고령자 제외, 1차 타깃 대학생 유지 (2026-11-08)
 
-"열린 질문 (2026-11-07)"에 대한 답. 팀장(장재홍)이 2026-11-08에 **1차 타깃을 대학생에서 고령층(혼자 지내는 고령자 중심)으로 변경**했다고 확인했다. 대학생은 2차 확장 후보로 내린다. 기록: `docs/adr/ADR-0005-target-shift-to-older-adults.md`.
+"열린 질문 (2026-11-07)"에 대한 답. 팀이 2026-11-07 커밋 607f0f5("한벗 대상에서 고령자 제외")로 회의 후속 조사·데이터셋·TTS·유사앱 노트에서 고령층 전제를 걷어냈고, 팀장이 11/8 확인했다. **1차 타깃은 대학생 그대로**다. 기록: `docs/adr/ADR-0005-target-older-adults-excluded.md`.
 
-영향을 받는 페이지 (재검토 필요, 아직 수정 전):
-- 문제 정의·시장: [[overview-problem-definition]], [[overview-market-demand]], [[topic-market-tam-sam-som-assembly]], claim-problem-*, claim-market-* — 대학생 통계 기반. 고령층 통계(고독사·독거노인 수·정서 지원 수요)로 다시 조립해야 한다.
-- 가설: [[claim-app-8-hypotheses-h1-h5]] — H1~H5의 모집단이 바뀐다.
-- 벤치마크: [[overview-benchmark]] — 가장 가까운 선례가 [[bench-clova-carecall]](B2G)로 바뀌고, B2C 차별점 재정의.
-- SER 목표: [[claim-app-9-ser-evaluation-and-calibration]], [[topic-meeting-followup-ser-2026-11]] — 고령 실제 발화 기준(음성만 3감정 64.7%, 2단계 69.3%, [[src-kim-2024-dementia-ser]]). 저각성 감정 미탐 위험.
-- STT: [[src-lee-2026-elderly-whisper-asr]] — 고령·방언 CER 별도 측정.
-- 교수님 답변 초안·UNIST 면접 대본·설계서 0.1절 페르소나는 대학생 기준으로 작성됐다.
-
-미정: 연령 하한, 거주 형태, 채널(앱 vs 전화 수신), 보호자·기관 연계, 결제 주체.
-
+주의: 11/7에 적재한 [[topic-meeting-followup-ser-2026-11]], [[src-kim-2024-dementia-ser]], [[src-lee-2026-elderly-whisper-asr]]은 고령층 전제가 남아 있던 노트 판본을 근거로 썼다. 독거노인 133명 연구(음성만 3감정 64.7%, 2단계 69.3%)는 "한국어 실제 대화에서 SER 성능이 어디까지 나오는가"의 **참고 수치**로만 쓰고, 한벗 사용자 조건과 같다고 쓰지 않는다. 노인 STT·고령자 구술 데이터(71703)는 한벗 범위 밖이다.

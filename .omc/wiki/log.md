@@ -2594,3 +2594,7 @@
 - **Pages:** overview-hanbeot-project.md, bench-clova-carecall.md, lab-khcu-ko-jeongeun.md
 - **Summary:** 고령층을 한벗 대상(3차 확장 포함)에서 제외. 타깃은 대학생 → 취준생·직장인. 고령층 관련 벤치마크·연구자는 참고 사례로만 유지
 
+## [2026-11-07T17:38:32.972Z] ingest
+- **Pages:** topic-meeting-followup-ser-2026-11.md
+- **Summary:** Updated "topic-meeting-followup-ser-2026-11" with new content
+

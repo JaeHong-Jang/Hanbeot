@@ -1,8 +1,8 @@
 ---
 title: "topic-meeting-followup-ser-2026-11"
-tags: ["meeting-followup", "ser", "2026-11", "unconfirmed", "memory", "topic"]
+tags: ["meeting-followup", "ser", "2026-11", "unconfirmed", "memory", "topic", "meeting", "followup"]
 created: 2026-11-07T11:31:15.841Z
-updated: 2026-11-07T11:31:15.841Z
+updated: 2026-11-07T17:38:32.972Z
 sources: ["research_notes/회의 후속 조사/00_요약.md"]
 links: ["overview-app-design.md", "overview-technology.md", "topic-ser-context-personalization.md", "topic-ser-model-comparison-whisper-spectrogram.md", "topic-ser-label-scheme-and-fusion.md", "topic-data-korean-emotion-speech-datasets.md", "topic-ser-papers-synthesis.md", "claim-app-3-emotion-cue-confirmation-rules.md", "claim-tech-1-ser-model.md", "src-kim-2024-dementia-ser.md", "src-packer-2023-memgpt.md", "src-bae-2022-carecall-memory-update.md", "claim-app-4-memory-four-states.md", "topic-app-impl-memory.md", "claim-tech-2-memory-architecture.md", "overview-hanbeot-project.md"]
 category: reference
@@ -67,4 +67,14 @@ schemaVersion: 1
 - Whisper 한국어 노인 CER 기준선이 추가 학습 전인지
 - 형태소 분석기별 감정 분류 비교 논문: 못 찾음
 - 노트의 비교 조건(독거노인 133명, 평균 80.6세 등)이 고령층을 가리키나 현재 Wiki 1차 타깃은 대학생: 팀 확인 필요([[overview-hanbeot-project]])
+
+---
+
+## Update (2026-11-07T17:38:32.972Z)
+
+## 정정 (2026-11-08): 고령자 제외, 노트 글자 재배정
+
+- 팀 커밋 607f0f5(2026-11-07)로 회의 후속 조사 노트에서 **고령자 전제를 제거**했다. 1차 타깃은 대학생 그대로다([[overview-hanbeot-project]] 결정 절, ADR-0005). 이 페이지에서 "한벗과 거의 같은 조건(독거노인 133명)"으로 읽히는 문장은 "한국어 실제 대화 SER 참고 수치"로 읽어야 한다. 노인 STT·고령자 구술 71703·중노년 방언 71517/71558은 한벗 범위 밖이다.
+- 노트 파일 이름과 주제 글자가 재배정됐다(원격 커밋 01ab0ec~ae4569b): 옛 K→A(감정 인식 원리·턴), GH→BC(라벨 기준·복합 감정), CD→DE(Whisper·스펙트로그램), EF→FG(텍스트 단위), J→H(가중치), J2→H2(가중치 근거 보강), AB→IJ(맥락·개인화), I→K(AI Hub 용량), L은 그대로. 이 페이지의 A~L 표는 **옛 글자** 기준이다. 상세는 `research_notes/회의 후속 조사/00_요약.md`(새 글자) 참조.
+- 평가자 일치도 수치는 원문 값 κ 0.27~0.48로 통일됐다(커밋 ae4569b). κ 0.70 조건 정정도 반영됐다(7b4d9ba).
 
