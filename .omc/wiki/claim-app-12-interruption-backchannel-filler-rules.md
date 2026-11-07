@@ -1,10 +1,10 @@
 ---
 title: "claim-app-12-interruption-backchannel-filler-rules"
-tags: ["claim-app", "turn-taking", "barge-in", "backchannel", "filler", "design-value"]
+tags: ["claim-app", "turn-taking", "barge-in", "backchannel", "filler", "design-value", "interruption"]
 created: 2026-11-07T19:48:00.964Z
-updated: 2026-11-07T19:48:00.964Z
+updated: 2026-11-07T20:09:04.431Z
 sources: ["research_notes/Scopus 조사/04_dialogue_dynamics_literature.md", ".omc/orchestra/reviews/20261108_040523_verify_04_dialogue_dynamics_literature.md"]
-links: ["claim-app-1-pipecat-orchestrator.md", "topic-dialogue-dynamics-evidence-2026-11.md", "topic-app-impl-audio-stt-turn.md"]
+links: ["claim-app-1-pipecat-orchestrator.md", "topic-dialogue-dynamics-evidence-2026-11.md", "topic-app-impl-audio-stt-turn.md", "src-maisterr-2026-pipecat-backchannel.md", "topic-dev-repos-voice-conversation-2026-11.md"]
 category: decision
 confidence: medium
 schemaVersion: 1
@@ -30,4 +30,15 @@ schemaVersion: 1
 
 ## 위험·한계
 제3자 대화·배경음 오인(GPT-4o Respond 0.91/0.93) -> 근접 마이크 가정, 길이·신뢰도 필터, AEC. 한국어 오중단률 수치 없음. 평가 지표는 위 topic 6절.
+
+---
+
+## Update (2026-11-07T20:09:04.431Z)
+
+## 2026-11-08 개발자 저장소 조사 반영
+- 맞장구 구현 참고: pipecat-backchannel의 휴지 게이트 + `fire_probability 0.8` + `cooldown 2.5s` + 최소 발화 0.7s + 캐시 클립. 한국어 포크는 턴 감지·타이밍 검증 전까지 미확인(C). [[src-maisterr-2026-pipecat-backchannel]]
+- 끼어들기: Pipecat은 InterruptionFrame 시 interruptible 컨텍스트만 폐기. 단어 타임스탬프 재설정과 "실제 발화 단어만 기록"은 **조건부**이며 타임스탬프 없는 제공사 대체 경로가 있음(검증표). 제공사별로 시험할 것.
+- LiveKit adaptive interruption(맞장구 무시)은 LiveKit Cloud 인증 필요, 쿨다운 기본 (1.0, 1.0)초, 영어 우위 가능. 자체 호스팅은 false-interruption 재개 직접 구현.
+- 발화 중 맞장구(VAP): MaAI는 영·중·일만, 한국어는 별도 학습 과제.
+- 근거 상세 [[topic-dev-repos-voice-conversation-2026-11]].
 

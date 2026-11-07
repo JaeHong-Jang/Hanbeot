@@ -2,9 +2,9 @@
 title: "topic-tts-opensource-candidates-2026-11"
 tags: ["tts", "opensource", "w4-blind-test", "license", "korean", "candidates"]
 created: 2026-11-07T18:10:59.650Z
-updated: 2026-11-07T18:13:14.163Z
+updated: 2026-11-07T20:08:59.842Z
 sources: ["research_notes/오픈소스 음성 조사/humanlike_voice_oss.md", ".omc/orchestra/reviews/20261108_025524_verify_humanlike_voice_oss.md"]
-links: ["topic-tts-humanlike-techniques.md", "topic-app-impl-dialogue-tts.md", "claim-tech-3-stt-tts-vendors.md", "topic-bench-opensource-voice-agents.md", "src-github-2026-english-only-tts-roundup.md", "src-fishaudio-2026-fish-speech-s2-pro.md", "src-resemble-2026-chatterbox-multilingual.md", "src-supertone-2026-supertonic-3.md", "src-boson-2026-higgs-audio.md", "src-du-2024-cosyvoice2.md", "src-qwen-2026-qwen3-tts.md", "src-openbmb-2026-voxcpm2.md", "src-funaudio-2026-fun-cosyvoice3.md", "src-yeowon-2026-indextts-ko.md", "src-krafton-2026-raon-speech.md", "src-kyutai-2026-unmute.md"]
+links: ["topic-tts-humanlike-techniques.md", "topic-app-impl-dialogue-tts.md", "claim-tech-3-stt-tts-vendors.md", "topic-bench-opensource-voice-agents.md", "src-github-2026-english-only-tts-roundup.md", "src-fishaudio-2026-fish-speech-s2-pro.md", "src-resemble-2026-chatterbox-multilingual.md", "src-supertone-2026-supertonic-3.md", "src-boson-2026-higgs-audio.md", "src-du-2024-cosyvoice2.md", "src-qwen-2026-qwen3-tts.md", "src-openbmb-2026-voxcpm2.md", "src-funaudio-2026-fun-cosyvoice3.md", "src-yeowon-2026-indextts-ko.md", "src-krafton-2026-raon-speech.md", "src-kyutai-2026-unmute.md", "topic-dev-repos-voice-conversation-2026-11.md", "src-pipecat-2026-expressive-alpha.md"]
 category: pattern
 confidence: medium
 schemaVersion: 1
@@ -70,3 +70,15 @@ schemaVersion: 1
 
 ## 개별 출처 페이지
 [[src-qwen-2026-qwen3-tts]] · [[src-openbmb-2026-voxcpm2]] · [[src-funaudio-2026-fun-cosyvoice3]] · [[src-fishaudio-2026-fish-speech-s2-pro]] · [[src-resemble-2026-chatterbox-multilingual]] · [[src-supertone-2026-supertonic-3]] · [[src-boson-2026-higgs-audio]] · [[src-yeowon-2026-indextts-ko]] · [[src-github-2026-english-only-tts-roundup]] · [[src-krafton-2026-raon-speech]] · [[src-kyutai-2026-unmute]]
+
+---
+
+## Update (2026-11-07T20:08:59.842Z)
+
+## 2026-11-08 개발자 저장소 조사 반영
+- 코드 수준 메모(맥락→운율, 감정 주입, 스트리밍, 끼어들기)는 [[topic-dev-repos-voice-conversation-2026-11]].
+- VoxCPM2 한국어 CER 0.95%는 자사 내부 벤치(ASR=Gemini 3.1 Flash Lite) 값이고 같은 표에서 Fish S2-Pro는 0.29%. Fun-CosyVoice3-0.5B-2512 가중치 Apache-2.0, Raon 9B 가중치 CC-BY-NC-4.0.
+- 검증표 정정: Fish Drama 3 가중치는 HF 메타 Research이나 실제 LICENSE는 Community License(연매출 50만 달러 미만 상업 이용 조항) → "상용 일괄 제외"는 부적절, 재검토 필요(C).
+- 한국어 WER/CER 낮은 값이 많아도 "포화로 변별력 없음"은 단정 불가(같은 표에 CER 19.7·0.29·0.95 공존). 청취 평가 우선 판단은 유지.
+- Pipecat expressive(alpha)에 TTS 어댑터 9종, Typecast·RTZR 없음: [[src-pipecat-2026-expressive-alpha]].
+

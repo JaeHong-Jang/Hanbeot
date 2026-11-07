@@ -1,10 +1,10 @@
 ---
 title: "topic-ser-preprocessing-pipeline-evidence"
-tags: ["scopus-2026-11", "ser", "preprocessing", "pipeline", "cross-corpus", "korean", "verified"]
+tags: ["scopus-2026-11", "ser", "preprocessing", "pipeline", "cross-corpus", "korean", "verified", "resampling"]
 created: 2026-11-07T18:43:53.333Z
-updated: 2026-11-07T19:54:41.894Z
+updated: 2026-11-07T20:09:16.245Z
 sources: ["research_notes/Scopus 조사/01_preprocessing_models_crosscorpus.md", ".omc/orchestra/reviews/20261108_030939_verify_01_preprocessing_models_crosscorpus.md", "docs/harness/감정-인식-계획.md", "research_notes/Scopus 조사/05_ser_sota_methods_for_paper.md"]
-links: ["topic-scopus-literature-2026-11.md", "topic-app-impl-ser-cues.md", "claim-app-9-ser-evaluation-and-calibration.md", "topic-ser-model-comparison-whisper-spectrogram.md", "topic-ser-papers-synthesis.md", "src-milling-2022-vad-ser.md", "src-jun-2024-realtime-kemdy19.md", "src-atmaja-2022-augmentation.md", "src-hyeon-2025-segmental-pooling.md", "src-tzeng-2025-noise-robust-sse.md", "src-leem-2024-selective-enhancement.md", "src-grageda-2025-hri-distant.md", "src-gat-2022-speaker-norm.md", "src-ryu-2025-pitch-contour.md", "src-shi-2026-asr-repr-noisy.md", "src-feng-2023-peft-ser.md", "src-chatzichristodoulou-2025-medusa.md", "src-cao-2025-kemdy-w2v-kobert.md", "src-yoon-2025-maskser.md", "src-prabhu-2024-label-uncertainty.md", "src-chou-2023-ser-calibration.md", "src-goron-2024-whisper-dg.md", "src-wagner-2023-transformer-era.md", "src-ma-2024-emotion2vec.md", "src-chen-2023-wav2vec-tapt.md", "src-sampath-2025-efficient-ft.md", "src-noh-2021-mpgln-multidomain.md", "src-cao-2025-kemdy-prosody-gru.md", "topic-ser-performance-levers-2026-11.md", "topic-ser-sota-benchmarks-2026-11.md"]
+links: ["topic-scopus-literature-2026-11.md", "topic-app-impl-ser-cues.md", "claim-app-9-ser-evaluation-and-calibration.md", "topic-ser-model-comparison-whisper-spectrogram.md", "topic-ser-papers-synthesis.md", "src-milling-2022-vad-ser.md", "src-jun-2024-realtime-kemdy19.md", "src-atmaja-2022-augmentation.md", "src-hyeon-2025-segmental-pooling.md", "src-tzeng-2025-noise-robust-sse.md", "src-leem-2024-selective-enhancement.md", "src-grageda-2025-hri-distant.md", "src-gat-2022-speaker-norm.md", "src-ryu-2025-pitch-contour.md", "src-shi-2026-asr-repr-noisy.md", "src-feng-2023-peft-ser.md", "src-chatzichristodoulou-2025-medusa.md", "src-cao-2025-kemdy-w2v-kobert.md", "src-yoon-2025-maskser.md", "src-prabhu-2024-label-uncertainty.md", "src-chou-2023-ser-calibration.md", "src-goron-2024-whisper-dg.md", "src-wagner-2023-transformer-era.md", "src-ma-2024-emotion2vec.md", "src-chen-2023-wav2vec-tapt.md", "src-sampath-2025-efficient-ft.md", "src-noh-2021-mpgln-multidomain.md", "src-cao-2025-kemdy-prosody-gru.md", "topic-ser-performance-levers-2026-11.md", "topic-ser-sota-benchmarks-2026-11.md", "src-emotion2vec-2026-github-issues.md", "claim-research-3-reproduction-experiments-r0-r8.md"]
 category: pattern
 confidence: medium
 schemaVersion: 1
@@ -87,3 +87,14 @@ schemaVersion: 1
 - 학습 레버(소프트 라벨·층 가중합·LoRA·앙상블·합성·개인화) 효과표: [[topic-ser-performance-levers-2026-11]]. 벤치마크·프로토콜 인플레이션: [[topic-ser-sota-benchmarks-2026-11]].
 - 정정: Chen 2023 TAPT의 IEMOCAP UA 절대 +7.4%p는 최종 시스템 대 이전 SOTA 비교이며 TAPT 단독 효과로 분리된 값이 아님.
 - GAP+SAP 풀링: IEMOCAP UA +1.70, KEMDy19 +1.92%p, CI 겹침(작은 이득).
+
+---
+
+## Update (2026-11-07T20:09:16.245Z)
+
+## 2026-11-08 개발자 저장소 조사 반영
+- 리샘플러 민감도(torchaudio vs Sox 16kHz에서 emotion2vec 예측 변화)는 **사용자 이슈 #61 보고**이며 저자 답변 없음. 현상으로 확정하지 말고 R6에서 직접 측정 [[src-emotion2vec-2026-github-issues]].
+- 짧은 입력(1~2초) 환각도 사용자 보고(#41). 저자 발언은 "필요 없는 감정을 로짓에서 마스킹하면 이전 모델과 비슷"까지이며 한국어 4~7클래스 마스킹+재정규화는 우리 제안(C).
+- 입력 단위: 저자는 VAD로 의미 단위를 자르라고 답함(#30). 서비스·학습·평가의 리샘플 구현을 동일하게 고정.
+- 실험 계획 [[claim-research-3-reproduction-experiments-r0-r8]].
+

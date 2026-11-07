@@ -1,10 +1,10 @@
 ---
 title: "src-ma-2024-emobox"
-tags: ["paper-evidence", "ser", "ser-limits", "grade-A"]
+tags: ["paper-evidence", "ser", "ser-limits", "grade-A", "emobox", "code"]
 created: 2026-10-26T05:46:38.638Z
-updated: 2026-10-26T05:46:38.638Z
+updated: 2026-11-07T20:08:27.640Z
 sources: []
-links: ["topic-app-paper-evidence.md", "topic-app-impl-ser-cues.md", "claim-app-3-emotion-cue-confirmation-rules.md"]
+links: ["topic-app-paper-evidence.md", "topic-app-impl-ser-cues.md", "claim-app-3-emotion-cue-confirmation-rules.md", "topic-dev-repos-ser-recipes-2026-11.md"]
 category: reference
 confidence: medium
 schemaVersion: 1
@@ -28,3 +28,13 @@ Ma et al., 2024, "EmoBox", Interspeech. https://arxiv.org/abs/2406.07162 . 설�
 
 ## 사용처
 [[topic-app-paper-evidence]] · [[topic-app-impl-ser-cues]] · [[claim-app-3-emotion-cue-confirmation-rules]]
+
+---
+
+## Update (2026-11-07T20:08:27.640Z)
+
+## 2026-11-08 개발자 저장소 조사 반영
+- 코드: emo-box/EmoBox, 331★(push 2026-03-18), README MIT 배지(API 미지정), 코퍼스 약관은 개별.
+- 화자 독립 폴드: 공식 분할 존중 / 화자 <4 또는 불균형이면 화자 종속(감정별 25% 테스트) / 화자 ≥4 균형이면 leave-one-speaker-out n-fold(6명 초과면 n=4).
+- 레시피: 동결 마지막 층 → LayerNorm → 선형-ReLU-풀링-선형, LR{1e-3,1e-4}×은닉{128,256}, 100 epoch(10 warm-up). 마지막 층만 평가(층 가중합 빈칸). 한국어 코퍼스 없음. [[topic-dev-repos-ser-recipes-2026-11]]
+

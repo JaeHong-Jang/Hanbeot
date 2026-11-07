@@ -2,9 +2,9 @@
 title: "claim-research-1-paper-a-korean-ser-selective-prediction"
 tags: ["scopus-2026-11", "research-track", "paper-a", "ser", "korean", "selective-prediction", "v3"]
 created: 2026-11-07T19:54:09.214Z
-updated: 2026-11-07T19:54:09.214Z
+updated: 2026-11-07T20:09:11.379Z
 sources: ["reports/한벷 최종 계획 v3.md#4.3", "research_notes/Scopus 조사/05_ser_sota_methods_for_paper.md", ".omc/orchestra/reviews/20261108_043406_verify_05_ser_sota_methods_for_paper.md"]
-links: ["claim-app-9-ser-evaluation-and-calibration.md", "topic-ser-sota-benchmarks-2026-11.md", "topic-ser-performance-levers-2026-11.md", "topic-korean-ser-landscape-2026-11.md", "claim-research-2-paper-b-personalization-synthetic.md"]
+links: ["claim-app-9-ser-evaluation-and-calibration.md", "topic-ser-sota-benchmarks-2026-11.md", "topic-ser-performance-levers-2026-11.md", "topic-korean-ser-landscape-2026-11.md", "claim-research-2-paper-b-personalization-synthetic.md", "claim-research-3-reproduction-experiments-r0-r8.md", "src-wu-2026-deer-uncertainty.md", "topic-dev-repos-ser-recipes-2026-11.md", "src-emotion2vec-2026-github-issues.md"]
 category: decision
 confidence: medium
 schemaVersion: 1
@@ -50,3 +50,14 @@ IEEE TAFFC 또는 Speech Communication, 디딤돌 Interspeech/ICASSP 4쪽. 학�
 3. KEMDy20 neutral 우세(ETRI 원문 86.5%), 태거 일관성 미확인, 투표 파일 공개 여부 미확인.
 4. MSP-Podcast 라이선스 지연. emotion2vec+ 학습 데이터 미공개 오염 가능성.
 - "한국어에서 처음"은 이번 검색에서 못 찾았다는 뜻이지 증명이 아님.
+
+---
+
+## Update (2026-11-07T20:09:11.379Z)
+
+## 2026-11-08 개발자 저장소 조사 반영
+- 기준선/레시피: 공개 KEMDy19 코드(DimensionSTP)가 있으므로 R1에서 이를 baseline으로 재현하고 EmoBox 화자 독립 규칙으로 재분할해 비교. 기여를 "코드 부재"로 쓰지 말고 "누수 없는 분할 + 보정/선택적 예측"으로 서술 [[claim-research-3-reproduction-experiments-r0-r8]].
+- 보정 코드: W-Wu/DEER에 불확실성 회귀 코드 존재 [[src-wu-2026-deer-uncertainty]]. "보정 코드 공개 자체가 기여"는 신규성 근거 부족(C), 완화.
+- 레시피 후보: MEDUSA(소프트 타깃, RTX 3090 1장), Tzeng(focal은 F1-Micro 기준 우위), EmoBox 층 가중합 빈칸. 효과 순위 일반화 금지 [[topic-dev-repos-ser-recipes-2026-11]].
+- emotion2vec 짧은 입력 환각·리샘플 민감도는 사용자 보고라 측정 대상으로만 서술 [[src-emotion2vec-2026-github-issues]].
+

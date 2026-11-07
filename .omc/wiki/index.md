@@ -1,6 +1,6 @@
 # Wiki Index
 
-> 650 pages | Last updated: 2026-11-07T19:55:57.464Z
+> 666 pages | Last updated: 2026-11-07T20:09:18.297Z
 
 ## architecture
 
@@ -66,6 +66,7 @@
 - [claim-problem-8-voice-and-memory-design](claim-problem-8-voice-and-memory-design.md) — # claim-problem-8-voice-and-memory-design
 - [claim-research-1-paper-a-korean-ser-selective-prediction](claim-research-1-paper-a-korean-ser-selective-prediction.md) — # claim-research-1-paper-a-korean-ser-selective-prediction
 - [claim-research-2-paper-b-personalization-synthetic](claim-research-2-paper-b-personalization-synthetic.md) — # claim-research-2-paper-b-personalization-synthetic
+- [claim-research-3-reproduction-experiments-r0-r8](claim-research-3-reproduction-experiments-r0-r8.md) — # claim-research-3-reproduction-experiments-r0-r8
 - [claim-tech-1-ser-model](claim-tech-1-ser-model.md) — # claim-tech-1-ser-model
 - [claim-tech-2-memory-architecture](claim-tech-2-memory-architecture.md) — # claim-tech-2-memory-architecture
 - [claim-tech-3-stt-tts-vendors](claim-tech-3-stt-tts-vendors.md) — # claim-tech-3-stt-tts-vendors
@@ -123,6 +124,8 @@
 - [topic-collab-unist-speech-labs](topic-collab-unist-speech-labs.md) — # topic-collab-unist-speech-labs
 - [topic-collab-unverified-candidates](topic-collab-unverified-candidates.md) — # topic-collab-unverified-candidates
 - [topic-collab-why-research-partner-needed](topic-collab-why-research-partner-needed.md) — # topic-collab-why-research-partner-needed
+- [topic-dev-repos-ser-recipes-2026-11](topic-dev-repos-ser-recipes-2026-11.md) — # topic-dev-repos-ser-recipes-2026-11
+- [topic-dev-repos-voice-conversation-2026-11](topic-dev-repos-voice-conversation-2026-11.md) — # topic-dev-repos-voice-conversation-2026-11
 - [topic-dialogue-dynamics-evidence-2026-11](topic-dialogue-dynamics-evidence-2026-11.md) — # topic-dialogue-dynamics-evidence-2026-11
 - [topic-korean-ser-landscape-2026-11](topic-korean-ser-landscape-2026-11.md) — # topic-korean-ser-landscape-2026-11
 - [topic-market-adoption-rate](topic-market-adoption-rate.md) — # topic-market-adoption-rate
@@ -201,6 +204,7 @@
 - [src-atmaja-2022-class-count-failure](src-atmaja-2022-class-count-failure.md) — # src-atmaja-2022-class-count-failure
 - [src-atommerce-2025-mindcafe-clinical-expansion](src-atommerce-2025-mindcafe-clinical-expansion.md) — # src-atommerce-2025-mindcafe-clinical-expansion
 - [src-atommerce-2025-mindcafe-users](src-atommerce-2025-mindcafe-users.md) — # src-atommerce-2025-mindcafe-users
+- [src-audeering-2023-w2v2-msp-dim](src-audeering-2023-w2v2-msp-dim.md) — # src-audeering-2023-w2v2-msp-dim
 - [src-audeering-2026-opensmile-python](src-audeering-2026-opensmile-python.md) — # src-audeering-2026-opensmile-python
 - [src-audeering-2026-opensmile-usage](src-audeering-2026-opensmile-usage.md) — # src-audeering-2026-opensmile-usage
 - [src-audio-turing-test-2025](src-audio-turing-test-2025.md) — # src-audio-turing-test-2025
@@ -256,6 +260,7 @@
 - [src-daejeon-2026-startup-programs](src-daejeon-2026-startup-programs.md) — # src-daejeon-2026-startup-programs
 - [src-dailian-2026-ai-dependence-concern](src-dailian-2026-ai-dependence-concern.md) — # src-dailian-2026-ai-dependence-concern
 - [src-daily-2025-smart-turn-v3](src-daily-2025-smart-turn-v3.md) — # src-daily-2025-smart-turn-v3
+- [src-daily-2026-pipecat-latency-posts](src-daily-2026-pipecat-latency-posts.md) — # src-daily-2026-pipecat-latency-posts
 - [src-dartmouth-2025-therabot-nejm-ai](src-dartmouth-2025-therabot-nejm-ai.md) — # src-dartmouth-2025-therabot-nejm-ai
 - [src-dartmouth-2025-therabot-rct](src-dartmouth-2025-therabot-rct.md) — # src-dartmouth-2025-therabot-rct
 - [src-dasaro-2024-crosslingual-ser](src-dasaro-2024-crosslingual-ser.md) — # src-dasaro-2024-crosslingual-ser
@@ -265,6 +270,7 @@
 - [src-dealsite-2026-crack-mau-arr](src-dealsite-2026-crack-mau-arr.md) — # src-dealsite-2026-crack-mau-arr
 - [src-demszky-2020-goemotions](src-demszky-2020-goemotions.md) — # src-demszky-2020-goemotions
 - [src-deoliveira-2023-distilled-audio-text-ser](src-deoliveira-2023-distilled-audio-text-ser.md) — # src-deoliveira-2023-distilled-audio-text-ser
+- [src-dimensionstp-2026-multimodal-transformer](src-dimensionstp-2026-multimodal-transformer.md) — # src-dimensionstp-2026-multimodal-transformer
 - [src-du-2024-cosyvoice2](src-du-2024-cosyvoice2.md) — # src-du-2024-cosyvoice2
 - [src-du-2025-cosyvoice3](src-du-2025-cosyvoice3.md) — # src-du-2025-cosyvoice3
 - [src-ec-2025-ai-act-prohibited-guidelines](src-ec-2025-ai-act-prohibited-guidelines.md) — # src-ec-2025-ai-act-prohibited-guidelines
@@ -281,6 +287,7 @@
 - [src-embrain-2024-loneliness-survey](src-embrain-2024-loneliness-survey.md) — # src-embrain-2024-loneliness-survey
 - [src-emodistill-2024-prosody-linguistic-distillation](src-emodistill-2024-prosody-linguistic-distillation.md) — # src-emodistill-2024-prosody-linguistic-distillation
 - [src-emotion2vec-2024-github](src-emotion2vec-2024-github.md) — # src-emotion2vec-2024-github
+- [src-emotion2vec-2026-github-issues](src-emotion2vec-2026-github-issues.md) — # src-emotion2vec-2026-github-issues
 - [src-entrepreneur-2025-chatgpt-break-reminder](src-entrepreneur-2025-chatgpt-break-reminder.md) — # src-entrepreneur-2025-chatgpt-break-reminder
 - [src-eqbench-2026-leaderboard](src-eqbench-2026-leaderboard.md) — # src-eqbench-2026-leaderboard
 - [src-esc-eval-2024-frameworks](src-esc-eval-2024-frameworks.md) — # src-esc-eval-2024-frameworks
@@ -440,7 +447,9 @@
 - [src-ma-2024-emobox](src-ma-2024-emobox.md) — # src-ma-2024-emobox
 - [src-ma-2024-emotion2vec](src-ma-2024-emotion2vec.md) — # src-ma-2024-emotion2vec
 - [src-ma-2025-lora-whisper-ser](src-ma-2025-lora-whisper-ser.md) — # src-ma-2025-lora-whisper-ser
+- [src-maai-2026-vap-toolkit](src-maai-2026-vap-toolkit.md) — # src-maai-2026-vap-toolkit
 - [src-macary-2021-continuous-ser](src-macary-2021-continuous-ser.md) — # src-macary-2021-continuous-ser
+- [src-maisterr-2026-pipecat-backchannel](src-maisterr-2026-pipecat-backchannel.md) — # src-maisterr-2026-pipecat-backchannel
 - [src-maples-2024-replika-students](src-maples-2024-replika-students.md) — # src-maples-2024-replika-students
 - [src-maslych-2025-response-delay-fillers](src-maslych-2025-response-delay-fillers.md) — # src-maslych-2025-response-delay-fillers
 - [src-mastra-2025-longmemeval-rag](src-mastra-2025-longmemeval-rag.md) — # src-mastra-2025-longmemeval-rag
@@ -533,6 +542,7 @@
 - [src-pipecat-2026-docs-supported-services](src-pipecat-2026-docs-supported-services.md) — # src-pipecat-2026-docs-supported-services
 - [src-pipecat-2026-docs-tts-aggregation](src-pipecat-2026-docs-tts-aggregation.md) — # src-pipecat-2026-docs-tts-aggregation
 - [src-pipecat-2026-examples](src-pipecat-2026-examples.md) — # src-pipecat-2026-examples
+- [src-pipecat-2026-expressive-alpha](src-pipecat-2026-expressive-alpha.md) — # src-pipecat-2026-expressive-alpha
 - [src-pipecat-2026-github](src-pipecat-2026-github.md) — # src-pipecat-2026-github
 - [src-pipecat-2026-rtzr-service-unverified](src-pipecat-2026-rtzr-service-unverified.md) — # src-pipecat-2026-rtzr-service-unverified
 - [src-pipecat-2026-smart-turn](src-pipecat-2026-smart-turn.md) — # src-pipecat-2026-smart-turn
@@ -548,6 +558,7 @@
 - [src-psypost-2025-human-introduced-chatbot](src-psypost-2025-human-introduced-chatbot.md) — # src-psypost-2025-human-introduced-chatbot
 - [src-public-irb-eirb-korea](src-public-irb-eirb-korea.md) — # src-public-irb-eirb-korea
 - [src-qwen-2025-omni-models](src-qwen-2025-omni-models.md) — # src-qwen-2025-omni-models
+- [src-qwen-2026-qwen2-audio-emotion-eval](src-qwen-2026-qwen2-audio-emotion-eval.md) — # src-qwen-2026-qwen2-audio-emotion-eval
 - [src-qwen-2026-qwen3-tts](src-qwen-2026-qwen3-tts.md) — # src-qwen-2026-qwen3-tts
 - [src-radez-2021-help-seeking-barriers](src-radez-2021-help-seeking-barriers.md) — # src-radez-2021-help-seeking-barriers
 - [src-rand-2025-suicide-chatbots](src-rand-2025-suicide-chatbots.md) — # src-rand-2025-suicide-chatbots
@@ -564,6 +575,7 @@
 - [src-rtzr-2026-streaming-websocket](src-rtzr-2026-streaming-websocket.md) — # src-rtzr-2026-streaming-websocket
 - [src-ruensuk-2020-smartphone-affect](src-ruensuk-2020-smartphone-affect.md) — # src-ruensuk-2020-smartphone-affect
 - [src-ryu-2025-pitch-contour](src-ryu-2025-pitch-contour.md) — # src-ryu-2025-pitch-contour
+- [src-s3prl-2026-emotion-recognition](src-s3prl-2026-emotion-recognition.md) — # src-s3prl-2026-emotion-recognition
 - [src-sacra-2025-characterai-revenue](src-sacra-2025-characterai-revenue.md) — # src-sacra-2025-characterai-revenue
 - [src-sacra-2025-replika-revenue](src-sacra-2025-replika-revenue.md) — # src-sacra-2025-replika-revenue
 - [src-sacra-2026-characterai-revenue](src-sacra-2026-characterai-revenue.md) — # src-sacra-2026-characterai-revenue
@@ -575,6 +587,7 @@
 - [src-schwartz-pell-2012-prosody-emotion](src-schwartz-pell-2012-prosody-emotion.md) — # src-schwartz-pell-2012-prosody-emotion
 - [src-scmp-2024-talkie-delisted](src-scmp-2024-talkie-delisted.md) — # src-scmp-2024-talkie-delisted
 - [src-sedaily-2022-mindcafe-trost](src-sedaily-2022-mindcafe-trost.md) — # src-sedaily-2022-mindcafe-trost
+- [src-sensevoice-2026-license-issue-334](src-sensevoice-2026-license-issue-334.md) — # src-sensevoice-2026-license-issue-334
 - [src-sereval-2024-whisper-crosslingual](src-sereval-2024-whisper-crosslingual.md) — # src-sereval-2024-whisper-crosslingual
 - [src-sesame-2025-csm-uncanny-valley](src-sesame-2025-csm-uncanny-valley.md) — # src-sesame-2025-csm-uncanny-valley
 - [src-shen-2025-meta-perser](src-shen-2025-meta-perser.md) — # src-shen-2025-meta-perser
@@ -585,6 +598,7 @@
 - [src-skku-irb-bioethics-act-articles-15-36](src-skku-irb-bioethics-act-articles-15-36.md) — # src-skku-irb-bioethics-act-articles-15-36
 - [src-skt-2021-nugu-carecall](src-skt-2021-nugu-carecall.md) — # src-skt-2021-nugu-carecall
 - [src-sogang-2024-aihub-hubert](src-sogang-2024-aihub-hubert.md) — # src-sogang-2024-aihub-hubert
+- [src-speechbrain-2026-iemocap-recipe](src-speechbrain-2026-iemocap-recipe.md) — # src-speechbrain-2026-iemocap-recipe
 - [src-springer-2014-korean-self-concealment](src-springer-2014-korean-self-concealment.md) — # src-springer-2014-korean-self-concealment
 - [src-sridhar-2020-uncertainty-reject](src-sridhar-2020-uncertainty-reject.md) — # src-sridhar-2020-uncertainty-reject
 - [src-sridhar-2021-softlabel-reject](src-sridhar-2021-softlabel-reject.md) — # src-sridhar-2021-softlabel-reject
@@ -607,6 +621,7 @@
 - [src-typecast-2026-api-pricing](src-typecast-2026-api-pricing.md) — # src-typecast-2026-api-pricing
 - [src-typecast-2026-developers-latency](src-typecast-2026-developers-latency.md) — # src-typecast-2026-developers-latency
 - [src-typecast-2026-streaming-tts-api](src-typecast-2026-streaming-tts-api.md) — # src-typecast-2026-streaming-tts-api
+- [src-tzeng-2025-lessons-learnt-is2025](src-tzeng-2025-lessons-learnt-is2025.md) — # src-tzeng-2025-lessons-learnt-is2025
 - [src-tzeng-2025-noise-robust-sse](src-tzeng-2025-noise-robust-sse.md) — # src-tzeng-2025-noise-robust-sse
 - [src-unist-2026-design-dis2026-papers](src-unist-2026-design-dis2026-papers.md) — # src-unist-2026-design-dis2026-papers
 - [src-unist-2026-kim-taehwan-cmet-cvpr](src-unist-2026-kim-taehwan-cmet-cvpr.md) — # src-unist-2026-kim-taehwan-cmet-cvpr
@@ -637,6 +652,7 @@
 - [src-woebot-2017-jmir-rct](src-woebot-2017-jmir-rct.md) — # src-woebot-2017-jmir-rct
 - [src-woebot-2025-faq-shutdown](src-woebot-2025-faq-shutdown.md) — # src-woebot-2025-faq-shutdown
 - [src-wu-2024-longmemeval](src-wu-2024-longmemeval.md) — # src-wu-2024-longmemeval
+- [src-wu-2026-deer-uncertainty](src-wu-2026-deer-uncertainty.md) — # src-wu-2026-deer-uncertainty
 - [src-wysa-2024-ai-crisis-detection-study](src-wysa-2024-ai-crisis-detection-study.md) — # src-wysa-2024-ai-crisis-detection-study
 - [src-wysa-2025-nhs-users](src-wysa-2025-nhs-users.md) — # src-wysa-2025-nhs-users
 - [src-xiaoyan43-2026-cyber-companion](src-xiaoyan43-2026-cyber-companion.md) — # src-xiaoyan43-2026-cyber-companion

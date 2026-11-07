@@ -2,9 +2,9 @@
 title: "src-kyutai-2026-unmute"
 tags: ["voice-agent", "kyutai", "unmute", "latency", "mit"]
 created: 2026-11-07T18:12:17.140Z
-updated: 2026-11-07T18:12:17.140Z
+updated: 2026-11-07T20:08:23.100Z
 sources: ["https://github.com/kyutai-labs/unmute"]
-links: ["src-kyutai-2024-moshi.md", "topic-voice-agent-frameworks-jarvis-2026-11.md", "topic-bench-opensource-voice-agents.md"]
+links: ["src-kyutai-2024-moshi.md", "topic-voice-agent-frameworks-jarvis-2026-11.md", "topic-bench-opensource-voice-agents.md", "topic-dev-repos-voice-conversation-2026-11.md"]
 category: reference
 confidence: medium
 schemaVersion: 1
@@ -33,4 +33,14 @@ MIT(코드, A).
 
 ## 사용처
 [[topic-voice-agent-frameworks-jarvis-2026-11]] · [[topic-bench-opensource-voice-agents]]
+
+---
+
+## Update (2026-11-07T20:08:23.100Z)
+
+## 2026-11-08 개발자 저장소 조사 반영
+- DSM-TTS(arXiv 2509.08753): 행동 스트림 + 텍스트 선행 스트림 l=2, 지연 1.6초, CFG 증류, 화자 임베딩 최대 5명. 영·프 전용(A).
+- ASR 지연 2.5초 기본, H100에서 400개 동시 처리하며 실시간.
+- Unmute README: 단일 L40S TTS 약 750ms → 분산 약 450ms.
+- 한벗 적용(제안): LLM 스트리밍에서 문장 끝을 기다리지 말고 2단어 선행 제공 시험. 한국어 지원 없음. [[topic-dev-repos-voice-conversation-2026-11]]
 

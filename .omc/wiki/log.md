@@ -3194,3 +3194,139 @@
 - **Pages:** topic-scopus-literature-2026-11.md
 - **Summary:** Updated "topic-scopus-literature-2026-11" with new content
 
+## [2026-11-07T20:05:15.322Z] ingest
+- **Pages:** topic-dev-repos-ser-recipes-2026-11.md
+- **Summary:** Created new page "topic-dev-repos-ser-recipes-2026-11"
+
+## [2026-11-07T20:05:49.637Z] ingest
+- **Pages:** topic-dev-repos-voice-conversation-2026-11.md
+- **Summary:** Created new page "topic-dev-repos-voice-conversation-2026-11"
+
+## [2026-11-07T20:06:11.059Z] ingest
+- **Pages:** claim-research-3-reproduction-experiments-r0-r8.md
+- **Summary:** Created new page "claim-research-3-reproduction-experiments-r0-r8"
+
+## [2026-11-07T20:06:46.466Z] ingest
+- **Pages:** src-dimensionstp-2026-multimodal-transformer.md
+- **Summary:** Created new page "src-dimensionstp-2026-multimodal-transformer"
+
+## [2026-11-07T20:06:48.869Z] ingest
+- **Pages:** src-wu-2026-deer-uncertainty.md
+- **Summary:** Created new page "src-wu-2026-deer-uncertainty"
+
+## [2026-11-07T20:06:51.173Z] ingest
+- **Pages:** src-maisterr-2026-pipecat-backchannel.md
+- **Summary:** Created new page "src-maisterr-2026-pipecat-backchannel"
+
+## [2026-11-07T20:06:53.416Z] ingest
+- **Pages:** src-pipecat-2026-expressive-alpha.md
+- **Summary:** Created new page "src-pipecat-2026-expressive-alpha"
+
+## [2026-11-07T20:06:55.895Z] ingest
+- **Pages:** src-emotion2vec-2026-github-issues.md
+- **Summary:** Created new page "src-emotion2vec-2026-github-issues"
+
+## [2026-11-07T20:06:58.240Z] ingest
+- **Pages:** src-sensevoice-2026-license-issue-334.md
+- **Summary:** Created new page "src-sensevoice-2026-license-issue-334"
+
+## [2026-11-07T20:07:33.370Z] ingest
+- **Pages:** src-speechbrain-2026-iemocap-recipe.md
+- **Summary:** Created new page "src-speechbrain-2026-iemocap-recipe"
+
+## [2026-11-07T20:07:35.550Z] ingest
+- **Pages:** src-s3prl-2026-emotion-recognition.md
+- **Summary:** Created new page "src-s3prl-2026-emotion-recognition"
+
+## [2026-11-07T20:07:37.732Z] ingest
+- **Pages:** src-audeering-2023-w2v2-msp-dim.md
+- **Summary:** Created new page "src-audeering-2023-w2v2-msp-dim"
+
+## [2026-11-07T20:07:40.074Z] ingest
+- **Pages:** src-tzeng-2025-lessons-learnt-is2025.md
+- **Summary:** Created new page "src-tzeng-2025-lessons-learnt-is2025"
+
+## [2026-11-07T20:07:42.604Z] ingest
+- **Pages:** src-qwen-2026-qwen2-audio-emotion-eval.md
+- **Summary:** Created new page "src-qwen-2026-qwen2-audio-emotion-eval"
+
+## [2026-11-07T20:07:45.079Z] ingest
+- **Pages:** src-maai-2026-vap-toolkit.md
+- **Summary:** Created new page "src-maai-2026-vap-toolkit"
+
+## [2026-11-07T20:07:47.418Z] ingest
+- **Pages:** src-daily-2026-pipecat-latency-posts.md
+- **Summary:** Created new page "src-daily-2026-pipecat-latency-posts"
+
+## [2026-11-07T20:08:13.728Z] ingest
+- **Pages:** src-wagner-2023-transformer-era.md
+- **Summary:** Updated "src-wagner-2023-transformer-era" with new content
+
+## [2026-11-07T20:08:15.955Z] ingest
+- **Pages:** src-chatzichristodoulou-2025-medusa.md
+- **Summary:** Updated "src-chatzichristodoulou-2025-medusa" with new content
+
+## [2026-11-07T20:08:18.355Z] ingest
+- **Pages:** src-livekit-2025-turn-detector.md
+- **Summary:** Updated "src-livekit-2025-turn-detector" with new content
+
+## [2026-11-07T20:08:20.850Z] ingest
+- **Pages:** src-sesame-2025-csm-uncanny-valley.md
+- **Summary:** Updated "src-sesame-2025-csm-uncanny-valley" with new content
+
+## [2026-11-07T20:08:23.100Z] ingest
+- **Pages:** src-kyutai-2026-unmute.md
+- **Summary:** Updated "src-kyutai-2026-unmute" with new content
+
+## [2026-11-07T20:08:25.383Z] ingest
+- **Pages:** src-hume-2025-evi3-launch.md
+- **Summary:** Updated "src-hume-2025-evi3-launch" with new content
+
+## [2026-11-07T20:08:27.640Z] ingest
+- **Pages:** src-ma-2024-emobox.md
+- **Summary:** Updated "src-ma-2024-emobox" with new content
+
+## [2026-11-07T20:08:59.842Z] ingest
+- **Pages:** topic-tts-opensource-candidates-2026-11.md
+- **Summary:** Updated "topic-tts-opensource-candidates-2026-11" with new content
+
+## [2026-11-07T20:09:02.060Z] ingest
+- **Pages:** topic-bench-opensource-voice-agents.md
+- **Summary:** Updated "topic-bench-opensource-voice-agents" with new content
+
+## [2026-11-07T20:09:04.431Z] ingest
+- **Pages:** claim-app-12-interruption-backchannel-filler-rules.md
+- **Summary:** Updated "claim-app-12-interruption-backchannel-filler-rules" with new content
+
+## [2026-11-07T20:09:06.955Z] ingest
+- **Pages:** claim-app-1-pipecat-orchestrator.md
+- **Summary:** Updated "claim-app-1-pipecat-orchestrator" with new content
+
+## [2026-11-07T20:09:09.198Z] ingest
+- **Pages:** topic-korean-ser-landscape-2026-11.md
+- **Summary:** Updated "topic-korean-ser-landscape-2026-11" with new content
+
+## [2026-11-07T20:09:11.379Z] ingest
+- **Pages:** claim-research-1-paper-a-korean-ser-selective-prediction.md
+- **Summary:** Updated "claim-research-1-paper-a-korean-ser-selective-prediction" with new content
+
+## [2026-11-07T20:09:13.921Z] ingest
+- **Pages:** topic-scopus-literature-2026-11.md
+- **Summary:** Updated "topic-scopus-literature-2026-11" with new content
+
+## [2026-11-07T20:09:16.245Z] ingest
+- **Pages:** topic-ser-preprocessing-pipeline-evidence.md
+- **Summary:** Updated "topic-ser-preprocessing-pipeline-evidence" with new content
+
+## [2026-11-07T20:09:26.834Z] lint
+- **Pages:** claim-collab-6-pilot-study-design-ask.md, claim-market-7-price-anchor.md, claim-research-2-paper-b-personalization-synthetic.md, src-a16z-2026-top100-genai-apps.md, src-aihub-2024-terms.md, src-emotion2vec-2026-github-issues.md, src-etri-2020-kemdy.md, src-everytime-2020-malicious-comments-incident.md, src-hannam-2024-enrollment-namuwiki.md, src-ihori-2025-ntt-icl-personalization.md, src-itworld-2025-chatbot-loneliness-studies.md, src-kirkland-2023-stuck-in-mos-pit.md, src-livekit-2026-docs-tts-models.md, src-meng-dai-2021-chatbot-emotional-support.md, src-mirror-eval-2026-companion-harm.md, src-mohw-2021-covid-mental-health-survey.md, src-naver-2026-clova-speech-voice.md, src-oh-2024-korean-vocal-emotion-acoustics.md, src-pipecat-2026-expressive-alpha.md, src-pipecat-2026-rtzr-service-unverified.md, src-qwen-2026-qwen2-audio-emotion-eval.md, src-s3prl-2026-emotion-recognition.md, src-scatterlab-2025-zeta-subscriber-age.md, src-sensevoice-2026-license-issue-334.md, src-shen-2025-meta-perser.md, src-speechbrain-2026-iemocap-recipe.md, src-tzeng-2025-lessons-learnt-is2025.md, src-univtomorrow-2025-genz-ai-usage.md, src-voxbooster-2026-companion-usage-hours.md, src-wang-2026-aies-chatgpt-youth.md, src-yeowon-2026-indextts-ko.md, src-yoon-2026-lowpass-korean-gender-emotion.md, src-young-lee-2004-korean-backchannel.md, topic-app-paper-evidence.md, topic-app-risks.md, topic-collab-unist-speech-labs.md, topic-collab-unverified-candidates.md, topic-dev-repos-voice-conversation-2026-11.md, topic-ser-label-count-calibration-evidence.md, topic-ser-preprocessing-pipeline-evidence.md, claim-collab-1-guidelines-demand-expert-validation.md, src-emotion2vec-2024-github.md, src-etri-2018-kesdy18.md, src-livekit-2025-turn-detector.md, src-naver-2023-carecall-chi-best-paper.md, src-pipecat-2026-docs-custom-frame-processor.md, src-qwen-2025-omni-models.md, src-wang-2023-speech-emotion-diarization.md, src-yoon-2018-audio-text-dre.md, topic-app-architecture.md, topic-bench-business-metrics.md, topic-collab-candidate-researchers-map.md, topic-market-adoption-rate.md, topic-ser-context-personalization.md, topic-tech-empathetic-dialogue.md, topic-tts-humanlike-evidence-2026-11.md
+- **Summary:** Lint: 61 issues (3 orphan, 0 stale, 4 broken, 19 contradictions)
+
+## [2026-11-07T20:09:38.498Z] lint
+- **Pages:** claim-collab-6-pilot-study-design-ask.md, claim-market-7-price-anchor.md, claim-research-2-paper-b-personalization-synthetic.md, src-a16z-2026-top100-genai-apps.md, src-aihub-2024-terms.md, src-emotion2vec-2026-github-issues.md, src-etri-2020-kemdy.md, src-everytime-2020-malicious-comments-incident.md, src-hannam-2024-enrollment-namuwiki.md, src-ihori-2025-ntt-icl-personalization.md, src-itworld-2025-chatbot-loneliness-studies.md, src-kirkland-2023-stuck-in-mos-pit.md, src-livekit-2026-docs-tts-models.md, src-meng-dai-2021-chatbot-emotional-support.md, src-mirror-eval-2026-companion-harm.md, src-mohw-2021-covid-mental-health-survey.md, src-naver-2026-clova-speech-voice.md, src-oh-2024-korean-vocal-emotion-acoustics.md, src-pipecat-2026-expressive-alpha.md, src-pipecat-2026-rtzr-service-unverified.md, src-qwen-2026-qwen2-audio-emotion-eval.md, src-s3prl-2026-emotion-recognition.md, src-scatterlab-2025-zeta-subscriber-age.md, src-sensevoice-2026-license-issue-334.md, src-shen-2025-meta-perser.md, src-speechbrain-2026-iemocap-recipe.md, src-tzeng-2025-lessons-learnt-is2025.md, src-univtomorrow-2025-genz-ai-usage.md, src-voxbooster-2026-companion-usage-hours.md, src-wang-2026-aies-chatgpt-youth.md, src-yeowon-2026-indextts-ko.md, src-yoon-2026-lowpass-korean-gender-emotion.md, src-young-lee-2004-korean-backchannel.md, topic-app-paper-evidence.md, topic-app-risks.md, topic-collab-unist-speech-labs.md, topic-collab-unverified-candidates.md, topic-dev-repos-ser-recipes-2026-11.md, topic-dev-repos-voice-conversation-2026-11.md, topic-ser-label-count-calibration-evidence.md, topic-ser-preprocessing-pipeline-evidence.md, claim-collab-1-guidelines-demand-expert-validation.md, src-emotion2vec-2024-github.md, src-etri-2018-kesdy18.md, src-livekit-2025-turn-detector.md, src-naver-2023-carecall-chi-best-paper.md, src-pipecat-2026-docs-custom-frame-processor.md, src-qwen-2025-omni-models.md, src-wang-2023-speech-emotion-diarization.md, src-yoon-2018-audio-text-dre.md, topic-app-architecture.md, topic-bench-business-metrics.md, topic-collab-candidate-researchers-map.md, topic-market-adoption-rate.md, topic-ser-context-personalization.md, topic-tech-empathetic-dialogue.md, topic-tts-humanlike-evidence-2026-11.md
+- **Summary:** Lint: 62 issues (3 orphan, 0 stale, 4 broken, 19 contradictions)
+
+## [2026-11-07T20:09:56.972Z] lint
+- **Pages:** claim-collab-6-pilot-study-design-ask.md, claim-market-7-price-anchor.md, claim-research-2-paper-b-personalization-synthetic.md, src-a16z-2026-top100-genai-apps.md, src-aihub-2024-terms.md, src-emotion2vec-2026-github-issues.md, src-etri-2020-kemdy.md, src-everytime-2020-malicious-comments-incident.md, src-hannam-2024-enrollment-namuwiki.md, src-ihori-2025-ntt-icl-personalization.md, src-itworld-2025-chatbot-loneliness-studies.md, src-kirkland-2023-stuck-in-mos-pit.md, src-livekit-2026-docs-tts-models.md, src-meng-dai-2021-chatbot-emotional-support.md, src-mirror-eval-2026-companion-harm.md, src-mohw-2021-covid-mental-health-survey.md, src-naver-2026-clova-speech-voice.md, src-oh-2024-korean-vocal-emotion-acoustics.md, src-pipecat-2026-rtzr-service-unverified.md, src-qwen-2026-qwen2-audio-emotion-eval.md, src-scatterlab-2025-zeta-subscriber-age.md, src-sensevoice-2026-license-issue-334.md, src-shen-2025-meta-perser.md, src-univtomorrow-2025-genz-ai-usage.md, src-voxbooster-2026-companion-usage-hours.md, src-wang-2026-aies-chatgpt-youth.md, src-yeowon-2026-indextts-ko.md, src-yoon-2026-lowpass-korean-gender-emotion.md, src-young-lee-2004-korean-backchannel.md, topic-app-paper-evidence.md, topic-app-risks.md, topic-collab-unist-speech-labs.md, topic-collab-unverified-candidates.md, topic-ser-label-count-calibration-evidence.md, topic-ser-preprocessing-pipeline-evidence.md, claim-collab-1-guidelines-demand-expert-validation.md, src-emotion2vec-2024-github.md, src-etri-2018-kesdy18.md, src-livekit-2025-turn-detector.md, src-naver-2023-carecall-chi-best-paper.md, src-pipecat-2026-docs-custom-frame-processor.md, src-qwen-2025-omni-models.md, src-wang-2023-speech-emotion-diarization.md, src-yoon-2018-audio-text-dre.md, topic-app-architecture.md, topic-bench-business-metrics.md, topic-collab-candidate-researchers-map.md, topic-market-adoption-rate.md, topic-ser-context-personalization.md, topic-tech-empathetic-dialogue.md, topic-tts-humanlike-evidence-2026-11.md
+- **Summary:** Lint: 54 issues (0 orphan, 0 stale, 0 broken, 19 contradictions)
+

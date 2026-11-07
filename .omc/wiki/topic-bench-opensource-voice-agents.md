@@ -1,10 +1,10 @@
 ---
 title: "topic-bench-opensource-voice-agents"
-tags: ["benchmark", "github", "opensource", "pipecat", "memory", "topic", "voice-agent", "jarvis", "raon-speech"]
+tags: ["benchmark", "github", "opensource", "pipecat", "memory", "topic", "voice-agent", "jarvis", "raon-speech", "bench", "voice-agents"]
 created: 2026-11-07T11:34:27.863Z
-updated: 2026-11-07T18:12:57.795Z
+updated: 2026-11-07T20:09:02.060Z
 sources: ["research_notes/유사앱 조사/similar_apps_github.md"]
-links: ["topic-app-stack-and-forks.md", "overview-benchmark.md", "overview-technology.md", "topic-ser-label-scheme-and-fusion.md", "claim-tech-2-memory-architecture.md", "topic-voice-agent-frameworks-jarvis-2026-11.md", "src-krafton-2026-raon-speech.md", "src-kyutai-2026-unmute.md"]
+links: ["topic-app-stack-and-forks.md", "overview-benchmark.md", "overview-technology.md", "topic-ser-label-scheme-and-fusion.md", "claim-tech-2-memory-architecture.md", "topic-voice-agent-frameworks-jarvis-2026-11.md", "src-krafton-2026-raon-speech.md", "src-kyutai-2026-unmute.md", "src-pipecat-2026-expressive-alpha.md", "src-maisterr-2026-pipecat-backchannel.md", "src-maai-2026-vap-toolkit.md", "topic-dev-repos-voice-conversation-2026-11.md"]
 category: reference
 confidence: medium
 schemaVersion: 1
@@ -63,3 +63,15 @@ schemaVersion: 1
 - Raon-Speech(KRAFTON): 기반 9B는 영·한이나 풀듀플렉스·백채널 SpeechChat은 영어 대화이며 모델카드 모두 CC-BY-NC-4.0. 상업 불가, 참고용([[src-krafton-2026-raon-speech]]).
 - Unmute TTS 지연 단일 L40S 약 750ms, 분산 약 450ms(제작사 보고, [[src-kyutai-2026-unmute]]).
 - Open-LLM-VTuber 별은 14,626(이전 47은 오류). Ultravox는 음성 입력 -> 텍스트 출력이라 S2S 아님.
+
+---
+
+## Update (2026-11-07T20:09:02.060Z)
+
+## 2026-11-08 개발자 저장소 조사 반영
+- Pipecat에 STT 톤 신호 → LLM 지시 → 표현 태그 → TTS 어댑터를 잇는 expressive 모듈(alpha) 존재: [[src-pipecat-2026-expressive-alpha]].
+- 맞장구 구현 실재: maisterr/pipecat-backchannel(BSD-2, 25★, 영어 전용) [[src-maisterr-2026-pipecat-backchannel]]. MaAI VAP는 영·중·일만 [[src-maai-2026-vap-toolkit]].
+- 체감 지연 비교(Hume 글): EVI 3 0.9~1.4초, Sesame 약 1초, Gemini Live 약 1.5초, GPT-4o 약 2.6초 — 공급사 자체 측정.
+- Cartesia Sonic 40~90ms·종단 190ms는 모델별 값·측정 조건 미확정(C). 벤치 표에 넣지 말 것.
+- 전체: [[topic-dev-repos-voice-conversation-2026-11]].
+

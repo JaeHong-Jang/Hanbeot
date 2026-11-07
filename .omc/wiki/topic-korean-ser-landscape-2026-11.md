@@ -2,9 +2,9 @@
 title: "topic-korean-ser-landscape-2026-11"
 tags: ["scopus-2026-11", "ser", "korean", "kemdy", "prosody", "gap", "verified"]
 created: 2026-11-07T19:53:32.539Z
-updated: 2026-11-07T19:53:32.539Z
+updated: 2026-11-07T20:09:09.198Z
 sources: ["research_notes/Scopus 조사/05_ser_sota_methods_for_paper.md", ".omc/orchestra/reviews/20261108_043406_verify_05_ser_sota_methods_for_paper.md"]
-links: ["topic-ser-papers-synthesis.md", "topic-ser-sota-benchmarks-2026-11.md", "src-sogang-2024-aihub-hubert.md", "lab-etri-noh-kyoungju-kemdy.md", "claim-app-9-ser-evaluation-and-calibration.md", "src-hyeon-2025-segmental-pooling.md", "src-cao-2025-kemdy-prosody-gru.md", "src-cao-2025-kemdy-w2v-kobert.md", "src-yi-2024-kohmt-korean-fusion.md", "src-jun-2024-realtime-kemdy19.md", "src-oh-2024-korean-vocal-emotion-acoustics.md", "src-yoon-2026-human-vs-ai-korean-voices.md", "src-yoon-2026-lowpass-korean-gender-emotion.md", "src-chen-2023-f0-perturbation-focus-ko-ja.md"]
+links: ["topic-ser-papers-synthesis.md", "topic-ser-sota-benchmarks-2026-11.md", "src-sogang-2024-aihub-hubert.md", "lab-etri-noh-kyoungju-kemdy.md", "claim-app-9-ser-evaluation-and-calibration.md", "src-hyeon-2025-segmental-pooling.md", "src-cao-2025-kemdy-prosody-gru.md", "src-cao-2025-kemdy-w2v-kobert.md", "src-yi-2024-kohmt-korean-fusion.md", "src-jun-2024-realtime-kemdy19.md", "src-oh-2024-korean-vocal-emotion-acoustics.md", "src-yoon-2026-human-vs-ai-korean-voices.md", "src-yoon-2026-lowpass-korean-gender-emotion.md", "src-chen-2023-f0-perturbation-focus-ko-ja.md", "src-dimensionstp-2026-multimodal-transformer.md", "topic-dev-repos-ser-recipes-2026-11.md"]
 category: pattern
 confidence: medium
 schemaVersion: 1
@@ -44,3 +44,15 @@ schemaVersion: 1
 4. 한국어 SER의 LoRA/PEFT·음성 LLM·합성 데이터·화자 적응 사례. VoxEmo 35코퍼스에 한국어·KEMDy 없음(A).
 5. 불안·외로움·가라앉음의 한국어 자연 대화 음향 연구.
 6. KEMDy19/20 평가자별 투표 파일의 공개 분할 포함 여부, KEMDy20 시간·클래스 분포 일부.
+
+---
+
+## Update (2026-11-07T20:09:09.198Z)
+
+## 2026-11-08 개발자 저장소 조사 반영
+- **공개 KEMDy19 학습·평가 코드가 있음(1건 발견)**: DimensionSTP/multimodal-transformer(3★, MIT). 실행·재현 품질은 미검증. "공개 코드 부재"는 철회 [[src-dimensionstp-2026-multimodal-transformer]].
+- EmoBox 32개 코퍼스에 한국어 없음. emotion2vec+ 학습 데이터의 한국어 비중은 미공개(성능은 "분포 모름").
+- "KEMDy19 HuBERT CCC .3573"은 IEMOCAP 값으로 폐기. KEMDy19 HuBERT는 전체 .5271, 4감정 .5392(원논문, 검증표).
+- HF 한국어 SER 모델 중 0.9876(데이터 None, 1 epoch)은 증거 불가. HyunaZ/hubert_emotion은 강도 회귀 헤드, 수치 미기재.
+- 한국어 SER 평가 수치는 SenseVoice·emotion2vec 모두 공식 미보고. 정리 [[topic-dev-repos-ser-recipes-2026-11]].
+
