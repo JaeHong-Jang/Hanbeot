@@ -2395,3 +2395,7 @@
 - **Pages:** claim-collab-6-pilot-study-design-ask.md, claim-market-7-price-anchor.md, src-a16z-2026-top100-genai-apps.md, src-aihub-2024-terms.md, src-etri-2020-kemdy.md, src-everytime-2020-malicious-comments-incident.md, src-hannam-2024-enrollment-namuwiki.md, src-itworld-2025-chatbot-loneliness-studies.md, src-livekit-2026-docs-tts-models.md, src-meng-dai-2021-chatbot-emotional-support.md, src-mirror-eval-2026-companion-harm.md, src-mohw-2021-covid-mental-health-survey.md, src-naver-2026-clova-speech-voice.md, src-pipecat-2026-rtzr-service-unverified.md, src-scatterlab-2025-zeta-subscriber-age.md, src-univtomorrow-2025-genz-ai-usage.md, src-voxbooster-2026-companion-usage-hours.md, src-wang-2026-aies-chatgpt-youth.md, topic-app-paper-evidence.md, topic-app-risks.md, topic-collab-unverified-candidates.md, claim-collab-1-guidelines-demand-expert-validation.md, src-etri-2018-kesdy18.md, src-livekit-2025-turn-detector.md, src-naver-2023-carecall-chi-best-paper.md, src-pipecat-2026-docs-custom-frame-processor.md, topic-app-architecture.md, topic-collab-candidate-researchers-map.md, topic-market-adoption-rate.md, topic-tech-empathetic-dialogue.md
 - **Summary:** Lint: 33 issues (0 orphan, 0 stale, 0 broken, 12 contradictions)
 
+## [2026-11-07T00:00:00.000Z] edit
+- **Pages:** overview-hanbeot-project.md, bench-clova-carecall.md, lab-khcu-ko-jeongeun.md
+- **Summary:** 고령층을 한벗 대상(3차 확장 포함)에서 제외. 타깃은 대학생 → 취준생·직장인. 고령층 관련 벤치마크·연구자는 참고 사례로만 유지
+

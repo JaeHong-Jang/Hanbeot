@@ -78,14 +78,14 @@
 | 방식 | 하는 일 | 장점 | 단점 | 숫자 근거 | 한벗 판단 |
 |---|---|---|---|---|---|
 | 텍스트만 | 전사문으로만 감정 판단 | 단순, Claude가 이미 함 | "괜찮아"+슬픈 목소리 놓침, STT 오류에 약함 | KEMDy20 F1 38.4 (Jeong 2023) · WER 40%면 약 10%p 하락 (Li 2024) | 기준선(E0) |
-| 음성만 | SER 결과로만 판단 | 말 내용과 무관한 신호 | 정서가 약함, 자연 대화에서 낮음 | 독거노인 3감정 64.7%, 6감정 51.4% (Kim·Yi·Won 2024) | 기준선(E1) |
+| 음성만 | SER 결과로만 판단 | 말 내용과 무관한 신호 | 정서가 약함, 자연 대화에서 낮음 | 한국어 실제 발화 3감정 64.7%, 6감정 51.4% (Kim·Yi·Won 2024, 고령자 표본) | 기준선(E1) |
 | 초기 결합 | 특징 연결 후 공동 학습 | 상호작용 학습 가능 | 재학습 필요, 데이터 많이 필요 | IEMOCAP 65.1%, MSP-Podcast 58.2~59.1% (Pepino 2020) | 보류 |
 | 후기 결합 – 고정 가중치 | `w_t·p_t + w_a·p_a` | 설명 쉬움, 튜닝 쉬움 | 발화마다 품질이 달라도 같은 비율 | Pepino 2020: "시스템당 스칼라 가중치 1개" 방식은 학습형 결합층보다 **약간 낮음**(수치 미보고) | **시작점** |
 | 후기 결합 – 학습형 (스태킹) | 두 모델의 logit을 작은 분류기(LR·SVM)에 넣음 | 데이터로 최적 비율 학습 | 라벨 데이터 필요, 과적합 위험 | IEMOCAP 63.9% (Pepino 2020) · 정서가 CCC 0.553, 각성 0.579 (Atmaja 2021, LOSO) | 2단계 튜닝 후보(E9) |
 | 후기 결합 – 축별 가중치 | 정서가·각성마다 다른 비율 | 근거 있는 비대칭 반영 | 축 변환표 필요 | 텍스트 정서가 .405 vs 음성 .204 / 음성 각성 .543 vs 텍스트 .382 (Atmaja 2021) | **채택** |
 | 동적 – 확신도·엔트로피 | 엔트로피 높으면 그 모달리티 비중↓ | 실시간 품질 반영, 학습 불필요 | 보정 안 된 확률이면 오작동 | 엔트로피 기반 대체 규칙: IEMOCAP UA 65.36→65.81, MSP-IMPROV 52.22→53.24 (Chua 2025) | **채택(약하게)** |
 | 동적 – 불확실성 분포 학습 | 모달리티별 분산을 학습해 가중치로 | 이론적으로 가장 깔끔 | 구현 난도 높음 | COLD Fusion (Tellamekala 2024) — 음성·영상, 수치 확인 필요 | 장기 |
-| 2단계 (텍스트 → 음성) | 텍스트로 긍정/부정/중립, 그 안에서 음성으로 세부 감정 | 한국 노인 데이터에서 최고 | 텍스트가 "중립"이면 음성 부정 신호가 묻힘 | 6감정 69.3% (Kim·Yi·Won 2024) | 비교 실험(E8) |
+| 2단계 (텍스트 → 음성) | 텍스트로 긍정/부정/중립, 그 안에서 음성으로 세부 감정 | 한국어 실제 발화 연구(J5)에서 최고 | 텍스트가 "중립"이면 음성 부정 신호가 묻힘 | 6감정 69.3% (Kim·Yi·Won 2024) | 비교 실험(E8) |
 | LLM 결합 | 음성 특징을 글로 써서 LLM에 줌 | 구조 변경 없음, 맥락과 함께 판단 | 큰 LLM은 이득이 작음, 재현성 낮음 | LLaMA-3-8B zero-shot 35.1→44.2, **Claude 3.5 Sonnet 58.99→59.23** (SpeechCueLLM 2024) | 해석만 맡김 |
 
 > 📌 **읽는 법**
@@ -104,9 +104,9 @@
 |---|---|---|---|---|---|---|
 | J1 | Pepino, Riera, Ferrer, Gravano. *Fusion approaches for emotion recognition from speech using acoustic and text-based features* 🟢 | 2020 · ICASSP | openSMILE 음성 + BERT 텍스트. 초기 결합 3종 vs 후기 결합(두 logit을 이어 붙여 softmax 층 학습) | IEMOCAP AvRec: 음성 56.0, 텍스트(BERT) 55.2, 초기 결합 64.7~65.1, 후기 결합 63.9. MSP-Podcast: 45.7 / 51.0 / 56.5~59.1 / 58.0. 스칼라 가중치 방식은 약간 낮음. **IEMOCAP 기본 분할은 텍스트 성능을 낙관적으로 추정**한다고 경고 | 결합 자체로 +8~13%p. 방식 차이는 작음 → 후기 결합으로 시작. 대본 데이터는 텍스트 누수 주의 | [arXiv 2403.18635](https://arxiv.org/abs/2403.18635) · DOI 10.1109/ICASSP40776.2020.9054709 |
 | J2 | Atmaja, Akagi. *Two-stage dimensional emotion recognition by fusing predictions of acoustic and text networks using SVM* 🟢 | 2021 · Speech Communication 126:9–21 | 음성·텍스트 DNN을 따로 학습 → 예측값을 SVM으로 결합(후기). 정서가·각성·지배성 | IEMOCAP LOSO CCC — 정서가: 음성 .204, 텍스트 .405, 결합 .553 / 각성: 음성 .543, 텍스트 .382, 결합 .579. MSP-IMPROV LOSO — 정서가: 음성 .206, 텍스트 .192, 결합 .291 / 각성: .503 / .189 / .570. 후기 결합이 기존 초기 결합보다 높음 | **축별 가중치의 직접 근거.** 정서가는 텍스트, 각성은 음성. 단 MSP-IMPROV처럼 텍스트가 약한 데이터에선 정서가도 음성이 비슷 → 데이터로 재조정 필요 | [arXiv 2210.14495](https://arxiv.org/abs/2210.14495) |
-| J3 | Wagner 외. *Dawn of the transformer era in speech emotion recognition: closing the valence gap* 🟡 | 2023 · IEEE TPAMI 45(9) | wav2vec 2.0·HuBERT 미세조정으로 정서가·각성·지배성 회귀 | MSP-Podcast 정서가 CCC **.638** (텍스트 없이). 정서가 향상은 트랜스포머가 **암묵적으로 배운 언어 정보** 덕분이라고 분석. 성별엔 공정, 개별 화자엔 불공정 | 큰 음성 모델은 정서가도 어느 정도 잡지만 그건 "말 내용"을 엿듣는 것 → 한국어 고령 화자에선 근거 없음. 화자별 편차 큼 → 기준선 보정 필요 | [arXiv 2203.07378](https://arxiv.org/abs/2203.07378) |
+| J3 | Wagner 외. *Dawn of the transformer era in speech emotion recognition: closing the valence gap* 🟡 | 2023 · IEEE TPAMI 45(9) | wav2vec 2.0·HuBERT 미세조정으로 정서가·각성·지배성 회귀 | MSP-Podcast 정서가 CCC **.638** (텍스트 없이). 정서가 향상은 트랜스포머가 **암묵적으로 배운 언어 정보** 덕분이라고 분석. 성별엔 공정, 개별 화자엔 불공정 | 큰 음성 모델은 정서가도 어느 정도 잡지만 그건 "말 내용"을 엿듣는 것 → 한국어 화자에선 근거 없음. 화자별 편차 큼 → 기준선 보정 필요 | [arXiv 2203.07378](https://arxiv.org/abs/2203.07378) |
 | J4 | Li, Bell, Lai. *SER with ASR Transcripts: WER and Fusion Techniques* 🟢 (기존 E9) | 2024 · IEEE SLT | ASR 11종 전사문 + 음성 결합 | WER 약 12%면 정답 전사와 차이 미미, 약 40%면 텍스트 약 10%p 하락, 음성과 결합 시 하락폭 약 4%p | **STT 품질이 낮을 때 텍스트 가중치를 낮추는 규칙**의 근거 | [arXiv 2406.08353](https://arxiv.org/abs/2406.08353) |
-| J5 | Kim, Yi, Won. *SER in People at High Risk of Dementia* 🟢 (기존 D7) | 2024 · Dementia and Neurocognitive Disorders 23(3) | 독거노인 133명 실제 발화. 텍스트(KPFBERT)로 3극성 → 음성으로 세부 감정 | 음성 6감정 51.4%, 음성 3감정 64.7%, 텍스트 3감정 79.8%, 2단계 6감정 69.3% | 고령 한국어에서 **극성(정서가)은 텍스트가 15%p 앞섬** → 정서가 텍스트 0.7의 국내 근거 | [DOI](https://doi.org/10.12779/dnd.2024.23.3.146) |
+| J5 | Kim, Yi, Won. *SER in People at High Risk of Dementia* 🟢 (기존 D7) | 2024 · Dementia and Neurocognitive Disorders 23(3) | 독거노인 133명 실제 발화. 텍스트(KPFBERT)로 3극성 → 음성으로 세부 감정 | 음성 6감정 51.4%, 음성 3감정 64.7%, 텍스트 3감정 79.8%, 2단계 6감정 69.3% | 한국어 실제 발화에서 **극성(정서가)은 텍스트가 15%p 앞섬** → 정서가 텍스트 0.7의 국내 근거. 단 연구 대상(독거 고령자)이 한벗 대상(대학생)과 다름 → 수치를 그대로 옮기긴 어려움 | [DOI](https://doi.org/10.12779/dnd.2024.23.3.146) |
 | J6 | Jeong 외 (KEMDy20) (기존 `ser_korean_papers.md` ④) | 2023 | 텍스트 + 직전 2발화 맥락 + 음성 | F1 텍스트 38.43 → +맥락 39.13 → +음성+맥락 44.16 | 한국어 일반인 대화에서 음성 추가 효과 +5.7 F1. KEMDy20을 튜닝 데이터로 쓸 근거 | 기존 노트 참조 |
 | J7 | Chua, Wong, Chen, Miao. *Speech Emotion Recognition via Entropy-Aware Score Selection* 🟢 | 2025 · arXiv 2508.20796 (APSIPA ASC 2025로 소개됨, 확인 필요) | wav2vec2 4감정 + Whisper 전사 → RoBERTa 감성. 음성 예측의 **엔트로피 ≥ τe 이고 varentropy ≤ τv면** 텍스트 감성으로 대체. 임계값은 학습 데이터 75/25 백분위 ±10에서 격자 탐색 | IEMOCAP UA 65.36 → 65.81, MSP-IMPROV UA 52.22 → 53.24. 임계값 수치는 미보고 | 엔트로피 기반 동적 가중치는 **효과가 작고(+0.5~1%p) 안정적** → "약하게" 적용. 임계값은 백분위로 잡는 방식을 차용 | [arXiv](https://arxiv.org/abs/2508.20796) |
 | J8 | Byeon, Oh, Yu. *A Dynamic Confidence-Weighted Ensemble of Speech and Text Models for Emotion Recognition* 🟡 | 2026 · ICEIC (IEEE) | SER + 텍스트 분류기. 가중치 = ① 사전에 잰 **감정 클래스별 난이도** × ② 실시간 확신도 | 초록에 수치 없음 🔴 | 국내 그룹. "**감정마다 다른 가중치**"(예: 불안은 음성이 약하니 텍스트 비중↑) 아이디어 근거 | [기록](https://pure.seoultech.ac.kr/en/publications/a-dynamic-confidence-weighted-ensemble-of-speech-and-text-models-/) · DOI 10.1109/ICEIC69189.2026.11386277 |
@@ -116,7 +116,7 @@
 | J12 | Wu, Gong, Ai, Shi, Donbekci, Hirschberg. *Beyond Silent Letters: Amplifying LLMs in Emotion Recognition with Vocal Nuances* (SpeechCueLLM) 🟢 | 2024 · arXiv 2407.21315 | 음량·피치·말 속도를 **화자별 분위수**로 "높음/낮음" 같은 말로 바꿔 프롬프트에 넣음 | IEMOCAP 가중 F1: LoRA LLaMA-2 70.11 → 72.60, zero-shot LLaMA-3-8B 35.14 → 44.18, **Claude 3.5 Sonnet 58.99 → 59.23**. 직전 3발화에만 붙일 때 최고. 특징을 다 넣으면 오히려 낮음(71.46) | ① 숫자 대신 **"평소보다 낮음" 같은 말**로 전달 ② 화자별 기준(=AB의 z-score)이 효과적 ③ 정보는 적게 ④ 큰 LLM에 결합을 맡기면 이득이 작음 | [arXiv](https://arxiv.org/abs/2407.21315) |
 
 > 🔎 **표에서 보이는 흐름**
-> - 축별 비대칭(텍스트=정서가, 음성=각성)은 영어 2개 데이터(J2), 한국 노인(J5), 기존 RECOLA 결과에서 반복됨.
+> - 축별 비대칭(텍스트=정서가, 음성=각성)은 영어 2개 데이터(J2), 한국어 실제 발화(J5), 기존 RECOLA 결과에서 반복됨.
 > - 결합 방식 간 차이(1%p)보다 **데이터 분할·보정·STT 품질** 같은 조건 차이가 더 큼(J1, J4).
 > - 동적 가중치는 이득이 작지만(J7) 실패를 막는 역할이 큼. 한벗에선 정확도보다 "놓치지 않기"가 목적이라 채택함.
 > - "말과 목소리 불일치"를 정면으로 다룬 결합 논문은 못 찾음 → 한벗의 불일치 플래그는 **설계안**이며 검증 대상임.
@@ -556,7 +556,7 @@ def decide(r, ctx, risk_text, risk_audio_raise):
 | ID | 설정 | 바꾸는 것 | 보는 지표 | 기대 / 판단 기준 |
 |---|---|---|---|---|
 | E0 | 텍스트 단독 (RTZR 전사) | — | UA, 부정 재현율, 정서가 CCC | 기준선 |
-| E1 | 음성 단독 (emotion2vec+ → 5감정) | — | UA, 부정 재현율, 각성 CCC | 기준선. 독거노인 3감정 64.7%(J5)와 비교 |
+| E1 | 음성 단독 (emotion2vec+ → 5감정) | — | UA, 부정 재현율, 각성 CCC | 기준선. J5 음성 3감정 64.7%와 비교 |
 | E2 | 고정 0.5 : 0.5, 보정 없음 | 결합 효과만 | UA | E0·E1보다 높아야 함 (J1: +8~13%p) |
 | E3 | 축별 고정 (정서가 0.7:0.3, 각성 0.3:0.7, 범주 0.6:0.4) | 축별 비대칭 | 정서가·각성 CCC, UA | E2 대비 CCC 상승 기대 (J2) |
 | E3b | E3 + 산술 평균 | 결합 연산 | UA, 부정 재현율 | 로그 선형 vs 산술 |
@@ -592,7 +592,7 @@ def decide(r, ctx, risk_text, risk_audio_raise):
 - 🔴 **J11 COLD Fusion**: 음성·영상 결합이라 음성·텍스트에 그대로 적용되는지, 수치 미확인.
 - 🔴 **J7 학회**: arXiv 판에는 학회 표기 없음. APSIPA ASC 2025는 검색 요약 기준.
 - 🔴 **J3 Wagner 2023**: 정서가 CCC .638은 초록 기준. 텍스트 결합 대비 수치는 원문 미확인.
-- 🔴 **시작 가중치 0.7/0.3·0.6/0.4와 모든 임계값(0.40, −1.5, 0.10, 15%)**: 논문 수치에서 추론한 **설계값**이며 한국어 고령 화자에서 검증된 값이 아님. E3~E11로 확정해야 함.
+- 🔴 **시작 가중치 0.7/0.3·0.6/0.4와 모든 임계값(0.40, −1.5, 0.10, 15%)**: 논문 수치에서 추론한 **설계값**이며 한국어 대학생 사용자 발화에서 검증된 값이 아님. E3~E11로 확정해야 함.
 - 🔴 **KEMDy20 화자당 발화 수**: 사용자 기준선 z(E7)를 KEMDy20에서 흉내 낼 수 있을 만큼 화자별 발화가 많은지 확인 필요.
 - 못 찾음: **"말과 목소리가 다를 때 되묻기"의 효과를 측정한 논문**, **한국어 음성·텍스트 결합 가중치를 직접 비교한 논문**(KEMDy20 후기 결합 가중치 연구), **emotion2vec 출력을 LLM 프롬프트에 넣어 성능을 잰 논문**.
 - 라이선스: 차원형 음성 모델(audeering wav2vec2 계열)을 쓰려면 상업 이용 가능 여부 확인 필요.

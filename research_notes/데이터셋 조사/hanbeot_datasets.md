@@ -14,7 +14,7 @@
 
 ```mermaid
 flowchart LR
-  U["👵 사용자 음성"] --> STT["① STT<br/>(RTZR)"]
+  U["🧑 사용자 음성"] --> STT["① STT<br/>(RTZR)"]
   U --> TURN["② 말 끝 감지<br/>(Smart Turn)"]
   U --> SER["③ 음성 감정 인식<br/>(emotion2vec+)"]
   STT --> LLM["④ 대화 생성<br/>(Claude)"]
@@ -23,7 +23,7 @@ flowchart LR
   LLM --> SAFE["⑥ 위기·안전 판단"]
   LLM --> TTS["⑦ 감정 TTS<br/>(Typecast)"]
 
-  D1["노인 자유대화 음성<br/>방언·인지저하 음성"] -.평가.-> STT
+  D1["한국어 자유대화 음성<br/>(KsponSpeech·한국인 대화음성)"] -.평가.-> STT
   D2["smart-turn-data (kor 포함)<br/>2인 통화 음성"] -.평가.-> TURN
   D3["감정 분류 대화 음성<br/>감정 태깅 자유대화<br/>KEMDy20"] -.학습·평가.-> SER
   D4["공감형 대화<br/>감성 대화 말뭉치<br/>ESConv 전략"] -.프롬프트·평가.-> LLM
@@ -91,12 +91,12 @@ flowchart TD
 |---|---|---|---|---|
 | 1 | AI Hub 감정 분류를 위한 대화 음성 | ③ SER | 실제 앱 사용자 자연 발화, 7감정, 발화당 5명 라벨 | 🟡 |
 | 2 | AI Hub 감정이 태깅된 자유대화(성인) | ③ SER, ② 턴 | 2인 통화, 40대 이상 약 60%, 감정 강도 라벨 | 🟡 |
-| 3 | AI Hub 자유대화 음성(노인남녀) | ① STT | 60세 이상 1,000명+, 3,000h+ | 🟡 |
-| 4 | AI Hub 고령자 근현대 경험 구술 | ①④⑤ | **노인 회상 대화**라 한벗과 도메인이 가장 가까움 | 🟡(건강정보는 안심존) |
+| 3 | ETRI KEMDy20 | ③ SER 평가 | 19~39세 일반인 자유대화라 한벗 대상(대학생·청년) 연령대와 겹침, 비연기 | ❓(상업 조건 확인 필요) |
+| 4 | AI Hub 한국어 음성(KsponSpeech) | ① STT | 일반 성인 2인 대화 약 1,000h, 2,000명 → RTZR CER 기준셋 | 🟡 |
 | 5 | AI Hub 공감형 대화 | ④ 응답 | 공감 전략 4종(격려·동조·위로·조언) 라벨 → 루브릭 | 🟡 |
 | 6 | AI Hub 한국어 멀티세션 대화 | ⑤ 기억 | 세션 간격·페르소나·요약 라벨 | 🟡 |
 | 7 | pipecat smart-turn-data v3.2 | ② 턴 | **한국어 포함**, CC BY 4.0, Smart Turn 원본 학습셋 | 🟢 |
-| 8 | Nemotron-Personas-Korea | 테스트 | 70~80대 포함 한국 합성 페르소나 100만 → 사용자 시뮬레이터 | 🟢 |
+| 8 | Nemotron-Personas-Korea | 테스트 | 한국 합성 페르소나 100만 중 20대 등 대학생·청년 연령대만 골라 사용자 시뮬레이터로 사용 | 🟢 |
 | 9 | LongMemEval | ⑤ 기억 | 기억 시스템 평가 표준, 한국어로 각색 가능 | 🟢 |
 | 10 | ESConv + PsyCrisis-Bench 루브릭 | ④⑥ | 지원 전략 8종 + 위기 응답 평가 5차원 | 🔴(참고만) |
 
@@ -125,29 +125,20 @@ flowchart TD
 | [Hi,KIA](https://zenodo.org/records/7091465) (KAIST·현대차) | 488발화, 8명 | 웨이크업워드 연기 | 4감정 | 🟢 CC BY 4.0. 짧은 발화 감도 체크 |
 
 <callout icon="🧠" color="purple_bg">
-**연기 음성 편향 주의**: KEMDy19·KESDy18·TTS 데이터·Hi,KIA는 성우 연기라 감정이 과장돼 있음. 이걸로 학습하면 노인의 **잔잔한 저강도 감정**에서 성능이 떨어질 위험이 있음. → **학습은 자연 대화(①·② AI Hub)**, **평가는 KEMDy20 + 고령자 구술 일부를 직접 재라벨링**하는 구성이 좋음.
+**연기 음성 편향 주의**: KEMDy19·KESDy18·TTS 데이터·Hi,KIA는 성우 연기라 감정이 과장돼 있음. 이걸로 학습하면 일상 고민 대화의 **잔잔한 저강도 감정**에서 성능이 떨어질 위험이 있음. → **학습은 자연 대화(①·② AI Hub)**, **평가는 KEMDy20(19~39세 일반인 자유대화) + 자연 대화 일부를 직접 재라벨링**하는 구성이 좋음.
 </callout>
 
-## ② 노인 음성 인식(STT) 검증용
-
-<columns>
-<column>
-![AI Hub 자유대화 음성(노인남녀)](screenshots/aihub_107.png)
-</column>
-<column>
-![AI Hub 고령자 근현대 경험 기반 스토리 구술 데이터](screenshots/aihub_71703.png)
-</column>
-</columns>
+## ② 음성 인식(STT) 검증용
 
 | 데이터 | 규모 | 특징 | 한벗 활용 |
 |---|---|---|---|
-| [자유대화 음성(노인남녀)](https://www.aihub.or.kr/aihubdata/data/view.do?dataSetSn=107) | 3,000h+, 1,000명+ | 60세 이상 자유발화, 실내외(대중교통·거리) | **RTZR STT 고령자 CER 벤치마크 핵심** |
-| [고령자 근현대 경험 구술](https://www.aihub.or.kr/aihubdata/data/view.do?dataSetSn=71703) | 약 10,529h, 143,630파일 | 60세 이상 회상 인터뷰. 감정·반복·주제이탈·**인터뷰어 공감**·자서전적 기억 라벨 | ⭐ STT·공감 응답·기억 추출 시나리오 모두 검증 가능 |
-| [중·노년층 방언(강원·경상)](https://www.aihub.or.kr/aihubdata/data/view.do?dataSetSn=71517) | 2,004h | 50세 이상, 경상도는 70대 50% | 사투리 STT 강건성 |
-| [중·노년층 방언(충청·전라·제주)](https://www.aihub.or.kr/aihubdata/data/view.do?dataSetSn=71558) | 확인 필요 | 같은 시리즈 | 사투리 STT 강건성 |
-| [한국어 음성(KsponSpeech)](https://www.aihub.or.kr/aihubdata/data/view.do?dataSetSn=123) | 약 1,000h, 2,000명 | 일반 성인 2인 대화 | 노인 데이터와 비교할 대조군 |
+| [한국어 음성(KsponSpeech)](https://www.aihub.or.kr/aihubdata/data/view.do?dataSetSn=123) | 약 1,000h, 2,000명 | 일반 성인 2인 대화 | **RTZR STT CER 벤치마크 기본셋** |
 | [한국인 대화음성](https://www.aihub.or.kr/aihubdata/data/view.do?dataSetSn=130) | 4,000h | 고령층 포함, 원거리·잡음 | 잡음 환경 STT |
 | [Zeroth-Korean](https://huggingface.co/datasets/kresnik/zeroth_korean) | 약 52h | 낭독 | 🟢 CC BY 4.0. 외부 공유 가능한 기준선 |
+| [자유대화 음성(노인남녀)](https://www.aihub.or.kr/aihubdata/data/view.do?dataSetSn=107) | 3,000h+, 1,000명+ | 60세 이상 자유발화, 실내외(대중교통·거리) | 🔴 대상 제외(고령 화자) |
+| [고령자 근현대 경험 구술](https://www.aihub.or.kr/aihubdata/data/view.do?dataSetSn=71703) | 약 10,529h, 143,630파일 | 60세 이상 회상 인터뷰. 감정·반복·주제이탈·인터뷰어 공감·자서전적 기억 라벨 | 🔴 대상 제외(고령 화자) |
+| [중·노년층 방언(강원·경상)](https://www.aihub.or.kr/aihubdata/data/view.do?dataSetSn=71517) | 2,004h | 50세 이상, 경상도는 70대 50% | 🔴 대상 제외(중·노년 화자) |
+| [중·노년층 방언(충청·전라·제주)](https://www.aihub.or.kr/aihubdata/data/view.do?dataSetSn=71558) | 확인 필요 | 같은 시리즈 | 🔴 대상 제외(중·노년 화자) |
 
 ## ③ 말 끝 감지(Smart Turn)용
 
@@ -156,12 +147,12 @@ flowchart TD
 | 데이터 | 규모 | 특징 | 한벗 활용 |
 |---|---|---|---|
 | [smart-turn-data-v3.2-test](https://huggingface.co/datasets/pipecat-ai/smart-turn-data-v3.2-test) | 31,527행, 4.84GB | 23개 언어, **kor 포함**, `endpoint_bool`(말 끝났나) 라벨 | 🟢 **한국어만 걸러 Smart Turn v3 정확도 측정** → 가장 빨리 해볼 수 있는 실험 |
-| [smart-turn-data-v3.2-train](https://huggingface.co/datasets/pipecat-ai/smart-turn-data-v3.2-train) | 270,946행, 41.4GB | 위와 동일 | 🟢 한국어 노인 발화 추가해 재학습할 때 베이스 |
+| [smart-turn-data-v3.2-train](https://huggingface.co/datasets/pipecat-ai/smart-turn-data-v3.2-train) | 270,946행, 41.4GB | 위와 동일 | 🟢 한국어 대학생·청년 발화 추가해 재학습할 때 베이스 |
 | 감정 태깅 자유대화(성인)·방언 2인 대화·심리상담 타임스탬프 | – | 2인 대화의 발화 시작·끝 시간 | 턴 경계 라벨을 직접 만들어 평가 |
-| [부산 노인·퇴행성 뇌질환자 음성](https://www.aihub.or.kr/aihubdata/data/view.do?dataSetSn=565) · [인지기능 장애 음성](https://www.aihub.or.kr/aihubdata/data/view.do?dataSetSn=217) | 2,200녹음 / 672h | **단절발화·간투어·머뭇거림** 라벨 | "어르신이 잠깐 쉬는데 AI가 끼어드는" 오류 평가에 딱 맞음 (안심존) |
+| [부산 노인·퇴행성 뇌질환자 음성](https://www.aihub.or.kr/aihubdata/data/view.do?dataSetSn=565) · [인지기능 장애 음성](https://www.aihub.or.kr/aihubdata/data/view.do?dataSetSn=217) | 2,200녹음 / 672h | 단절발화·간투어·머뭇거림 라벨 | 🔴 대상 제외(고령·인지저하 화자, 안심존) |
 
 <callout icon="💡" color="gray_bg">
-smart-turn 데이터는 상당수가 **합성 음성**(chirp3·rime·orpheus 등 출처 태그)임. 한국어 노인 실제 음성과는 차이가 있으니, 최종 검증은 한벗 베타 통화 녹음(동의 받은 것)으로 해야 함. 한국어 전용 end-of-turn 데이터셋은 못 찾음.
+smart-turn 데이터는 상당수가 **합성 음성**(chirp3·rime·orpheus 등 출처 태그)임. 한국어 실제 사용자 음성과는 차이가 있으니, 최종 검증은 한벗 베타 통화 녹음(동의 받은 것)으로 해야 함. 한국어 전용 end-of-turn 데이터셋은 못 찾음.
 </callout>
 
 ## ④ 감정 TTS 비교 기준
@@ -178,9 +169,9 @@ smart-turn 데이터는 상당수가 **합성 음성**(chirp3·rime·orpheus 등
 
 | 데이터 | 내용 | 접근 | 한벗 활용 |
 |---|---|---|---|
-| [고령인구 우울증 데이터](https://www.aihub.or.kr/aihubdata/data/view.do?dataSetSn=71401) | 60~89세 6,000명, 음성 + PHQ-9 우울 라벨, 독거 22% | 🔴 안심존, IRB | 음성 우울 신호 연구 근거 (논문용) |
+| [고령인구 우울증 데이터](https://www.aihub.or.kr/aihubdata/data/view.do?dataSetSn=71401) | 60~89세 6,000명, 음성 + PHQ-9 우울 라벨, 독거 22% | 🔴 안심존, IRB | 🔴 대상 제외(고령 화자) |
 | [심리상담 데이터](https://www.aihub.or.kr/aihubdata/data/view.do?dataSetSn=71806) | 실제 상담 약 1,661h, 우울·불안·중독 심각도, 상담자 개입, **침묵 시간** | 🔴 안심존, IRB | 상담자 개입 패턴·침묵 길이 분석 |
-| [노인 정신건강 영상](https://www.aihub.or.kr/aihubdata/data/view.do?dataSetSn=71783) | 1,203명, 인지 정상/비정상 | 🔴 안심존 | 우선순위 낮음 |
+| [노인 정신건강 영상](https://www.aihub.or.kr/aihubdata/data/view.do?dataSetSn=71783) | 1,203명, 인지 정상/비정상 | 🔴 안심존 | 🔴 대상 제외(고령 화자) |
 
 <callout icon="🚫" color="red_bg">
 안심존 데이터는 **다운로드 불가**, 원격 분석 환경에서만 사용함. IRB 심의결과·연구계획서·보안서약이 필요해서 제품 파이프라인엔 사실상 못 넣음. 또 한벗은 **진단 서비스가 아님**(의료기기 규제)이라 "우울 진단" 기능 학습엔 쓰지 않는 게 맞음.
@@ -227,9 +218,9 @@ smart-turn 데이터는 상당수가 **합성 음성**(chirp3·rime·orpheus 등
 | [한국어 멀티세션 대화](https://www.aihub.or.kr/aihubdata/data/view.do?dataSetSn=71630) (AI Hub) | 약 8만 대화 (2~4세션) | 페르소나, 주제 13종, **세션 간 시간 간격**, 발화별 요약 | ⭐ "지난번에 말한 거 기억해?" 회상·요약 평가 |
 | [한국어 대화 요약](https://www.aihub.or.kr/aihubdata/data/view.do?dataSetSn=117) (AI Hub) | 35만 대화 + 요약 | 대화 → 1문장 요약 | 통화 후 기억 카드 요약 품질 평가 |
 | [모두의 말뭉치](https://kli.korean.go.kr/corpus/main/requestMain.do) (국립국어원) | 일상대화·대화요약·**요약 평가** 말뭉치 | 요약 품질 점수 포함 | 요약 평가 지표 검증 (상업 조건 확인 필요) |
-| [Nemotron-Personas-Korea](https://huggingface.co/datasets/nvidia/Nemotron-Personas-Korea) (NVIDIA) | 100만 레코드 | 한국 인구통계 기반 합성 페르소나, **70~80대·1인가구** 포함 | 🟢 CC BY 4.0. **가상 어르신 사용자 시뮬레이터**로 멀티세션 테스트 |
+| [Nemotron-Personas-Korea](https://huggingface.co/datasets/nvidia/Nemotron-Personas-Korea) (NVIDIA) | 100만 레코드 | 한국 인구통계 기반 합성 페르소나, 1인가구 포함 | 🟢 CC BY 4.0. 20대 등 대학생·청년 연령대만 골라 **가상 사용자 시뮬레이터**로 멀티세션 테스트 |
 | KEEM ([arXiv 2601.05548](https://arxiv.org/abs/2601.05548)) | AI Hub 멀티세션 기반 | **감정과 그 원인**을 반영한 기억 갱신 | 한벗 기억 설계와 가장 직접적으로 관련. 데이터 공개 여부 확인 필요 |
-| CareCall_mem ([arXiv 2210.08750](https://arxiv.org/abs/2210.08750)) | 확인 필요 | 네이버 독거노인 돌봄콜 기억 갱신 | 유사 도메인 기준. 공개 여부 확인 필요 |
+| CareCall_mem ([arXiv 2210.08750](https://arxiv.org/abs/2210.08750)) | 확인 필요 | 네이버 독거노인 돌봄콜 기억 갱신 | 기억 갱신 방식만 참고(대상이 독거노인이라 도메인은 다름). 공개 여부 확인 필요 |
 
 ## ③ 위기 감지·안전성 → 안전장치 평가
 
@@ -241,13 +232,13 @@ smart-turn 데이터는 상당수가 **합성 음성**(chirp3·rime·orpheus 등
 | Harmful Suicide Content ([arXiv 2407.13942](https://arxiv.org/abs/2407.13942)) | 452건(확인 필요) | 5단계 유해성 | 자살 관련 응답 유해성 평가 (공개 여부 확인 필요) |
 | [텍스트 윤리검증](https://www.aihub.or.kr/aihubdata/data/view.do?dataSetSn=558) (AI Hub, 심심이) | 45만 문장 | 비윤리 7종 + 강도 | 사용자 입력 유해성 필터 |
 | [KoSBi·SQuARe](https://github.com/naver-ai/korean-safety-benchmarks) (NAVER) | 68k / 49k 질문 | 사회적 편향 / 민감 질문 응답 적절성 | 🟢 MIT. 응답 안전성 평가 |
-| [KoBBQ](https://huggingface.co/datasets/naver-ai/kobbq) | 81k | 편향 12종 (**연령** 포함) | 🟢 MIT. 노인 비하·편향 점검 |
+| [KoBBQ](https://huggingface.co/datasets/naver-ai/kobbq) | 81k | 편향 12종 (**연령** 포함) | 🟢 MIT. 연령 등 편향 응답 점검 |
 | [K-MHaS](https://huggingface.co/datasets/jeanlee/kmhas_korean_hate_speech) | 109,692 | 혐오 8종 (연령 포함) | 🟢 CC BY-SA. 입출력 필터 평가 |
 | [KOLD](https://github.com/boychaboy/KOLD) · [APEACH](https://github.com/jason9693/APEACH) · [kocohub](https://github.com/kocohub/korean-hate-speech) | 4만 / 3.7천 / 9.4천 | 공격성·혐오 | 보조 필터 평가 |
 | [KorNAT](https://huggingface.co/datasets/jiyounglee0523/KorNAT) | 14k | 한국 사회 가치 정렬 | 🔴 CC BY-NC. 내부 점검만 |
 
 <callout icon="🕳️" color="orange_bg">
-**확인된 공백**: 공개된 **한국어 자살·우울 텍스트 데이터는 거의 없음** (HF에서 language:ko + suicide/depression 검색 결과 0건). 한국어 ESConv 번역본, 노인 말벗 전용 텍스트 데이터도 못 찾음. → 위기 감지 평가셋은 **감성 대화·웰니스의 우울 발화 + C-SSRS 단계 체계 + 전문가 검수 합성 시나리오**로 직접 만드는 게 현실적임. 이 자체가 한벗의 차별점(데이터 자산)이 될 수 있음.
+**확인된 공백**: 공개된 **한국어 자살·우울 텍스트 데이터는 거의 없음** (HF에서 language:ko + suicide/depression 검색 결과 0건). 한국어 ESConv 번역본도 못 찾음. → 위기 감지 평가셋은 **감성 대화·웰니스의 우울 발화 + C-SSRS 단계 체계 + 전문가 검수 합성 시나리오**로 직접 만드는 게 현실적임. 이 자체가 한벗의 차별점(데이터 자산)이 될 수 있음.
 </callout>
 
 # 🌍 PART 3. 영어·다국어 참고 데이터
@@ -285,7 +276,7 @@ smart-turn 데이터는 상당수가 **합성 음성**(chirp3·rime·orpheus 등
 | [EmoBox](https://github.com/emo-box/EmoBox) | 32개 데이터셋, 14개 언어 | 다국어 SER 평가 프로토콜 | **한국어 없음** → 한국어 검증셋 필요 근거 | 코드 MIT |
 
 <callout icon="📊" color="blue_bg">
-**논문에 쓸 근거**: EmoBox 32개 데이터셋에 한국어가 없고, emotion2vec+는 언어별 학습 비율을 공개하지 않음. → "emotion2vec+를 한국어 노인 음성에 그대로 쓰면 성능이 보장되지 않으므로 자체 한국어 검증이 필요하다"는 주장의 근거가 됨.
+**논문에 쓸 근거**: EmoBox 32개 데이터셋에 한국어가 없고, emotion2vec+는 언어별 학습 비율을 공개하지 않음. → "emotion2vec+를 한국어 대학생·청년 음성에 그대로 쓰면 성능이 보장되지 않으므로 자체 한국어 검증이 필요하다"는 주장의 근거가 됨.
 </callout>
 
 ## ③ 장기 기억 · 위기 · 우울 음성
@@ -308,12 +299,12 @@ smart-turn 데이터는 상당수가 **합성 음성**(chirp3·rime·orpheus 등
 flowchart LR
   subgraph S1["1단계 · 바로 (오픈 데이터)"]
     A1["smart-turn kor 서브셋으로<br/>Smart Turn 정확도 측정"]
-    A2["Nemotron 노인 페르소나로<br/>가상 사용자 대화 테스트"]
+    A2["Nemotron 대학생·청년 페르소나로<br/>가상 사용자 대화 테스트"]
     A3["LongMemEval 한국어 각색<br/>기억 평가 50문항"]
     A4["ESConv·PsyCrisis 루브릭으로<br/>응답 평가 기준 작성"]
   end
   subgraph S2["2단계 · AI Hub 신청 후"]
-    B1["노인 자유대화로<br/>RTZR CER 측정"]
+    B1["KsponSpeech로<br/>RTZR CER 측정"]
     B2["감정 분류 대화 음성으로<br/>emotion2vec+ 한국어 성능 측정"]
     B3["공감형 대화 전략 라벨로<br/>응답 품질 비교"]
     B4["멀티세션 대화로<br/>회상 정확도 평가"]
@@ -331,7 +322,7 @@ flowchart LR
 
 1. **smart-turn-data-v3.2-test에서 `language == kor`만 뽑아** Smart Turn v3 정확도를 측정함 → "한국어에서도 말 끝 감지가 몇 % 맞는지" 수치 확보
 2. **감정 라벨 매핑표**를 먼저 정함: emotion2vec+ 9클래스 ↔ AI Hub 7감정 ↔ ETRI 7감정 → 공통 4~5클래스 + valence(긍정/부정)
-3. **AI Hub 신청**(내국인 명의): 감정 분류 대화 음성(263), 감정 태깅 자유대화 성인(71631), 노인 자유대화(107), 고령자 구술(71703), 공감형 대화(71305), 멀티세션 대화(71630)
+3. **AI Hub 신청**(내국인 명의): 감정 분류 대화 음성(263), 감정 태깅 자유대화 성인(71631), 한국어 음성 KsponSpeech(123), 공감형 대화(71305), 멀티세션 대화(71630)
 </callout>
 
 <callout icon="⚠️" color="red_bg">
@@ -347,7 +338,7 @@ flowchart LR
 
 - ETRI KEMDy·KESDy 상업 이용 조건 (나눔 사이트 접속 거부로 직접 확인 못 함), KEMDy20 발화 수
 - KEMDy19 = KESDy19 같은 녹음인지 공식 문구
-- AI Hub 페이지 내 수치 불일치: 감정 태깅 자유대화 3,000h vs 6,000h, 고령인구 우울증 6,000명 vs 9,000명, 주제별 일상대화 134,263 vs 109,614
+- AI Hub 페이지 내 수치 불일치: 감정 태깅 자유대화 3,000h vs 6,000h, 주제별 일상대화 134,263 vs 109,614
 - AI Hub로 학습한 모델의 상용 서비스 탑재 허용 범위
 - IEMOCAP·MSP-Podcast 상업 라이선스, MSC·AnnoMI 라이선스
 - KEEM·CareCall_mem·Harmful Suicide Content 데이터 공개 여부
