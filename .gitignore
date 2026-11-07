@@ -41,3 +41,6 @@ dist/
 .mypy_cache/
 .vite/
 coverage/
+
+# Scopus 원자료(초록 포함, 재생성 가능·용량) — 요약 노트만 추적
+research_notes/Scopus 조사/raw/

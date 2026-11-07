@@ -1,0 +1,40 @@
+# Scopus 쿼리 묶음 (2026-11-08). 실행: python3 tools/scopus_search.py run "research_notes/Scopus 조사/queries.yaml"
+# 목적: 한벗 감정 인식(SER)·전처리·라벨 체계·결합·대화형 감정·감정 TTS 문헌을 피인용 순으로 모아 Wiki에 넣는다.
+default_max: 150
+queries:
+  - name: ser_korean
+    query: TITLE-ABS-KEY("speech emotion recognition" AND (korean OR korea)) AND PUBYEAR > 2015
+    max: 200
+  - name: ser_cross_corpus
+    query: TITLE-ABS-KEY("speech emotion recognition" AND ("cross-corpus" OR "cross-lingual" OR "cross-language" OR "domain adaptation")) AND PUBYEAR > 2017
+  - name: ser_preprocessing_features
+    query: TITLE-ABS-KEY("speech emotion recognition" AND (preprocessing OR "feature extraction" OR "data augmentation" OR normalization OR "speaker normalization")) AND PUBYEAR > 2017
+    max: 200
+  - name: ser_ssl_models
+    query: TITLE-ABS-KEY("speech emotion recognition" AND (wav2vec OR hubert OR wavlm OR whisper OR "self-supervised")) AND PUBYEAR > 2019
+    max: 200
+  - name: ser_calibration_uncertainty
+    query: TITLE-ABS-KEY("speech emotion recognition" AND (calibration OR uncertainty OR "soft label" OR "label ambiguity" OR "annotator agreement"))
+  - name: ser_label_taxonomy
+    query: TITLE-ABS-KEY(("speech emotion" OR "vocal emotion") AND (taxonomy OR "emotion categories" OR "number of emotions" OR "basic emotions" OR dimensional OR valence OR arousal)) AND PUBYEAR > 2015
+  - name: ser_naturalistic_spontaneous
+    query: TITLE-ABS-KEY("speech emotion recognition" AND (spontaneous OR naturalistic OR "in-the-wild" OR conversational OR podcast)) AND PUBYEAR > 2017
+  - name: multimodal_text_audio_fusion
+    query: TITLE-ABS-KEY("emotion recognition" AND multimodal AND (speech OR audio) AND text AND (fusion OR "late fusion" OR "cross-modal")) AND PUBYEAR > 2018
+    max: 200
+  - name: erc_conversation_context
+    query: TITLE-ABS-KEY("emotion recognition in conversation" OR ("emotion recognition" AND dialogue AND context AND (window OR "contextual"))) AND PUBYEAR > 2018
+  - name: ser_low_arousal_depression_loneliness
+    query: TITLE-ABS-KEY((speech OR voice) AND (depression OR loneliness OR "low arousal") AND (detection OR recognition) AND (acoustic OR prosodic)) AND PUBYEAR > 2015
+  - name: ser_noise_codec_robustness
+    query: TITLE-ABS-KEY("speech emotion recognition" AND (noise OR robust OR codec OR "far-field" OR reverberation OR telephone)) AND PUBYEAR > 2017
+  - name: emotional_tts_expressive
+    query: TITLE-ABS-KEY(("text-to-speech" OR "speech synthesis") AND (emotional OR expressive OR empathetic) AND (conversational OR dialogue OR context)) AND PUBYEAR > 2019
+  - name: empathetic_voice_agent
+    query: TITLE-ABS-KEY(("voice assistant" OR "conversational agent" OR "spoken dialogue system") AND (empathy OR empathetic OR "emotional support") AND (speech OR voice)) AND PUBYEAR > 2017
+  - name: unist_emotion
+    query: AFFIL(unist OR "ulsan national institute") AND TITLE-ABS-KEY(emotion AND (speech OR voice OR affective OR multimodal OR "facial expression"))
+    max: 200
+  - name: korea_emotion_speech_top
+    query: AFFILCOUNTRY("south korea") AND TITLE-ABS-KEY("emotion recognition" AND (speech OR voice OR audio)) AND PUBYEAR > 2019
+    max: 200
