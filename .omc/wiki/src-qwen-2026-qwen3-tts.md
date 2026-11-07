@@ -1,10 +1,10 @@
 ---
 title: "src-qwen-2026-qwen3-tts"
-tags: ["tts", "opensource", "korean", "qwen", "apache-2.0"]
+tags: ["tts", "opensource", "korean", "qwen", "apache-2.0", "grade-A"]
 created: 2026-11-07T18:12:01.270Z
-updated: 2026-11-07T18:12:01.270Z
+updated: 2026-11-07T19:51:28.493Z
 sources: ["https://github.com/QwenLM/Qwen3-TTS"]
-links: ["topic-tts-opensource-candidates-2026-11.md", "topic-tts-humanlike-techniques.md"]
+links: ["topic-tts-opensource-candidates-2026-11.md", "topic-tts-humanlike-techniques.md", "src-hu-2026-qwen3-tts-report.md", "topic-tts-humanlike-evidence-2026-11.md"]
 category: reference
 confidence: medium
 schemaVersion: 1
@@ -35,4 +35,12 @@ W4 블라인드 후보 1순위. 반드시 1.7B CustomVoice(Sohee)로 시험. 선
 
 ## 사용처
 [[topic-tts-opensource-candidates-2026-11]] · [[topic-tts-humanlike-techniques]]
+
+---
+
+## Update (2026-11-07T19:51:28.493Z)
+
+## 2026-11-08 원문 확인
+- 기술보고서(arXiv 2601.15621) 수치는 [[src-hu-2026-qwen3-tts-report]]. 한국어 WER 1.74~2.70은 Base 모델, MiniMax 다국어 평가셋. Sohee CustomVoice 결과가 아님. 12Hz 첫 패킷 97~101ms(동시 1)는 제작사 보고.
+- 사용처: [[topic-tts-humanlike-evidence-2026-11]]
 

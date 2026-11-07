@@ -1,10 +1,10 @@
 ---
 title: "claim-app-2-call-screen-gemini-live"
-tags: ["app-design", "decision", "call-screen", "barge-in", "gemini-live", "grade-A"]
+tags: ["app-design", "decision", "call-screen", "barge-in", "gemini-live", "grade-A", "scopus-2026-11"]
 created: 2026-10-25T14:49:49.859Z
-updated: 2026-10-25T14:49:49.859Z
+updated: 2026-11-07T19:52:28.600Z
 sources: ["reports/한벗 앱 설계서.md#1-3-5-3"]
-links: ["overview-app-design.md", "topic-app-screen-flow.md", "topic-app-benchmark-map.md", "src-google-2026-gemini-live-help.md", "src-openai-2026-chatgpt-voice-help.md", "src-characterai-2024-character-calls.md", "src-fortune-2025-friend-necklace-review.md", "src-pipecat-2026-docs-speech-input.md", "topic-app-impl-audio-stt-turn.md", "topic-app-risks.md", "claim-app-3-emotion-cue-confirmation-rules.md", "claim-app-8-hypotheses-h1-h5.md"]
+links: ["overview-app-design.md", "topic-app-screen-flow.md", "topic-app-benchmark-map.md", "src-google-2026-gemini-live-help.md", "src-openai-2026-chatgpt-voice-help.md", "src-characterai-2024-character-calls.md", "src-fortune-2025-friend-necklace-review.md", "src-pipecat-2026-docs-speech-input.md", "topic-app-impl-audio-stt-turn.md", "topic-app-risks.md", "claim-app-3-emotion-cue-confirmation-rules.md", "claim-app-8-hypotheses-h1-h5.md", "topic-dialogue-dynamics-evidence-2026-11.md", "claim-app-12-interruption-backchannel-filler-rules.md"]
 category: decision
 confidence: medium
 schemaVersion: 1
@@ -32,4 +32,13 @@ schemaVersion: 1
 ## 재검토 조건
 - 기기 매트릭스에서 끼어들기 중단 지연이 목표를 반복 초과(스피커 출력의 에코로 오탐 등) → 스피커 환경에서만 탭 끼어들기 우선으로 조정.
 - W6에서 음성이 "어색하다"거나 텍스트 선택이 과반(H2) → 텍스트 우선 + 음성 보조로 재설계 ([[claim-app-8-hypotheses-h1-h5]]).
+
+---
+
+## Update (2026-11-07T19:52:28.600Z)
+
+## 2026-11-08 문헌 심층 반영
+- FDB v1: Gemini Live 끼어들기 후 응답 지연 1.183s, 일시정지 TOR 0.255(양호). v1.5: 끼어들기 정지 2.20s, 끼어들기 Respond 0.33, 맞장구 Resume 0.93 = 끈기형.
+- 제3자 대화 Resume 0.99이나 정지 1.69s: 겹침 발화 정책은 모델별 trade-off이므로 통화 화면에서 한국어 실측 필요.
+- 비교 기준 및 한국어 이식 설계: [[topic-dialogue-dynamics-evidence-2026-11]], [[claim-app-12-interruption-backchannel-filler-rules]].
 

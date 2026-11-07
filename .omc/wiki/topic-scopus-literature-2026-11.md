@@ -1,10 +1,10 @@
 ---
 title: "topic-scopus-literature-2026-11"
-tags: ["scopus-2026-11", "literature-hub", "ser", "hub", "abstract-level", "verified"]
+tags: ["scopus-2026-11", "literature-hub", "ser", "hub", "abstract-level", "verified", "scopus", "literature"]
 created: 2026-11-07T18:45:37.985Z
-updated: 2026-11-07T18:45:37.985Z
+updated: 2026-11-07T19:55:55.786Z
 sources: ["research_notes/Scopus 조사/00_digest.md", "research_notes/Scopus 조사/01_preprocessing_models_crosscorpus.md", "research_notes/Scopus 조사/02_labels_calibration_fusion_unist.md", "tools/scopus_search.py"]
-links: ["overview-technology.md", "overview-researcher-collaboration.md", "topic-app-paper-evidence.md", "topic-ser-preprocessing-pipeline-evidence.md", "topic-ser-label-count-calibration-evidence.md", "topic-collab-unist-affective-labs.md", "src-noh-2021-mpgln-multidomain.md", "src-hyeon-2025-segmental-pooling.md", "src-ryu-2025-pitch-contour.md", "src-tzeng-2025-noise-robust-sse.md", "src-leem-2024-selective-enhancement.md", "src-grageda-2025-hri-distant.md", "src-shi-2026-asr-repr-noisy.md", "src-goron-2024-whisper-dg.md", "src-feng-2023-peft-ser.md", "src-sampath-2025-efficient-ft.md", "src-chen-2023-wav2vec-tapt.md", "src-gat-2022-speaker-norm.md", "src-milling-2022-vad-ser.md", "src-atmaja-2022-augmentation.md", "src-cao-2025-kemdy-w2v-kobert.md", "src-cao-2025-kemdy-prosody-gru.md", "src-jun-2024-realtime-kemdy19.md", "src-chatzichristodoulou-2025-medusa.md", "src-prabhu-2024-label-uncertainty.md", "src-yoon-2025-maskser.md", "src-sridhar-2020-uncertainty-reject.md", "src-sridhar-2021-softlabel-reject.md", "src-kumawat-2025-annotator-softlabel.md", "src-kumawat-2025-mixed-emotion.md", "src-atmaja-2022-class-count-failure.md", "src-chien-2025-conversation-vs-monologue.md", "src-alhussein-2025-ser-conversation-metaanalysis.md", "src-yi-2024-kohmt-korean-fusion.md", "src-yoon-2018-audio-text-dre.md", "src-briganti-2025-depression-voice-review.md", "src-kim-2023-korean-depression-speech.md", "src-yamada-2021-loneliness-speech.md", "src-hu-2023-hue-acoustic-emotion-ca.md", "src-cho-2022-alexa-backchannel.md", "src-varadhan-2025-tts-human-fooling.md", "src-ruensuk-2020-smartphone-affect.md", "src-lee-2020-driver-anxiety-biosignal.md", "src-ben-gurion-2025-depression-selfreport.md", "src-wagner-2023-transformer-era.md", "src-ma-2024-emotion2vec.md", "src-ibrahim-2024-ser-generalization.md", "src-chou-2023-ser-calibration.md", "src-isca-2025-msp-podcast-challenge.md", "lab-unist-oakley-hong-hci.md"]
+links: ["overview-technology.md", "overview-researcher-collaboration.md", "topic-app-paper-evidence.md", "topic-ser-preprocessing-pipeline-evidence.md", "topic-ser-label-count-calibration-evidence.md", "topic-collab-unist-affective-labs.md", "src-noh-2021-mpgln-multidomain.md", "src-hyeon-2025-segmental-pooling.md", "src-ryu-2025-pitch-contour.md", "src-tzeng-2025-noise-robust-sse.md", "src-leem-2024-selective-enhancement.md", "src-grageda-2025-hri-distant.md", "src-shi-2026-asr-repr-noisy.md", "src-goron-2024-whisper-dg.md", "src-feng-2023-peft-ser.md", "src-sampath-2025-efficient-ft.md", "src-chen-2023-wav2vec-tapt.md", "src-gat-2022-speaker-norm.md", "src-milling-2022-vad-ser.md", "src-atmaja-2022-augmentation.md", "src-cao-2025-kemdy-w2v-kobert.md", "src-cao-2025-kemdy-prosody-gru.md", "src-jun-2024-realtime-kemdy19.md", "src-chatzichristodoulou-2025-medusa.md", "src-prabhu-2024-label-uncertainty.md", "src-yoon-2025-maskser.md", "src-sridhar-2020-uncertainty-reject.md", "src-sridhar-2021-softlabel-reject.md", "src-kumawat-2025-annotator-softlabel.md", "src-kumawat-2025-mixed-emotion.md", "src-atmaja-2022-class-count-failure.md", "src-chien-2025-conversation-vs-monologue.md", "src-alhussein-2025-ser-conversation-metaanalysis.md", "src-yi-2024-kohmt-korean-fusion.md", "src-yoon-2018-audio-text-dre.md", "src-briganti-2025-depression-voice-review.md", "src-kim-2023-korean-depression-speech.md", "src-yamada-2021-loneliness-speech.md", "src-hu-2023-hue-acoustic-emotion-ca.md", "src-cho-2022-alexa-backchannel.md", "src-varadhan-2025-tts-human-fooling.md", "src-ruensuk-2020-smartphone-affect.md", "src-lee-2020-driver-anxiety-biosignal.md", "src-ben-gurion-2025-depression-selfreport.md", "src-wagner-2023-transformer-era.md", "src-ma-2024-emotion2vec.md", "src-ibrahim-2024-ser-generalization.md", "src-chou-2023-ser-calibration.md", "src-isca-2025-msp-podcast-challenge.md", "lab-unist-oakley-hong-hci.md", "topic-tts-humanlike-evidence-2026-11.md", "topic-dialogue-dynamics-evidence-2026-11.md", "claim-app-12-interruption-backchannel-filler-rules.md", "claim-app-13-tts-blind-test-protocol-w4.md", "topic-ser-sota-benchmarks-2026-11.md", "topic-ser-performance-levers-2026-11.md", "topic-korean-ser-landscape-2026-11.md", "claim-research-1-paper-a-korean-ser-selective-prediction.md", "claim-research-2-paper-b-personalization-synthetic.md", "topic-collab-unist-speech-labs.md"]
 category: pattern
 confidence: medium
 schemaVersion: 1
@@ -53,4 +53,30 @@ Jun 2024는 AES Convention Express Paper. Nam H.J. 2024는 POSTECH 연구이나 
 - 라벨·보정·결합·저각성·TTS·UNIST: [[src-sridhar-2020-uncertainty-reject]] · [[src-sridhar-2021-softlabel-reject]] · [[src-kumawat-2025-annotator-softlabel]] · [[src-kumawat-2025-mixed-emotion]] · [[src-atmaja-2022-class-count-failure]] · [[src-chien-2025-conversation-vs-monologue]] · [[src-alhussein-2025-ser-conversation-metaanalysis]] · [[src-yi-2024-kohmt-korean-fusion]] · [[src-yoon-2018-audio-text-dre]] · [[src-briganti-2025-depression-voice-review]] · [[src-kim-2023-korean-depression-speech]] · [[src-yamada-2021-loneliness-speech]] · [[src-hu-2023-hue-acoustic-emotion-ca]] · [[src-cho-2022-alexa-backchannel]] · [[src-varadhan-2025-tts-human-fooling]] · [[src-ruensuk-2020-smartphone-affect]] · [[src-lee-2020-driver-anxiety-biosignal]] · [[src-ben-gurion-2025-depression-selfreport]]
 - 기존 재사용: [[src-wagner-2023-transformer-era]] · [[src-ma-2024-emotion2vec]] · [[src-ibrahim-2024-ser-generalization]] · [[src-chou-2023-ser-calibration]] · [[src-isca-2025-msp-podcast-challenge]] (Naini 2025 챌린지 총괄 포함, 신규 중복 생성 안 함)
 - UNIST 연구실: [[lab-unist-oakley-hong-hci]]
+
+---
+
+## Update (2026-11-07T19:52:37.173Z)
+
+## 2026-11-08 문헌 심층 반영
+- 2차 수집: 쿼리 20개, 고유 2,934편. 그중 TTS 쿼리 8개 고유 1,288편(노트의 1,400은 중복 포함), 한국어 TTS 쿼리 200건.
+- TTS 사람다움 근거: [[topic-tts-humanlike-evidence-2026-11]] (검증표 A95/B27/C56).
+- 대화 역학 근거: [[topic-dialogue-dynamics-evidence-2026-11]] (검증표 A110/B21/C35).
+- 결정: [[claim-app-12-interruption-backchannel-filler-rules]], [[claim-app-13-tts-blind-test-protocol-w4]].
+
+---
+
+## Update (2026-11-07T19:55:55.786Z)
+
+## 2026-11-08 2차 수집 분석 페이지 (SER SOTA·논문 설계·UNIST)
+
+노트 `research_notes/Scopus 조사/05_ser_sota_methods_for_paper.md` (원문 16편) + 검증 `20261108_043406_verify_05_ser_sota_methods_for_paper.md` (A84/B27/C41).
+
+- 벤치마크 기준선: [[topic-ser-sota-benchmarks-2026-11]] — IEMOCAP 화자 독립 최고 EmoDistill LOSO-10 UA 77.49, MSP-Podcast 8클래스 macro-F1 0.4316(MEDUSA), KEMDy19 LOSO-40 UA 66.26.
+- 성능 레버 순위(C등급 판단): [[topic-ser-performance-levers-2026-11]]
+- 한국어 SER 지형: [[topic-korean-ser-landscape-2026-11]]
+- 논문 설계: [[claim-research-1-paper-a-korean-ser-selective-prediction]] (1순위), [[claim-research-2-paper-b-personalization-synthetic]] (2순위)
+- UNIST 음성 연구실(이번 검색 기준 SER 논문 미발견; Oakley 현 소속 KAIST, Jang G.J.는 경북대): [[topic-collab-unist-speech-labs]], [[topic-collab-unist-affective-labs]]
+- 개발자 저장소 심층 조사 노트: `research_notes/개발자 GitHub 심층 조사/developer_repos_deep_dive.md` (검증 진행 중, 적재 예정)
+- 통합 계획: `reports/한벗 최종 계획 v3.md`
 

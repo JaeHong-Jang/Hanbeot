@@ -2,9 +2,9 @@
 title: "src-livekit-2025-turn-detector"
 tags: ["paper-evidence", "turn-detection", "grade-A", "korean"]
 created: 2026-10-26T05:45:40.226Z
-updated: 2026-10-26T05:45:40.226Z
+updated: 2026-11-07T19:51:40.850Z
 sources: []
-links: ["topic-app-paper-evidence.md", "topic-app-impl-audio-stt-turn.md"]
+links: ["topic-app-paper-evidence.md", "topic-app-impl-audio-stt-turn.md", "topic-dialogue-dynamics-evidence-2026-11.md"]
 category: reference
 confidence: medium
 schemaVersion: 1
@@ -26,3 +26,13 @@ LiveKit, 2025, Turn detector (공식 문서, 벤더). https://docs.livekit.io/ag
 
 ## 사용처
 [[topic-app-paper-evidence]] · [[topic-app-impl-audio-stt-turn]]
+
+---
+
+## Update (2026-11-07T19:51:40.850Z)
+
+## 2026-11-08 원문 확인
+- 블로그(게시 2024-12-20): 135M SmolLM v2 기반, 최근 4턴 문맥, VAD 단독 대비 의도치 않은 끼어듦 85% 감소, 잘못된 미종료 3%, 추론 약 50ms. 영어 초기 모델, 벤더 수치.
+- **현행 LiveKit EOU 모델은 한국어 지원**(노트의 "한국어 불가"는 초기 모델에만 해당).
+- 사용처: [[topic-dialogue-dynamics-evidence-2026-11]]
+

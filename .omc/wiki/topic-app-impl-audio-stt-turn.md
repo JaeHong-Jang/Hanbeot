@@ -1,10 +1,10 @@
 ---
 title: "topic-app-impl-audio-stt-turn"
-tags: ["app-design", "implementation", "audio", "stt", "rtzr", "smart-turn", "barge-in", "topic", "paper-evidence"]
+tags: ["app-design", "implementation", "audio", "stt", "rtzr", "smart-turn", "barge-in", "topic", "paper-evidence", "scopus-2026-11"]
 created: 2026-10-25T14:45:50.346Z
-updated: 2026-10-26T05:47:12.254Z
+updated: 2026-11-07T19:52:15.793Z
 sources: ["reports/한벗 앱 설계서.md#5-1-3"]
-links: ["overview-app-design.md", "topic-app-architecture.md", "src-pipecat-2026-docs-js-client.md", "src-pipecat-2026-voice-ui-kit.md", "src-pipecat-2026-examples.md", "topic-app-feature-spec.md", "src-firt-2026-ios-pwa-getusermedia.md", "claim-tech-3-stt-tts-vendors.md", "src-pipecat-2026-docs-supported-services.md", "src-rtzr-2026-streaming-websocket.md", "src-rtzr-2026-streaming-api.md", "src-pipecat-2026-rtzr-service-unverified.md", "src-livekit-2026-rtzr-plugin.md", "src-pipecat-2026-smart-turn.md", "src-pipecat-2026-vad-analyzer.md", "src-pipecat-2026-docs-speech-input.md", "claim-app-2-call-screen-gemini-live.md", "claim-app-1-pipecat-orchestrator.md", "src-daily-2025-smart-turn-v3.md", "src-park-2024-korean-asr-eval.md", "src-bang-2020-ksponspeech.md", "src-mckinnon-2026-vad-window.md", "src-lin-2025-full-duplex-bench.md", "topic-app-paper-evidence.md"]
+links: ["overview-app-design.md", "topic-app-architecture.md", "src-pipecat-2026-docs-js-client.md", "src-pipecat-2026-voice-ui-kit.md", "src-pipecat-2026-examples.md", "topic-app-feature-spec.md", "src-firt-2026-ios-pwa-getusermedia.md", "claim-tech-3-stt-tts-vendors.md", "src-pipecat-2026-docs-supported-services.md", "src-rtzr-2026-streaming-websocket.md", "src-rtzr-2026-streaming-api.md", "src-pipecat-2026-rtzr-service-unverified.md", "src-livekit-2026-rtzr-plugin.md", "src-pipecat-2026-smart-turn.md", "src-pipecat-2026-vad-analyzer.md", "src-pipecat-2026-docs-speech-input.md", "claim-app-2-call-screen-gemini-live.md", "claim-app-1-pipecat-orchestrator.md", "src-daily-2025-smart-turn-v3.md", "src-park-2024-korean-asr-eval.md", "src-bang-2020-ksponspeech.md", "src-mckinnon-2026-vad-window.md", "src-lin-2025-full-duplex-bench.md", "topic-app-paper-evidence.md", "claim-app-12-interruption-backchannel-filler-rules.md", "src-lin-2025-full-duplex-bench-v1-5.md", "topic-dialogue-dynamics-evidence-2026-11.md"]
 category: pattern
 confidence: medium
 schemaVersion: 1
@@ -45,4 +45,14 @@ P0-1(통화 루프 완료율), P0-2(끼어들기 300ms 이하), P0-3(말 중간 
 - Silero 선택은 영어 근거만 [P1 [[src-mckinnon-2026-vad-window]], P2]. 한국어·모바일 소음 오탐률은 W2 기기 매트릭스.
 - 끼어들기 기본 ON 방향은 지지 [P13 [[src-lin-2025-full-duplex-bench]], P14]. 백채널 "예측"(P11)과 "응/음" 입력 판별은 다른 과제 → 생성·판별·TTS 중단을 나눠 W2에 실제 겹친 발화로 오중단율 측정.
 - 전체 근거: [[topic-app-paper-evidence]].
+
+---
+
+## Update (2026-11-07T19:52:15.793Z)
+
+## 2026-11-08 문헌 심층 반영
+- 끼어들기·맞장구·필러·말 끝 튜닝 4규칙을 설계값으로 정리: [[claim-app-12-interruption-backchannel-filler-rules]].
+- FDB v1.5: 맞장구 Resume Sonic 0.98 ~ Moshi 0.06, GPT-4o 정지 0.21~0.23s(과민), 제3자·배경음 오인이 병목([[src-lin-2025-full-duplex-bench-v1-5]]). Resume는 이전 발화 내용을 계속하는 행동.
+- 현행 LiveKit EOU 모델은 한국어 지원(초기 영어 모델과 구분). Smart Turn v3 한국어 96.85%는 벤더 수치.
+- CABP 한국어 최고 M-F1 39.5, VAP BC-pred F1 .723(영어)은 과제가 달라 직접 비교 불가. 전체 근거: [[topic-dialogue-dynamics-evidence-2026-11]].
 

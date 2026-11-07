@@ -2,9 +2,9 @@
 title: "src-lin-2025-full-duplex-bench"
 tags: ["paper-evidence", "barge-in", "turn-detection", "latency", "grade-A"]
 created: 2026-10-26T05:46:29.338Z
-updated: 2026-10-26T05:46:29.338Z
+updated: 2026-11-07T19:51:35.950Z
 sources: []
-links: ["topic-app-paper-evidence.md", "topic-app-impl-audio-stt-turn.md", "claim-feedback-1-reflect-professor-round1.md"]
+links: ["topic-app-paper-evidence.md", "topic-app-impl-audio-stt-turn.md", "claim-feedback-1-reflect-professor-round1.md", "src-lin-2025-full-duplex-bench-v1-5.md", "src-lin-2026-fdb-v2-mtr-thai-bench.md", "topic-dialogue-dynamics-evidence-2026-11.md"]
 category: reference
 confidence: medium
 schemaVersion: 1
@@ -29,3 +29,13 @@ Lin et al., 2025, "Full-Duplex-Bench" (v3), ASRU. https://arxiv.org/abs/2503.047
 
 ## 사용처
 [[topic-app-paper-evidence]] · [[topic-app-impl-audio-stt-turn]] · [[claim-feedback-1-reflect-professor-round1]]
+
+---
+
+## Update (2026-11-07T19:51:35.950Z)
+
+## 2026-11-08 원문 확인
+- 내용 점수(GPT-4o 0~5) Freeze-Omni 3.615, Gemini 3.376, Moshi 0.765, dGSLM 0.201: 모두 0-5 범위 안(척도 모순 없음).
+- 맞장구 정의: 1초 미만 & 2단어 미만. 후속 겹침 시나리오는 [[src-lin-2025-full-duplex-bench-v1-5]]. 한국어 이식 선례: [[src-lin-2026-fdb-v2-mtr-thai-bench]].
+- 사용처: [[topic-dialogue-dynamics-evidence-2026-11]]
+

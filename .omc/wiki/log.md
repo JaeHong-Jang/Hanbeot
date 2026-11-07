@@ -2886,3 +2886,311 @@
 - **Pages:** claim-collab-6-pilot-study-design-ask.md, claim-market-7-price-anchor.md, src-a16z-2026-top100-genai-apps.md, src-aihub-2024-terms.md, src-etri-2020-kemdy.md, src-everytime-2020-malicious-comments-incident.md, src-hannam-2024-enrollment-namuwiki.md, src-itworld-2025-chatbot-loneliness-studies.md, src-livekit-2026-docs-tts-models.md, src-meng-dai-2021-chatbot-emotional-support.md, src-mirror-eval-2026-companion-harm.md, src-mohw-2021-covid-mental-health-survey.md, src-naver-2026-clova-speech-voice.md, src-pipecat-2026-rtzr-service-unverified.md, src-scatterlab-2025-zeta-subscriber-age.md, src-univtomorrow-2025-genz-ai-usage.md, src-voxbooster-2026-companion-usage-hours.md, src-wang-2026-aies-chatgpt-youth.md, src-yeowon-2026-indextts-ko.md, topic-app-paper-evidence.md, topic-app-risks.md, topic-collab-unverified-candidates.md, topic-ser-label-count-calibration-evidence.md, claim-collab-1-guidelines-demand-expert-validation.md, src-etri-2018-kesdy18.md, src-livekit-2025-turn-detector.md, src-naver-2023-carecall-chi-best-paper.md, src-pipecat-2026-docs-custom-frame-processor.md, topic-app-architecture.md, topic-bench-business-metrics.md, topic-collab-candidate-researchers-map.md, topic-market-adoption-rate.md, topic-ser-context-personalization.md, topic-tech-empathetic-dialogue.md, topic-tts-humanlike-techniques.md
 - **Summary:** Lint: 38 issues (0 orphan, 0 stale, 0 broken, 15 contradictions)
 
+## [2026-11-07T19:47:22.836Z] ingest
+- **Pages:** topic-tts-humanlike-evidence-2026-11.md
+- **Summary:** Created new page "topic-tts-humanlike-evidence-2026-11"
+
+## [2026-11-07T19:47:31.700Z] ingest
+- **Pages:** topic-dialogue-dynamics-evidence-2026-11.md
+- **Summary:** Created new page "topic-dialogue-dynamics-evidence-2026-11"
+
+## [2026-11-07T19:48:00.964Z] ingest
+- **Pages:** claim-app-12-interruption-backchannel-filler-rules.md
+- **Summary:** Created new page "claim-app-12-interruption-backchannel-filler-rules"
+
+## [2026-11-07T19:48:05.773Z] ingest
+- **Pages:** claim-app-13-tts-blind-test-protocol-w4.md
+- **Summary:** Created new page "claim-app-13-tts-blind-test-protocol-w4"
+
+## [2026-11-07T19:48:46.832Z] ingest
+- **Pages:** src-sesame-2025-csm-uncanny-valley.md
+- **Summary:** Created new page "src-sesame-2025-csm-uncanny-valley"
+
+## [2026-11-07T19:48:49.315Z] ingest
+- **Pages:** src-rethinking-mushra-2025.md
+- **Summary:** Created new page "src-rethinking-mushra-2025"
+
+## [2026-11-07T19:48:51.762Z] ingest
+- **Pages:** src-audio-turing-test-2025.md
+- **Summary:** Created new page "src-audio-turing-test-2025"
+
+## [2026-11-07T19:48:54.267Z] ingest
+- **Pages:** src-nvspeech-2025.md
+- **Summary:** Created new page "src-nvspeech-2025"
+
+## [2026-11-07T19:48:56.898Z] ingest
+- **Pages:** src-hu-2026-qwen3-tts-report.md
+- **Summary:** Created new page "src-hu-2026-qwen3-tts-report"
+
+## [2026-11-07T19:48:59.247Z] ingest
+- **Pages:** src-du-2025-cosyvoice3.md
+- **Summary:** Created new page "src-du-2025-cosyvoice3"
+
+## [2026-11-07T19:49:01.969Z] ingest
+- **Pages:** src-voxcpm-2025-report.md
+- **Summary:** Created new page "src-voxcpm-2025-report"
+
+## [2026-11-07T19:49:04.883Z] ingest
+- **Pages:** src-chen-2025-f5-tts.md
+- **Summary:** Created new page "src-chen-2025-f5-tts"
+
+## [2026-11-07T19:49:07.658Z] ingest
+- **Pages:** src-wang-2024-maskgct.md
+- **Summary:** Created new page "src-wang-2024-maskgct"
+
+## [2026-11-07T19:49:10.404Z] ingest
+- **Pages:** src-ju-2024-naturalspeech3.md
+- **Summary:** Created new page "src-ju-2024-naturalspeech3"
+
+## [2026-11-07T19:49:44.277Z] ingest
+- **Pages:** src-liu-2024-fish-speech.md
+- **Summary:** Created new page "src-liu-2024-fish-speech"
+
+## [2026-11-07T19:49:46.635Z] ingest
+- **Pages:** src-kuhne-2020-humanlike-voices.md
+- **Summary:** Created new page "src-kuhne-2020-humanlike-voices"
+
+## [2026-11-07T19:49:49.067Z] ingest
+- **Pages:** src-kwon-2025-coreaspeech.md
+- **Summary:** Created new page "src-kwon-2025-coreaspeech"
+
+## [2026-11-07T19:49:51.669Z] ingest
+- **Pages:** src-upskyy-2026-komos.md
+- **Summary:** Created new page "src-upskyy-2026-komos"
+
+## [2026-11-07T19:49:54.017Z] ingest
+- **Pages:** src-jeon-2024-takotron2pro.md
+- **Summary:** Created new page "src-jeon-2024-takotron2pro"
+
+## [2026-11-07T19:49:56.374Z] ingest
+- **Pages:** src-liu-2024-gpt-talker.md
+- **Summary:** Created new page "src-liu-2024-gpt-talker"
+
+## [2026-11-07T19:49:58.723Z] ingest
+- **Pages:** src-kim-2025-fillerspeech.md
+- **Summary:** Created new page "src-kim-2025-fillerspeech"
+
+## [2026-11-07T19:50:01.197Z] ingest
+- **Pages:** src-efthymiou-2024-trembling-voices.md
+- **Summary:** Created new page "src-efthymiou-2024-trembling-voices"
+
+## [2026-11-07T19:50:03.548Z] ingest
+- **Pages:** src-kirkland-2023-stuck-in-mos-pit.md
+- **Summary:** Created new page "src-kirkland-2023-stuck-in-mos-pit"
+
+## [2026-11-07T19:50:41.278Z] ingest
+- **Pages:** src-lin-2025-full-duplex-bench-v1-5.md
+- **Summary:** Created new page "src-lin-2025-full-duplex-bench-v1-5"
+
+## [2026-11-07T19:50:43.858Z] ingest
+- **Pages:** src-wang-2024-freeze-omni.md
+- **Summary:** Created new page "src-wang-2024-freeze-omni"
+
+## [2026-11-07T19:50:46.752Z] ingest
+- **Pages:** src-maslych-2025-response-delay-fillers.md
+- **Summary:** Created new page "src-maslych-2025-response-delay-fillers"
+
+## [2026-11-07T19:50:49.385Z] ingest
+- **Pages:** src-shiwa-2009-robot-response-delay.md
+- **Summary:** Created new page "src-shiwa-2009-robot-response-delay"
+
+## [2026-11-07T19:50:51.897Z] ingest
+- **Pages:** src-veluri-2024-synchronous-llms.md
+- **Summary:** Created new page "src-veluri-2024-synchronous-llms"
+
+## [2026-11-07T19:50:54.741Z] ingest
+- **Pages:** src-ohashi-2025-j-moshi.md
+- **Summary:** Created new page "src-ohashi-2025-j-moshi"
+
+## [2026-11-07T19:50:57.315Z] ingest
+- **Pages:** src-lin-2026-fdb-v2-mtr-thai-bench.md
+- **Summary:** Created new page "src-lin-2026-fdb-v2-mtr-thai-bench"
+
+## [2026-11-07T19:50:59.890Z] ingest
+- **Pages:** src-corps-2022-overrated-gaps.md
+- **Summary:** Created new page "src-corps-2022-overrated-gaps"
+
+## [2026-11-07T19:51:02.770Z] ingest
+- **Pages:** src-young-lee-2004-korean-backchannel.md
+- **Summary:** Created new page "src-young-lee-2004-korean-backchannel"
+
+## [2026-11-07T19:51:25.698Z] ingest
+- **Pages:** src-du-2024-cosyvoice2.md
+- **Summary:** Updated "src-du-2024-cosyvoice2" with new content
+
+## [2026-11-07T19:51:28.493Z] ingest
+- **Pages:** src-qwen-2026-qwen3-tts.md
+- **Summary:** Updated "src-qwen-2026-qwen3-tts" with new content
+
+## [2026-11-07T19:51:31.066Z] ingest
+- **Pages:** src-arora-2025-talking-turns.md
+- **Summary:** Updated "src-arora-2025-talking-turns" with new content
+
+## [2026-11-07T19:51:33.527Z] ingest
+- **Pages:** src-stivers-2009-turn-taking-universals.md
+- **Summary:** Updated "src-stivers-2009-turn-taking-universals" with new content
+
+## [2026-11-07T19:51:35.950Z] ingest
+- **Pages:** src-lin-2025-full-duplex-bench.md
+- **Summary:** Updated "src-lin-2025-full-duplex-bench" with new content
+
+## [2026-11-07T19:51:38.449Z] ingest
+- **Pages:** src-park-2024-backchannel-eacl.md
+- **Summary:** Updated "src-park-2024-backchannel-eacl" with new content
+
+## [2026-11-07T19:51:40.850Z] ingest
+- **Pages:** src-livekit-2025-turn-detector.md
+- **Summary:** Updated "src-livekit-2025-turn-detector" with new content
+
+## [2026-11-07T19:51:54.829Z] ingest
+- **Pages:** src-feng-2025-sailer-is25-ser.md
+- **Summary:** Created new page "src-feng-2025-sailer-is25-ser"
+
+## [2026-11-07T19:51:57.181Z] ingest
+- **Pages:** src-zhang-2026-voxemo-speech-llm-ser.md
+- **Summary:** Created new page "src-zhang-2026-voxemo-speech-llm-ser"
+
+## [2026-11-07T19:51:59.560Z] ingest
+- **Pages:** src-ma-2023-synthetic-tts-ser.md
+- **Summary:** Created new page "src-ma-2023-synthetic-tts-ser"
+
+## [2026-11-07T19:52:02.099Z] ingest
+- **Pages:** src-schrufer-2024-uq-ser.md
+- **Summary:** Created new page "src-schrufer-2024-uq-ser"
+
+## [2026-11-07T19:52:04.543Z] ingest
+- **Pages:** src-deoliveira-2023-distilled-audio-text-ser.md
+- **Summary:** Created new page "src-deoliveira-2023-distilled-audio-text-ser"
+
+## [2026-11-07T19:52:06.958Z] ingest
+- **Pages:** src-tran-2023-personalized-adaptation.md
+- **Summary:** Created new page "src-tran-2023-personalized-adaptation"
+
+## [2026-11-07T19:52:09.350Z] ingest
+- **Pages:** src-shen-2025-meta-perser.md
+- **Summary:** Created new page "src-shen-2025-meta-perser"
+
+## [2026-11-07T19:52:11.450Z] ingest
+- **Pages:** topic-app-impl-dialogue-tts.md
+- **Summary:** Updated "topic-app-impl-dialogue-tts" with new content
+
+## [2026-11-07T19:52:13.682Z] ingest
+- **Pages:** src-ihori-2025-ntt-icl-personalization.md
+- **Summary:** Created new page "src-ihori-2025-ntt-icl-personalization"
+
+## [2026-11-07T19:52:15.793Z] ingest
+- **Pages:** topic-app-impl-audio-stt-turn.md
+- **Summary:** Updated "topic-app-impl-audio-stt-turn" with new content
+
+## [2026-11-07T19:52:17.794Z] ingest
+- **Pages:** src-emodistill-2024-prosody-linguistic-distillation.md
+- **Summary:** Created new page "src-emodistill-2024-prosody-linguistic-distillation"
+
+## [2026-11-07T19:52:19.818Z] ingest
+- **Pages:** claim-tech-3-stt-tts-vendors.md
+- **Summary:** Updated "claim-tech-3-stt-tts-vendors" with new content
+
+## [2026-11-07T19:52:21.885Z] ingest
+- **Pages:** src-oh-2024-korean-vocal-emotion-acoustics.md
+- **Summary:** Created new page "src-oh-2024-korean-vocal-emotion-acoustics"
+
+## [2026-11-07T19:52:24.440Z] ingest
+- **Pages:** claim-tech-5-latency-target.md
+- **Summary:** Updated "claim-tech-5-latency-target" with new content
+
+## [2026-11-07T19:52:26.602Z] ingest
+- **Pages:** src-yoon-2026-human-vs-ai-korean-voices.md
+- **Summary:** Created new page "src-yoon-2026-human-vs-ai-korean-voices"
+
+## [2026-11-07T19:52:28.600Z] ingest
+- **Pages:** claim-app-2-call-screen-gemini-live.md
+- **Summary:** Updated "claim-app-2-call-screen-gemini-live" with new content
+
+## [2026-11-07T19:52:30.744Z] ingest
+- **Pages:** src-yoon-2026-lowpass-korean-gender-emotion.md
+- **Summary:** Created new page "src-yoon-2026-lowpass-korean-gender-emotion"
+
+## [2026-11-07T19:52:32.793Z] ingest
+- **Pages:** topic-tts-humanlike-techniques.md
+- **Summary:** Updated "topic-tts-humanlike-techniques" with new content
+
+## [2026-11-07T19:52:34.870Z] ingest
+- **Pages:** src-chen-2023-f0-perturbation-focus-ko-ja.md
+- **Summary:** Created new page "src-chen-2023-f0-perturbation-focus-ko-ja"
+
+## [2026-11-07T19:52:37.173Z] ingest
+- **Pages:** topic-scopus-literature-2026-11.md
+- **Summary:** Updated "topic-scopus-literature-2026-11" with new content
+
+## [2026-11-07T19:52:40.152Z] ingest
+- **Pages:** overview-app-design.md
+- **Summary:** Updated "overview-app-design" with new content
+
+## [2026-11-07T19:52:47.711Z] lint
+- **Pages:** claim-collab-6-pilot-study-design-ask.md, claim-market-7-price-anchor.md, src-a16z-2026-top100-genai-apps.md, src-aihub-2024-terms.md, src-chen-2023-f0-perturbation-focus-ko-ja.md, src-corps-2022-overrated-gaps.md, src-deoliveira-2023-distilled-audio-text-ser.md, src-emodistill-2024-prosody-linguistic-distillation.md, src-etri-2020-kemdy.md, src-everytime-2020-malicious-comments-incident.md, src-feng-2025-sailer-is25-ser.md, src-hannam-2024-enrollment-namuwiki.md, src-ihori-2025-ntt-icl-personalization.md, src-itworld-2025-chatbot-loneliness-studies.md, src-kirkland-2023-stuck-in-mos-pit.md, src-livekit-2026-docs-tts-models.md, src-ma-2023-synthetic-tts-ser.md, src-meng-dai-2021-chatbot-emotional-support.md, src-mirror-eval-2026-companion-harm.md, src-mohw-2021-covid-mental-health-survey.md, src-naver-2026-clova-speech-voice.md, src-oh-2024-korean-vocal-emotion-acoustics.md, src-pipecat-2026-rtzr-service-unverified.md, src-scatterlab-2025-zeta-subscriber-age.md, src-schrufer-2024-uq-ser.md, src-shen-2025-meta-perser.md, src-tran-2023-personalized-adaptation.md, src-univtomorrow-2025-genz-ai-usage.md, src-voxbooster-2026-companion-usage-hours.md, src-wang-2026-aies-chatgpt-youth.md, src-yeowon-2026-indextts-ko.md, src-yoon-2026-human-vs-ai-korean-voices.md, src-yoon-2026-lowpass-korean-gender-emotion.md, src-young-lee-2004-korean-backchannel.md, src-zhang-2026-voxemo-speech-llm-ser.md, topic-app-paper-evidence.md, topic-app-risks.md, topic-collab-unverified-candidates.md, topic-ser-label-count-calibration-evidence.md, claim-collab-1-guidelines-demand-expert-validation.md, src-etri-2018-kesdy18.md, src-livekit-2025-turn-detector.md, src-naver-2023-carecall-chi-best-paper.md, src-pipecat-2026-docs-custom-frame-processor.md, src-wang-2023-speech-emotion-diarization.md, src-yoon-2018-audio-text-dre.md, topic-app-architecture.md, topic-bench-business-metrics.md, topic-collab-candidate-researchers-map.md, topic-market-adoption-rate.md, topic-ser-context-personalization.md, topic-tech-empathetic-dialogue.md, topic-tts-humanlike-evidence-2026-11.md
+- **Summary:** Lint: 84 issues (16 orphan, 0 stale, 22 broken, 17 contradictions)
+
+## [2026-11-07T19:53:00.862Z] ingest
+- **Pages:** topic-dialogue-dynamics-evidence-2026-11.md
+- **Summary:** Updated "topic-dialogue-dynamics-evidence-2026-11" with new content
+
+## [2026-11-07T19:53:03.253Z] ingest
+- **Pages:** topic-tts-humanlike-evidence-2026-11.md
+- **Summary:** Updated "topic-tts-humanlike-evidence-2026-11" with new content
+
+## [2026-11-07T19:53:28.083Z] ingest
+- **Pages:** topic-ser-sota-benchmarks-2026-11.md
+- **Summary:** Created new page "topic-ser-sota-benchmarks-2026-11"
+
+## [2026-11-07T19:53:30.326Z] ingest
+- **Pages:** topic-ser-performance-levers-2026-11.md
+- **Summary:** Created new page "topic-ser-performance-levers-2026-11"
+
+## [2026-11-07T19:53:32.539Z] ingest
+- **Pages:** topic-korean-ser-landscape-2026-11.md
+- **Summary:** Created new page "topic-korean-ser-landscape-2026-11"
+
+## [2026-11-07T19:54:09.214Z] ingest
+- **Pages:** claim-research-1-paper-a-korean-ser-selective-prediction.md
+- **Summary:** Created new page "claim-research-1-paper-a-korean-ser-selective-prediction"
+
+## [2026-11-07T19:54:12.386Z] ingest
+- **Pages:** claim-research-2-paper-b-personalization-synthetic.md
+- **Summary:** Created new page "claim-research-2-paper-b-personalization-synthetic"
+
+## [2026-11-07T19:54:14.965Z] ingest
+- **Pages:** topic-collab-unist-speech-labs.md
+- **Summary:** Created new page "topic-collab-unist-speech-labs"
+
+## [2026-11-07T19:54:37.151Z] ingest
+- **Pages:** claim-app-9-ser-evaluation-and-calibration.md
+- **Summary:** Updated "claim-app-9-ser-evaluation-and-calibration" with new content
+
+## [2026-11-07T19:54:39.643Z] ingest
+- **Pages:** claim-tech-1-ser-model.md
+- **Summary:** Updated "claim-tech-1-ser-model" with new content
+
+## [2026-11-07T19:54:41.894Z] ingest
+- **Pages:** topic-ser-preprocessing-pipeline-evidence.md
+- **Summary:** Updated "topic-ser-preprocessing-pipeline-evidence" with new content
+
+## [2026-11-07T19:54:44.050Z] ingest
+- **Pages:** topic-ser-label-count-calibration-evidence.md
+- **Summary:** Updated "topic-ser-label-count-calibration-evidence" with new content
+
+## [2026-11-07T19:54:46.307Z] ingest
+- **Pages:** topic-app-paper-evidence.md
+- **Summary:** Updated "topic-app-paper-evidence" with new content
+
+## [2026-11-07T19:54:51.352Z] lint
+- **Pages:** claim-collab-6-pilot-study-design-ask.md, claim-market-7-price-anchor.md, claim-research-2-paper-b-personalization-synthetic.md, src-a16z-2026-top100-genai-apps.md, src-aihub-2024-terms.md, src-etri-2020-kemdy.md, src-everytime-2020-malicious-comments-incident.md, src-hannam-2024-enrollment-namuwiki.md, src-ihori-2025-ntt-icl-personalization.md, src-itworld-2025-chatbot-loneliness-studies.md, src-kirkland-2023-stuck-in-mos-pit.md, src-livekit-2026-docs-tts-models.md, src-meng-dai-2021-chatbot-emotional-support.md, src-mirror-eval-2026-companion-harm.md, src-mohw-2021-covid-mental-health-survey.md, src-naver-2026-clova-speech-voice.md, src-oh-2024-korean-vocal-emotion-acoustics.md, src-pipecat-2026-rtzr-service-unverified.md, src-scatterlab-2025-zeta-subscriber-age.md, src-shen-2025-meta-perser.md, src-univtomorrow-2025-genz-ai-usage.md, src-voxbooster-2026-companion-usage-hours.md, src-wang-2026-aies-chatgpt-youth.md, src-yeowon-2026-indextts-ko.md, src-yoon-2026-lowpass-korean-gender-emotion.md, src-young-lee-2004-korean-backchannel.md, topic-app-paper-evidence.md, topic-app-risks.md, topic-collab-unist-speech-labs.md, topic-collab-unverified-candidates.md, topic-ser-label-count-calibration-evidence.md, topic-ser-preprocessing-pipeline-evidence.md, claim-collab-1-guidelines-demand-expert-validation.md, src-etri-2018-kesdy18.md, src-livekit-2025-turn-detector.md, src-naver-2023-carecall-chi-best-paper.md, src-pipecat-2026-docs-custom-frame-processor.md, src-wang-2023-speech-emotion-diarization.md, src-yoon-2018-audio-text-dre.md, topic-app-architecture.md, topic-bench-business-metrics.md, topic-collab-candidate-researchers-map.md, topic-market-adoption-rate.md, topic-ser-context-personalization.md, topic-tech-empathetic-dialogue.md, topic-tts-humanlike-evidence-2026-11.md
+- **Summary:** Lint: 51 issues (2 orphan, 0 stale, 0 broken, 17 contradictions)
+
+## [2026-11-07T19:55:02.888Z] ingest
+- **Pages:** claim-research-2-paper-b-personalization-synthetic.md
+- **Summary:** Updated "claim-research-2-paper-b-personalization-synthetic" with new content
+
+## [2026-11-07T19:55:55.786Z] ingest
+- **Pages:** topic-scopus-literature-2026-11.md
+- **Summary:** Updated "topic-scopus-literature-2026-11" with new content
+

@@ -2,9 +2,9 @@
 title: "topic-ser-label-count-calibration-evidence"
 tags: ["scopus-2026-11", "ser", "label-scheme", "calibration", "fusion", "low-arousal", "empathy", "verified"]
 created: 2026-11-07T18:44:31.294Z
-updated: 2026-11-07T18:44:31.294Z
-sources: ["research_notes/Scopus 조사/02_labels_calibration_fusion_unist.md", ".omc/orchestra/reviews/20261108_032202_verify_02_labels_calibration_fusion_unist.md", "docs/harness/감정-인식-계획.md"]
-links: ["topic-scopus-literature-2026-11.md", "topic-ser-label-scheme-and-fusion.md", "claim-app-3-emotion-cue-confirmation-rules.md", "claim-app-9-ser-evaluation-and-calibration.md", "topic-tts-humanlike-techniques.md", "src-atmaja-2022-class-count-failure.md", "src-yoon-2018-audio-text-dre.md", "src-kumawat-2025-mixed-emotion.md", "src-kumawat-2025-annotator-softlabel.md", "src-chatzichristodoulou-2025-medusa.md", "src-wagner-2023-transformer-era.md", "src-chien-2025-conversation-vs-monologue.md", "src-alhussein-2025-ser-conversation-metaanalysis.md", "src-sridhar-2020-uncertainty-reject.md", "src-sridhar-2021-softlabel-reject.md", "src-chou-2023-ser-calibration.md", "src-prabhu-2024-label-uncertainty.md", "src-yi-2024-kohmt-korean-fusion.md", "src-kim-2023-korean-depression-speech.md", "src-briganti-2025-depression-voice-review.md", "src-yamada-2021-loneliness-speech.md", "src-ben-gurion-2025-depression-selfreport.md", "src-lee-2020-driver-anxiety-biosignal.md", "src-hu-2023-hue-acoustic-emotion-ca.md", "src-cho-2022-alexa-backchannel.md", "src-varadhan-2025-tts-human-fooling.md", "claim-app-10-crisis-state-machine-and-evaluation.md"]
+updated: 2026-11-07T19:54:44.050Z
+sources: ["research_notes/Scopus 조사/02_labels_calibration_fusion_unist.md", ".omc/orchestra/reviews/20261108_032202_verify_02_labels_calibration_fusion_unist.md", "docs/harness/감정-인식-계획.md", "research_notes/Scopus 조사/05_ser_sota_methods_for_paper.md"]
+links: ["topic-scopus-literature-2026-11.md", "topic-ser-label-scheme-and-fusion.md", "claim-app-3-emotion-cue-confirmation-rules.md", "claim-app-9-ser-evaluation-and-calibration.md", "topic-tts-humanlike-techniques.md", "src-atmaja-2022-class-count-failure.md", "src-yoon-2018-audio-text-dre.md", "src-kumawat-2025-mixed-emotion.md", "src-kumawat-2025-annotator-softlabel.md", "src-chatzichristodoulou-2025-medusa.md", "src-wagner-2023-transformer-era.md", "src-chien-2025-conversation-vs-monologue.md", "src-alhussein-2025-ser-conversation-metaanalysis.md", "src-sridhar-2020-uncertainty-reject.md", "src-sridhar-2021-softlabel-reject.md", "src-chou-2023-ser-calibration.md", "src-prabhu-2024-label-uncertainty.md", "src-yi-2024-kohmt-korean-fusion.md", "src-kim-2023-korean-depression-speech.md", "src-briganti-2025-depression-voice-review.md", "src-yamada-2021-loneliness-speech.md", "src-ben-gurion-2025-depression-selfreport.md", "src-lee-2020-driver-anxiety-biosignal.md", "src-hu-2023-hue-acoustic-emotion-ca.md", "src-cho-2022-alexa-backchannel.md", "src-varadhan-2025-tts-human-fooling.md", "claim-app-10-crisis-state-machine-and-evaluation.md", "src-schrufer-2024-uq-ser.md", "topic-ser-performance-levers-2026-11.md"]
 category: pattern
 confidence: medium
 schemaVersion: 1
@@ -94,3 +94,12 @@ schemaVersion: 1
 ## 7. 빈 곳
 ECE 외 다수 지표, 자연 대화 클래스 수별 통제 비교, 거친→세밀 계층 직접 증거, 한국어 LLM ERC, 대학생 일상 저각성 오탐률, 한국어 감정 TTS 사용자 연구. 모두 "검토한 초록에서 찾지 못함"이며 분야 전체의 부재를 단정하지 않는다. 읽기 범위(약 430건 훑음, 약 75건 초록 전문)는 개별 열람 기록이 없어 확인 불가(C).
 
+---
+
+## Update (2026-11-07T19:54:44.050Z)
+
+## 2026-11-08 SER SOTA 문헌 반영
+- Sridhar 2021 초록에 V/A/D 상대 +16.85/+7.12/+8.01%가 명시됨(노트 05의 "수치 초록에 없음"은 정정).
+- Chou 2023: BCE ECE 0.335->0.276, CBL 0.311->0.263, macro-F1 최고 조합 0.328->0.270.
+- Schrufer 2024: 모델 불확실도와 주석 일치도 상관은 약함(-.08~-.19) [[src-schrufer-2024-uq-ser]].
+- AURC 보고 SER 논문은 읽은 범위에서 0건. 상세 [[topic-ser-performance-levers-2026-11]].

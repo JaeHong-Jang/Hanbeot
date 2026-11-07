@@ -2,9 +2,9 @@
 title: "claim-app-9-ser-evaluation-and-calibration"
 tags: ["app-design", "decision", "ser", "evaluation", "calibration", "h3", "paper-evidence", "meeting-followup", "scopus-2026-11"]
 created: 2026-10-26T05:46:21.137Z
-updated: 2026-11-07T18:46:07.741Z
-sources: ["reports/한벗 기술 논문 근거.md#2-1"]
-links: ["overview-app-design.md", "topic-app-paper-evidence.md", "topic-app-impl-ser-cues.md", "claim-app-3-emotion-cue-confirmation-rules.md", "claim-tech-1-ser-model.md", "src-ma-2024-emotion2vec.md", "src-sereval-2024-whisper-crosslingual.md", "src-ma-2024-emobox.md", "src-sogang-2024-aihub-hubert.md", "src-romana-2025-switchboard-affect.md", "src-kawaoto-2025-acted-natural-ser.md", "src-chou-2023-ser-calibration.md", "src-ren-2024-emo-codec.md", "claim-app-8-hypotheses-h1-h5.md", "topic-meeting-followup-ser-2026-11.md", "topic-ser-papers-synthesis.md", "topic-data-korean-emotion-speech-datasets.md", "src-harm-2024-taltech-odyssey.md", "src-shin-2024-aihub-script-leak.md", "topic-ser-label-count-calibration-evidence.md", "src-sridhar-2020-uncertainty-reject.md", "src-sridhar-2021-softlabel-reject.md"]
+updated: 2026-11-07T19:54:37.151Z
+sources: ["reports/한벗 기술 논문 근거.md#2-1", "research_notes/Scopus 조사/05_ser_sota_methods_for_paper.md"]
+links: ["overview-app-design.md", "topic-app-paper-evidence.md", "topic-app-impl-ser-cues.md", "claim-app-3-emotion-cue-confirmation-rules.md", "claim-tech-1-ser-model.md", "src-ma-2024-emotion2vec.md", "src-sereval-2024-whisper-crosslingual.md", "src-ma-2024-emobox.md", "src-sogang-2024-aihub-hubert.md", "src-romana-2025-switchboard-affect.md", "src-kawaoto-2025-acted-natural-ser.md", "src-chou-2023-ser-calibration.md", "src-ren-2024-emo-codec.md", "claim-app-8-hypotheses-h1-h5.md", "topic-meeting-followup-ser-2026-11.md", "topic-ser-papers-synthesis.md", "topic-data-korean-emotion-speech-datasets.md", "src-harm-2024-taltech-odyssey.md", "src-shin-2024-aihub-script-leak.md", "topic-ser-label-count-calibration-evidence.md", "src-sridhar-2020-uncertainty-reject.md", "src-sridhar-2021-softlabel-reject.md", "topic-ser-sota-benchmarks-2026-11.md", "claim-research-1-paper-a-korean-ser-selective-prediction.md", "topic-ser-performance-levers-2026-11.md"]
 category: decision
 confidence: medium
 schemaVersion: 1
@@ -66,3 +66,12 @@ UA 0.70 미달, Opus 후 급락, 분노 질문 정밀도 미달, H3 반증 시 S
 - ECE는 한벗 데이터로 직접 측정한다. 참고: Chou 2023 본문 표 1은 ECE 0.335→0.276(BCE), 0.311→0.263(클래스 균형)을 보고(검증자 확인, 초록에는 없음). [[src-chou-2023-ser-calibration]]
 - 한계: KoHMT 77.01%(AI-HUB 7감정 9:1 분할, 화자 독립 불명)와 KEMDy19 64.69%/CCC 0.5473은 지표·분할이 달라 비교 금지.
 
+---
+
+## Update (2026-11-07T19:54:37.151Z)
+
+## 2026-11-08 SER SOTA 문헌 반영
+- 기준선: MSP-Podcast 8범주 macro-F1 IS25 기준선 0.329 / 1위 0.4316, 한국어 KEMDy19 LOSO-40 UA 66.26 / WA 68.27, IEMOCAP 화자 독립 최고 확인값 EmoDistill UA 77.49. 표 [[topic-ser-sota-benchmarks-2026-11]].
+- 위험: 한국어 4범주 UA 0.70 목표는 KEMDy19 연기 데이터 최고 66.26보다 높아 불확실. 대안 지표 "커버리지 75%에서 UA 0.70 이상" [[claim-research-1-paper-a-korean-ser-selective-prediction]].
+- 균형 단일 라벨 테스트에서는 UA = accuracy이지만 macro-F1 동일은 보장되지 않음. 점수 옆에 (분할, 클래스 수, 지표) 병기.
+- AURC를 보고한 SER 논문은 이번 읽은 범위에서 0건, ECE는 Chou 2023뿐(부재 증명 아님). 보류 곡선 + ECE를 표준 보고로. 레버별 수치 [[topic-ser-performance-levers-2026-11]].

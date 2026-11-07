@@ -1,10 +1,10 @@
 ---
 title: "topic-app-impl-dialogue-tts"
-tags: ["app-design", "implementation", "dialogue", "tts", "typecast", "elevenlabs", "summary", "topic", "paper-evidence", "meeting-followup", "opensource"]
+tags: ["app-design", "implementation", "dialogue", "tts", "typecast", "elevenlabs", "summary", "topic", "paper-evidence", "meeting-followup", "opensource", "scopus-2026-11"]
 created: 2026-10-25T14:46:30.845Z
-updated: 2026-11-07T18:12:53.094Z
+updated: 2026-11-07T19:52:11.450Z
 sources: ["reports/한벗 앱 설계서.md#5-6-7-12"]
-links: ["overview-app-design.md", "claim-tech-7-dialogue-mode-strategy.md", "claim-tech-3-stt-tts-vendors.md", "topic-app-impl-safety-crisis.md", "src-pipecat-2026-docs-tts-aggregation.md", "topic-app-cost-latency-budget.md", "src-pipecat-2026-typecast-service.md", "src-typecast-2026-streaming-tts-api.md", "src-elevenlabs-2026-websocket-tts.md", "src-elevenlabs-2026-models.md", "src-typecast-2026-developers-latency.md", "src-typecast-2026-api-pricing.md", "topic-app-impl-memory.md", "src-kang-2024-esconv-llm-limits.md", "src-acl-2021-esconv.md", "src-du-2024-cosyvoice2.md", "topic-app-paper-evidence.md", "topic-tts-humanlike-techniques.md", "topic-tts-opensource-candidates-2026-11.md"]
+links: ["overview-app-design.md", "claim-tech-7-dialogue-mode-strategy.md", "claim-tech-3-stt-tts-vendors.md", "topic-app-impl-safety-crisis.md", "src-pipecat-2026-docs-tts-aggregation.md", "topic-app-cost-latency-budget.md", "src-pipecat-2026-typecast-service.md", "src-typecast-2026-streaming-tts-api.md", "src-elevenlabs-2026-websocket-tts.md", "src-elevenlabs-2026-models.md", "src-typecast-2026-developers-latency.md", "src-typecast-2026-api-pricing.md", "topic-app-impl-memory.md", "src-kang-2024-esconv-llm-limits.md", "src-acl-2021-esconv.md", "src-du-2024-cosyvoice2.md", "topic-app-paper-evidence.md", "topic-tts-humanlike-techniques.md", "topic-tts-opensource-candidates-2026-11.md", "claim-app-13-tts-blind-test-protocol-w4.md", "src-sesame-2025-csm-uncanny-valley.md", "claim-app-12-interruption-backchannel-filler-rules.md", "topic-tts-humanlike-evidence-2026-11.md"]
 category: pattern
 confidence: medium
 schemaVersion: 1
@@ -69,3 +69,14 @@ schemaVersion: 1
 - 후보 3개: Qwen3-TTS 1.7B CustomVoice(Apache-2.0), VoxCPM2(Apache-2.0), Fun-CosyVoice3 0.5B(Apache-2.0).
 - 제작사 지연값(Qwen 97ms, CosyVoice 150ms, Fish 약 100ms)은 한국어·한벗 환경 실측이 아니므로 Pipecat에서 p50/p90 직접 측정.
 - Typecast $0.075/1천 자는 Lite 포함분 환산 단가이고 초과분은 $0.09/1천 크레딧(월정액 조건 존재).
+
+---
+
+## Update (2026-11-07T19:52:11.450Z)
+
+## 2026-11-08 문헌 심층 반영
+- 문장 MOS/CMOS는 천장·방법 편향 우려가 있어 W4는 MUSHRA 기준음 숨김 + 2턴 맥락 CMOS + 사람/불확실/기계 3택으로 구성: [[claim-app-13-tts-blind-test-protocol-w4]].
+- Sesame CSM 결과는 선호 연구이며 맥락 유무와 질문이 함께 바뀌어 순수 맥락 효과가 아님([[src-sesame-2025-csm-uncanny-valley]]).
+- Typecast 공식 TTFB 170~210ms(한국어 실측·동시 부하는 별개). previous_text 직전 2~3턴의 최적성은 미검증.
+- 맞장구·필러 클립 규칙은 설계값: [[claim-app-12-interruption-backchannel-filler-rules]]. 근거 정리: [[topic-tts-humanlike-evidence-2026-11]].
+

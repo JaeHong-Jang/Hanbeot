@@ -1,10 +1,10 @@
 ---
 title: "src-park-2024-backchannel-eacl"
-tags: ["paper-evidence", "barge-in", "turn-detection", "grade-A", "korean"]
+tags: ["paper-evidence", "barge-in", "turn-detection", "grade-A", "korean", "backchannel", "grade-B"]
 created: 2026-10-26T05:46:24.601Z
-updated: 2026-10-26T05:46:24.601Z
+updated: 2026-11-07T19:51:38.449Z
 sources: []
-links: ["topic-app-paper-evidence.md", "topic-app-impl-audio-stt-turn.md", "claim-feedback-1-reflect-professor-round1.md"]
+links: ["topic-app-paper-evidence.md", "topic-app-impl-audio-stt-turn.md", "claim-feedback-1-reflect-professor-round1.md", "topic-dialogue-dynamics-evidence-2026-11.md"]
 category: reference
 confidence: medium
 schemaVersion: 1
@@ -27,3 +27,13 @@ Park et al. (충남대), 2024, "Improving Backchannel Prediction Leveraging Sequ
 
 ## 사용처
 [[topic-app-paper-evidence]] · [[topic-app-impl-audio-stt-turn]] · [[claim-feedback-1-reflect-professor-round1]]
+
+---
+
+## Update (2026-11-07T19:51:38.449Z)
+
+## 2026-11-08 원문 확인
+- 검증표: CABP PDF 본문 판독 가능. **한국어 최고 M-F1 39.5**(노트의 "약 35"는 정정). 초록 수치 문맥 무사용 대비 +1.3%(한국어)/+1.8%(영어), wav2vec 결합 +4.4%/+3.1%.
+- VAP BC-pred F1 .723과 과제가 달라 직접 비교 불가. Interspeech 2024 "who, when and what"는 서지만 확인(C).
+- 사용처: [[topic-dialogue-dynamics-evidence-2026-11]]
+

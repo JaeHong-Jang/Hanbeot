@@ -2,9 +2,9 @@
 title: "claim-tech-1-ser-model"
 tags: ["tech", "speech-emotion-recognition", "grade-A", "grade-C", "decision", "ser", "emotion2vec", "sensevoice", "meeting-followup", "scopus-2026-11", "ser-model"]
 created: 2026-10-25T07:32:41.900Z
-updated: 2026-11-07T18:46:15.808Z
-sources: []
-links: ["topic-tech-speech-emotion-recognition.md", "overview-technology.md", "src-ma-2024-emotion2vec.md", "src-emotion2vec-2024-github.md", "src-funaudiollm-2024-sensevoice.md", "src-sereval-2024-whisper-crosslingual.md", "src-ahfe-2024-kemdy19-ccc.md", "src-sogang-2024-aihub-hubert.md", "src-hume-2026-evi-docs.md", "src-ahelm-2025-audio-benchmark.md", "claim-tech-5-latency-target.md", "src-etri-2020-kemdy.md", "src-aihub-2024-terms.md", "topic-meeting-followup-ser-2026-11.md", "topic-ser-model-comparison-whisper-spectrogram.md", "src-ma-2025-lora-whisper-ser.md", "src-chen-2022-wavlm.md", "src-kim-2024-dementia-ser.md", "topic-ser-label-scheme-and-fusion.md", "src-goron-2024-whisper-dg.md", "src-shi-2026-asr-repr-noisy.md", "src-feng-2023-peft-ser.md", "src-sampath-2025-efficient-ft.md", "src-chen-2023-wav2vec-tapt.md", "topic-ser-preprocessing-pipeline-evidence.md"]
+updated: 2026-11-07T19:54:39.643Z
+sources: ["research_notes/Scopus 조사/05_ser_sota_methods_for_paper.md"]
+links: ["topic-tech-speech-emotion-recognition.md", "overview-technology.md", "src-ma-2024-emotion2vec.md", "src-emotion2vec-2024-github.md", "src-funaudiollm-2024-sensevoice.md", "src-sereval-2024-whisper-crosslingual.md", "src-ahfe-2024-kemdy19-ccc.md", "src-sogang-2024-aihub-hubert.md", "src-hume-2026-evi-docs.md", "src-ahelm-2025-audio-benchmark.md", "claim-tech-5-latency-target.md", "src-etri-2020-kemdy.md", "src-aihub-2024-terms.md", "topic-meeting-followup-ser-2026-11.md", "topic-ser-model-comparison-whisper-spectrogram.md", "src-ma-2025-lora-whisper-ser.md", "src-chen-2022-wavlm.md", "src-kim-2024-dementia-ser.md", "topic-ser-label-scheme-and-fusion.md", "src-goron-2024-whisper-dg.md", "src-shi-2026-asr-repr-noisy.md", "src-feng-2023-peft-ser.md", "src-sampath-2025-efficient-ft.md", "src-chen-2023-wav2vec-tapt.md", "topic-ser-preprocessing-pipeline-evidence.md", "topic-ser-sota-benchmarks-2026-11.md", "topic-ser-performance-levers-2026-11.md", "src-zhang-2026-voxemo-speech-llm-ser.md"]
 category: decision
 confidence: medium
 schemaVersion: 1
@@ -65,3 +65,12 @@ schemaVersion: 1
 - LoRA가 비교한 PEFT 중 최고 ([[src-feng-2023-peft-ser]]). 마지막 3층 미세조정은 속도 +67% ([[src-sampath-2025-efficient-ft]], Wav2Vec 2.0 base 한정). TAPT의 +7.4%p는 최상 시스템 대 이전 SOTA 비교이며 TAPT 단독 효과가 아님 ([[src-chen-2023-wav2vec-tapt]]).
 - 교차 코퍼스: 단일 코퍼스 간 전이는 해당 벤치마크에서 대부분 40% 미만(최대 5개 합쳐도 58.85%). 분야 전체의 상한으로 읽지 않는다. 상세 [[topic-ser-preprocessing-pipeline-evidence]].
 
+---
+
+## Update (2026-11-07T19:54:39.643Z)
+
+## 2026-11-08 SER SOTA 문헌 반영
+- IEMOCAP 화자 독립 LOSO-10: EmoDistill UA 77.49 (최고 확인), WavLM-L UA 75.57 / WA 74.77. EmoBox Whisper-L-v3 UA 73.54 vs WavLM-L 69.47 (+4.07). [[topic-ser-sota-benchmarks-2026-11]]
+- 비용 대비 레버: 소프트 라벨, 층 가중합(WA +3.50), 텍스트 deep fusion, 선택적 예측. 앙상블(MEDUSA +7.23%)은 지연 때문에 논문 전용. [[topic-ser-performance-levers-2026-11]]
+- 음성 LLM LoRA SFT는 평균 macro-F1 +23.7이나 7B급 비용, 한국어·KEMDy 평가 없음 [[src-zhang-2026-voxemo-speech-llm-ser]].
+- 이득은 모두 영어 ablation 값이며 한벗 데이터 재현 보장 없음.

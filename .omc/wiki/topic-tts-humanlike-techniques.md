@@ -1,10 +1,10 @@
 ---
 title: "topic-tts-humanlike-techniques"
-tags: ["tts", "typecast", "elevenlabs", "backchannel", "filler", "latency", "topic", "opensource"]
+tags: ["tts", "typecast", "elevenlabs", "backchannel", "filler", "latency", "topic", "opensource", "scopus-2026-11"]
 created: 2026-11-07T11:34:24.685Z
-updated: 2026-11-07T18:12:50.712Z
+updated: 2026-11-07T19:52:32.793Z
 sources: ["research_notes/목소리(TTS) 조사/hanbeot_voice_tts.md"]
-links: ["topic-app-impl-dialogue-tts.md", "claim-tech-3-stt-tts-vendors.md", "overview-technology.md", "topic-app-impl-ser-cues.md", "src-pipecat-2026-docs-tts-aggregation.md", "claim-tech-5-latency-target.md", "topic-tts-opensource-candidates-2026-11.md"]
+links: ["topic-app-impl-dialogue-tts.md", "claim-tech-3-stt-tts-vendors.md", "overview-technology.md", "topic-app-impl-ser-cues.md", "src-pipecat-2026-docs-tts-aggregation.md", "claim-tech-5-latency-target.md", "topic-tts-opensource-candidates-2026-11.md", "topic-tts-humanlike-evidence-2026-11.md", "src-audio-turing-test-2025.md", "claim-app-13-tts-blind-test-protocol-w4.md"]
 category: reference
 confidence: medium
 schemaVersion: 1
@@ -60,3 +60,14 @@ schemaVersion: 1
 - 선행 노트 샘플은 Qwen·VoxCPM2·OmniVoice·MeloTTS 4종이며 CosyVoice3 샘플은 없음.
 - 한국어에서 청취 검증된 비언어 태그 OSS와 캐스케이드용 백채널 OSS 구현은 이번 조사에서 못 찾음(부재 증명 아님).
 - "Typecast previous_text가 한국어 유일 경로"는 "현재 한벗이 쓰는 경로"로 한정(유일성 미입증).
+
+---
+
+## Update (2026-11-07T19:52:32.793Z)
+
+## 2026-11-08 문헌 심층 반영
+- 요소별 근거 표와 정정 사항은 [[topic-tts-humanlike-evidence-2026-11]]. 상용에서 바꿀 수 있는 것은 텍스트·감정 라벨·클립이고, 불가능한 것은 모델 학습·내부 구조 변경(운율 생성 자체를 못 바꾼다는 표현은 부정확).
+- ATT는 사람/불확실/기계 3택(1/0.5/0), 중국어 857명: [[src-audio-turing-test-2025]]. NVSpeech 선호 75~79%는 태그만의 효과가 아니며 중국어.
+- 비언어음 한국어 효과·대화 이력 조건화 한국어 효과 크기는 이번 조사에서 확보 못함(부재 증명 아님).
+- W4 프로토콜: [[claim-app-13-tts-blind-test-protocol-w4]].
+

@@ -1,10 +1,10 @@
 ---
 title: "claim-tech-3-stt-tts-vendors"
-tags: ["tech", "voice-pipeline-latency-cost", "grade-A", "grade-C", "decision", "stt", "tts", "returnzero", "typecast", "elevenlabs", "korean", "meeting-followup", "opensource", "license"]
+tags: ["tech", "voice-pipeline-latency-cost", "grade-A", "grade-C", "decision", "stt", "tts", "returnzero", "typecast", "elevenlabs", "korean", "meeting-followup", "opensource", "license", "scopus-2026-11"]
 created: 2026-10-25T07:32:59.607Z
-updated: 2026-11-07T18:12:55.737Z
+updated: 2026-11-07T19:52:19.818Z
 sources: []
-links: ["topic-tech-voice-pipeline-latency-cost.md", "overview-technology.md", "src-rtzr-2026-korean-stt-benchmark.md", "src-rtzr-2026-pricing.md", "src-openai-2026-realtime-pricing.md", "src-buzzasr-2025-whisper-korean.md", "src-elevenlabs-2026-api-pricing.md", "src-typecast-2026-api-pricing.md", "src-naver-2026-clova-speech-voice.md", "claim-tech-6-sensitive-data-consent.md", "topic-tts-humanlike-techniques.md", "src-lee-2026-elderly-whisper-asr.md", "topic-ser-model-comparison-whisper-spectrogram.md", "topic-tts-opensource-candidates-2026-11.md"]
+links: ["topic-tech-voice-pipeline-latency-cost.md", "overview-technology.md", "src-rtzr-2026-korean-stt-benchmark.md", "src-rtzr-2026-pricing.md", "src-openai-2026-realtime-pricing.md", "src-buzzasr-2025-whisper-korean.md", "src-elevenlabs-2026-api-pricing.md", "src-typecast-2026-api-pricing.md", "src-naver-2026-clova-speech-voice.md", "claim-tech-6-sensitive-data-consent.md", "topic-tts-humanlike-techniques.md", "src-lee-2026-elderly-whisper-asr.md", "topic-ser-model-comparison-whisper-spectrogram.md", "topic-tts-opensource-candidates-2026-11.md", "claim-app-13-tts-blind-test-protocol-w4.md", "topic-tts-humanlike-evidence-2026-11.md"]
 category: decision
 confidence: medium
 schemaVersion: 1
@@ -66,3 +66,14 @@ schemaVersion: 1
 - 라이선스 주의: Fish Audio Community License는 연 매출 USD 500,000 미만(관계사 합산, 직전 12개월)만 무료 상업, 호스팅은 별도 계약(자체 제품 조수 응답 음성 등 예외 있어 법무 확인). S2-Pro 가중치는 Research License.
 - 상업 불가/제한: OmniVoice 가중치 CC-BY-NC, F5-TTS 가중치 CC-BY-NC, Higgs Audio v3 비상업(v2 가중치도 자체 라이선스), Raon-Speech 모델카드 CC-BY-NC-4.0, XTTS v2 CPML, IndexTTS는 bilibili 약관.
 - Chatterbox(MIT)는 2026-08 retired, Supertonic은 archived.
+
+---
+
+## Update (2026-11-07T19:52:19.818Z)
+
+## 2026-11-08 문헌 심층 반영
+- Typecast 공식 API 페이지에 TTFB 170~210ms가 있음("공개 수치 없음"은 정정). 한국어 CER·previous_text 효과의 공개 정량 근거는 확보 못함.
+- OSS 후보 한국어 수치는 평가셋이 달라 순위 비교 불가: MaskGCT Ko WER 9.4, CosyVoice2 CER 7.98/9.06, CosyVoice3 DiffRO 후 약 4.0, Qwen3-TTS WER 1.74~2.70(Base, MiniMax 셋; Sohee 아님).
+- 이전 여부는 W4 블라인드 테스트로 결정: [[claim-app-13-tts-blind-test-protocol-w4]]. 근거: [[topic-tts-humanlike-evidence-2026-11]].
+- 한국어 대화형 청취 평가는 "거의 없음, KoCC-TTS 1건(27명·596표)".
+

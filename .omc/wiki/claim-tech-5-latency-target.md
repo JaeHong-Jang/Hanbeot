@@ -1,10 +1,10 @@
 ---
 title: "claim-tech-5-latency-target"
-tags: ["tech", "voice-pipeline-latency-cost", "grade-A", "grade-B", "grade-C", "decision", "latency", "ttfa", "turn-detection", "paper-evidence"]
+tags: ["tech", "voice-pipeline-latency-cost", "grade-A", "grade-B", "grade-C", "decision", "latency", "ttfa", "turn-detection", "paper-evidence", "scopus-2026-11"]
 created: 2026-10-25T07:33:13.786Z
-updated: 2026-10-26T05:47:52.265Z
+updated: 2026-11-07T19:52:24.440Z
 sources: []
-links: ["topic-tech-voice-pipeline-latency-cost.md", "overview-technology.md", "claim-tech-4-voice-pipeline-architecture.md", "src-salesforce-2026-voice-agent-tutorial.md", "src-livekit-2026-pipeline-docs.md", "src-kyutai-2024-moshi.md", "src-qwen-2025-omni-models.md", "src-stepfun-2025-step-audio-r1.md", "src-funaudiollm-2024-sensevoice.md", "src-mem0-2025-locomo-paper.md", "src-elevenlabs-2026-api-pricing.md", "topic-app-cost-latency-budget.md", "topic-app-paper-evidence.md"]
+links: ["topic-tech-voice-pipeline-latency-cost.md", "overview-technology.md", "claim-tech-4-voice-pipeline-architecture.md", "src-salesforce-2026-voice-agent-tutorial.md", "src-livekit-2026-pipeline-docs.md", "src-kyutai-2024-moshi.md", "src-qwen-2025-omni-models.md", "src-stepfun-2025-step-audio-r1.md", "src-funaudiollm-2024-sensevoice.md", "src-mem0-2025-locomo-paper.md", "src-elevenlabs-2026-api-pricing.md", "topic-app-cost-latency-budget.md", "topic-app-paper-evidence.md", "claim-app-12-interruption-backchannel-filler-rules.md", "topic-dialogue-dynamics-evidence-2026-11.md"]
 category: decision
 confidence: medium
 schemaVersion: 1
@@ -60,4 +60,14 @@ schemaVersion: 1
 - TTFA P50 ≤ 1.0s 목표는 유지. 사람 턴 간격 약 200ms(±250ms 언어 평균 차) [P15][P16], ChatGPT Voice 평균 약 1,370ms [P18]는 측정 조건이 달라 참고 맥락일 뿐 직접 비교하지 않는다. "달성 불가"·"상용보다 빠르다" 표현 금지.
 - Smart Turn v3 한국어 96.85%(n=890, 벤더 자체셋)·CPU 12.6~94.8ms [P6]. 추론 시간이 TTFA에서 무시 가능한지는 W2 실측 전 미확인.
 - 설계서 7.2 정의로 P50·P95를 자체 측정.
+
+---
+
+## Update (2026-11-07T19:52:24.440Z)
+
+## 2026-11-08 문헌 심층 반영
+- 목표 정의: TTFA P50 1.0s + P90 1.5s + 4초 초과 실패 집계. 팀의 초기 목표이며 한국어 음성 통화에서 실증된 허용 상단이 아님.
+- 사람 턴 간격 평균 208ms(Stivers, 극성 질문-응답 offset; 한국어 182ms는 2차 인용)는 직접 비교 대상이 아님.
+- 선호 정점 약 1초(Shiwa, 로봇; 0초 vs 1초 선호 차이는 유의), VR에서 1.5초 최선호 57%·4초 미만 권고(Maslych), FDB v1.5는 1.5초 미만 권고.
+- 필러는 1.5초 지연에서 유의 효과 없음, 4.0·6.5초에서 효과: [[claim-app-12-interruption-backchannel-filler-rules]], [[topic-dialogue-dynamics-evidence-2026-11]].
 
