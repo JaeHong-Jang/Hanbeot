@@ -1,4 +1,4 @@
-# E·F. 한국어 텍스트 감정 분석의 단위·전처리 / 감정 분류 체계
+# F·G. 한국어 텍스트 감정 분석의 단위·전처리 / 감정 분류 체계
 
 > 작성일: 2026-11-06 · 대상: 한벗 (RTZR STT → emotion2vec+ SER → Claude → Typecast TTS)
 > 회의 질문: "텍스트 감정과 음성 감정을 같이 쓰려면, ① 한국어 텍스트는 어떤 단위로 쪼개야 하나? ② 감정 라벨은 몇 개, 어떤 체계로 맞춰야 하나?"
@@ -9,7 +9,7 @@
 
 ## 0. 세 줄 요약
 
-1. **단위(E)**: 어절만 피하면 다 비슷함
+1. **단위(F)**: 어절만 피하면 다 비슷함
     - 어절(띄어쓰기) 단위만 확실히 나쁨 (NSMC **69.0%**)
     - 음절·형태소·서브워드는 **1~2%p 안쪽**으로 비슷함 (82.7~84.3%)
     - 한벗은 Claude가 텍스트를 직접 읽음 → **토큰화 단위를 고를 일이 사실상 없음**
@@ -19,7 +19,7 @@
     - 28클래스 감정(GoEmotions): macro-F1 **12.5%**로 무너짐
     - 1,000문장 중 **89개**에 목록에 없는 라벨을 지어냄
     - → Claude에게는 **적은 수의 고정 라벨 + 정서가·각성 점수**를 출력하게 해야 함
-3. **체계(F)**: 2층 구조 추천
+3. **체계(G)**: 2층 구조 추천
     - 데이터셋마다 라벨이 다름("AI Hub 7감정"만 해도 최소 3가지 버전) → 공통표가 꼭 필요
     - ① SER 성능 비교용: **4감정(기쁨·슬픔·분노·중립)**
     - ② 서비스 판단용: **5감정(+불안)과 정서가·각성 점수**
@@ -27,16 +27,16 @@
 
 ---
 
-# E. 한국어 텍스트 감정 분석의 단위·전처리
+# F. 한국어 텍스트 감정 분석의 단위·전처리
 
-## E-1. 한 줄 결론
+## F-1. 한 줄 결론
 
 **토큰화 단위는 "어절만 피하면" 감정 분류 성능 차이가 1~2%p 이내임.**
 
 - 한벗은 Claude가 문장을 통째로 읽음 → 단위 선택은 거의 의미가 없음
 - 성능을 더 크게 좌우하는 것: **STT 오류율(WER)**과 **LLM 출력 라벨 설계**
 
-## E-2. 쉬운 개념 설명
+## F-2. 쉬운 개념 설명
 
 한국어 문장 "친구가 외로웠대요"를 컴퓨터가 읽으려면 먼저 조각(토큰)으로 나눠야 함. 나누는 방법은 크게 다섯 가지임.
 
@@ -60,24 +60,24 @@
 - **띄어쓰기 오류**: RTZR 출력은 띄어쓰기를 해 주지만, 오류가 있으면 형태소 분석기 기반 모델이 흔들림.
 - **비유창성**: "어… 그게… 음…" 같은 머뭇거림, 반복, 끊긴 문장. 감정 단서이기도 해서 무작정 지우면 안 됨.
 
-## E-3. 논문 표
+## F-3. 논문 표
 
 | # | 논문 | 연도·학회 | 핵심 방법 | 핵심 숫자 | 한벗 시사점 | 링크 |
 |---|---|---|---|---|---|---|
-| E1 | Park, Lee, Jang, Jung. *An Empirical Study of Tokenization Strategies for Various Korean NLP Tasks* | 2020 · AACL-IJCNLP 🟢 | 자모·음절·형태소·서브워드·형태소+서브워드·어절 6가지로 BERT를 각각 사전학습해 비교 | NSMC 정확도: 형태소+BPE 64K **84.29** · BPE 64K 83.52 · 형태소 64K 83.21 · 음절 82.7 · 자모 77.22 · **어절 69.0** | 감성 분류는 어절만 피하면 1.6%p 안쪽 차이. 단위 고민보다 다른 요소가 중요 | [ACL](https://aclanthology.org/2020.aacl-main.17) · [코드](https://github.com/kakaobrain/kortok) |
-| E2 | 김진성, 김경민, 손준영, 박정배, 임희석. *한국어 단어 및 문장 분류 태스크를 위한 분절 전략의 효과성 연구* | 2021 · 한국융합학회논문지 12(12) 🟢(초록) | 어절·형태소·음절·자모로 RoBERTa 사전학습 후 비교 | 문장 분류에서 **자모** 최고 (NSMC 최대 +0.62%p), 단어 분류(NER)는 음절 최고 (+0.7%p) | 최적 단위는 과제마다 다름. 감정(문장 분류) 차이는 1%p 미만 | [DOI](https://doi.org/10.15207/JKCS.2021.12.12.039) |
-| E3 | Park, Moon, Kim 외. *KLUE: Korean Language Understanding Evaluation* | 2021 · arXiv (NeurIPS Datasets & Benchmarks 트랙으로 알려짐 🔴) 🟢(초록) | 8개 한국어 과제 벤치마크 + KLUE-BERT/RoBERTa 공개 | 형태소 사전 분할 + BPE가 형태소 단위 과제에 효과적. KLUE-RoBERTa-large가 다국어·기존 한국어 모델보다 우수 | 표준어 텍스트용 기준 모델. 감정 과제는 KLUE에 없음 | [arXiv](https://arxiv.org/abs/2105.09680) |
-| E4 | Jeon, Lee, Kim. *User Guide for KOTE: Korean Online That-gul Emotions Dataset* | 2024 · LREC-COLING 🟢 | 댓글 5만 개에 한국어 맞춤 43감정 + 감정없음 다중 라벨. **KcELECTRA**(댓글로 사전학습) 미세조정 | 평균 F1 **0.56**, AUC 0.88, MCC 0.59. 번역 GoEmotions 학습 모델 F1 **0.41**보다 높음 | 구어·비격식 텍스트엔 KcELECTRA 계열이 기준. 번역 데이터보다 한국어 원천 데이터가 나음 | [ACL](https://aclanthology.org/2024.lrec-main.1499) |
-| E5 | Choi, Park, Shin, Kim, Shin. *Korean Erroneous Sentence Classification With Integrated Eojeol Embedding* | 2021 · IEEE Access 9 🟡 | 오타·띄어쓰기 오류가 형태소 분석을 망치는 문제를 어절 임베딩 통합 + 노이즈 삽입 학습으로 완화 (카카오 챗봇 의도 분류) | arXiv 초록: 오류 문장 정확도 기준선 대비 **+17%p**. IEEE 판 요약은 +8~15%로 나옴 🔴 | 형태소 분석기 기반 파이프라인은 입력 오류에 약함 → 노이즈 삽입 학습이 효과적 | [DOI](https://doi.org/10.1109/access.2021.3085864) · [arXiv](https://arxiv.org/abs/2004.05744) |
-| E6 | Lee, Shin. *The Korean Morphologically Tight-Fitting Tokenizer for Noisy User-Generated Texts* | 2021 · W-NUT (EMNLP 워크숍) 🟢(초록) | 신조어·고유명사·인터넷 말투에 맞춘 토크나이저 K-MT를 형태소 분석기·음절 WordPiece와 비교 | 영화 리뷰·혐오 표현 분류, NER에서 K-MT가 더 잘 처리한다고 보고. 구체 수치 🔴 | 표준 형태소 분석기는 백과사전·뉴스로 학습돼 구어에 약함 | [ACL](https://aclanthology.org/2021.wnut-1.45) |
-| E7 | 권순찬, 이동희, 장백철. *대규모 언어 모델을 사용한 제로샷 한국어 감성 분석: 사전 학습된 언어 모델과의 비교* | 2024 · 한국컴퓨터정보학회논문지 29(2) 🟡 | GPT-3.5·GPT-4 zero-shot vs KoBERT·LMKor-ELECTRA 미세조정, 영화(NSMC)·게임(Steam)·쇼핑 리뷰 긍부정 | 영화 F1: LMKor-ELECTRA **88.6**, GPT-4 **88.0**, KoBERT 84.5 · 게임: 82.9 vs **75.4** · 쇼핑: 94.1 vs 94.0 | 긍부정 2클래스는 LLM zero-shot이 미세조정 모델에 근접. 도메인에 따라 7%p 이상 차이 | [DOI](https://doi.org/10.9708/jksci.2024.29.02.043) |
-| E8 | Wang, Jing, Su, Han. *Large Language Models on Fine-grained Emotion Detection Dataset with Data Augmentation and Transfer Learning* | 2024 · arXiv 🟢 | GoEmotions 28클래스에서 BERT 미세조정 vs GPT-4 zero-shot | BERT macro-F1 약 0.51 vs GPT-4 **0.125** (정확도 34.9%). 1,000문장 중 **89개**에 목록 밖 라벨 생성 | 라벨이 많으면 LLM이 크게 흔들림 → Claude에 라벨 고정(enum) 필수 | [arXiv](https://arxiv.org/abs/2403.06108) |
-| E9 | Li, Bell, Lai. *Speech Emotion Recognition with ASR Transcripts: A Comprehensive Study on Word Error Rate and Fusion Techniques* | 2024 · IEEE SLT 🟢(본문 텍스트) | ASR 11종의 전사문으로 텍스트 감정 인식 성능을 IEMOCAP·CMU-MOSI·MSP-Podcast에서 비교 + 음성 결합 | WER 약 **12%**면 정답 전사와 차이 미미. WER 약 **40%**면 정확도 약 **10%p 하락**. 음성과 결합하면 하락폭이 약 **4%p**로 줄어듦 | STT 품질이 텍스트 감정의 상한을 정함. 음성+텍스트 결합이 STT 오류를 완충함 | [arXiv](https://arxiv.org/abs/2406.08353) |
+| F1 | Park, Lee, Jang, Jung. *An Empirical Study of Tokenization Strategies for Various Korean NLP Tasks* | 2020 · AACL-IJCNLP 🟢 | 자모·음절·형태소·서브워드·형태소+서브워드·어절 6가지로 BERT를 각각 사전학습해 비교 | NSMC 정확도: 형태소+BPE 64K **84.29** · BPE 64K 83.52 · 형태소 64K 83.21 · 음절 82.7 · 자모 77.22 · **어절 69.0** | 감성 분류는 어절만 피하면 1.6%p 안쪽 차이. 단위 고민보다 다른 요소가 중요 | [ACL](https://aclanthology.org/2020.aacl-main.17) · [코드](https://github.com/kakaobrain/kortok) |
+| F2 | 김진성, 김경민, 손준영, 박정배, 임희석. *한국어 단어 및 문장 분류 태스크를 위한 분절 전략의 효과성 연구* | 2021 · 한국융합학회논문지 12(12) 🟢(초록) | 어절·형태소·음절·자모로 RoBERTa 사전학습 후 비교 | 문장 분류에서 **자모** 최고 (NSMC 최대 +0.62%p), 단어 분류(NER)는 음절 최고 (+0.7%p) | 최적 단위는 과제마다 다름. 감정(문장 분류) 차이는 1%p 미만 | [DOI](https://doi.org/10.15207/JKCS.2021.12.12.039) |
+| F3 | Park, Moon, Kim 외. *KLUE: Korean Language Understanding Evaluation* | 2021 · arXiv (NeurIPS Datasets & Benchmarks 트랙으로 알려짐 🔴) 🟢(초록) | 8개 한국어 과제 벤치마크 + KLUE-BERT/RoBERTa 공개 | 형태소 사전 분할 + BPE가 형태소 단위 과제에 효과적. KLUE-RoBERTa-large가 다국어·기존 한국어 모델보다 우수 | 표준어 텍스트용 기준 모델. 감정 과제는 KLUE에 없음 | [arXiv](https://arxiv.org/abs/2105.09680) |
+| F4 | Jeon, Lee, Kim. *User Guide for KOTE: Korean Online That-gul Emotions Dataset* | 2024 · LREC-COLING 🟢 | 댓글 5만 개에 한국어 맞춤 43감정 + 감정없음 다중 라벨. **KcELECTRA**(댓글로 사전학습) 미세조정 | 평균 F1 **0.56**, AUC 0.88, MCC 0.59. 번역 GoEmotions 학습 모델 F1 **0.41**보다 높음 | 구어·비격식 텍스트엔 KcELECTRA 계열이 기준. 번역 데이터보다 한국어 원천 데이터가 나음 | [ACL](https://aclanthology.org/2024.lrec-main.1499) |
+| F5 | Choi, Park, Shin, Kim, Shin. *Korean Erroneous Sentence Classification With Integrated Eojeol Embedding* | 2021 · IEEE Access 9 🟡 | 오타·띄어쓰기 오류가 형태소 분석을 망치는 문제를 어절 임베딩 통합 + 노이즈 삽입 학습으로 완화 (카카오 챗봇 의도 분류) | arXiv 초록: 오류 문장 정확도 기준선 대비 **+17%p**. IEEE 판 요약은 +8~15%로 나옴 🔴 | 형태소 분석기 기반 파이프라인은 입력 오류에 약함 → 노이즈 삽입 학습이 효과적 | [DOI](https://doi.org/10.1109/access.2021.3085864) · [arXiv](https://arxiv.org/abs/2004.05744) |
+| F6 | Lee, Shin. *The Korean Morphologically Tight-Fitting Tokenizer for Noisy User-Generated Texts* | 2021 · W-NUT (EMNLP 워크숍) 🟢(초록) | 신조어·고유명사·인터넷 말투에 맞춘 토크나이저 K-MT를 형태소 분석기·음절 WordPiece와 비교 | 영화 리뷰·혐오 표현 분류, NER에서 K-MT가 더 잘 처리한다고 보고. 구체 수치 🔴 | 표준 형태소 분석기는 백과사전·뉴스로 학습돼 구어에 약함 | [ACL](https://aclanthology.org/2021.wnut-1.45) |
+| F7 | 권순찬, 이동희, 장백철. *대규모 언어 모델을 사용한 제로샷 한국어 감성 분석: 사전 학습된 언어 모델과의 비교* | 2024 · 한국컴퓨터정보학회논문지 29(2) 🟡 | GPT-3.5·GPT-4 zero-shot vs KoBERT·LMKor-ELECTRA 미세조정, 영화(NSMC)·게임(Steam)·쇼핑 리뷰 긍부정 | 영화 F1: LMKor-ELECTRA **88.6**, GPT-4 **88.0**, KoBERT 84.5 · 게임: 82.9 vs **75.4** · 쇼핑: 94.1 vs 94.0 | 긍부정 2클래스는 LLM zero-shot이 미세조정 모델에 근접. 도메인에 따라 7%p 이상 차이 | [DOI](https://doi.org/10.9708/jksci.2024.29.02.043) |
+| F8 | Wang, Jing, Su, Han. *Large Language Models on Fine-grained Emotion Detection Dataset with Data Augmentation and Transfer Learning* | 2024 · arXiv 🟢 | GoEmotions 28클래스에서 BERT 미세조정 vs GPT-4 zero-shot | BERT macro-F1 약 0.51 vs GPT-4 **0.125** (정확도 34.9%). 1,000문장 중 **89개**에 목록 밖 라벨 생성 | 라벨이 많으면 LLM이 크게 흔들림 → Claude에 라벨 고정(enum) 필수 | [arXiv](https://arxiv.org/abs/2403.06108) |
+| F9 | Li, Bell, Lai. *Speech Emotion Recognition with ASR Transcripts: A Comprehensive Study on Word Error Rate and Fusion Techniques* | 2024 · IEEE SLT 🟢(본문 텍스트) | ASR 11종의 전사문으로 텍스트 감정 인식 성능을 IEMOCAP·CMU-MOSI·MSP-Podcast에서 비교 + 음성 결합 | WER 약 **12%**면 정답 전사와 차이 미미. WER 약 **40%**면 정확도 약 **10%p 하락**. 음성과 결합하면 하락폭이 약 **4%p**로 줄어듦 | STT 품질이 텍스트 감정의 상한을 정함. 음성+텍스트 결합이 STT 오류를 완충함 | [arXiv](https://arxiv.org/abs/2406.08353) |
 | (보조) | 김원준. *고객 감성 분석을 위한 학습 기반 토크나이저 비교 연구* | 2020 · 품질경영학회지 48(3) 🟢(초록) | Mecab-Ko vs SentencePiece, 고전 분류기(NB, kNN, DT), TV 상품 리뷰 | SentencePiece가 더 높음 (kNN·DT에서 유의) | 신조어·줄임말에는 학습형 서브워드가 유리. 다만 고전 ML 실험이라 참고만 | [DOI](https://dx.doi.org/10.7469/JKSQM.2020.48.3.421) |
 
-## E-4. 논문별 요약
+## F-4. 논문별 요약
 
-### E1. Park 외 · 2020 AACL
+### F1. Park 외 · 2020 AACL
 
 > **한 줄:** 같은 모델에 문장 쪼개는 방법(토큰화)만 바꿔 가며 성능을 비교한 연구
 
@@ -88,15 +88,15 @@
 - **NSMC(영화 리뷰 긍부정):** 형태소+BPE **84.29** · 순수 BPE **83.52** · 음절 **82.7** → 차이 작음
 - **눈여겨볼 점:** 어절 단위만 **69.0**으로 급락 → 어휘 64K로도 처음 보는 단어(OOV)가 너무 많음
 
-### E2. 김진성 외 · 2021 한국융합학회논문지
+### F2. 김진성 외 · 2021 한국융합학회논문지
 
 > **한 줄:** 쪼개는 단위 4가지를 RoBERTa로 비교한 한국어 연구
 
 - **어떻게:** RoBERTa로 어절·형태소·음절·자모를 비교
 - **결과:** 문장 분류(NSMC·KorNLI·KorSTS)는 자모, 단어 분류(NER·SRL)는 음절이 최고
-- **눈여겨볼 점:** NSMC 이득은 최대 **0.62%p** → 감성·감정 분류에서 단위 효과는 작음 (E1 결론과 같음)
+- **눈여겨볼 점:** NSMC 이득은 최대 **0.62%p** → 감성·감정 분류에서 단위 효과는 작음 (F1 결론과 같음)
 
-### E3. KLUE · 2021
+### F3. KLUE · 2021
 
 > **한 줄:** 한국어 이해 시험 세트(벤치마크)와 기본 모델을 공개한 연구
 
@@ -104,17 +104,17 @@
 - **어떻게:** 형태소로 먼저 나눈 뒤 BPE를 적용하는 토크나이저 → 형태소 수준 과제에서 효과적이라고 보고
 - **한벗에게:** 감정 분류 과제는 없음 → "표준어 텍스트 분류기의 기본 백본" 정도의 의미
 
-### E4. KOTE · 2024 LREC-COLING
+### F4. KOTE · 2024 LREC-COLING
 
 > **한 줄:** 한국어 댓글 하나에 감정 여러 개를 동시에 붙인 대규모 데이터
 
 - **데이터:** 12개 플랫폼(뉴스, 커뮤니티, SNS, 쇼핑, 영상, 영화 리뷰 등) 댓글 **5만 개**
 - **어떻게:** 평가자 5명씩 43감정 + 감정없음을 다중 선택 (평가자 총 **3,084명**)
 - **결과:** KcELECTRA 미세조정 평균 F1 **0.56** (번역 GoEmotions 학습 모델 **0.41**보다 높음)
-- **눈여겨볼 점:** 텍스트 하나당 평균 라벨 **7.91개** → 감정이 하나로 딱 떨어지지 않음 (F 주제와 연결)
+- **눈여겨볼 점:** 텍스트 하나당 평균 라벨 **7.91개** → 감정이 하나로 딱 떨어지지 않음 (G 주제와 연결)
 - **확인 필요:** 평가자 수를 arXiv 초록은 3,048명으로 표기 🔴
 
-### E5. Choi 외 · 2021 IEEE Access
+### F5. Choi 외 · 2021 IEEE Access
 
 > **한 줄:** 오타·띄어쓰기가 틀린 문장도 잘 분류하도록 만든 연구
 
@@ -123,7 +123,7 @@
 - **결과:** 오류 문장 정확도를 크게 올림
 - **확인 필요:** 개선 폭이 arXiv 초록(**+17%p**)과 IEEE 판 요약(**+8~15%**)에서 다름 → 원문 대조 필요
 
-### E6. Lee & Shin · 2021 W-NUT
+### F6. Lee & Shin · 2021 W-NUT
 
 > **한 줄:** 인터넷 말투에 맞춘 한국어 토크나이저(K-MT)를 만든 연구
 
@@ -132,7 +132,7 @@
 - **결과:** 신조어·고유명사를 더 잘 처리한다고 보고
 - **확인 필요:** 초록에 수치가 없어 표의 성능 수치는 확인 필요
 
-### E7. 권순찬 외 · 2024 JKSCI
+### F7. 권순찬 외 · 2024 JKSCI
 
 > **한 줄:** 학습 없이 GPT-4에게 긍정/부정을 물어도 전용 모델만큼 맞히는지 본 한국어 연구
 
@@ -142,7 +142,7 @@
 - **예외:** 게임 리뷰에서는 **7.5%p** 뒤처짐
 - **참고:** 표가 PDF 추출로 깨져 열 정렬을 재구성함 → 본문의 LMKor-ELECTRA F1 0.89·0.83·0.94와 일치
 
-### E8. Wang 외 · 2024 arXiv
+### F8. Wang 외 · 2024 arXiv
 
 > **한 줄:** 감정 종류가 28가지로 많아지면 GPT-4가 크게 무너진다는 연구
 
@@ -151,7 +151,7 @@
 - **저자 언급:** 3클래스 감성보다 28클래스가 훨씬 어려움
 - **주의:** 동료 심사 전 프리프린트라는 점은 감안해야 함
 
-### E9. Li, Bell, Lai · 2024 SLT
+### F9. Li, Bell, Lai · 2024 SLT
 
 > **한 줄:** 받아쓰기(STT) 오류가 글로 읽는 감정 판단을 얼마나 망치는지 잰 연구
 
@@ -160,45 +160,45 @@
 - **눈여겨볼 점:** 음성 특징과 결합하면 하락이 약 **4%p**로 줄어듦
 - **한벗에게:** "텍스트 + 음성 같이 쓰기" 구조를 직접 뒷받침함
 
-## E-5. 한벗에 적용하면
+## F-5. 한벗에 적용하면
 
 1. **기본 경로(Claude)에서는 토큰화·형태소 분석을 하지 않음.**
     - RTZR 전사문을 그대로 Claude에 넣음
     - 형태소 분석 후 넣으면 → 오히려 문맥이 깨짐
-    - 근거: LLM은 자체 토크나이저로 원문을 학습함. 단위 간 차이는 E1·E2에서 1~2%p 수준
+    - 근거: LLM은 자체 토크나이저로 원문을 학습함. 단위 간 차이는 F1·F2에서 1~2%p 수준
 2. **Claude 감정 출력은 "적은 라벨 + 점수"로 강제함.**
-    - 도구 호출(JSON 스키마)의 허용 목록(enum)으로 F의 5감정만 허용
+    - 도구 호출(JSON 스키마)의 허용 목록(enum)으로 G의 5감정만 허용
     - 정서가(−2~+2)·각성(1~5)·확신도를 함께 받음
-    - 28클래스 같은 세분 라벨은 금지 → E8: GPT-4 macro-F1 **0.125**, 지어낸 라벨 **8.9%**
-    - 2클래스 긍부정 수준이면 LLM이 미세조정 모델과 거의 같음 (E7)
+    - 28클래스 같은 세분 라벨은 금지 → F8: GPT-4 macro-F1 **0.125**, 지어낸 라벨 **8.9%**
+    - 2클래스 긍부정 수준이면 LLM이 미세조정 모델과 거의 같음 (F7)
 3. **별도 경량 텍스트 분류기가 필요하면 KcELECTRA를 1순위로 둠.**
     - 쓰임: Claude 호출 전 빠른 위험 신호, 비용 절감, 로그 분석 등
-    - 이유: 구어·비격식 텍스트로 사전학습됐고 KOTE에서 검증됨 (E4)
+    - 이유: 구어·비격식 텍스트로 사전학습됐고 KOTE에서 검증됨 (F4)
     - 토크나이저는 모델에 딸린 것을 그대로 씀
 4. **비유창성(머뭇거림)은 지우지 말고 표시만 함.**
     - "음…", 반복, 말끊김 → 망설임·우울 단서일 수 있음
     - Claude 입력에는 남기고, 필요하면 `[머뭇거림]` 같은 태그로 정규화
     - **확인 필요:** 이 방식의 효과를 직접 잰 한국어 논문은 찾지 못함 🔴
 5. **STT 오류율을 먼저 재야 함.**
-    - 텍스트 감정의 상한은 WER이 정함 (E9)
+    - 텍스트 감정의 상한은 WER이 정함 (F9)
     - 실제 사용자(대학생) 발화에서 RTZR WER이 **12%**를 넘는지 W3 측정 항목에 추가
     - 오류가 크면 → 음성(emotion2vec+) 가중치를 올리는 근거가 됨
-6. **학습 데이터를 쓴다면 노이즈 삽입을 함.** 띄어쓰기를 지우거나 STT 오류를 흉내 내는 증강이 오류 입력에 효과적이었음(E5).
+6. **학습 데이터를 쓴다면 노이즈 삽입을 함.** 띄어쓰기를 지우거나 STT 오류를 흉내 내는 증강이 오류 입력에 효과적이었음(F5).
 
-## E-6. 확인 필요 항목
+## F-6. 확인 필요 항목
 
 - 🔴 Mecab, Okt, Komoran, Kiwi를 **감정·감성 분류 성능**으로 직접 비교한 동료 심사 논문은 찾지 못함. 블로그 비교(속도·신조어 처리)만 있음. → "형태소 분석기 종류가 감정 분류에 주는 영향"은 근거 없음으로 둠.
 - 🔴 KcELECTRA의 NSMC 정확도(91.97%로 도는 수치)는 공식 모델 카드에서 직접 확인 못함.
 - 🔴 KLUE 논문의 최종 학회(NeurIPS 2021 Datasets & Benchmarks)와 형태소 분석기 종류(Mecab-ko로 알려짐).
-- 🔴 E5 개선 폭(+17%p vs +8~15%), E6 수치.
-- 🔴 **한국어 STT 전사문 기반 감정 인식에서 WER 영향**을 잰 연구는 찾지 못함(E9는 영어). AI Hub 감성대화말뭉치·KEMDy20 텍스트에 대한 KoBERT·KcELECTRA·KLUE 비교 수치도 신뢰할 만한 논문에서 찾지 못함(개인 허깅페이스 모델 카드의 60감정 F1 약 0.29만 있음).
+- 🔴 F5 개선 폭(+17%p vs +8~15%), F6 수치.
+- 🔴 **한국어 STT 전사문 기반 감정 인식에서 WER 영향**을 잰 연구는 찾지 못함(F9는 영어). AI Hub 감성대화말뭉치·KEMDy20 텍스트에 대한 KoBERT·KcELECTRA·KLUE 비교 수치도 신뢰할 만한 논문에서 찾지 못함(개인 허깅페이스 모델 카드의 60감정 F1 약 0.29만 있음).
 - 🔴 Claude로 한국어 감정 분류를 평가한 논문은 없음 → 한벗이 직접 소규모 평가(예: KOTE·KEMDy20 텍스트 200문장)를 해야 함.
 
 ---
 
-# F. 감정 분류 체계
+# G. 감정 분류 체계
 
-## F-1. 한 줄 결론
+## G-1. 한 줄 결론
 
 **한벗은 "적은 수의 공통 범주 + 정서가·각성 두 축"을 함께 쓰는 혼합 체계가 맞음.**
 
@@ -206,7 +206,7 @@
 - 이유 ②: 세분할수록 정확도가 떨어짐 → GoEmotions 28클래스 F1 **.46** → Ekman 6분류 **.64** → 감성 4분류 **.69**
 - 추천 공통 범주: SER 비교용 4감정(기쁨·슬픔·분노·중립) + 서비스용으로 불안을 더한 5감정
 
-## F-2. 쉬운 개념 설명
+## G-2. 쉬운 개념 설명
 
 감정을 표현하는 방법은 크게 두 가지임.
 
@@ -232,7 +232,7 @@
 - 반대로 **편안함·안심**(저각성 긍정)은 "기쁨"이 아니라 "중립"으로 빠지기 쉬움
 - → 이 두 가지는 **정서가·각성 축**이 있어야 잡힘
 
-## F-3. 주요 데이터셋·모델의 라벨 정의
+## G-3. 주요 데이터셋·모델의 라벨 정의
 
 | 데이터셋 / 모델 | 범주 라벨 | 차원 라벨 | 비고 |
 |---|---|---|---|
@@ -250,32 +250,32 @@
 
 > **주의**: "AI Hub 7감정"은 하나가 아님. 최소 세 가지 버전(①Ekman형 263, ②사랑스러움형 자유대화, ③불안·당황·상처형 감정음성/감성대화)이 있음. 회의 슬라이드에서 "AI Hub 7감정"이라고 쓸 때는 데이터셋 번호를 같이 적어야 함.
 
-## F-4. 논문 표
+## G-4. 논문 표
 
 | # | 논문 | 연도·학회 | 핵심 방법 | 핵심 숫자 | 한벗 시사점 | 링크 |
 |---|---|---|---|---|---|---|
-| F1 | Ekman. *An argument for basic emotions* | 1992 · Cognition & Emotion 6(3–4) 🟢(서지) | 문화 보편적 기본 감정 6개 제안 | 6감정 | 대부분 데이터셋(MELD, KEMDy, AI Hub 263, emotion2vec+)의 뼈대 | [DOI](https://doi.org/10.1080/02699939208411068) |
-| F2 | Plutchik. *The Nature of Emotions* | 2001 · American Scientist 89(4) 🟡 | 8 기본 감정 바퀴, 강도 3단계, 인접 감정 조합(dyad) | 8감정. 1·2·3차 dyad 합 24개(2차 자료) 🔴 | 복합 감정(예: 그리움 = 슬픔 + 사랑)을 설명하는 틀. 분류기 라벨로 쓰기엔 과함 | 원문 URL 🔴 |
-| F3 | Russell. *A circumplex model of affect* | 1980 · JPSP 39(6) 🟢 | 감정을 정서가 × 각성 2차원 원 위에 배치 | 2차원 | 한벗 내부 표현의 기본 축 | [DOI](https://doi.org/10.1037/h0077714) |
-| F4 | Demszky 외. *GoEmotions: A Dataset of Fine-Grained Emotions* | 2020 · ACL 🟢 | 레딧 5.8만 문장, 27+중립, 평가자 3명(불일치 시 +2). 계층 묶음 실험 | BERT F1: 27분류 **.46** → Ekman 6 **.64** → 감성 4그룹 **.69**. 중립이 라벨의 26% | 라벨을 묶을수록 정확도가 오름 → 한벗은 적은 범주로 | [ACL](https://aclanthology.org/2020.acl-main.372) |
-| F5 | Jeon, Lee, Kim. *KOTE* | 2024 · LREC-COLING 🟢 | 한국어 감정 단어를 임베딩 군집 분석해 43감정 체계 도출 | 43+1 라벨, 텍스트당 평균 7.91 라벨, F1 0.56 vs 번역 GoEmotions 0.41 | 영어 체계 번역보다 한국어 체계가 나음. 감정은 대개 여러 개가 섞임 | [ACL](https://aclanthology.org/2024.lrec-main.1499) |
-| F6 | 박인조, 민경환. *한국어 감정단어의 목록 작성과 차원 탐색* | 2005 · 한국심리학회지: 사회 및 성격 19(1) 🟢(초록) | 감정 단어 434개 선정, 대학생 365명이 원형성·친숙성·쾌불쾌·활성화 평정. 87개로 유사성 분류 후 다차원척도법 | 차원 2개: **쾌–불쾌**, **타인초점–자기초점**. **활성화(각성) 차원은 나타나지 않음** | 한국어 감정 단어는 각성 축보다 쾌불쾌 축이 지배적 → 정서가를 1순위 축으로. 평정값은 CC0로 공개됨 | [논문](https://www.accesson.kr/ksppa/v.19/1/109/14556) · [데이터](https://huggingface.co/datasets/jonghwanhyeon/korean-emotion-lexicon) |
-| F7 | 홍영지, 남예은, 이윤형. *정서가, 각성가 및 구체성 평정을 통한 한국어 정서단어 목록 개발* | 2016 · 인지과학 27(3) 🟢(초록) | 감정 표현·유발 명사 450개의 정서가·각성·구체성 평정 + 정서 스트룹 검증 | 450단어. 참가자 수 표기 불일치(399명 vs 그룹 합 591명) 🔴 | 명사 단위 V·A 기준표. 상황 단어(예: 병원, 장례) 감정 추정에 활용 가능 | [DOI](https://doi.org/10.19066/cogsci.2016.27.3.002) |
-| F8 | 박상민 외. *Bi-LSTM 기반의 한국어 감성사전 구축 방안* (KNU 한국어 감성사전) | 2018 · 지능정보연구 24(4) 🟢(초록) | 표준국어대사전 뜻풀이를 Bi-LSTM으로 긍부정 분류 + 신조어·이모티콘 확장 | 감성 어휘 **14,843개**, 뜻풀이 분류 정확도 89.45% | 극성(긍·부)만 있어 감정 범주에는 부족. 규칙 기반 백업 신호로만 | [KoreaScience](https://koreascience.kr/article/JAKO201810866004042.page) |
-| F9 | Ma, Chen, Zhang 외. *EmoBox: Multilingual Multi-corpus SER Toolkit and Benchmark* | 2024 · Interspeech 🟢 | 32개 데이터셋 14개 언어 통합. 교차 코퍼스 평가는 **4개 공통 감정만** 남기고, emotion2vec 예측과 원 라벨이 일치하는 샘플만 사용 | 공통 감정 = angry·happy·neutral·sad, 감정당 60개씩 균형. 데이터셋별 감정 수는 3~12개 | 여러 데이터셋을 맞출 때 업계 표준은 "공통 4감정으로 줄이기". 한국어는 미포함 | [arXiv](https://arxiv.org/abs/2406.07162) |
-| F10 | Kang, Peng, Wang, Xiao. *SpeechEQ: SER based on Multi-scale Unified Datasets and Multitask Learning* | 2022 · Interspeech 🟢(초록) | 서로 다른 데이터셋의 라벨을 "감정 범주 + 강도 척도"의 통합 지표로 맞추고 다중 과제 학습 | CASIA +8.0%, ESD +6.5%. IEMOCAP 4감정 WA 78.16% / UA 77.47% | 범주와 강도(각성)를 따로 학습하는 혼합 설계의 근거 | [arXiv](https://arxiv.org/abs/2206.13101) |
-| F11 | Busso, Lotfian 외. *The MSP-Podcast Corpus* | 2025 · arXiv 🟢 | 자연 발화 팟캐스트에 범주(1차·2차) + A·V·D 동시 라벨 | 409시간, 화자 3,641명, 1차 8감정 + 2차 16감정 | 자연 발화일수록 범주 하나로 안 떨어짐 → 2차 감정·차원 병기 | [arXiv](https://arxiv.org/abs/2509.09791) |
+| G1 | Ekman. *An argument for basic emotions* | 1992 · Cognition & Emotion 6(3–4) 🟢(서지) | 문화 보편적 기본 감정 6개 제안 | 6감정 | 대부분 데이터셋(MELD, KEMDy, AI Hub 263, emotion2vec+)의 뼈대 | [DOI](https://doi.org/10.1080/02699939208411068) |
+| G2 | Plutchik. *The Nature of Emotions* | 2001 · American Scientist 89(4) 🟡 | 8 기본 감정 바퀴, 강도 3단계, 인접 감정 조합(dyad) | 8감정. 1·2·3차 dyad 합 24개(2차 자료) 🔴 | 복합 감정(예: 그리움 = 슬픔 + 사랑)을 설명하는 틀. 분류기 라벨로 쓰기엔 과함 | 원문 URL 🔴 |
+| G3 | Russell. *A circumplex model of affect* | 1980 · JPSP 39(6) 🟢 | 감정을 정서가 × 각성 2차원 원 위에 배치 | 2차원 | 한벗 내부 표현의 기본 축 | [DOI](https://doi.org/10.1037/h0077714) |
+| G4 | Demszky 외. *GoEmotions: A Dataset of Fine-Grained Emotions* | 2020 · ACL 🟢 | 레딧 5.8만 문장, 27+중립, 평가자 3명(불일치 시 +2). 계층 묶음 실험 | BERT F1: 27분류 **.46** → Ekman 6 **.64** → 감성 4그룹 **.69**. 중립이 라벨의 26% | 라벨을 묶을수록 정확도가 오름 → 한벗은 적은 범주로 | [ACL](https://aclanthology.org/2020.acl-main.372) |
+| G5 | Jeon, Lee, Kim. *KOTE* | 2024 · LREC-COLING 🟢 | 한국어 감정 단어를 임베딩 군집 분석해 43감정 체계 도출 | 43+1 라벨, 텍스트당 평균 7.91 라벨, F1 0.56 vs 번역 GoEmotions 0.41 | 영어 체계 번역보다 한국어 체계가 나음. 감정은 대개 여러 개가 섞임 | [ACL](https://aclanthology.org/2024.lrec-main.1499) |
+| G6 | 박인조, 민경환. *한국어 감정단어의 목록 작성과 차원 탐색* | 2005 · 한국심리학회지: 사회 및 성격 19(1) 🟢(초록) | 감정 단어 434개 선정, 대학생 365명이 원형성·친숙성·쾌불쾌·활성화 평정. 87개로 유사성 분류 후 다차원척도법 | 차원 2개: **쾌–불쾌**, **타인초점–자기초점**. **활성화(각성) 차원은 나타나지 않음** | 한국어 감정 단어는 각성 축보다 쾌불쾌 축이 지배적 → 정서가를 1순위 축으로. 평정값은 CC0로 공개됨 | [논문](https://www.accesson.kr/ksppa/v.19/1/109/14556) · [데이터](https://huggingface.co/datasets/jonghwanhyeon/korean-emotion-lexicon) |
+| G7 | 홍영지, 남예은, 이윤형. *정서가, 각성가 및 구체성 평정을 통한 한국어 정서단어 목록 개발* | 2016 · 인지과학 27(3) 🟢(초록) | 감정 표현·유발 명사 450개의 정서가·각성·구체성 평정 + 정서 스트룹 검증 | 450단어. 참가자 수 표기 불일치(399명 vs 그룹 합 591명) 🔴 | 명사 단위 V·A 기준표. 상황 단어(예: 병원, 장례) 감정 추정에 활용 가능 | [DOI](https://doi.org/10.19066/cogsci.2016.27.3.002) |
+| G8 | 박상민 외. *Bi-LSTM 기반의 한국어 감성사전 구축 방안* (KNU 한국어 감성사전) | 2018 · 지능정보연구 24(4) 🟢(초록) | 표준국어대사전 뜻풀이를 Bi-LSTM으로 긍부정 분류 + 신조어·이모티콘 확장 | 감성 어휘 **14,843개**, 뜻풀이 분류 정확도 89.45% | 극성(긍·부)만 있어 감정 범주에는 부족. 규칙 기반 백업 신호로만 | [KoreaScience](https://koreascience.kr/article/JAKO201810866004042.page) |
+| G9 | Ma, Chen, Zhang 외. *EmoBox: Multilingual Multi-corpus SER Toolkit and Benchmark* | 2024 · Interspeech 🟢 | 32개 데이터셋 14개 언어 통합. 교차 코퍼스 평가는 **4개 공통 감정만** 남기고, emotion2vec 예측과 원 라벨이 일치하는 샘플만 사용 | 공통 감정 = angry·happy·neutral·sad, 감정당 60개씩 균형. 데이터셋별 감정 수는 3~12개 | 여러 데이터셋을 맞출 때 업계 표준은 "공통 4감정으로 줄이기". 한국어는 미포함 | [arXiv](https://arxiv.org/abs/2406.07162) |
+| G10 | Kang, Peng, Wang, Xiao. *SpeechEQ: SER based on Multi-scale Unified Datasets and Multitask Learning* | 2022 · Interspeech 🟢(초록) | 서로 다른 데이터셋의 라벨을 "감정 범주 + 강도 척도"의 통합 지표로 맞추고 다중 과제 학습 | CASIA +8.0%, ESD +6.5%. IEMOCAP 4감정 WA 78.16% / UA 77.47% | 범주와 강도(각성)를 따로 학습하는 혼합 설계의 근거 | [arXiv](https://arxiv.org/abs/2206.13101) |
+| G11 | Busso, Lotfian 외. *The MSP-Podcast Corpus* | 2025 · arXiv 🟢 | 자연 발화 팟캐스트에 범주(1차·2차) + A·V·D 동시 라벨 | 409시간, 화자 3,641명, 1차 8감정 + 2차 16감정 | 자연 발화일수록 범주 하나로 안 떨어짐 → 2차 감정·차원 병기 | [arXiv](https://arxiv.org/abs/2509.09791) |
 
-## F-5. 논문별 요약
+## G-5. 논문별 요약
 
-### F1. Ekman · 1992
+### G1. Ekman · 1992
 
 > **한 줄:** 문화와 상관없이 얼굴 표정으로 알아보는 기본 감정 6개가 있다는 주장
 
 - **6감정:** 기쁨, 슬픔, 분노, 두려움, 혐오, 놀람 → 이후 감정 데이터셋의 사실상 표준
 - **한계:** 긍정 감정이 기쁨 하나뿐 → "편안함, 감사, 그리움" 같은 감정을 못 담음 (GoEmotions가 지적)
 
-### F2. Plutchik · 2001
+### G2. Plutchik · 2001
 
 > **한 줄:** 기본 감정 8개를 바퀴처럼 놓고, 이웃끼리 섞어 복합 감정을 만드는 틀
 
@@ -284,7 +284,7 @@
 - **한벗에게:** Claude가 복합 감정을 설명하는 언어로만 쓰면 충분 (예: "그리움 = 슬픔 + 사랑", "서운함 = 슬픔 + 분노")
 - **확인 필요:** 정확한 dyad 개수(24개)와 예시는 2차 자료로만 확인함
 
-### F3. Russell · 1980
+### G3. Russell · 1980
 
 > **한 줄:** 감정을 "얼마나 불쾌한가 × 얼마나 흥분했나" 두 축의 원 위에 놓는 모델
 
@@ -292,7 +292,7 @@
 - **장점:** 범주 이름 없이도 감정 표현 가능 → 데이터셋 간 라벨이 달라도 공통 좌표로 옮길 수 있음
 - **사용 예:** KEMDy·MSP-Podcast·IEMOCAP이 이 축을 함께 라벨링
 
-### F4. GoEmotions · 2020 ACL
+### G4. GoEmotions · 2020 ACL
 
 > **한 줄:** 감정을 잘게 나눌수록 정확도가 떨어진다는 직접 근거
 
@@ -304,7 +304,7 @@
     - 기쁨 ← 모든 긍정 감정 / 놀람 ← 모든 애매한 감정
     - 슬픔 ← 슬픔·실망·당혹·비탄·후회
 
-### F5. KOTE · 2024
+### G5. KOTE · 2024
 
 > **한 줄:** 영어 체계를 번역하지 않고 한국어 감정 단어로 직접 만든 43감정 체계
 
@@ -313,7 +313,7 @@
 - **결과:** 번역 GoEmotions보다 높음 (**0.56** vs 0.41)
 - **눈여겨볼 점:** 한 댓글에 평균 **7.91개** 라벨 → 단일 라벨 체계의 한계
 
-### F6. 박인조·민경환 · 2005
+### G6. 박인조·민경환 · 2005
 
 > **한 줄:** 한국어 감정 단어 434개를 모아 쾌불쾌·활성화 점수를 매긴 기준 문헌
 
@@ -323,7 +323,7 @@
 - **저자가 든 이유:** 단어 선정 기준 차이, 한국어 감정 단어에 극단적 활성화 단어가 적음
 - **한벗에게:** 평정 데이터가 CC0로 공개(434단어 × 2개 파일) → 아래 매핑표의 V·A 값에 사용함
 
-### F7. 홍영지 외 · 2016
+### G7. 홍영지 외 · 2016
 
 > **한 줄:** 감정 관련 명사 450개에 정서가·각성·구체성 점수를 매긴 목록
 
@@ -331,7 +331,7 @@
 - **검증:** 정서 스트룹 과제로 타당성 확인
 - **눈여겨볼 점:** 박인조·민경환은 형용사·동사 중심, 이 목록은 명사 중심 → 서로 보완
 
-### F8. KNU 한국어 감성사전 · 2018
+### G8. KNU 한국어 감성사전 · 2018
 
 > **한 줄:** 표준국어대사전 뜻풀이로 만든 긍정/부정 단어 사전
 
@@ -340,7 +340,7 @@
 - **한계:** 범주 감정 없이 긍·부 극성만 있음
 - **한벗에게:** LLM 장애 시의 규칙 기반 백업 정도로만 쓸 수 있음
 
-### F9. EmoBox · 2024 Interspeech
+### G9. EmoBox · 2024 Interspeech
 
 > **한 줄:** 여러 나라 감정 음성 데이터를 "모두에게 있는 4감정"만 남겨 비교한 벤치마크
 
@@ -351,7 +351,7 @@
 - **눈여겨볼 점:** 정교한 매핑 규칙 대신 "교집합만 남긴다"는 실용적 방식
 - **참고:** 한국어는 포함되지 않음 (기존 노트와 같음)
 
-### F10. SpeechEQ · 2022 Interspeech
+### G10. SpeechEQ · 2022 Interspeech
 
 > **한 줄:** 라벨이 서로 다른 데이터셋을 "감정 종류 + 강도"로 통일해 함께 학습한 연구
 
@@ -359,7 +359,7 @@
 - **결과:** 중국어 CASIA·ESD에서 기준선보다 **6.5~8.0%** 높음
 - **눈여겨볼 점:** 범주와 강도를 따로 예측하는 설계 → 서로 다른 라벨을 합칠 때 유용
 
-### F11. MSP-Podcast · 2025
+### G11. MSP-Podcast · 2025
 
 > **한 줄:** 자연스러운 실제 대화 감정 데이터(코퍼스)의 최신 정리
 
@@ -367,7 +367,7 @@
 - **차원 라벨:** 각성·정서가·지배성을 **1~7점**
 - **눈여겨볼 점:** 같은 분노도 "차가운 분노 / 뜨거운 분노"처럼 범주 안 변동이 큼 → 차원 라벨이 함께 필요
 
-## F-6. 한벗에 적용하면 — 추천 체계와 매핑표
+## G-6. 한벗에 적용하면 — 추천 체계와 매핑표
 
 ### 추천: 2층 혼합 체계
 
@@ -431,7 +431,7 @@
 - ※ 이 규칙들은 위 논문 결과에서 추론한 설계안 → 규칙 자체의 효과를 검증한 논문은 없음
 - W3 측정에서 KEMDy20(텍스트+음성+정서가·각성 라벨이 모두 있음)으로 검증해야 함
 
-## F-7. 확인 필요 항목
+## G-7. 확인 필요 항목
 
 - 🔴 **기존 슬라이드의 "4감정 공통표" 구성**을 확인하지 못함. 이 문서는 문헌 표준인 기쁨·슬픔·분노·중립을 가정함.
 - 🔴 박인조·민경환 공개 데이터의 평정 척도 범위(0~5 또는 1~5)와 5-level/7-level 파일의 차이(두 파일 크기가 같음).
@@ -445,23 +445,23 @@
 
 ## 참고 링크 모음
 
-- E1 https://aclanthology.org/2020.aacl-main.17 · https://github.com/kakaobrain/kortok
-- E2 https://doi.org/10.15207/JKCS.2021.12.12.039
-- E3 https://arxiv.org/abs/2105.09680
-- E4·F5 https://aclanthology.org/2024.lrec-main.1499 · https://arxiv.org/abs/2205.05300
-- E5 https://doi.org/10.1109/access.2021.3085864 · https://arxiv.org/abs/2004.05744
-- E6 https://aclanthology.org/2021.wnut-1.45
-- E7 https://doi.org/10.9708/jksci.2024.29.02.043
-- E8 https://arxiv.org/abs/2403.06108
-- E9 https://arxiv.org/abs/2406.08353
+- F1 https://aclanthology.org/2020.aacl-main.17 · https://github.com/kakaobrain/kortok
+- F2 https://doi.org/10.15207/JKCS.2021.12.12.039
+- F3 https://arxiv.org/abs/2105.09680
+- F4·G5 https://aclanthology.org/2024.lrec-main.1499 · https://arxiv.org/abs/2205.05300
+- F5 https://doi.org/10.1109/access.2021.3085864 · https://arxiv.org/abs/2004.05744
+- F6 https://aclanthology.org/2021.wnut-1.45
+- F7 https://doi.org/10.9708/jksci.2024.29.02.043
+- F8 https://arxiv.org/abs/2403.06108
+- F9 https://arxiv.org/abs/2406.08353
 - 보조 https://dx.doi.org/10.7469/JKSQM.2020.48.3.421
-- F1 https://doi.org/10.1080/02699939208411068
-- F3 https://doi.org/10.1037/h0077714
-- F4 https://aclanthology.org/2020.acl-main.372
-- F6 https://www.accesson.kr/ksppa/v.19/1/109/14556 · https://huggingface.co/datasets/jonghwanhyeon/korean-emotion-lexicon (CC0)
-- F7 https://doi.org/10.19066/cogsci.2016.27.3.002
-- F8 https://koreascience.kr/article/JAKO201810866004042.page
-- F9 https://arxiv.org/abs/2406.07162
-- F10 https://arxiv.org/abs/2206.13101
-- F11 https://arxiv.org/abs/2509.09791
+- G1 https://doi.org/10.1080/02699939208411068
+- G3 https://doi.org/10.1037/h0077714
+- G4 https://aclanthology.org/2020.acl-main.372
+- G6 https://www.accesson.kr/ksppa/v.19/1/109/14556 · https://huggingface.co/datasets/jonghwanhyeon/korean-emotion-lexicon (CC0)
+- G7 https://doi.org/10.19066/cogsci.2016.27.3.002
+- G8 https://koreascience.kr/article/JAKO201810866004042.page
+- G9 https://arxiv.org/abs/2406.07162
+- G10 https://arxiv.org/abs/2206.13101
+- G11 https://arxiv.org/abs/2509.09791
 - emotion2vec+ 라벨 https://huggingface.co/emotion2vec/emotion2vec_plus_large
