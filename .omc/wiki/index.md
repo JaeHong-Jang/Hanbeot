@@ -1,11 +1,12 @@
 # Wiki Index
 
-> 666 pages | Last updated: 2026-11-07T20:09:18.297Z
+> 667 pages | Last updated: 2026-11-08T06:34:16.684Z
 
 ## architecture
 
 - [overview-app-design](overview-app-design.md) — # overview-app-design
 - [overview-benchmark](overview-benchmark.md) — # overview-benchmark
+- [overview-final-plan-v3](overview-final-plan-v3.md) — # overview-final-plan-v3
 - [overview-hanbeot-project](overview-hanbeot-project.md) — # overview-hanbeot-project
 - [overview-market-demand](overview-market-demand.md) — # overview-market-demand
 - [overview-orchestra-team](overview-orchestra-team.md) — # overview-orchestra-team

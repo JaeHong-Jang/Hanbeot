@@ -2,9 +2,9 @@
 title: "overview-hanbeot-project"
 tags: ["한벗", "overview", "문워크", "사업개요", "project", "paper-evidence", "meeting-followup", "hanbeot", "target"]
 created: 2026-10-25T06:41:02.286Z
-updated: 2026-11-07T17:35:07.895Z
+updated: 2026-11-08T06:34:14.580Z
 sources: []
-links: ["overview-orchestra-team.md", "overview-problem-definition.md", "overview-market-demand.md", "overview-technology.md", "overview-benchmark.md", "overview-researcher-collaboration.md", "overview-research-cycle-1.md", "src-professor-2026-feedback-deliverable-1.md", "claim-feedback-1-reflect-professor-round1.md", "overview-app-design.md", "claim-feedback-2-professor-answer-draft-round1.md", "topic-app-paper-evidence.md", "topic-market-tam-sam-som-assembly.md", "claim-app-8-hypotheses-h1-h5.md", "bench-clova-carecall.md", "claim-app-9-ser-evaluation-and-calibration.md", "topic-meeting-followup-ser-2026-11.md", "src-kim-2024-dementia-ser.md", "src-lee-2026-elderly-whisper-asr.md"]
+links: ["overview-orchestra-team.md", "overview-problem-definition.md", "overview-market-demand.md", "overview-technology.md", "overview-benchmark.md", "overview-researcher-collaboration.md", "overview-research-cycle-1.md", "src-professor-2026-feedback-deliverable-1.md", "claim-feedback-1-reflect-professor-round1.md", "overview-app-design.md", "claim-feedback-2-professor-answer-draft-round1.md", "topic-app-paper-evidence.md", "topic-market-tam-sam-som-assembly.md", "claim-app-8-hypotheses-h1-h5.md", "bench-clova-carecall.md", "claim-app-9-ser-evaluation-and-calibration.md", "topic-meeting-followup-ser-2026-11.md", "src-kim-2024-dementia-ser.md", "src-lee-2026-elderly-whisper-asr.md", "overview-final-plan-v3.md", "topic-scopus-literature-2026-11.md", "claim-research-1-paper-a-korean-ser-selective-prediction.md", "claim-app-12-interruption-backchannel-filler-rules.md", "claim-app-13-tts-blind-test-protocol-w4.md"]
 category: architecture
 confidence: high
 schemaVersion: 1
@@ -80,3 +80,12 @@ schemaVersion: 1
 "열린 질문 (2026-11-07)"에 대한 답. 팀이 2026-11-07 커밋 607f0f5("한벗 대상에서 고령자 제외")로 회의 후속 조사·데이터셋·TTS·유사앱 노트에서 고령층 전제를 걷어냈고, 팀장이 11/8 확인했다. **1차 타깃은 대학생 그대로**다. 기록: `docs/adr/ADR-0005-target-older-adults-excluded.md`.
 
 주의: 11/7에 적재한 [[topic-meeting-followup-ser-2026-11]], [[src-kim-2024-dementia-ser]], [[src-lee-2026-elderly-whisper-asr]]은 고령층 전제가 남아 있던 노트 판본을 근거로 썼다. 독거노인 133명 연구(음성만 3감정 64.7%, 2단계 69.3%)는 "한국어 실제 대화에서 SER 성능이 어디까지 나오는가"의 **참고 수치**로만 쓰고, 한벗 사용자 조건과 같다고 쓰지 않는다. 노인 STT·고령자 구술 데이터(71703)는 한벗 범위 밖이다.
+
+---
+
+## Update (2026-11-08T06:34:14.580Z)
+
+## 최종 통합 계획 v3 (2026-11-08)
+
+제품·목소리·감정 인식·SCI 논문 트랙을 한 문서로 묶은 계획: [[overview-final-plan-v3]] (원문 `reports/한벗 최종 계획 v3.md`). 근거 허브 [[topic-scopus-literature-2026-11]], 논문 설계 [[claim-research-1-paper-a-korean-ser-selective-prediction]], 턴 처리 규칙 [[claim-app-12-interruption-backchannel-filler-rules]], TTS 블라인드 테스트 [[claim-app-13-tts-blind-test-protocol-w4]]. 11/9 회의 결정 요청 17건은 `docs/harness/회의-안건-2026-11-09.md`.
+

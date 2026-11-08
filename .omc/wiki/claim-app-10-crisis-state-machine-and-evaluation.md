@@ -2,9 +2,9 @@
 title: "claim-app-10-crisis-state-machine-and-evaluation"
 tags: ["app-design", "decision", "crisis", "state-machine", "evaluation", "tel109", "paper-evidence", "meeting-followup"]
 created: 2026-10-26T05:46:22.855Z
-updated: 2026-11-07T11:40:00.971Z
+updated: 2026-11-08T06:33:48.375Z
 sources: ["reports/한벗 기술 논문 근거.md#2-2"]
-links: ["overview-app-design.md", "topic-app-paper-evidence.md", "topic-app-impl-safety-crisis.md", "claim-app-5-crisis-ops-and-tel109.md", "claim-tech-8-crisis-referral-flow.md", "src-judd-2025-llm-suicide-signals.md", "src-cmaj-2026-chatbot-suicide-prevention.md", "src-psycrisisbench-2025.md", "src-park-2020-military-suicide-risk.md", "src-mcbain-2025-llm-suicide-alignment.md", "src-mohw-2026-109-hotline.md", "topic-meeting-followup-ser-2026-11.md", "topic-ser-label-scheme-and-fusion.md", "topic-data-text-and-eval-datasets.md", "topic-bench-opensource-voice-agents.md"]
+links: ["overview-app-design.md", "topic-app-paper-evidence.md", "topic-app-impl-safety-crisis.md", "claim-app-5-crisis-ops-and-tel109.md", "claim-tech-8-crisis-referral-flow.md", "src-judd-2025-llm-suicide-signals.md", "src-cmaj-2026-chatbot-suicide-prevention.md", "src-psycrisisbench-2025.md", "src-park-2020-military-suicide-risk.md", "src-mcbain-2025-llm-suicide-alignment.md", "src-mohw-2026-109-hotline.md", "topic-meeting-followup-ser-2026-11.md", "topic-ser-label-scheme-and-fusion.md", "topic-data-text-and-eval-datasets.md", "topic-bench-opensource-voice-agents.md", "overview-final-plan-v3.md"]
 category: decision
 confidence: medium
 schemaVersion: 1
@@ -52,3 +52,15 @@ schemaVersion: 1
 - 위기 위험도 = max(텍스트, 음성) 아이디어: 음성이 위험도를 낮추는 일은 없게 [[topic-ser-label-scheme-and-fusion]].
 - C-SSRS 5단계(지지·지표·사고·행동·시도) 단계 라벨을 상태 기계의 평가 라벨로 쓰는 아이디어, PsyCrisis-Bench 평가 5차원(공감·정서조절·탐색·위험평가·외부연계)을 응답 루브릭으로 [[topic-data-text-and-eval-datasets]].
 - 오픈소스 참고: pipecat-flows로 위기 안내 단계 고정, PurpleLlama 출력 Guard [[topic-bench-opensource-voice-agents]].
+
+---
+
+## Update (2026-11-08T06:33:48.375Z)
+
+## 2026-11-08 v3 정정: max(글, 소리) 결합 규칙 철회
+
+- 비평가 지적(#7·#8, [[overview-final-plan-v3]] §10): 감정 점수에서 위기 위험도로 넘어갈 근거가 없고, 음성이 위험도를 올리기만 하는 규칙은 오탐으로 불필요한 안전 모드 전환을 늘린다.
+- 결정 상정안: **위기는 글 기반(KeywordGate + Claude 위험 태그) 유지. 음성 단서는 위기 점수에 넣지 않는다.** 음성의 추가 기여는 위기 평가 세트에서 재현율·정밀도·오탐·불필요한 안전 모드 전환 횟수로 따로 평가한 뒤에만 재검토한다.
+- 안전 모드 중에도 사용자의 명시적 중지·종료·정정 발화는 항상 처리한다(안전 스크립트를 끊을 수 없게 하는 제안은 철회).
+- `rules.yaml: crisis_combine_rule` 기본값은 `text_only` 유지. ADR-0004는 "철회(2026-11-08)"로 갱신 필요.
+
