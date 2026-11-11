@@ -280,7 +280,6 @@
 | emotion2vec 사전학습 | 영어 | IEMOCAP·MELD·CMU-MOSEI·MEAD·MSP-Podcast | 262h | 라벨 미사용(자기지도) | - | [arXiv 2312.15185](https://arxiv.org/abs/2312.15185) |
 | emotion2vec+ | 미공개 | 학술 감정 데이터 201h로 seed → 모델이 의사 라벨 붙여 4,788h → 42,526h | - | 사람 아닌 모델 라벨, 거르는 기준 미공개 | - | [GitHub](https://github.com/ddlBoJack/emotion2vec) |
 | AI Hub 119 신고 71768 | 한국어 | 실제 119 신고 통화 | 3,064h | 통화 단위 4종(불안 53.6%·당황 37.6%…) + 긴급도, 가공자 → 검수자 2단계 | 미공개 | [AI Hub](https://www.aihub.or.kr/aihubdata/data/view.do?dataSetSn=71768) |
-| AI Hub 고객응대 71615 | 한국어 | 공공 6분야 상담. 실제 녹취인지 연기인지 미확인 | 3,300h | 8종 태그. 음성 기반인지 텍스트 기반인지 미확인 | 미공개 | [AI Hub](https://www.aihub.or.kr/aihubdata/data/view.do?dataSetSn=71615) |
 
 - **패턴**
   - 연기 데이터는 감정을 일부러 넣은 녹음, 자연 데이터는 감정 있는 구간을 골라낸 것
