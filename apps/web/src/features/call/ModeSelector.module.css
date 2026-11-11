@@ -3,9 +3,9 @@
   align-self: center;
   gap: 2px;
   padding: 3px;
-  border: 1px solid var(--color-glass-line);
+  border: 1px solid var(--color-night-line);
   border-radius: var(--radius-pill);
-  background: var(--color-glass);
+  background: var(--color-night-surface);
 }
 .option {
   min-width: 78px;

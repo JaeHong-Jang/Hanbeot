@@ -45,7 +45,6 @@ export function SplashScreen({ onDone }: { onDone: () => void }) {
       onClick={finish}
       aria-label={s.skipLabel}
     >
-      <span className={styles.glow} />
       <span className={styles.paper}>
         <svg
           className={styles.logo}

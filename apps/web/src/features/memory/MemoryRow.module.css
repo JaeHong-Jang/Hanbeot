@@ -1,22 +1,17 @@
-/* 색인 카드 한 장 */
+/* 색인 카드 한 장. 기억은 같은 종류가 여러 개 모인 목록이라 카드로 둔다. */
 .row {
   display: grid;
   gap: var(--space-2);
   justify-items: start;
   padding: var(--space-3) var(--space-4);
-  border-top: 3px solid rgba(155, 68, 82, 0.35);
-  border-radius: 4px;
+  border-radius: var(--radius);
   background-color: var(--color-surface);
   box-shadow: var(--shadow-paper);
 }
-.row:nth-child(odd) {
-  transform: rotate(-0.5deg);
-}
-.row:nth-child(even) {
-  transform: rotate(0.4deg);
-}
 .text {
   font-size: var(--text-md);
+  /* 띄어쓰기 없는 긴 글(주소 등)도 카드 밖으로 나가지 않게 */
+  overflow-wrap: anywhere;
 }
 .edit {
   display: flex;
@@ -28,10 +23,10 @@
   flex: 1;
   min-width: 0;
   min-height: var(--tap-min);
-  padding: 0 var(--space-1);
-  border: 0;
-  border-bottom: 1.5px dashed var(--color-muted);
-  background: none;
+  padding: 0 var(--space-2);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: #fffdf8;
 }
 .actions {
   display: flex;

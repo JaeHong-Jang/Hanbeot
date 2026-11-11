@@ -7,7 +7,6 @@ import { TabBar } from './TabBar';
 export function AppLayout({ tabs = false }: { tabs?: boolean }) {
   return (
     <div className={styles.screen}>
-      <span className={styles.lamp} aria-hidden="true" />
       <div className={`${styles.scroll} ${tabs ? styles.withTabs : ''}`}>
         <Outlet />
       </div>

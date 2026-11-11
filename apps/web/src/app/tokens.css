@@ -16,11 +16,10 @@
   --color-on-primary: #fff6ec;
   --color-danger: #a8322a;
   --color-ok: #4f8a52;
-  --color-lamp: rgba(255, 190, 110, 0.5); /* 스탠드 불빛 */
   --color-night: #241812; /* 통화 화면 바탕 */
   --color-on-night: #fff3e4;
-  --color-glass: rgba(42, 27, 20, 0.52);
-  --color-glass-line: rgba(255, 236, 214, 0.2);
+  --color-night-surface: #3a2a21; /* 통화 화면 위의 말풍선·버튼 바탕. 반투명 유리 효과는 쓰지 않는다 */
+  --color-night-line: rgba(255, 236, 214, 0.16);
 
   /* 간격 */
   --space-1: 4px;
@@ -31,7 +30,8 @@
   --space-6: 32px;
 
   /* 모양 */
-  --radius: 12px;
+  /* 모서리는 요소마다 다르게: 입력 6, 카드 10, 말풍선 14, 버튼은 알약 */
+  --radius: 10px;
   --radius-sm: 6px;
   --radius-pill: 999px;
   --shadow-paper: 0 1px 0 var(--color-border), 0 10px 22px rgba(90, 60, 30, 0.1);

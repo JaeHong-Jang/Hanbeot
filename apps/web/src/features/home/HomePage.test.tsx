@@ -41,9 +41,7 @@ describe('HomePage', () => {
     renderHome({ basic: true, voice: false, sensitive: false });
     expect(await screen.findByText('팀 프로젝트로 지쳤다고 했어요')).toBeInTheDocument();
     expect(screen.getAllByRole('radio')).toHaveLength(3);
-    expect(screen.getAllByRole('button', { name: '하늘이에게 전화하기' }).length).toBeGreaterThan(
-      0,
-    );
+    expect(screen.getByRole('button', { name: /하늘이에게 전화하기/ })).toBeInTheDocument();
   });
 
   it('sends people without the required consent to the consent screen', async () => {

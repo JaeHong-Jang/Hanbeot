@@ -73,12 +73,6 @@ export function CallScreen({
 
   return (
     <main className={styles.call}>
-      <div
-        className={styles.backdrop}
-        style={{ backgroundImage: `url(${friend.image})` }}
-        aria-hidden="true"
-      />
-
       <header className={styles.top}>
         <p className={styles.disclosure}>{DISCLOSURE_SHORT}</p>
         <button

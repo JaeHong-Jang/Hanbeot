@@ -19,16 +19,6 @@
   opacity: 0;
   pointer-events: none;
 }
-.glow {
-  position: absolute;
-  top: 18%;
-  left: 50%;
-  width: 460px;
-  height: 460px;
-  transform: translateX(-50%);
-  background: radial-gradient(circle, rgba(255, 196, 120, 0.42), transparent 65%);
-  pointer-events: none;
-}
 .paper {
   position: relative;
   display: flex;

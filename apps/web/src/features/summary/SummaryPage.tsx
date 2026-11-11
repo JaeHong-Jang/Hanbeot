@@ -18,6 +18,7 @@ export function SummaryPage() {
   const markDone = (id: string) => setDone((prev) => new Set(prev).add(id));
 
   if (isLoading || !data) return <p className={styles.loading}>{s.loading}</p>;
+  const hadCandidates = data.memory_candidates.length > 0;
   const candidates = data.memory_candidates.filter((c) => !done.has(c.id));
   return (
     <main>
@@ -32,8 +33,11 @@ export function SummaryPage() {
           {s.nextStep}: {data.next_step}
         </p>
       ) : null}
-      <h2>{s.candidatesTitle}</h2>
-      {candidates.length === 0 ? <p className={styles.allDone}>{s.allDone}</p> : null}
+      {/* 후보가 처음부터 없을 때와, 전부 고른 뒤를 구분해서 말한다 */}
+      {hadCandidates ? <h2>{s.candidatesTitle}</h2> : null}
+      {candidates.length === 0 ? (
+        <p className={styles.allDone}>{hadCandidates ? s.allDone : s.noCandidates}</p>
+      ) : null}
       {candidates.map((c) => (
         <Card key={c.id} className={styles.candidate}>
           <Badge tone={c.kind === 'stated' ? 'neutral' : 'info'}>

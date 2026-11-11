@@ -1,0 +1,75 @@
+.wrap {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: var(--space-5);
+  align-items: center;
+  margin-top: var(--space-5);
+}
+/* 이 화면에서 유일하게 종이 위에 "붙어 있는" 물건 */
+.polaroid {
+  position: relative;
+  padding: 9px 9px 26px;
+  background: #fffcf6;
+  box-shadow:
+    0 1px 1px rgba(80, 50, 30, 0.14),
+    0 10px 22px rgba(80, 50, 30, 0.18);
+  transform: rotate(-3deg);
+}
+.polaroid img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center 30%;
+}
+.tape {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  z-index: 1;
+  width: 72px;
+  height: 24px;
+  transform: translateX(-50%) rotate(-4deg);
+  background: rgba(226, 204, 160, 0.78);
+}
+.note {
+  min-width: 0;
+}
+.name {
+  font-size: var(--text-2xl);
+  line-height: 1;
+}
+.tagline {
+  margin-top: var(--space-1);
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+  line-height: 1.2;
+}
+.status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+}
+.dot {
+  flex-shrink: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-ok);
+}
+.swap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: var(--tap-min);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+  text-decoration: underline;
+  text-decoration-color: var(--color-border);
+  text-underline-offset: 4px;
+  cursor: pointer;
+}

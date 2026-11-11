@@ -32,3 +32,31 @@ describe('SummaryPage', () => {
     vi.unstubAllGlobals();
   });
 });
+
+describe('SummaryPage without candidates', () => {
+  it('says there was nothing to remember instead of asking', async () => {
+    const summary = {
+      session_id: 's2',
+      summary: ['오늘은 가볍게 안부만 나눴어요'],
+      next_step: null,
+      memory_candidates: [],
+    };
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async () => new Response(JSON.stringify(summary), { status: 200 })),
+    );
+    render(
+      <QueryClientProvider client={new QueryClient()}>
+        <MemoryRouter initialEntries={['/summary/s2']}>
+          <Routes>
+            <Route path="/summary/:sessionId" element={<SummaryPage />} />
+          </Routes>
+        </MemoryRouter>
+      </QueryClientProvider>,
+    );
+    expect(await screen.findByText(/기억해 둘 이야기가 없었어요/)).toBeInTheDocument();
+    expect(screen.queryByText('기억해도 될까요?')).toBeNull();
+    expect(screen.queryByRole('button', { name: '저장' })).toBeNull();
+    vi.unstubAllGlobals();
+  });
+});

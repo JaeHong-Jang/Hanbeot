@@ -7,7 +7,7 @@
   padding: var(--space-1) var(--space-5);
   border: 1.5px solid var(--color-border);
   border-radius: var(--radius-pill);
-  background: rgba(255, 252, 245, 0.7);
+  background: var(--color-surface);
   color: var(--color-text);
   font-size: var(--text-md);
   cursor: pointer;
@@ -22,16 +22,14 @@
   opacity: 0.45;
   cursor: not-allowed;
 }
+/* 강조색은 단색으로. 그림자는 색 번짐 없이 가까운 것과 먼 것 두 겹. */
 .primary {
-  background: linear-gradient(
-    135deg,
-    #9b4452,
-    var(--color-primary) 60%,
-    var(--color-primary-strong)
-  );
+  background: var(--color-primary);
   color: var(--color-on-primary);
   border-color: transparent;
-  box-shadow: 0 8px 18px rgba(122, 46, 59, 0.3);
+  box-shadow:
+    0 1px 2px rgba(47, 32, 25, 0.3),
+    0 6px 14px rgba(47, 32, 25, 0.16);
 }
 .danger {
   background: var(--color-danger);
@@ -41,10 +39,12 @@
 /* 마우스처럼 올려둘 수 있는 입력에서만 hover를 준다. 터치에서는 탭 뒤에 hover가 남는다. */
 @media (hover: hover) and (pointer: fine) {
   .button:hover:not(:disabled) {
-    background-color: var(--color-surface);
+    background-color: #fffaf1;
   }
-  .primary:hover:not(:disabled),
+  .primary:hover:not(:disabled) {
+    background-color: var(--color-primary-strong);
+  }
   .danger:hover:not(:disabled) {
-    filter: brightness(1.06);
+    background-color: #8f2921;
   }
 }

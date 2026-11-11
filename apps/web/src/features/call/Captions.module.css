@@ -13,11 +13,9 @@
 .bubble {
   max-width: 86%;
   padding: 6px 14px;
-  border: 1px solid var(--color-glass-line);
+  border: 1px solid var(--color-night-line);
   border-radius: 14px;
-  background: var(--color-glass);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
+  background: var(--color-night-surface);
   /* 새 자막이 아래에서 올라온다. 사용자가 지켜보는 순간이라 짧게. */
   animation: rise var(--dur-ui) var(--ease-out);
 }

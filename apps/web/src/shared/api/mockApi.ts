@@ -5,9 +5,20 @@ import type { Consent, Memory, MemoryCandidate, Summary } from '@/entities';
  * `/api/*` 요청을 가로채 packages/contracts와 같은 모양으로 답한다.
  * 동의와 기억은 탭을 닫기 전까지만 남는다(sessionStorage).
  */
-const STORE_KEY = 'hanbeot.mock';
+/**
+ * 주소에 ?data=worst 를 붙이면 극단값 데이터로 시작한다(break-ui 방식의 개발용 시험).
+ * 실제 사용자가 만들 법한 최악의 값만 넣는다: 아주 긴 글, 띄어쓰기 없는 주소, 한 글자, 많은 개수, 빈 목록.
+ */
+const WORST_CASE = new URLSearchParams(window.location.search).get('data') === 'worst';
+const STORE_KEY = WORST_CASE ? 'hanbeot.mock.worst' : 'hanbeot.mock';
 
-type Store = { consent: Consent; memories: Memory[]; candidates: MemoryCandidate[] };
+type Store = {
+  consent: Consent;
+  memories: Memory[];
+  candidates: MemoryCandidate[];
+  summaryLines: string[];
+  nextStep: string | null;
+};
 
 const daysAgoIso = (days: number): string => new Date(Date.now() - days * 864e5).toISOString();
 
@@ -38,6 +49,11 @@ function seed(): Store {
         expires_at: daysAgoIso(-27),
       },
     ],
+    summaryLines: [
+      '발표에서 준비한 만큼 못 보여줘서 속상했어요',
+      '팀원들에게 미안한 마음이 들었어요',
+    ],
+    nextStep: '다음 발표 전에 첫 문장만 소리 내어 연습해 보기',
     candidates: [
       {
         id: 'c1',
@@ -57,6 +73,28 @@ function seed(): Store {
   };
 }
 
+const LONG_TEXT =
+  '이번 학기 캡스톤 팀 프로젝트에서 발표 자료와 데이터 전처리, 모델 학습, 보고서 초안까지 거의 혼자 맡게 됐는데 팀원들한테 나눠 달라고 말하면 분위기가 나빠질까 봐 계속 미루다가 결국 마감 전날 밤을 새웠다고 했어요';
+const UNBROKEN_TEXT =
+  'https://docs.example.com/capstone-2026-2/team-moonwalk/final-presentation-draft-v17-really-final.pptx';
+
+function worstCaseSeed(): Store {
+  const many: Memory[] = Array.from({ length: 24 }, (_, order) => ({
+    id: 'w' + String(order),
+    kind: 'stated',
+    state: 'approved',
+    text: order % 3 === 0 ? LONG_TEXT : order % 3 === 1 ? UNBROKEN_TEXT : '응',
+    created_at: daysAgoIso(order * 9),
+  }));
+  return {
+    consent: { basic: true, voice: false, sensitive: true },
+    memories: many, // "한벗이 느낀 것"은 0건
+    candidates: [],
+    summaryLines: [LONG_TEXT, UNBROKEN_TEXT],
+    nextStep: LONG_TEXT,
+  };
+}
+
 function load(): Store {
   try {
     const raw = window.sessionStorage.getItem(STORE_KEY);
@@ -64,7 +102,7 @@ function load(): Store {
   } catch {
     /* 저장소를 못 쓰면 메모리로만 동작 */
   }
-  return seed();
+  return WORST_CASE ? worstCaseSeed() : seed();
 }
 
 function save(store: Store): void {
@@ -115,8 +153,8 @@ async function handle(
     const summary: Summary = {
       session_id: id ?? 'demo',
       duration_min: 7,
-      summary: ['발표에서 준비한 만큼 못 보여줘서 속상했어요', '팀원들에게 미안한 마음이 들었어요'],
-      next_step: '다음 발표 전에 첫 문장만 소리 내어 연습해 보기',
+      summary: store.summaryLines,
+      next_step: store.nextStep,
       memory_candidates: store.candidates,
     };
     return json(summary);
@@ -158,7 +196,7 @@ async function handle(
   }
 
   if (resource === 'deletion') {
-    save(seed());
+    save(WORST_CASE ? worstCaseSeed() : seed());
     return json({ request_id: `del-${Date.now()}`, eta_hours: 24 }, 202);
   }
 

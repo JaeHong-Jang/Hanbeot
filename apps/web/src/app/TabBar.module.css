@@ -8,9 +8,7 @@
   grid-template-columns: repeat(3, 1fr);
   padding: var(--space-2) var(--space-4) calc(var(--space-2) + var(--safe-bottom));
   border-top: 1px solid var(--color-border);
-  background: rgba(247, 237, 220, 0.94);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
+  background: var(--color-bg-deep);
 }
 .item {
   display: flex;

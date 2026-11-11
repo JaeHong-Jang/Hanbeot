@@ -3,9 +3,7 @@
   display: grid;
   place-items: center;
   overflow: hidden;
-  background:
-    radial-gradient(ellipse at 25% 15%, rgba(255, 180, 100, 0.2), transparent 55%),
-    radial-gradient(ellipse at 80% 85%, rgba(122, 46, 59, 0.25), transparent 55%), #1a1210;
+  background: #1a1210;
 }
 .slot {
   position: relative;

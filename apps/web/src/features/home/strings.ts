@@ -13,10 +13,10 @@ export const homeStrings = {
   callName: (name: string) => `${josa(name, '아', '야')},`,
   sub: '말하기 어려운 이야기도, 여기선 괜찮아.',
   date: (d: Date) => `${d.getMonth() + 1}월 ${d.getDate()}일 ${WEEKDAYS[d.getDay()] ?? ''}요일`,
+  friendLabel: '오늘 이야기할 친구',
   available: '지금 이야기할 수 있어',
   callFriend: (friendName: string) => `${josa(friendName, '이', '')}에게 전화하기`,
   swapTo: (friendName: string) => `${josa(friendName, '이', '')}로 바꾸기`,
-  swapHint: (friendName: string) => `뒤 사진을 누르면 ${josa(friendName, '이', '')}로 바뀌어`,
   modeTitle: '오늘은 어떻게 들어줄까?',
   modes: {
     listen: { label: '그냥 들어줘', desc: '질문과 조언은 줄이고, 끝까지 들어줄게' },
@@ -28,4 +28,11 @@ export const homeStrings = {
   lastSeeAll: '기억 전부 보기',
   lastEmpty: '아직 기억하고 있는 이야기가 없어. 오늘 첫 이야기를 들려줘.',
   lastContinue: '이어서 이야기하기',
+  lastWhen: (days: number): string => {
+    if (days <= 0) return '오늘';
+    if (days === 1) return '어제';
+    if (days < 7) return `${days}일 전`;
+    if (days < 28) return `${Math.floor(days / 7)}주 전`;
+    return '한 달도 더 전';
+  },
 } as const;

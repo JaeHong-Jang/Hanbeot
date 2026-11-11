@@ -7,23 +7,14 @@
   overflow-y: auto;
   padding: calc(var(--safe-top, 0px) + var(--space-2)) var(--space-5)
     calc(var(--safe-bottom, 0px) + var(--space-5));
-  background: var(--color-night);
+  background-color: var(--color-night);
+  background-image: var(--noise);
   color: var(--color-on-night);
   isolation: isolate;
   scrollbar-width: none;
 }
 .call::-webkit-scrollbar {
   display: none;
-}
-/* 친구 사진을 크게 흐려서 깐 바탕. 방 안의 따뜻한 조명 느낌을 남긴다. */
-.backdrop {
-  position: absolute;
-  inset: -40px;
-  z-index: -1;
-  background-size: cover;
-  background-position: center;
-  filter: blur(34px) brightness(0.42) saturate(1.15) sepia(0.2);
-  transform: scale(1.15);
 }
 .top {
   display: flex;
@@ -60,7 +51,7 @@
   min-height: 52px;
 }
 .start button:not(:first-child) {
-  border-color: var(--color-glass-line);
-  background: var(--color-glass);
+  border-color: var(--color-night-line);
+  background: var(--color-night-surface);
   color: inherit;
 }
