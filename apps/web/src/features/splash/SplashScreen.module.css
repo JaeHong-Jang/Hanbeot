@@ -39,6 +39,7 @@
 .logo {
   width: min(340px, 86vw);
   overflow: visible;
+  color: var(--color-ink);
 }
 .pen {
   filter: drop-shadow(6px 10px 6px rgba(60, 30, 15, 0.25));

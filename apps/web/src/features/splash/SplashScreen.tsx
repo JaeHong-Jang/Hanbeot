@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 
-import { FountainPen } from './FountainPen';
+import { InkBrush } from './InkBrush';
 import styles from './SplashScreen.module.css';
 import { splashStrings as s } from './strings';
 import { useWritingAnimation } from './useWritingAnimation';
 
-import { LETTERING, PenStroke, SLANT_TRANSFORM } from '@/shared/ui';
+import { BrushStroke, LETTERING, SLANT_TRANSFORM } from '@/shared/ui';
 
 const TAGLINE_MS = 1900; // 한 줄 소개를 읽을 시간
 const LEAVE_MS = 450;
@@ -17,7 +17,7 @@ const PHASE_CLASS: Record<Phase, string | undefined> = {
   leaving: styles.phaseLeaving,
 };
 
-/** 시작 화면. 만년필이 "한벗"을 날려 쓰고, 한 줄 소개가 따라 써진 뒤 넘어간다. 누르면 건너뛴다. */
+/** 시작 화면. 붓이 "한벗"을 흘려 쓰고, 한 줄 소개가 따라 써진 뒤 넘어간다. 누르면 건너뛴다. */
 export function SplashScreen({ onDone }: { onDone: () => void }) {
   const [phase, setPhase] = useState<Phase>('writing');
   const finishedRef = useRef(false);
@@ -53,11 +53,46 @@ export function SplashScreen({ onDone }: { onDone: () => void }) {
           role="img"
           aria-label={s.logoLabel}
         >
-          <g transform={SLANT_TRANSFORM}>
+          <defs>
+            {/* 먹 번짐: 획 가장자리를 크게 한 번, 잘게 한 번 흔들어 붓털 자국처럼 거칠게 만든다 */}
+            <filter id="brush-ink" x="-10%" y="-20%" width="120%" height="140%">
+              <feTurbulence
+                type="fractalNoise"
+                baseFrequency="0.035"
+                numOctaves="2"
+                seed="7"
+                result="wash"
+              />
+              <feDisplacementMap
+                in="SourceGraphic"
+                in2="wash"
+                scale="3.2"
+                xChannelSelector="R"
+                yChannelSelector="G"
+                result="soft"
+              />
+              <feTurbulence
+                type="fractalNoise"
+                baseFrequency="0.7"
+                numOctaves="1"
+                seed="3"
+                result="grain"
+              />
+              <feDisplacementMap
+                in="soft"
+                in2="grain"
+                scale="1.6"
+                xChannelSelector="G"
+                yChannelSelector="R"
+              />
+            </filter>
+          </defs>
+          <g transform={SLANT_TRANSFORM} filter="url(#brush-ink)">
             {LETTERING.strokes.map((stroke, order) => (
-              <PenStroke
+              <BrushStroke
                 key={stroke.d}
                 stroke={stroke}
+                animated
                 groupRef={(el) => {
                   strokeRefs.current[order] = el;
                 }}
@@ -65,7 +100,7 @@ export function SplashScreen({ onDone }: { onDone: () => void }) {
             ))}
           </g>
           <g ref={penRef} className={styles.pen}>
-            <FountainPen />
+            <InkBrush />
           </g>
         </svg>
         <span className={styles.caption}>

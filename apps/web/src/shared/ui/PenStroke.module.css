@@ -1,9 +1,0 @@
-/* --len / --off가 있으면 그만큼만 그려지고(스플래시), 없으면 전부 보인다(로고). */
-.stroke path {
-  fill: none;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: var(--len, none);
-  stroke-dashoffset: var(--off, 0);
-}

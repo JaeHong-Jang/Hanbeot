@@ -1,0 +1,17 @@
+.stroke {
+  fill: currentColor;
+}
+/* 길이를 재는 데만 쓰는 중심선. 화면에는 그리지 않는다. */
+.guide {
+  fill: none;
+  stroke: none;
+}
+/* 가림막: --off가 줄어드는 만큼 획이 드러난다 */
+.reveal {
+  fill: none;
+  stroke: #fff;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: var(--len, none);
+  stroke-dashoffset: var(--off, 0);
+}

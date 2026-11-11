@@ -3,8 +3,8 @@ import { useLayoutEffect, useRef, type MutableRefObject } from 'react';
 import { spanProgress, strokeSpans } from '@/shared/lib/strokeTiming';
 import { LETTERING, slantPoint } from '@/shared/ui';
 
-const WRITE_MS = 2300; // "한벗"을 다 쓰는 시간
-const LIFT_MS = 70; // 펜을 뗐다 다시 대는 시간
+const WRITE_MS = 2700; // "한벗"을 다 쓰는 시간. 붓은 펜보다 천천히 간다
+const LIFT_MS = 90; // 붓을 뗐다 다시 대는 시간
 const LINK_SPEED = 1.9; // 이음선은 힘을 빼고 빠르게 지나간다
 const LIFT_HEIGHT = 7;
 
@@ -16,7 +16,7 @@ type Refs = {
 };
 
 /**
- * 획 묶음(strokeRefs)을 순서대로 그려 나가고 펜(penRef)을 그 끝에 올린다.
+ * 획 묶음(strokeRefs)을 순서대로 그려 나가고 붓(penRef)을 그 끝에 올린다.
  * 다 쓰면 onWritten을 한 번 부른다. 움직임 줄이기 설정이면 바로 완성된 글씨를 보여준다.
  */
 export function useWritingAnimation(onWritten: () => void): Refs {
@@ -45,7 +45,7 @@ export function useWritingAnimation(onWritten: () => void): Refs {
       LETTERING.strokes.map((stroke, order) => ({
         length: lengths[order] ?? 0,
         joined: stroke.joined,
-        speed: stroke.weight < 0.5 ? LINK_SPEED : 1,
+        speed: stroke.kind === 'link' ? LINK_SPEED : 1,
       })),
       WRITE_MS,
       LIFT_MS,

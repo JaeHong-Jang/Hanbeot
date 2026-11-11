@@ -17,7 +17,7 @@ npm run lint && npm run typecheck && npm test
 
 | 경로 | 화면 | 폴더 |
 |---|---|---|
-| (처음 한 번) | 만년필로 "한벗"을 쓰는 시작 화면 | `features/splash` |
+| (처음 한 번) | 붓으로 "한벗"을 쓰는 시작 화면 | `features/splash` |
 | `/start` | AI 고지 + 3단 동의 | `features/onboarding` |
 | `/` | 홈: 인사, 친구 사진, 대화 모드, 지난 기억, 전화 걸기 | `features/home` |
 | `/call` | 통화: 오브, 자막, 확인 질문, 모드, 끊기·보류·음소거·종료, SOS | `features/call` |
@@ -29,13 +29,14 @@ npm run lint && npm run typecheck && npm test
 
 ## 디자인
 
-콘셉트는 "스탠드 불빛 아래 편지지에 만년필로 쓴 글"이다. 종이, 세피아 잉크, 와인색 봉랍.
+콘셉트는 "스탠드 불빛 아래 편지지에 손으로 쓴 글"이다. 종이, 먹과 세피아 잉크, 와인색 봉랍.
 
 - 토큰은 `src/app/tokens.css` 한 곳(색, 간격, 글자 크기, 움직임 곡선·시간).
 - 글씨는 Nanum Pen Script 하나. 획이 가늘어 최소 17px로 잡았다.
-- "한벗" 로고는 폰트가 아니라 `shared/ui/penLettering.ts`에 획 순서대로 적은 중심선이다.
-  - 글자 모양: `LETTERING.strokes` 좌표. 굵은 획(`stroke`)과 가는 이음선(`join`, weight 0.28)으로 나뉜다.
-  - 기울기: `LETTERING.slant`. 굵기: `NIB_WIDTH`, `HAIRLINE`, `NIB_ANGLE_RAD`.
+- "한벗" 로고는 폰트가 아니라 붓글씨(흘림 캘리그라피)로 직접 그린다.
+  - 글자 모양: `shared/ui/lettering.ts`의 `STROKES`. 붓이 지나가는 중심선을 획 순서대로 적었다. 획 종류는 굵은 획(`body`), 점(`dab`), 길게 빼는 획(`sweep`), 가는 이음선(`link`)이다.
+  - 굵기 변화: `shared/lib/brushOutline.ts`가 중심선에 누르는 힘(`PROFILES`)을 입혀 윤곽을 만든다. 붓을 대는 곳은 둥글고 떼는 곳은 뾰족하다. 전체 굵기는 `BRUSH_WIDTH`, 기울기는 `LETTERING.slant`.
+  - 먹 번짐: 시작 화면의 `brush-ink` 필터가 가장자리를 거칠게 만든다(`features/splash/SplashScreen.tsx`).
   - 쓰는 속도: `features/splash/useWritingAnimation.ts`의 `WRITE_MS`.
 
 ### 화면에 적용한 기준
