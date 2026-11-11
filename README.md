@@ -6,7 +6,7 @@
 
 | 폴더 | 내용 |
 |---|---|
-| `apps/web` | React + Vite + TypeScript 클라이언트 (통화·기억·동의·위기·요약 화면) |
+| `apps/web` | React + Vite + TypeScript 클라이언트 (홈·통화·기억·동의·위기·요약 화면). 서버 없이 보려면 `npm run dev:mock` |
 | `apps/api` | FastAPI + Pipecat 서버 (음성 파이프라인, REST, 워커) |
 | `packages/contracts` | OpenAPI·이벤트 스키마와 생성 타입 (계약 우선) |
 | `ml/` | SER·위기·턴 감지·지연 평가와 실험 (서비스 코드와 분리) |

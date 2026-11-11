@@ -1,0 +1,36 @@
+.card {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+  animation: appear var(--dur-ui) var(--ease-out);
+}
+.answers {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+.answer {
+  flex: 1;
+  min-height: var(--tap-min);
+  border: 1.5px solid var(--color-primary);
+  border-radius: var(--radius-pill);
+  background: none;
+  color: var(--color-primary);
+  font-size: var(--text-md);
+  cursor: pointer;
+  transition:
+    transform var(--dur-press) var(--ease-out),
+    background-color var(--dur-ui) ease;
+}
+.answer:active {
+  transform: scale(0.97);
+  background: var(--color-primary-soft);
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.97);
+  }
+}

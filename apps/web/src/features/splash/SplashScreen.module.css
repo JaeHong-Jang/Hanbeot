@@ -1,0 +1,79 @@
+.splash {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  background-image:
+    var(--noise), radial-gradient(ellipse at 50% 42%, #fbf3e4 0%, var(--color-bg) 55%, #e9d6bb 100%);
+  transition: opacity 450ms var(--ease-out);
+}
+.phaseLeaving {
+  opacity: 0;
+  pointer-events: none;
+}
+.glow {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  width: 460px;
+  height: 460px;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(255, 196, 120, 0.42), transparent 65%);
+  pointer-events: none;
+}
+.paper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -40px;
+}
+.logo {
+  width: min(340px, 86vw);
+  overflow: visible;
+}
+.pen {
+  filter: drop-shadow(6px 10px 6px rgba(60, 30, 15, 0.25));
+  transition: opacity 400ms ease;
+}
+.phaseTagline .pen,
+.phaseLeaving .pen {
+  opacity: 0;
+}
+.caption {
+  display: block;
+  min-height: 86px;
+  text-align: center;
+}
+/* 글자가 왼쪽부터 써지는 것처럼 드러난다. 가려진 부분만 벗겨 내므로 레이아웃은 움직이지 않는다. */
+.line {
+  display: block;
+  font-size: var(--text-xl);
+  clip-path: inset(0 100% 0 0);
+  animation: write 1000ms var(--ease-in-out) forwards;
+}
+.sub {
+  font-size: var(--text-md);
+  color: var(--color-muted);
+  animation-delay: 800ms;
+  animation-duration: 800ms;
+}
+@keyframes write {
+  to {
+    clip-path: inset(0 -4% 0 0);
+  }
+}
+.skip {
+  position: absolute;
+  bottom: calc(56px + env(safe-area-inset-bottom));
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+}

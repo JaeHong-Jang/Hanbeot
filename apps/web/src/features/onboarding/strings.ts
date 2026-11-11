@@ -16,5 +16,5 @@ export const onboardingStrings = {
   },
   allowedTitle: '지금 설정으로 쓸 수 있는 기능',
   noneAllowed: '필수 동의가 없으면 이용할 수 없어요. 109 번호와 고지문만 볼 수 있어요.',
-  start: '통화하러 가기',
+  start: '한벗 만나러 가기',
 } as const;

@@ -31,5 +31,10 @@ export interface VoiceClient {
   /** 탭으로 AI 발화 끊기(끼어들기). */
   interrupt(): void;
   setMode(mode: CallMode): void;
+  /**
+   * 확인 질문에 [맞아]/[아니야]로 답한다(설계서 5-4, 수용성 지표).
+   * TODO: 서버로 보내는 이벤트 스키마가 아직 없다. 계약에 추가되면 그 이벤트로 보낸다.
+   */
+  answerCue(utteranceId: string, confirmed: boolean): void;
   subscribe(handler: VoiceEventHandler): () => void;
 }

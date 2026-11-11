@@ -1,0 +1,14 @@
+.logo {
+  display: block;
+  margin: var(--space-2) 0 var(--space-3) -6px;
+  color: var(--color-text);
+}
+.disclosure {
+  margin: var(--space-3) 0 var(--space-4);
+  border-left: 3px solid var(--color-primary);
+}
+.start {
+  width: 100%;
+  min-height: 52px;
+  margin-top: var(--space-5);
+}

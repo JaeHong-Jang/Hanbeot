@@ -31,6 +31,13 @@ export function useVoiceSession(client: VoiceClient) {
     dispatch({ type: 'barge_in' });
   }, [client]);
   const setMode = useCallback((mode: CallMode) => client.setMode(mode), [client]);
+  const answerCue = useCallback(
+    (utteranceId: string, confirmed: boolean) => {
+      client.answerCue(utteranceId, confirmed);
+      dispatch({ type: 'answer_cue' });
+    },
+    [client],
+  );
 
-  return { state, connect, hangUp, setMuted, setHeld, bargeIn, setMode };
+  return { state, connect, hangUp, setMuted, setHeld, bargeIn, setMode, answerCue };
 }

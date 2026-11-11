@@ -1,0 +1,44 @@
+/* 색인 카드 한 장 */
+.row {
+  display: grid;
+  gap: var(--space-2);
+  justify-items: start;
+  padding: var(--space-3) var(--space-4);
+  border-top: 3px solid rgba(155, 68, 82, 0.35);
+  border-radius: 4px;
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-paper);
+}
+.row:nth-child(odd) {
+  transform: rotate(-0.5deg);
+}
+.row:nth-child(even) {
+  transform: rotate(0.4deg);
+}
+.text {
+  font-size: var(--text-md);
+}
+.edit {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  width: 100%;
+}
+.input {
+  flex: 1;
+  min-width: 0;
+  min-height: var(--tap-min);
+  padding: 0 var(--space-1);
+  border: 0;
+  border-bottom: 1.5px dashed var(--color-muted);
+  background: none;
+}
+.actions {
+  display: flex;
+  gap: var(--space-2);
+  justify-self: end;
+}
+.actions button {
+  padding: 0 var(--space-4);
+  font-size: var(--text-sm);
+}

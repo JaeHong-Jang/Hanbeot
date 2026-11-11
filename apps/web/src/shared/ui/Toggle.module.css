@@ -2,19 +2,56 @@
   display: flex;
   gap: var(--space-3);
   align-items: flex-start;
-  padding: var(--space-2) 0;
+  padding: var(--space-3) 0;
+  border-bottom: 1px dashed var(--color-border);
 }
+/* 기본 체크박스를 스위치 모양으로 바꾼다. role="switch"와 키보드 조작은 그대로다. */
 .row input {
-  width: 20px;
-  height: 20px;
-  margin-top: 2px;
+  appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+  flex-shrink: 0;
+  width: 50px;
+  height: 30px;
+  margin: 4px 0 0;
+  border-radius: var(--radius-pill);
+  background: #d3c0a6;
+  cursor: pointer;
+  transition: background-color var(--dur-ui) ease;
+}
+.row input::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fffaf2;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);
+  transition: transform var(--dur-ui) var(--ease-out);
+}
+.row input:checked {
+  background: var(--color-primary);
+}
+.row input:checked::after {
+  transform: translateX(20px);
+}
+.row input:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.row label {
+  flex: 1;
+  cursor: pointer;
 }
 .label {
   display: block;
-  font-weight: 600;
+  font-size: var(--text-md);
 }
 .desc {
   display: block;
   color: var(--color-muted);
-  font-size: 0.875rem;
+  font-size: var(--text-xs);
+  line-height: 1.25;
 }

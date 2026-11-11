@@ -1,3 +1,4 @@
+import styles from './ModeSelector.module.css';
 import { callStrings as s } from './strings';
 
 import type { CallMode } from '@/entities';
@@ -8,13 +9,14 @@ type Props = { mode: CallMode; onChange: (mode: CallMode) => void };
 
 export function ModeSelector({ mode, onChange }: Props) {
   return (
-    <div role="radiogroup" aria-label={s.modeLabel}>
+    <div className={styles.group} role="radiogroup" aria-label={s.modeLabel}>
       {MODES.map((m) => (
         <button
           key={m}
           type="button"
           role="radio"
           aria-checked={m === mode}
+          className={styles.option}
           onClick={() => onChange(m)}
         >
           {s.modes[m]}

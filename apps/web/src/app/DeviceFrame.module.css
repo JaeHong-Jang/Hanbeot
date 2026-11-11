@@ -1,0 +1,72 @@
+.stage {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 25% 15%, rgba(255, 180, 100, 0.2), transparent 55%),
+    radial-gradient(ellipse at 80% 85%, rgba(122, 46, 59, 0.25), transparent 55%), #1a1210;
+}
+.slot {
+  position: relative;
+}
+.device {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 402px;
+  height: 874px;
+  transform-origin: top left;
+  overflow: hidden;
+  border-radius: 62px;
+  isolation: isolate;
+  background-color: var(--color-bg);
+  background-image:
+    var(--noise), linear-gradient(180deg, #f6ecdb 0%, var(--color-bg) 40%, #efdfc6 100%);
+  box-shadow:
+    0 0 0 11px #120c0a,
+    0 0 0 13px #4a3a31,
+    0 40px 90px rgba(0, 0, 0, 0.6);
+  /* 프레임 안에서는 폰의 노치·홈 막대 자리를 흉내 낸다 */
+  --safe-top: 54px;
+  --safe-bottom: 22px;
+}
+.device::before {
+  /* 다이내믹 아일랜드 */
+  content: '';
+  position: absolute;
+  top: 11px;
+  left: 50%;
+  z-index: 100;
+  width: 126px;
+  height: 37px;
+  transform: translateX(-50%);
+  border-radius: 20px;
+  background: #000;
+  pointer-events: none;
+}
+
+/* 실제 폰: 프레임 없이 전체 화면. 100dvh는 주소창이 접히고 펴질 때도 맞는 높이다. */
+@media (max-width: 539px) {
+  .stage {
+    display: block;
+    background: none;
+  }
+  .slot {
+    width: 100% !important;
+    height: 100dvh !important;
+  }
+  .device {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: none !important;
+    border-radius: 0;
+    box-shadow: none;
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .device::before {
+    display: none;
+  }
+}

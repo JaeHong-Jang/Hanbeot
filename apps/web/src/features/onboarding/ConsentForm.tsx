@@ -1,4 +1,5 @@
 import { allowedFeatures, normalizeConsent } from './allowedFeatures';
+import styles from './ConsentForm.module.css';
 import { onboardingStrings as s } from './strings';
 
 import type { Consent } from '@/entities';
@@ -31,11 +32,11 @@ export function ConsentForm({ value, onChange }: Props) {
         disabled
         onChange={() => undefined}
       />
-      <h3>{s.allowedTitle}</h3>
+      <h3 className={styles.allowedTitle}>{s.allowedTitle}</h3>
       {features.length === 0 ? (
-        <p>{s.noneAllowed}</p>
+        <p className={styles.none}>{s.noneAllowed}</p>
       ) : (
-        <ul aria-label={s.allowedTitle}>
+        <ul className={styles.features} aria-label={s.allowedTitle}>
           {features.map((f) => (
             <li key={f}>{f}</li>
           ))}

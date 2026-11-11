@@ -1,15 +1,59 @@
+/* 디자인 토큰은 이 파일 한 곳에만 둔다.
+   콘셉트: 스탠드 불빛 아래 편지지에 만년필로 쓴 글. 종이 · 세피아 잉크 · 와인색 봉랍. */
 :root {
-  --color-bg: #fafaf7;
-  --color-surface: #ffffff;
-  --color-text: #1f2933;
-  --color-muted: #616e7c;
-  --color-border: #d9dde3;
-  --color-primary: #2f6f5e;
-  --color-danger: #b42318;
+  /* 색 */
+  --color-bg: #f3e7d3; /* 편지지 */
+  --color-bg-deep: #ecdcc3;
+  --color-surface: #fbf5ea; /* 카드로 쓰는 밝은 종이 */
+  --color-text: #2f2019; /* 세피아 잉크 */
+  --color-muted: #6f5847; /* 연한 잉크. 종이 위 대비 4.5:1 이상 */
+  --color-border: #dcc8ab;
+  --color-rule: rgba(160, 120, 80, 0.18); /* 줄노트 선 */
+  --color-primary: #7a2e3b; /* 와인색 봉랍 */
+  --color-primary-strong: #5f2230;
+  --color-primary-soft: rgba(122, 46, 59, 0.1);
+  --color-on-primary: #fff6ec;
+  --color-danger: #a8322a;
+  --color-ok: #4f8a52;
+  --color-lamp: rgba(255, 190, 110, 0.5); /* 스탠드 불빛 */
+  --color-night: #241812; /* 통화 화면 바탕 */
+  --color-on-night: #fff3e4;
+  --color-glass: rgba(42, 27, 20, 0.52);
+  --color-glass-line: rgba(255, 236, 214, 0.2);
+
+  /* 간격 */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
   --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+
+  /* 모양 */
   --radius: 12px;
-  --font-body: system-ui, -apple-system, 'Noto Sans KR', sans-serif;
+  --radius-sm: 6px;
+  --radius-pill: 999px;
+  --shadow-paper: 0 1px 0 var(--color-border), 0 10px 22px rgba(90, 60, 30, 0.1);
+  --tap-min: 44px; /* 손가락으로 누르는 것의 최소 크기 */
+
+  /* 글자: 화면 전체를 펜 글씨 한 가지로 쓴다. 획이 가늘어 보여서 크기를 넉넉히 잡는다. */
+  --font-body: 'Nanum Pen Script', 'Gaegu', 'Apple SD Gothic Neo', 'Malgun Gothic', cursive;
+  --font-ui:
+    system-ui, -apple-system, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; /* 시계 숫자 등 */
+  --text-xs: 17px;
+  --text-sm: 19px;
+  --text-md: 22px;
+  --text-lg: 27px;
+  --text-xl: 34px;
+  --text-2xl: 44px;
+
+  /* 움직임: 들어오고 나갈 때는 강한 ease-out, 누름 반응은 160ms, 화면 요소는 300ms 안쪽 */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-sheet: cubic-bezier(0.32, 0.72, 0, 1);
+  --dur-press: 160ms;
+  --dur-ui: 240ms;
+  --dur-sheet: 320ms;
+
+  --noise: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .42 0 0 0 0 .3 0 0 0 0 .18 0 0 0 .09 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
 }

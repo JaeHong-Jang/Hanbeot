@@ -1,0 +1,152 @@
+.home {
+  padding-bottom: 96px; /* 아래에 고정된 전화 버튼 자리 */
+}
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  color: var(--color-text);
+  margin-left: -6px;
+}
+.date {
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+}
+.greeting {
+  padding-top: var(--space-4);
+}
+.name,
+.hello {
+  display: block;
+}
+.hello {
+  position: relative;
+  width: fit-content;
+}
+.underline {
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 100%;
+  height: 12px;
+  overflow: visible;
+}
+.underline path {
+  fill: none;
+  stroke: var(--color-primary);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+.sub {
+  margin-top: var(--space-4);
+  font-size: var(--text-md);
+  color: var(--color-muted);
+}
+
+/* 클립으로 끼운 편지 */
+.letter {
+  margin-top: var(--space-5);
+  padding: var(--space-4) var(--space-5);
+  border-radius: 4px;
+  background: linear-gradient(180deg, #fdf8ee, #f8eedd);
+  box-shadow: var(--shadow-paper);
+  transform: rotate(0.6deg);
+}
+.letterHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+.letterHead a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-min);
+  font-size: var(--text-sm);
+}
+.letterBody {
+  color: var(--color-muted);
+}
+.continue {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: var(--tap-min);
+  margin-top: var(--space-1);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+/* 아래 고정 전화 버튼. 스크롤 영역 밖(탭바 바로 위)에 놓인다. */
+.dock {
+  position: fixed;
+  left: var(--space-4);
+  right: var(--space-4);
+  bottom: calc(86px + var(--safe-bottom));
+  z-index: 9;
+}
+/* 스크롤되는 내용이 버튼 뒤에서 종이색으로 흐려지게 */
+.dock::before {
+  content: '';
+  position: absolute;
+  inset: -28px calc(-1 * var(--space-4)) -12px;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(239, 223, 198, 0) 0%, #efdfc6 55%);
+  pointer-events: none;
+}
+.callCta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  padding: var(--space-2) var(--space-5) var(--space-2) var(--space-2);
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(
+    135deg,
+    #9b4452,
+    var(--color-primary) 60%,
+    var(--color-primary-strong)
+  );
+  color: var(--color-on-primary);
+  text-align: left;
+  box-shadow:
+    0 12px 26px rgba(122, 46, 59, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  cursor: pointer;
+  transition: transform var(--dur-press) var(--ease-out);
+}
+.callCta:active {
+  transform: scale(0.97);
+}
+/* 봉랍 도장 */
+.wax {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #b35a68, #6b2533 70%);
+  box-shadow:
+    inset 0 0 0 3px rgba(255, 220, 200, 0.18),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.25);
+}
+.callText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+.callText strong {
+  font-size: var(--text-lg);
+  font-weight: 400;
+}
+.callText small {
+  color: inherit;
+  opacity: 0.85;
+}

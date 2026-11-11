@@ -7,4 +7,6 @@ export const summaryStrings = {
   reject: '버리기',
   loading: '불러오는 중…',
   nextStep: '다음에 해볼 것',
+  allDone: '고른 대로 정리했어요.',
+  goHome: '홈으로 돌아가기',
 } as const;

@@ -1,0 +1,48 @@
+.loading {
+  padding: var(--space-5);
+  color: var(--color-muted);
+}
+/* 줄노트에 적은 오늘 이야기 */
+.lines {
+  margin-top: var(--space-3);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-paper);
+}
+.lines li {
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--color-rule);
+}
+.lines li:last-child {
+  border-bottom: 0;
+}
+.next {
+  margin-top: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius);
+  background: var(--color-primary-soft);
+}
+.candidate {
+  display: grid;
+  gap: var(--space-2);
+  justify-items: start;
+}
+.actions {
+  display: flex;
+  gap: var(--space-2);
+  width: 100%;
+}
+.actions button {
+  flex: 1;
+}
+.allDone {
+  color: var(--color-muted);
+}
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--tap-min);
+  margin-top: var(--space-5);
+}

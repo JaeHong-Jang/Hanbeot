@@ -1,0 +1,27 @@
+.loading {
+  padding: var(--space-5);
+  color: var(--color-muted);
+}
+.name {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.name span {
+  flex-shrink: 0;
+  color: var(--color-muted);
+}
+.name input {
+  flex: 1;
+  min-width: 0;
+  min-height: var(--tap-min);
+  padding: 0 var(--space-1);
+  border: 0;
+  border-bottom: 1.5px dashed var(--color-muted);
+  background: none;
+}
+.note {
+  margin-top: var(--space-1);
+  color: var(--color-muted);
+  font-size: var(--text-xs);
+}

@@ -1,0 +1,75 @@
+.note {
+  position: relative;
+  margin-top: var(--space-5);
+  padding: var(--space-4) var(--space-4) var(--space-3) var(--space-5);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface);
+  /* 줄 간격을 버튼 높이(44px)에 맞춘 줄노트 */
+  background-image: repeating-linear-gradient(
+    180deg,
+    transparent 0 43px,
+    var(--color-rule) 43px 44px
+  );
+  background-position: 0 52px;
+  box-shadow: var(--shadow-paper);
+}
+.note::before {
+  /* 왼쪽 여백선 */
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 14px;
+  width: 1px;
+  background: rgba(155, 68, 82, 0.28);
+}
+.line {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: var(--tap-min);
+  padding: 0 var(--space-1);
+  border: 0;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+.label {
+  position: relative;
+  font-size: var(--text-lg);
+  color: var(--color-muted);
+  transition: color var(--dur-ui) ease;
+}
+.line[aria-checked='true'] .label {
+  color: var(--color-primary);
+}
+.circle {
+  position: absolute;
+  left: -16px;
+  top: -6px;
+  width: calc(100% + 32px);
+  height: calc(100% + 12px);
+  overflow: visible;
+  pointer-events: none;
+}
+/* 고르는 순간 펜으로 동그라미를 친다. 사용자의 동작에 답하는 움직임이다. */
+.circle path {
+  fill: none;
+  stroke: var(--color-primary);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 280ms var(--ease-out) forwards;
+}
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.desc {
+  min-height: 44px;
+  padding-top: var(--space-2);
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+}

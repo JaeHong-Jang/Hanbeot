@@ -1,0 +1,35 @@
+.screen {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+/* 오른쪽 위에서 비치는 스탠드 불빛 */
+.lamp {
+  position: absolute;
+  top: -120px;
+  right: -140px;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(
+    circle,
+    var(--color-lamp) 0%,
+    rgba(255, 190, 110, 0.16) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+.scroll {
+  position: relative;
+  height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-top: var(--safe-top);
+  padding-bottom: var(--safe-bottom);
+  scrollbar-width: none;
+}
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+.withTabs {
+  padding-bottom: calc(76px + var(--safe-bottom));
+}

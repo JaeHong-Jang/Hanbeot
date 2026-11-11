@@ -1,9 +1,10 @@
 import { useState } from 'react';
 
+import styles from './MemoryRow.module.css';
 import { memoryStrings as s } from './strings';
 
 import type { Memory } from '@/entities';
-import { Badge, Button } from '@/shared/ui';
+import { Badge, Button, Icon } from '@/shared/ui';
 
 type Props = {
   memory: Memory;
@@ -18,12 +19,19 @@ export function MemoryRow({ memory, onSave, onDelete }: Props) {
   const editable = memory.kind === 'stated';
 
   return (
-    <li>
+    <li className={styles.row}>
       <Badge tone={memory.state === 'approved' ? 'ok' : 'neutral'}>{s.state[memory.state]}</Badge>
       {editing ? (
-        <>
-          <input aria-label={s.edit} value={draft} onChange={(e) => setDraft(e.target.value)} />
+        <div className={styles.edit}>
+          <input
+            type="text"
+            className={styles.input}
+            aria-label={s.edit}
+            value={draft}
+            onChange={(e) => setDraft(e.target.value)}
+          />
           <Button
+            variant="primary"
             onClick={() => {
               onSave(memory.id, draft);
               setEditing(false);
@@ -31,12 +39,22 @@ export function MemoryRow({ memory, onSave, onDelete }: Props) {
           >
             {s.save}
           </Button>
-        </>
+        </div>
       ) : (
-        <span>{memory.text}</span>
+        <span className={styles.text}>{memory.text}</span>
       )}
-      {editable && !editing ? <Button onClick={() => setEditing(true)}>{s.edit}</Button> : null}
-      <Button onClick={() => onDelete(memory.id)}>{s.remove}</Button>
+      <div className={styles.actions}>
+        {editable && !editing ? (
+          <Button onClick={() => setEditing(true)}>
+            <Icon name="pen" size={17} />
+            {s.edit}
+          </Button>
+        ) : null}
+        <Button onClick={() => onDelete(memory.id)}>
+          <Icon name="trash" size={17} />
+          {s.remove}
+        </Button>
+      </div>
     </li>
   );
 }

@@ -1,3 +1,4 @@
+import styles from './MemoryPage.module.css';
 import { MemoryRow } from './MemoryRow';
 import { memoryStrings as s } from './strings';
 
@@ -16,12 +17,12 @@ function MemoryGroup({
   onDelete: (id: string) => void;
 }) {
   return (
-    <section aria-label={title}>
+    <section className={styles.group} aria-label={title}>
       <h2>{title}</h2>
       {items.length === 0 ? (
-        <p>{s.empty}</p>
+        <p className={styles.empty}>{s.empty}</p>
       ) : (
-        <ul>
+        <ul className={styles.list}>
           {items.map((m) => (
             <MemoryRow key={m.id} memory={m} onSave={onSave} onDelete={onDelete} />
           ))}
@@ -35,14 +36,14 @@ export function MemoryPage() {
   const { data, isLoading } = useMemories();
   const update = useUpdateMemory();
   const remove = useDeleteMemory();
-  if (isLoading || !data) return <p>{s.loading}</p>;
+  if (isLoading || !data) return <p className={styles.loading}>{s.loading}</p>;
 
   const save = (id: string, text: string) => update.mutate({ id, text });
   const del = (id: string) => remove.mutate(id);
   return (
     <main>
       <h1>{s.title}</h1>
-      <p>{s.deleteNote}</p>
+      <p className={styles.note}>{s.deleteNote}</p>
       <MemoryGroup
         title={s.stated}
         items={data.filter((m) => m.kind === 'stated')}

@@ -1,0 +1,66 @@
+.call {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  height: 100%;
+  overflow-y: auto;
+  padding: calc(var(--safe-top, 0px) + var(--space-2)) var(--space-5)
+    calc(var(--safe-bottom, 0px) + var(--space-5));
+  background: var(--color-night);
+  color: var(--color-on-night);
+  isolation: isolate;
+  scrollbar-width: none;
+}
+.call::-webkit-scrollbar {
+  display: none;
+}
+/* 친구 사진을 크게 흐려서 깐 바탕. 방 안의 따뜻한 조명 느낌을 남긴다. */
+.backdrop {
+  position: absolute;
+  inset: -40px;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  filter: blur(34px) brightness(0.42) saturate(1.15) sepia(0.2);
+  transform: scale(1.15);
+}
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+.disclosure {
+  font-size: var(--text-sm);
+  opacity: 0.9;
+}
+.sos {
+  flex-shrink: 0;
+  min-width: 60px;
+  min-height: var(--tap-min);
+  padding: 0 var(--space-4);
+  border: 1px solid rgba(255, 190, 180, 0.6);
+  border-radius: var(--radius-pill);
+  background: rgba(168, 50, 42, 0.35);
+  color: inherit;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+.start {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.start button {
+  width: 100%;
+  min-height: 52px;
+}
+.start button:not(:first-child) {
+  border-color: var(--color-glass-line);
+  background: var(--color-glass);
+  color: inherit;
+}

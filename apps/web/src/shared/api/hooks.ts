@@ -69,6 +69,17 @@ export function useSummary(sessionId: string) {
   });
 }
 
+export function useCreateSession() {
+  return useMutation({ mutationFn: () => request('/sessions', 'post') });
+}
+
+export function useEndSession() {
+  return useMutation({
+    mutationFn: (sessionId: string) =>
+      request('/sessions/{sessionId}/end', 'post', { params: { sessionId } }),
+  });
+}
+
 export function useDeletionRequest() {
   return useMutation({ mutationFn: () => request('/deletion', 'post') });
 }

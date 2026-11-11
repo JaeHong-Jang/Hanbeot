@@ -1,0 +1,37 @@
+.bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: var(--space-2) var(--space-4) calc(var(--space-2) + var(--safe-bottom));
+  border-top: 1px solid var(--color-border);
+  background: rgba(247, 237, 220, 0.94);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--tap-min);
+  color: var(--color-muted);
+  font-size: var(--text-xs);
+  line-height: 1.1;
+  text-decoration: none;
+  transition: transform var(--dur-press) var(--ease-out);
+}
+.item:active {
+  transform: scale(0.97);
+}
+.active {
+  color: var(--color-primary);
+}
+/* 형광펜으로 그은 듯한 표시 */
+.active span {
+  padding: 0 4px;
+  background: linear-gradient(transparent 60%, rgba(155, 68, 82, 0.22) 60%);
+}

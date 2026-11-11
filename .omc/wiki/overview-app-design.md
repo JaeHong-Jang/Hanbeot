@@ -98,3 +98,19 @@ schemaVersion: 1
 ## 2026-11-08 문헌 심층 반영
 - 추가 결정: [[claim-app-12-interruption-backchannel-filler-rules]] (끼어들기·맞장구·필러·말 끝 규칙, 설계값), [[claim-app-13-tts-blind-test-protocol-w4]] (W4 TTS 블라인드 테스트).
 
+
+---
+
+## Update (2026-11-11)
+
+## 구현에서 달라진 점 (apps/web, `front` 브랜치)
+설계서에 없거나 설계서와 다르게 구현한 화면 요소. 팀 확인 전이며 결정이 아니다.
+
+| 항목 | 설계서 | 구현 | 사유 |
+|---|---|---|---|
+| 통화 화면 오브 | 오브 1개 + 상태 텍스트 ([[claim-app-2-call-screen-gemini-live]]) | 오브는 1개 그대로 두되 친구 캐릭터 사진을 오브로 사용, 고리 움직임으로 듣는 중·생각 중·말하는 중 표시 | 사업계획서 삽화의 통화 화면과 맞춤. 캐릭터 2종(하늘·도윤)은 계약에 없는 클라이언트 취향값(localStorage) |
+| 홈 화면 | 화면 흐름에 없음 ([[topic-app-screen-flow]]) | `/` 홈 추가: 인사, 대화 모드 선택, 지난 기억 1건, 전화 걸기. 동의 화면은 `/start`로 이동 | 통화 전 진입 화면이 필요. 필수 동의 전에는 `/start`로 보냄 |
+| 시작 화면 | 없음 | 만년필로 "한벗"을 쓰는 스플래시(탭하면 건너뜀, 움직임 줄이기 설정 시 생략) | 브랜드 표현. 기능 영향 없음 |
+| 확인 질문 응답 | [맞아]/[아니야] 1탭 ([[claim-app-3-emotion-cue-confirmation-rules]]) | 카드 UI와 `VoiceClient.answerCue()` 추가. 서버로 보내는 이벤트 스키마는 아직 없음 | `packages/contracts/events`에 응답 이벤트 추가 필요(TODO) |
+| 부르는 이름 | 없음 | 설정에서 입력, 이 기기에만 저장 | 홈 인사말용. 서버 전송 없음 |
+| 가짜 API | 없음 | `npm run dev:mock`에서만 `/api/*`를 가로채는 `shared/api/mockApi.ts` | 서버 없이 화면 확인용 |
