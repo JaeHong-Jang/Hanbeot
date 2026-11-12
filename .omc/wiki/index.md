@@ -1,6 +1,6 @@
 # Wiki Index
 
-> 667 pages | Last updated: 2026-11-12T14:24:54.138Z
+> 668 pages | Last updated: 2026-11-12T14:59:48.715Z
 
 ## architecture
 
@@ -76,6 +76,7 @@
 - [claim-tech-6-sensitive-data-consent](claim-tech-6-sensitive-data-consent.md) — # claim-tech-6-sensitive-data-consent
 - [claim-tech-7-dialogue-mode-strategy](claim-tech-7-dialogue-mode-strategy.md) — # claim-tech-7-dialogue-mode-strategy
 - [claim-tech-8-crisis-referral-flow](claim-tech-8-crisis-referral-flow.md) — # claim-tech-8-crisis-referral-flow
+- [notion-team-pages-2026-11-12](notion-team-pages-2026-11-12.md) — # notion-team-pages-2026-11-12
 - [topic-market-tam-sam-som-assembly](topic-market-tam-sam-som-assembly.md) — # topic-market-tam-sam-som-assembly
 
 ## pattern

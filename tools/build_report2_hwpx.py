@@ -21,7 +21,8 @@ from xml.sax.saxutils import escape
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import report2_content as C  # noqa: E402
 
-TEXT_W = 48190  # 본문 폭 (HWPUNIT = 1/7200 inch). 양식 pagePr: 59528 - 5669*2
+TEXT_W = 48190
+REF_PP = 70  # 참고문헌 문단 모양 ID(양식의 마지막 ID 69 다음, build 에서 header.xml 끝에 추가)
 
 
 def t(text: str) -> str:
@@ -62,7 +63,8 @@ def cell(text: str, col: int, row: int, width: int, height: int, header: bool, b
 
 def table_xml(header: list[str], rows: list[list[str]], widths: list[float] | None, total: int = TEXT_W,
               head_bf: int = 17, body_bf: int = 16, tbl_bf: int = 16, head_pp: int = 57, head_cp: int = 73,
-              body_pp: int = 58, body_cp: int = 74, head_h: int = 1700, body_h: int = 1500) -> str:
+              body_pp: int = 58, body_cp: int = 74, head_h: int = 1700, body_h: int = 1500, vert_offset: int = 0,
+              as_char: bool = False) -> str:
     ncol = len(header)
     widths = widths or [1.0] * ncol
     scale = total / sum(widths)
@@ -79,18 +81,33 @@ def table_xml(header: list[str], rows: list[list[str]], widths: list[float] | No
         trs.append(f"<hp:tr>{tcs}</hp:tr>")
     height = head_h + body_h * len(rows)
     return (f'<hp:tbl id="{pid()}" zOrder="0" numberingType="TABLE" textWrap="TOP_AND_BOTTOM" textFlow="BOTH_SIDES" lock="0" '
-            f'dropcapstyle="None" pageBreak="CELL" repeatHeader="1" rowCnt="{len(all_rows)}" colCnt="{ncol}" cellSpacing="0" '
+            f'dropcapstyle="None" pageBreak="TABLE" repeatHeader="1" rowCnt="{len(all_rows)}" colCnt="{ncol}" cellSpacing="0" '
             f'borderFillIDRef="{tbl_bf}" noAdjust="0"><hp:sz width="{total}" widthRelTo="ABSOLUTE" height="{height}" heightRelTo="ABSOLUTE" protect="0"/>'
-            f'<hp:pos treatAsChar="1" affectLSpacing="0" flowWithText="1" allowOverlap="0" holdAnchorAndSO="0" vertRelTo="PARA" '
-            f'horzRelTo="PARA" vertAlign="TOP" horzAlign="LEFT" vertOffset="0" horzOffset="0"/>'
+            # 글자처럼 취급(treatAsChar=1)이면 한컴이 표를 쪽 경계에서 나누지 않는다. 짧은 표는 그대로(캡션과 함께 통째로 이동),
+            # 긴 표는 문단 기준 배치(본문과 함께 흐름)로 두어 쪽 경계에서 나뉘게 한다
+            f'<hp:pos treatAsChar="{1 if as_char else 0}" affectLSpacing="0" flowWithText="1" allowOverlap="0" holdAnchorAndSO="0" vertRelTo="PARA" '
+            f'horzRelTo="{"PARA" if as_char else "COLUMN"}" vertAlign="TOP" horzAlign="LEFT" vertOffset="{0 if as_char else vert_offset}" horzOffset="0"/>'
             f'<hp:outMargin left="141" right="141" top="141" bottom="141"/><hp:inMargin left="141" right="141" top="141" bottom="141"/>'
             + "".join(trs) + "</hp:tbl>")
 
 
-def table_para(header, rows, widths, **kw) -> str:
-    """표는 '문자처럼 취급' 되어 문단 안 run 에 들어간다."""
-    return (f'<hp:p id="{pid()}" paraPrIDRef="57" styleIDRef="0" pageBreak="0" columnBreak="0" merged="0">'
-            f'<hp:run charPrIDRef="74">{table_xml(header, rows, widths, **kw)}</hp:run></hp:p>')
+CAPTION_LINE_H = 1250  # 캡션(9.5pt, 줄간격 125%) 한 줄 높이(HWPUNIT)
+
+
+SPLIT_MIN_ROWS = 9  # 이 행 수 이상이면 쪽 경계에서 나뉘는 표로 만든다
+
+
+def table_para(caption: str, header, rows, widths, **kw) -> str:
+    """짧은 표: 캡션 문단(붙여 쓰기) + 글자처럼 취급 표 문단 → 캡션과 표가 통째로 이동.
+    긴 표: 캡션 문단 안에 표를 문단 기준으로 앉혀, 캡션 바로 아래부터 놓이고 쪽 경계에서 나뉜다."""
+    if len(rows) < SPLIT_MIN_ROWS:
+        tbl = table_xml(header, rows, widths, as_char=True, **kw)
+        return (para(caption, 56, 78)
+                + f'<hp:p id="{pid()}" paraPrIDRef="57" styleIDRef="0" pageBreak="0" columnBreak="0" merged="0">'
+                  f'<hp:run charPrIDRef="74">{tbl}</hp:run></hp:p>')
+    tbl = table_xml(header, rows, widths, vert_offset=CAPTION_LINE_H, **kw)
+    return (f'<hp:p id="{pid()}" paraPrIDRef="56" styleIDRef="0" pageBreak="0" columnBreak="0" merged="0">'
+            f'<hp:run charPrIDRef="78"><hp:t>{t(caption)}</hp:t></hp:run><hp:run charPrIDRef="74">{tbl}</hp:run></hp:p>')
 
 
 def png_size(path: Path) -> tuple[int, int]:
@@ -227,11 +244,10 @@ def build(template: Path, out_dir: Path) -> Path:
         elif kind == "circ":
             body.append(para(blk[1], 52, 65))
         elif kind == "note":
-            body.append(para(blk[1], 0, 74))
+            body.append(para(blk[1], REF_PP, 74))
         elif kind == "table":
             _, caption, header, rows, widths = blk
-            body.append(para(caption, 56, 78))
-            body.append(table_para(header, rows, widths))
+            body.append(table_para(caption, header, rows, widths))
             if not next_is_heading:
                 body.append(empty())
         elif kind == "figure":
@@ -239,7 +255,7 @@ def build(template: Path, out_dir: Path) -> Path:
             if img.exists():
                 bid = f"image{len(images) + 1}"
                 images.append((bid, img))
-                body.append(pic_para(bid, img))
+                body.append(pic_para(bid, img, max_w=int((TEXT_W - 2000) * (blk[3] if len(blk) > 3 else 1.0))))
             body.append(para(blk[2], 57, 78))
             if not next_is_heading:
                 body.append(empty())
@@ -266,6 +282,13 @@ def build(template: Path, out_dir: Path) -> Path:
         for pp in (66, 38, 54):
             m = re.search(r'<hh:paraPr id="%d".*?</hh:paraPr>' % pp, header, flags=re.S)
             header = header.replace(m.group(0), m.group(0).replace('keepWithNext="0"', 'keepWithNext="1"'))
+        # 참고문헌용: 캡션 문단(56, 왼쪽 정렬·줄간격 125%)을 복제하되 다음 문단과 붙이지 않음
+        m = re.search(r'<hh:paraPr id="56".*?</hh:paraPr>', header, flags=re.S)
+        ref_pp = m.group(0).replace('id="56"', f'id="{REF_PP}"').replace('keepWithNext="1"', 'keepWithNext="0"')
+        last = re.search(r'<hh:paraPr id="69".*?</hh:paraPr>', header, flags=re.S).group(0)
+        header = header.replace(last, last + ref_pp)
+        cnt = int(re.search(r'<hh:paraProperties itemCnt="(\d+)"', header).group(1))
+        header = header.replace(f'<hh:paraProperties itemCnt="{cnt}"', f'<hh:paraProperties itemCnt="{cnt + 1}"')
         zout.writestr("Contents/header.xml", header.encode("utf-8"))
         zout.writestr("Contents/section0.xml", section.encode("utf-8"))
         zout.writestr("Contents/content.hpf", hpf.encode("utf-8"))
