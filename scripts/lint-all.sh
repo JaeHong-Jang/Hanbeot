@@ -4,10 +4,10 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 
 echo "== apps/api =="
-(cd "$ROOT/apps/api" && uv run ruff check . && uv run mypy app/domain && uv run pytest -q)
+(cd "$ROOT/apps/api" && uv run ruff check . && uv run python -m mypy app/domain && uv run python -m pytest -q)
 
 echo "== ml =="
-(cd "$ROOT/ml" && uv run ruff check . && uv run pytest -q)
+(cd "$ROOT/ml" && uv run ruff check . && uv run python -m pytest -q)
 
 if [ -f "$ROOT/apps/web/package.json" ]; then
   echo "== apps/web =="
