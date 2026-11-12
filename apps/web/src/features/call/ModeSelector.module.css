@@ -1,27 +1,64 @@
-.group {
+.wrap {
+  position: relative;
   display: flex;
-  align-self: center;
-  gap: 2px;
-  padding: 3px;
-  border: 1px solid var(--color-night-line);
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: var(--tap-min);
+  padding: 0 var(--space-5);
+  border: 1px solid rgba(255, 255, 255, 0.45);
   border-radius: var(--radius-pill);
-  background: var(--color-night-surface);
+  background: rgba(30, 22, 18, 0.45);
+  color: #fffaf3;
+  font-family: inherit;
+  font-size: var(--text-md);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+}
+.pill svg {
+  transition: transform var(--dur-ui) var(--ease-out);
+}
+.flipped {
+  transform: rotate(180deg);
+}
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 220px;
+  padding: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  background: rgba(30, 22, 18, 0.72);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  animation: appear var(--dur-ui) var(--ease-out);
 }
 .option {
-  min-width: 78px;
   min-height: var(--tap-min);
   padding: 0 var(--space-4);
   border: 0;
-  border-radius: var(--radius-pill);
+  border-radius: 12px;
   background: none;
-  color: inherit;
+  color: #fffaf3;
+  font-family: inherit;
   font-size: var(--text-md);
+  text-align: left;
   cursor: pointer;
-  transition:
-    background-color var(--dur-ui) ease,
-    color var(--dur-ui) ease;
 }
 .option[aria-checked='true'] {
   background: rgba(255, 243, 228, 0.94);
   color: var(--color-text);
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
 }

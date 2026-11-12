@@ -127,6 +127,9 @@ export class MockVoiceClient implements VoiceClient {
     this.muted = muted;
   }
 
+  /** 가짜 클라이언트는 소리를 내지 않으므로 할 일이 없다. 실제 클라이언트는 재생 오디오를 끈다. */
+  setOutputMuted(): void {}
+
   setHeld(held: boolean): void {
     this.held = held;
     if (!this.connected) return;

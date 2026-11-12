@@ -26,6 +26,8 @@ export interface VoiceClient {
   disconnect(): Promise<void>;
   /** 마이크만 끈다. */
   setMuted(muted: boolean): void;
+  /** 한벗 목소리(출력)만 끈다. 통화와 마이크는 그대로다. */
+  setOutputMuted(muted: boolean): void;
   /** 마이크와 AI 발화를 모두 멈춘다. */
   setHeld(held: boolean): void;
   /** 탭으로 AI 발화 끊기(끼어들기). */

@@ -12,5 +12,8 @@ export const DISCLOSURE_LINES = [
   DISCLOSURE_NO_LIVE_CONTACT,
 ] as const;
 
+/** 통화 화면 제목. 영상통화 시안의 "한벗 · AI 친구". */
+export const DISCLOSURE_CALL_TITLE = '한벗 · AI 친구';
+
 /** 통화 화면 상단·위기 카드에 쓰는 한 줄 고지. */
 export const DISCLOSURE_SHORT = `AI 친구 · ${DISCLOSURE_NOT_THERAPY}`;
