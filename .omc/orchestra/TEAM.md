@@ -29,7 +29,7 @@
 |---|---|---|---|
 | 지휘자(Conductor) | Claude Code Opus 5.5 (현재 세션) | 질문 분해, 트랙 배정, 결과 합성, Wiki ingest, 사용자 보고 | reports/*.md, .omc/wiki/*.md |
 | 비평가(Critic) | GPT-6 Astra · `codex exec -m gpt-6-astra` | 계획·보고서의 논리 결함, 누락 가설, 과장 지적 | .omc/orchestra/reviews/*.md |
-| 스캐너(Scanner) | Gemini 4 Argon · `gemini -m gemini-4-argon -p` | 광역 출처 탐색, 다른 모델이 못 본 자료 보강 | research_notes/**/gemini_*.md |
+| 스캐너(Scanner) | Gemini 4 Argon · Antigravity CLI `agy --model gemini-4-argon-high -p` | 광역 출처 탐색, 다른 모델이 못 본 자료 보강 | research_notes/**/gemini_*.md |
 | 리서처(Researcher) ×N | Claude Sonnet 5.5 · Agent(general-purpose) | 트랙별 딥리서치, 수치·출처·URL 수집 | research_notes/<제목>/<트랙>.md |
 | 검증자(Verifier) | GPT-6.1 Sol · `codex exec -m gpt-6.1-sol` | 노트의 각 주장에 대해 출처 실존, 수치 일치, 정의 일치 확인 → 신뢰도 A/B/C 부여 | research_notes/<제목>/verify_<트랙>.md |
 

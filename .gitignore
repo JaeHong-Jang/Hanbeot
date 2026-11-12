@@ -11,6 +11,7 @@ _workspace/
 .omc/orchestra/*.log
 .omc/orchestra/screens/
 .omc/orchestra/runs/current
+.omc/orchestra/reviews/*.err
 
 # 시스템
 .DS_Store

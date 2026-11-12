@@ -13,4 +13,7 @@ if [ -f "$ROOT/apps/web/package.json" ]; then
   echo "== apps/web =="
   (cd "$ROOT/apps/web" && npm run lint && npm run typecheck)
 fi
+echo "== .omc/orchestra 스크립트 문법 =="
+for f in "$ROOT"/.omc/orchestra/*.sh; do bash -n "$f"; done
+
 echo "OK"

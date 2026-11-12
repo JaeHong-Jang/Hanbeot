@@ -30,4 +30,4 @@ scripts/lint-all.sh                                # ruff·mypy·pytest / eslint
 
 ## Wiki·오케스트라
 
-리서치·검증은 `.omc/orchestra/TEAM.md` 절차를 따른다. 코드 작업 중 설계와 달라진 점은 Wiki `overview-app-design`의 "구현에서 달라진 점" 절에 추가한다. 뷰어: `python3 tools/wiki_server.py` → http://127.0.0.1:8791
+리서치·검증은 `.omc/orchestra/TEAM.md` 절차를 따른다. 코드 작업의 AI 역할 분배(구현 Claude, 교차 리뷰 codex·Gemini, 반례 테스터 codex)와 흐름은 `docs/harness/AI-개발-분배.md`, 리뷰 호출은 `.omc/orchestra/review_code.sh`. 코드 작업 중 설계와 달라진 점은 Wiki `overview-app-design`의 "구현에서 달라진 점" 절에 추가한다. 뷰어: `python3 tools/wiki_server.py` → http://127.0.0.1:8791
