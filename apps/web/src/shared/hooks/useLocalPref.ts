@@ -5,6 +5,8 @@ export const PREF_KEYS = {
   friend: 'hanbeot.pref.friend',
   mode: 'hanbeot.pref.mode',
   name: 'hanbeot.pref.name',
+  /** 하늘이네 집 첫 안내를 본 적 있는지 */
+  houseCoached: 'hanbeot.pref.houseCoached',
 } as const;
 
 function readPref(key: string): string | null {

@@ -3,20 +3,31 @@ import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { AppLayout } from './AppLayout';
 
 import { CallPage } from '@/features/call';
-import { HomePage } from '@/features/home';
+import {
+  Fridge,
+  HouseConsent,
+  HouseLayout,
+  HouseMemory,
+  LivingRoom,
+  MyRoom,
+} from '@/features/house';
 import { LetterPage } from '@/features/letters';
-import { MemoryPage } from '@/features/memory';
 import { OnboardingPage } from '@/features/onboarding';
-import { SettingsPage } from '@/features/settings';
 import { SummaryPage } from '@/features/summary';
 
+/**
+ * 하늘이네 집: 거실(홈, 통화) / 냉장고(편지 모음) / 내 방(설정).
+ * 통화, 통화 후 요약, 동의, 편지 한 장은 방 틀 밖의 화면이다.
+ */
 export const router = createBrowserRouter([
   {
-    element: <AppLayout tabs />,
+    element: <HouseLayout />,
     children: [
-      { path: '/', element: <HomePage /> },
-      { path: '/memory', element: <MemoryPage /> },
-      { path: '/settings', element: <SettingsPage /> },
+      { path: '/', element: <LivingRoom /> },
+      { path: '/fridge', element: <Fridge /> },
+      { path: '/room', element: <MyRoom /> },
+      { path: '/memory', element: <HouseMemory /> },
+      { path: '/consent', element: <HouseConsent /> },
     ],
   },
   {
@@ -27,8 +38,8 @@ export const router = createBrowserRouter([
       { path: '/letters/:sessionId', element: <LetterPage /> },
     ],
   },
-  // 통화는 탭바 없이 화면 전체를 쓴다
+  // 통화는 화면 전체를 쓴다
   { path: '/call', element: <CallPage /> },
-  // 없는 주소(오타, 예전 링크, 새로고침한 옛 경로)는 개발자용 오류 화면 대신 홈으로 보낸다
+  // 예전 주소(/settings, /v3, /v5 등)와 없는 주소는 거실로
   { path: '*', element: <Navigate to="/" replace /> },
 ]);

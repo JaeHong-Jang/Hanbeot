@@ -9,9 +9,6 @@ export const lettersStrings = {
   /** 편지 끝 서명. 하늘 → "하늘이가", 도윤 → "도윤이가" */
   signature: (friendName: string) => josa(friendName, '이가', '가'),
   nextStep: '다음에 해볼 것',
-  stripTitle: '최근 편지',
-  stripEmpty: (friendName: string) =>
-    `통화가 끝나면 ${josa(friendName, '이가', '가')} 오늘 이야기를 편지로 남겨요.`,
   loadingLine: '편지를 펼치는 중…',
   back: '홈',
   pageTitle: (d: Date) =>

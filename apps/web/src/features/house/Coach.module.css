@@ -1,0 +1,95 @@
+.coach {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  container-type: inline-size;
+  overflow: hidden;
+}
+/* 강조 자리만 뚫고 나머지를 어둡게 */
+.ring {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  box-shadow:
+    0 0 0 4px #fff,
+    0 0 0 9999px rgba(15, 10, 6, 0.62);
+  transition:
+    left 0.3s ease,
+    top 0.3s ease,
+    width 0.3s ease,
+    height 0.3s ease;
+}
+.tip {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: calc(var(--tabs-h) + 18px);
+  padding: 18px;
+  border-radius: 18px;
+  background: #fff;
+}
+.tip small {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--h-sofa);
+}
+.tip b {
+  display: block;
+  font-size: 17px;
+  margin-top: 4px;
+}
+.tip p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--h-muted);
+  margin-top: 4px;
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+}
+.dots {
+  display: flex;
+  gap: 5px;
+  margin-left: auto;
+}
+.dots i {
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background: #ddd6cb;
+}
+.dots i.on {
+  width: 16px;
+  background: var(--h-sofa);
+}
+.skip {
+  border: 0;
+  background: none;
+  padding: 8px 0;
+  font: 600 13px var(--font-body);
+  color: var(--h-muted);
+  cursor: pointer;
+}
+.next {
+  height: 40px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--h-sofa);
+  color: #fff;
+  font: 600 14px var(--font-body);
+  cursor: pointer;
+}
+.next:focus-visible,
+.skip:focus-visible {
+  outline: 2px solid var(--h-sofa);
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ring {
+    transition: none;
+  }
+}

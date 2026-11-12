@@ -1,0 +1,120 @@
+/* V5 하늘이네 집의 틀: 방 화면 + 아래 탭 */
+.house {
+  --h-bg: #f7f4ef;
+  --h-deep: #efeae2;
+  --h-text: #1f1b17;
+  --h-sub: #4f4840;
+  --h-muted: #7a7166;
+  --h-faint: #aaa196;
+  --h-rule: #efe9df;
+  --h-sofa: #4e5b3f;
+  --h-help: #c93a2b;
+  --tabs-h: calc(62px + var(--safe-bottom));
+  position: absolute;
+  inset: 0;
+  background: var(--h-bg);
+  color: var(--h-text);
+  font-family: var(--font-body);
+  letter-spacing: -0.01em;
+  word-break: keep-all;
+}
+.view {
+  position: absolute;
+  inset: 0 0 var(--tabs-h);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+}
+.view::-webkit-scrollbar {
+  display: none;
+}
+
+.tabs {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--tabs-h);
+  padding-bottom: var(--safe-bottom);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  background: #fff;
+  border-top: 1px solid #e7e0d5;
+  z-index: 8;
+}
+.tab {
+  display: grid;
+  justify-items: center;
+  gap: 3px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--h-faint);
+  text-decoration: none;
+}
+.on {
+  color: var(--h-text);
+}
+.tab:focus-visible {
+  outline: 2px solid var(--h-sofa);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* 방 머리 */
+.head {
+  position: absolute;
+  top: max(12px, calc(var(--safe-top) - 2px));
+  left: 16px;
+  right: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 6;
+}
+.place {
+  display: inline-flex;
+  flex-direction: column;
+  padding: 8px 14px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.9);
+}
+.place b {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+.place small {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--h-muted);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+.help {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 36px;
+  padding: 0 13px;
+  border: 0;
+  border-radius: 18px;
+  background: #fff;
+  color: #ad2f22;
+  font: 700 13px var(--font-body);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+.help:focus-visible {
+  outline: 2px solid #ad2f22;
+  outline-offset: 2px;
+}
+.view > main {
+  padding: 0;
+}

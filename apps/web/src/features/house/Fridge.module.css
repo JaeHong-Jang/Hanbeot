@@ -1,0 +1,131 @@
+/* 냉장고 문 위에 붙이는 것들. 자리는 냉장고 그림 기준 % */
+.chips {
+  position: absolute;
+  left: 18px;
+  top: calc(max(12px, var(--safe-top) - 2px) + 50px);
+  z-index: 5;
+  display: flex;
+  gap: 6px;
+}
+.chips span {
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 15px;
+  background: #fff;
+  font: 700 12px/30px var(--font-body);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+.chips .chipOn {
+  background: #2b2118;
+  color: #fff;
+}
+
+/* 왼쪽 위 노란 메모: 가장 최근에 기억한 것 */
+.memo {
+  position: absolute;
+  left: 26.4%;
+  top: 20.6%;
+  width: 12.6%;
+  height: 8.6%;
+  overflow: hidden;
+  font: 400 13px/1.1 var(--font-hand);
+  transform: rotate(-4deg);
+  color: #5a4a1e;
+  text-decoration: none;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+/* 달력: 이번 주 통화 */
+.calendar {
+  position: absolute;
+  left: 50.8%;
+  top: 16.6%;
+  width: 29.6%;
+  height: 13.2%;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  background: rgba(250, 244, 233, 0.94);
+  border-radius: 2px;
+  color: #2b2118;
+}
+.calendar small {
+  font: 700 11px var(--font-body);
+  color: #8a7663;
+}
+.calendar b {
+  font: 800 26px/1.1 var(--font-body);
+  color: #c93a2b;
+}
+.calendar span {
+  font: 600 11px var(--font-body);
+  color: #5a4b3d;
+}
+
+/* 편지 사진(폴라로이드) */
+.photo {
+  position: absolute;
+  z-index: 4;
+  display: block;
+  padding: 6% 6% 0;
+  background: #fffdf9;
+  box-shadow: 0 6px 14px rgba(60, 40, 20, 0.25);
+  text-decoration: none;
+  transform-origin: 50% 0;
+}
+.photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 0.86;
+  object-fit: cover;
+  object-position: 50% 15%;
+}
+.photo span {
+  display: block;
+  padding: 4px 0 6px;
+  font: 400 15px/1.1 var(--font-hand);
+  color: #4a3a2e;
+  text-align: center;
+}
+.new {
+  position: absolute;
+  right: -8px;
+  top: -9px;
+  height: 20px;
+  padding: 0 7px;
+  border-radius: 10px;
+  background: var(--h-help);
+  color: #fff;
+  font: 700 11px/20px var(--font-body);
+  font-style: normal;
+}
+.photo:focus-visible,
+.memo:focus-visible {
+  outline: 3px solid var(--h-sofa);
+  outline-offset: 2px;
+}
+
+.below {
+  padding: 16px 20px 24px;
+  display: grid;
+  gap: 10px;
+}
+.empty {
+  font-size: 14px;
+  color: var(--h-muted);
+  text-align: center;
+}
+.rowDate {
+  flex: none;
+  width: 44px;
+  color: var(--h-muted);
+  font-size: 13px;
+}
+.rowText {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 500;
+}

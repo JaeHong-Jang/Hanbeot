@@ -1,18 +1,11 @@
 import { useEffect, useRef } from 'react';
 
+import { HELP_LINES, telHref } from './helpLines';
 import styles from './HelpSheet.module.css';
 import { crisisStrings as s } from './strings';
 
 import { DISCLOSURE_AI_FRIEND, DISCLOSURE_NO_LIVE_CONTACT } from '@/shared/strings/disclosure';
 import { Icon } from '@/shared/ui';
-
-/** 지금 바로 연락할 수 있는 곳. 번호는 공식 안내 기준(설계서 P0-6). */
-const LINES: readonly { name: string; number: string; desc: string }[] = [
-  { name: s.lines.suicide.name, number: '109', desc: s.lines.suicide.desc },
-  { name: s.lines.mental.name, number: '1577-0199', desc: s.lines.mental.desc },
-  { name: s.lines.youth.name, number: '1388', desc: s.lines.youth.desc },
-  { name: s.lines.emergency.name, number: '119', desc: s.lines.emergency.desc },
-];
 
 type Props = { onClose: () => void };
 
@@ -51,9 +44,9 @@ export function HelpSheet({ onClose }: Props) {
         </div>
         <p className={styles.lead}>{s.lead}</p>
         <ul className={styles.list}>
-          {LINES.map((line) => (
+          {HELP_LINES.map((line) => (
             <li key={line.number}>
-              <a className={styles.line} href={`tel:${line.number.replace(/-/g, '')}`}>
+              <a className={styles.line} href={telHref(line.number)}>
                 <span className={styles.text}>
                   <strong>{line.name}</strong>
                   <span>{line.desc}</span>

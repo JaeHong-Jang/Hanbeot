@@ -1,0 +1,27 @@
+.sub {
+  padding-top: var(--safe-top);
+  min-height: 100%;
+}
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  min-height: 44px;
+  padding: 0 var(--gutter);
+  color: var(--h-sub);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.backIcon {
+  transform: rotate(90deg);
+}
+.page {
+  padding: 4px var(--gutter) 24px;
+  display: grid;
+  gap: 12px;
+}
+.page h1 {
+  font: 800 24px var(--font-body);
+  letter-spacing: -0.02em;
+}

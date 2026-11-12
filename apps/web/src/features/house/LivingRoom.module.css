@@ -1,0 +1,38 @@
+/* 현관 쪽지: 문에 붙어 있던 노란 쪽지를 펼친 모양 */
+.note {
+  position: absolute;
+  left: 14px;
+  top: 45%;
+  z-index: 6;
+  width: 210px;
+  padding: 14px 14px 10px;
+  border-radius: 6px;
+  background: #ffe58a;
+  color: #4a3a12;
+  box-shadow: 0 10px 22px rgba(30, 20, 10, 0.28);
+  transform: rotate(-2deg);
+}
+.note b {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #7a5d16;
+}
+.note p {
+  margin-top: 4px;
+  font: 400 21px/1.2 var(--font-hand);
+}
+.note .memo {
+  font-size: 18px;
+  opacity: 0.85;
+}
+.note button {
+  margin-top: 8px;
+  border: 0;
+  background: none;
+  padding: 4px 0;
+  font: 700 12px var(--font-body);
+  color: #7a5d16;
+  text-decoration: underline;
+  cursor: pointer;
+}

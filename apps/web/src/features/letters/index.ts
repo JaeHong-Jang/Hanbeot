@@ -1,3 +1,3 @@
 export { Letter } from './Letter';
 export { LetterPage } from './LetterPage';
-export { LetterStrip } from './LetterStrip';
+export { lettersStrings } from './strings';

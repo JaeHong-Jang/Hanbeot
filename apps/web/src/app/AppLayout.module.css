@@ -15,6 +15,3 @@
 .scroll::-webkit-scrollbar {
   display: none;
 }
-.withTabs {
-  padding-bottom: calc(76px + var(--safe-bottom));
-}

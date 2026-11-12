@@ -1,0 +1,272 @@
+/* 하늘이네 집 방 화면들이 같이 쓰는 조각: 방 그림, 이름표, 아래 판, 고르기, 목록 */
+
+/* 방 그림: 그림 비율을 지키는 상자. 이름표는 이 상자 기준 %로 놓는다. */
+.scene {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.scene > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.shade::after {
+  /* 위쪽을 살짝 어둡게 해서 머리(방 이름, 도움 받기)가 잘 읽히게 */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(20, 14, 10, 0.3), transparent 22%);
+  pointer-events: none;
+}
+
+/* 이름표: 꼬리가 가리키는 점 = (--x, --y) */
+.tag {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  width: max-content;
+  height: 32px;
+  padding: 0 11px;
+  border: 0;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--h-text);
+  font: 700 12px var(--font-body);
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 3px 10px rgba(30, 20, 10, 0.18);
+  cursor: pointer;
+}
+.tag::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  width: 10px;
+  height: 10px;
+  background: inherit;
+  transform: rotate(45deg);
+  border-radius: 2px;
+}
+.center {
+  transform: translate(-50%, calc(-100% - 6px));
+}
+.center::after {
+  left: calc(50% - 5px);
+}
+.start {
+  transform: translate(-16px, calc(-100% - 6px));
+}
+.start::after {
+  left: 11px;
+}
+.end {
+  transform: translate(calc(-100% + 16px), calc(-100% - 6px));
+}
+.end::after {
+  right: 11px;
+}
+.main {
+  height: 36px;
+  padding: 0 15px;
+  background: var(--h-sofa);
+  color: #fff;
+  font-size: 13px;
+}
+.badge {
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 9px;
+  background: var(--h-help);
+  color: #fff;
+  font: 700 11px/18px var(--font-body);
+  font-style: normal;
+  text-align: center;
+}
+.tag:focus-visible {
+  outline: 2px solid #fff;
+  box-shadow: 0 0 0 4px var(--h-sofa);
+}
+
+/* 친구 말풍선 */
+.say {
+  position: absolute;
+  z-index: 5;
+  max-width: 156px;
+  padding: 10px 13px;
+  border-radius: 14px 14px 14px 4px;
+  background: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.45;
+  box-shadow: 0 6px 16px rgba(30, 20, 10, 0.18);
+}
+.say small {
+  display: block;
+  font-size: 11px;
+  color: var(--h-muted);
+  margin-bottom: 2px;
+}
+
+/* 방 아래 판: 방 그림 끝을 살짝 덮으며 올라온다 */
+.panel {
+  position: relative;
+  z-index: 7;
+  margin-top: -40px;
+  padding: 18px 20px 20px;
+  border-radius: 24px 24px 0 0;
+  background: var(--h-bg);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.panelTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--h-sub);
+}
+
+/* 고르기 */
+.seg {
+  display: grid;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 12px;
+  background: var(--h-deep);
+}
+.seg button {
+  height: 38px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  font: 600 13px var(--font-body);
+  color: var(--h-muted);
+  cursor: pointer;
+}
+.seg button[aria-checked='true'] {
+  background: #fff;
+  color: var(--h-text);
+  box-shadow: 0 1px 3px rgba(40, 28, 18, 0.12);
+}
+.seg button:focus-visible {
+  outline: 2px solid var(--h-sofa);
+}
+
+/* 큰 버튼: 소파 초록 */
+.btn {
+  height: 54px;
+  border: 0;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: var(--h-sofa);
+  color: #fff;
+  font: 600 16px var(--font-body);
+  cursor: pointer;
+}
+.btn:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: -6px;
+}
+
+/* 한 줄 바로가기 */
+.mini {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 14px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(40, 28, 18, 0.05);
+  font-size: 13px;
+  color: var(--h-sub);
+  text-decoration: none;
+}
+.mini svg {
+  margin-left: auto;
+  color: var(--h-faint);
+}
+
+/* 설정 목록 */
+.list {
+  background: #fff;
+  border-radius: 16px;
+  padding: 0 16px;
+  box-shadow: 0 1px 2px rgba(40, 28, 18, 0.05);
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 54px;
+  border-bottom: 1px solid var(--h-rule);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--h-text);
+  text-decoration: none;
+}
+.row:last-child {
+  border: 0;
+}
+.row small {
+  margin-left: auto;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--h-muted);
+}
+.row > svg {
+  color: var(--h-faint);
+}
+.stack {
+  flex-direction: column;
+  align-items: stretch;
+  padding: 12px 0;
+  gap: 8px;
+}
+.row input {
+  margin-left: auto;
+  width: 120px;
+  height: 36px;
+  padding: 0 10px;
+  border: 1px solid #e3dccf;
+  border-radius: 10px;
+  font: 500 15px var(--font-body);
+  text-align: right;
+}
+.danger {
+  border: 0;
+  background: none;
+  width: 100%;
+  text-align: left;
+  color: #ad2f22;
+  cursor: pointer;
+  font: 600 15px var(--font-body);
+}
+
+/* 짧은 알림 */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(var(--tabs-h) + 14px);
+  transform: translateX(-50%);
+  z-index: 30;
+  width: max-content;
+  max-width: calc(100% - 40px);
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: #2b2118;
+  color: #fff;
+  font: 600 13px var(--font-body);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+.push {
+  margin-left: auto;
+}

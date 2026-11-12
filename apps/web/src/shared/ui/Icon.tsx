@@ -85,6 +85,46 @@ const PATHS = {
     </>
   ),
   chevronDown: <path d="m6 9 6 6 6-6" />,
+  sofa: (
+    <>
+      <path d="M4 11V8a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3" />
+      <path d="M2 13a2 2 0 0 1 4 0v2h12v-2a2 2 0 0 1 4 0v5H2Z" />
+      <path d="M5 18v2M19 18v2" />
+    </>
+  ),
+  fridge: (
+    <>
+      <rect x="5" y="2" width="14" height="20" rx="2" />
+      <path d="M5 10h14M9 5v2M9 13v3" />
+    </>
+  ),
+  bed: (
+    <>
+      <path d="M3 18V6M3 13h18v5M21 18v-3a3 3 0 0 0-3-3h-7v1" />
+      <circle cx="7" cy="10" r="2" />
+    </>
+  ),
+  door: (
+    <>
+      <path d="M5 21V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v17M3 21h18" />
+      <circle cx="15" cy="12" r="1" />
+    </>
+  ),
+  sun: (
+    <>
+      <circle cx="12" cy="12" r="4" />
+      <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+    </>
+  ),
+  moon: <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" />,
+  lamp: <path d="M8 3h8l3 8H5ZM12 11v9M8 21h8" />,
+  clock: (
+    <>
+      <circle cx="12" cy="13" r="8" />
+      <path d="M12 9v4l2.5 2M5 3 2 6M19 3l3 3" />
+    </>
+  ),
+  chevronRight: <path d="m9 6 6 6-6 6" />,
   lifebuoy: (
     <>
       <circle cx="12" cy="12" r="10" />

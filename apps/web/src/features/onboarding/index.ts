@@ -1,3 +1,3 @@
-export { allowedFeatures } from './allowedFeatures';
+export { allowedFeatures, normalizeConsent } from './allowedFeatures';
 export { ConsentForm } from './ConsentForm';
 export { OnboardingPage } from './OnboardingPage';
