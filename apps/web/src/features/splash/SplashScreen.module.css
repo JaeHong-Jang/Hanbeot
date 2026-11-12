@@ -1,70 +1,85 @@
+/* 브랜드 색 바탕 + 가운데 로고. 움직임은 한 번의 순서(떠오르기 → 덮개 닫힘 → 이름)만 둔다. */
 .splash {
   position: absolute;
   inset: 0;
   z-index: 50;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   border: 0;
   padding: 0;
+  background: var(--color-primary);
+  color: #fff;
   cursor: pointer;
-  color: var(--color-text);
-  background-color: var(--color-bg);
-  background-image:
-    var(--noise), radial-gradient(ellipse at 50% 42%, #fbf3e4 0%, var(--color-bg) 55%, #e9d6bb 100%);
-  transition: opacity 450ms var(--ease-out);
+  transition: opacity 350ms var(--ease-out);
 }
-.phaseLeaving {
+.leaving {
   opacity: 0;
   pointer-events: none;
 }
-.paper {
-  position: relative;
+.center {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: -40px;
+  margin-top: -48px;
 }
-.logo {
-  width: min(340px, 86vw);
-  overflow: visible;
-  color: var(--color-ink);
+.mark {
+  width: 92px;
+  height: 92px;
+  filter: drop-shadow(0 10px 24px rgba(90, 20, 12, 0.28));
+  animation: pop 520ms var(--ease-out) both;
 }
-.pen {
-  filter: drop-shadow(6px 10px 6px rgba(60, 30, 15, 0.25));
-  transition: opacity 400ms ease;
+.tile {
+  fill: #fff;
 }
-.phaseTagline .pen,
-.phaseLeaving .pen {
-  opacity: 0;
+.bubble {
+  fill: var(--color-primary);
 }
-.caption {
-  display: block;
-  min-height: 86px;
-  text-align: center;
+/* 봉투 덮개가 왼쪽에서 오른쪽으로 그어지며 닫힌다 */
+.flap {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 420ms 360ms var(--ease-in-out) forwards;
 }
-/* 글자가 왼쪽부터 써지는 것처럼 드러난다. 가려진 부분만 벗겨 내므로 레이아웃은 움직이지 않는다. */
-.line {
-  display: block;
-  font-size: var(--text-xl);
-  clip-path: inset(0 100% 0 0);
-  animation: write 1000ms var(--ease-in-out) forwards;
+.word {
+  margin-top: 20px;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  animation: rise 420ms 620ms var(--ease-out) both;
 }
-.sub {
-  font-size: var(--text-md);
-  color: var(--color-muted);
-  animation-delay: 800ms;
-  animation-duration: 800ms;
+.tagline {
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: var(--text-base);
+  font-weight: 500;
+  animation: rise 420ms 760ms var(--ease-out) both;
 }
-@keyframes write {
-  to {
-    clip-path: inset(0 -4% 0 0);
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.7) translateY(12px);
   }
 }
-.skip {
-  position: absolute;
-  bottom: calc(56px + env(safe-area-inset-bottom));
-  font-size: var(--text-sm);
-  color: var(--color-muted);
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flap {
+    stroke-dashoffset: 0;
+  }
 }

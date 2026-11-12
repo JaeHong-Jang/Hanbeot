@@ -6,6 +6,7 @@ import { CallScreen } from './CallScreen';
 import type { CallMode } from '@/entities';
 import { useCreateSession, useEndSession } from '@/shared/api';
 import { friendById } from '@/shared/friend';
+import { useCallLog } from '@/shared/hooks/useCallLog';
 import { PREF_KEYS, useLocalPref } from '@/shared/hooks/useLocalPref';
 import { MockVoiceClient } from '@/shared/voice';
 
@@ -20,6 +21,7 @@ export function CallPage() {
   const modePref = useLocalPref(PREF_KEYS.mode, 'listen');
   const { mutate: createSession, data: session } = useCreateSession();
   const { mutate: endSession } = useEndSession();
+  const callLog = useCallLog();
 
   useEffect(() => {
     createSession();
@@ -28,12 +30,19 @@ export function CallPage() {
   // 화면을 떠나면 연결을 닫는다(마이크가 켜진 채 남지 않게).
   useEffect(() => () => void client.disconnect(), [client]);
 
-  const onEnded = () => {
+  const onEnded = (elapsedSec: number) => {
     if (!session) {
       navigate('/', { replace: true });
       return;
     }
     endSession(session.session_id);
+    // 홈의 최근 편지·이번 주 요약용. 내용 없이 세션 번호와 시간만 이 기기에 남긴다.
+    callLog.add({
+      sessionId: session.session_id,
+      friendId: friendPref.value,
+      endedAt: new Date().toISOString(),
+      durationSec: elapsedSec,
+    });
     navigate(`/summary/${session.session_id}`, { replace: true });
   };
 

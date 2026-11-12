@@ -32,16 +32,18 @@ export function ConsentForm({ value, onChange }: Props) {
         disabled
         onChange={() => undefined}
       />
-      <h3 className={styles.allowedTitle}>{s.allowedTitle}</h3>
-      {features.length === 0 ? (
-        <p className={styles.none}>{s.noneAllowed}</p>
-      ) : (
-        <ul className={styles.features} aria-label={s.allowedTitle}>
-          {features.map((f) => (
-            <li key={f}>{f}</li>
-          ))}
-        </ul>
-      )}
+      <div className={styles.allowed}>
+        <h3 className={styles.allowedTitle}>{s.allowedTitle}</h3>
+        {features.length === 0 ? (
+          <p className={styles.none}>{s.noneAllowed}</p>
+        ) : (
+          <ul className={styles.features} aria-label={s.allowedTitle}>
+            {features.map((f) => (
+              <li key={f}>{f}</li>
+            ))}
+          </ul>
+        )}
+      </div>
     </section>
   );
 }

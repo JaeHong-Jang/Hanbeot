@@ -1,16 +1,75 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding-bottom: 0;
+}
 .logo {
-  display: block;
-  margin: var(--space-2) 0 var(--space-3) -6px;
-  color: var(--color-ink);
+  align-self: flex-start;
+  margin-top: var(--space-3);
 }
-/* 고지문은 옅은 와인색 바탕으로 눈에 띄게 한다 */
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.intro h1 {
+  white-space: pre-line;
+}
+.lead {
+  color: var(--color-sub);
+  font-size: var(--text-base);
+}
+/* 꼭 알아야 할 네 가지: 체크 표시가 붙은 목록 */
 .disclosure {
-  margin: var(--space-3) 0 var(--space-4);
-  background-color: #f6e6e2;
-  box-shadow: none;
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--color-primary-soft);
 }
-.start {
-  width: 100%;
-  min-height: 52px;
-  margin-top: var(--space-5);
+.disclosure li {
+  display: flex;
+  gap: var(--space-2);
+  align-items: flex-start;
+  color: var(--color-text);
+  font-size: var(--text-base);
+  font-weight: 600;
+}
+.check {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--color-primary);
+}
+.consent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.label {
+  padding: 0 var(--space-1);
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+.group {
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+/* 하단 고정 버튼: 스크롤과 상관없이 늘 같은 자리 */
+.bottom {
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+  margin: 0 calc(-1 * var(--gutter));
+  padding: var(--space-5) var(--gutter) calc(var(--space-4) + var(--safe-bottom));
+  background: linear-gradient(rgba(247, 244, 239, 0), var(--color-bg) 30%);
+}
+.need {
+  margin-top: var(--space-2);
+  color: var(--color-muted);
+  font-size: var(--text-xs);
+  text-align: center;
 }

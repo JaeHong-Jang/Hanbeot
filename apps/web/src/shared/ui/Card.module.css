@@ -1,8 +1,9 @@
+/* 흰 카드 한 장. 같은 종류를 묶을 때만 쓰고, 화면마다 남발하지 않는다. */
 .card {
-  padding: var(--space-4);
-  border-radius: var(--radius-sm);
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-lg);
   background-color: var(--color-surface);
-  box-shadow: var(--shadow-paper);
+  box-shadow: var(--shadow-card);
 }
 .card + .card {
   margin-top: var(--space-3);

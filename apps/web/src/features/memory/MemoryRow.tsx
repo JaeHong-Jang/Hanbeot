@@ -4,6 +4,7 @@ import styles from './MemoryRow.module.css';
 import { memoryStrings as s } from './strings';
 
 import type { Memory } from '@/entities';
+import { daysSince } from '@/shared/lib/time';
 import { Badge, Button, Icon } from '@/shared/ui';
 
 type Props = {
@@ -20,7 +21,6 @@ export function MemoryRow({ memory, onSave, onDelete }: Props) {
 
   return (
     <li className={styles.row}>
-      <Badge tone={memory.state === 'approved' ? 'ok' : 'neutral'}>{s.state[memory.state]}</Badge>
       {editing ? (
         <div className={styles.edit}>
           <input
@@ -30,31 +30,53 @@ export function MemoryRow({ memory, onSave, onDelete }: Props) {
             value={draft}
             onChange={(e) => setDraft(e.target.value)}
           />
-          <Button
-            variant="primary"
-            onClick={() => {
-              onSave(memory.id, draft);
-              setEditing(false);
-            }}
-          >
-            {s.save}
-          </Button>
+          <div className={styles.editActions}>
+            <Button size="sm" variant="ghost" onClick={() => setEditing(false)}>
+              {s.cancel}
+            </Button>
+            <Button
+              size="sm"
+              variant="primary"
+              onClick={() => {
+                onSave(memory.id, draft);
+                setEditing(false);
+              }}
+            >
+              {s.save}
+            </Button>
+          </div>
         </div>
       ) : (
-        <span className={styles.text}>{memory.text}</span>
+        <p className={styles.text}>{memory.text}</p>
       )}
-      <div className={styles.actions}>
-        {editable && !editing ? (
-          <Button onClick={() => setEditing(true)}>
-            <Icon name="pen" size={17} />
-            {s.edit}
-          </Button>
-        ) : null}
-        <Button onClick={() => onDelete(memory.id)}>
-          <Icon name="trash" size={17} />
-          {s.remove}
-        </Button>
-      </div>
+      {editing ? null : (
+        <div className={styles.meta}>
+          <Badge tone={memory.state === 'approved' ? 'ok' : 'neutral'}>
+            {s.state[memory.state]}
+          </Badge>
+          <span className={styles.when}>{s.when(daysSince(memory.created_at))}</span>
+          <div className={styles.actions}>
+            {editable ? (
+              <button
+                type="button"
+                className={styles.iconBtn}
+                aria-label={s.edit}
+                onClick={() => setEditing(true)}
+              >
+                <Icon name="pen" size={18} />
+              </button>
+            ) : null}
+            <button
+              type="button"
+              className={styles.iconBtn}
+              aria-label={s.remove}
+              onClick={() => onDelete(memory.id)}
+            >
+              <Icon name="trash" size={18} />
+            </button>
+          </div>
+        </div>
+      )}
     </li>
   );
 }

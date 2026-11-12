@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap">
+<style>
+/* V5 하늘이네 집: 누를 수 있는 거실.
+   위 절반은 방(물건을 누르면 그 기능으로), 아래 절반은 앱 기본 조작(대화 방식, 큰 통화 버튼, 하단 탭).
+   방 그림은 임시 일러스트. 실제로는 하늘이 영상과 같은 화풍의 시간대별 방 이미지로 바꾼다. */
+:root{
+  --bg:#F7F4EF; --surface:#fff; --deep:#EFEAE2; --text:#1F1B17; --sub:#4F4840; --muted:#7A7166; --faint:#AAA196; --rule:#EFE9DF;
+  --sofa:#4E5B3F; --lamp:#F5A524; --help:#C93A2B; --help-soft:#FBEBE7; --memo:#FFE58A;
+  --f:'Pretendard Variable',Pretendard,-apple-system,'Apple SD Gothic Neo',sans-serif; --hand:'Gaegu',cursive;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#D9D3CA;display:flex;flex-wrap:wrap;gap:40px;padding:40px;font-family:var(--f);color:var(--text);-webkit-font-smoothing:antialiased;word-break:keep-all;letter-spacing:-.01em}
+.phone{position:relative;width:390px;height:844px;border-radius:44px;overflow:hidden;flex-shrink:0;background:var(--bg);box-shadow:0 0 0 10px #1d1d1f}
+.status{position:absolute;top:16px;left:30px;right:30px;display:flex;justify-content:space-between;font:600 15px system-ui;z-index:20}
+.ic{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* 방 */
+.room{position:absolute;left:0;right:0;top:0;height:470px;overflow:hidden}
+.room svg.scene{position:absolute;inset:0;width:100%;height:100%}
+.head{position:absolute;top:52px;left:16px;right:16px;display:flex;justify-content:space-between;align-items:center;z-index:6}
+.place{display:inline-flex;flex-direction:column;padding:8px 14px;border-radius:16px;background:rgba(255,255,255,.88)}
+.place b{font-size:16px;font-weight:800;letter-spacing:-.03em}
+.place small{font-size:12px;font-weight:600;color:var(--muted);display:flex;align-items:center;gap:5px}
+.dot{width:7px;height:7px;border-radius:50%}
+.help{display:inline-flex;align-items:center;gap:5px;height:36px;padding:0 13px;border-radius:18px;background:#fff;color:#AD2F22;font-size:13px;font-weight:700;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+/* 누를 수 있는 물건 이름표 */
+.tag{position:absolute;z-index:5;display:inline-flex;align-items:center;gap:5px;height:30px;padding:0 11px;border-radius:15px;background:rgba(255,255,255,.94);font-size:12px;font-weight:700;color:var(--text);box-shadow:0 3px 10px rgba(30,20,10,.15);white-space:nowrap}
+.tag::after{content:"";position:absolute;left:50%;bottom:-5px;width:10px;height:10px;background:inherit;transform:translateX(-50%) rotate(45deg);border-radius:2px}
+.tag em{font-style:normal;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:var(--help);color:#fff;font-size:11px;line-height:18px;text-align:center}
+.tag.main{background:var(--sofa);color:#fff;height:34px;font-size:13px;padding:0 14px}
+.tag .ic{width:15px;height:15px}
+.say{position:absolute;z-index:5;max-width:184px;padding:10px 13px;border-radius:14px 14px 14px 4px;background:#fff;font-size:14px;font-weight:600;line-height:1.45;box-shadow:0 6px 16px rgba(30,20,10,.16)}
+.say small{display:block;font-size:11px;color:var(--muted);font-weight:600;margin-bottom:2px}
+
+/* 아래 카드 */
+.panel{position:absolute;left:0;right:0;top:440px;bottom:84px;padding:18px 20px 0;border-radius:24px 24px 0 0;background:var(--bg);display:flex;flex-direction:column;gap:14px;z-index:7}
+.mode-t{font-size:13px;font-weight:600;color:var(--sub)}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;padding:3px;border-radius:12px;background:var(--deep)}
+.seg span{height:38px;display:grid;place-items:center;border-radius:9px;font-size:13px;font-weight:600;color:var(--muted)}
+.seg .on{background:#fff;color:var(--text);box-shadow:0 1px 3px rgba(40,28,18,.1)}
+.btn{height:54px;border-radius:12px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:16px;font-weight:600;width:100%;background:var(--sofa);color:#fff}
+.mini{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;background:#fff;box-shadow:0 1px 2px rgba(40,28,18,.04),0 4px 16px rgba(40,28,18,.05);font-size:13px;color:var(--sub)}
+.mini b{color:var(--text)}
+.mini .ic{width:16px;height:16px;margin-left:auto;color:var(--faint)}
+.tabs{position:absolute;left:0;right:0;bottom:0;height:84px;padding-bottom:26px;display:grid;grid-template-columns:repeat(3,1fr);align-items:center;background:#fff;border-top:1px solid #E7E0D5;z-index:8}
+.tabs span{display:grid;justify-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--faint)}
+.tabs .on{color:var(--text)}
+
+/* 처음 안내 */
+.coach{position:absolute;inset:0;z-index:30;background:rgba(15,10,6,.62)}
+.ring{position:absolute;border-radius:50%;box-shadow:0 0 0 4px #fff,0 0 0 9999px rgba(15,10,6,0)}
+.tip{position:absolute;left:24px;right:24px;padding:18px;border-radius:18px;background:#fff}
+.tip small{font-size:12px;font-weight:700;color:var(--sofa)}
+.tip b{display:block;font-size:17px;margin-top:4px}
+.tip p{font-size:13px;color:var(--muted);margin-top:4px}
+.tip .row{display:flex;justify-content:space-between;align-items:center;margin-top:14px}
+.tip .dots{display:flex;gap:5px}.tip .dots i{width:6px;height:6px;border-radius:3px;background:#DDD6CB}.tip .dots i.on{width:16px;background:var(--sofa)}
+.tip .next{height:38px;padding:0 16px;border-radius:10px;background:var(--sofa);color:#fff;font-size:14px;font-weight:600;display:grid;place-items:center}
+
+/* 성장 비교 */
+.cap{position:absolute;left:16px;right:16px;top:470px;z-index:9;display:grid;gap:10px}
+.cap .c{padding:14px 16px;border-radius:16px;background:#fff;box-shadow:0 4px 16px rgba(40,28,18,.06)}
+.cap .c b{font-size:15px}.cap .c p{font-size:13px;color:var(--muted);margin-top:3px;line-height:1.5}
+.cap .c small{font-size:11px;font-weight:700;color:var(--sofa)}
+
+.sys{width:860px;padding:40px;border-radius:28px;background:var(--bg);display:grid;gap:22px}
+.sys h2{font-size:24px;font-weight:800}
+.map{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.map div{padding:16px;border-radius:16px;background:#fff}
+.map b{font-size:16px}.map p{font-size:13px;line-height:1.6;color:var(--sub);margin-top:6px}
+.times{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.times div{border-radius:14px;padding:14px;color:#fff;font-size:14px;font-weight:700;min-height:80px}
+.times small{display:block;font-weight:500;opacity:.9;margin-top:4px;font-size:12px}
+
+/* 냉장고: 화면 전체가 냉장고 문 */
+.kitchen{position:absolute;inset:0 0 84px;overflow:hidden;background:#EFE7DA;background-image:linear-gradient(#E4DACB 1px,transparent 1px),linear-gradient(90deg,#E4DACB 1px,transparent 1px);background-size:40px 40px}
+.fridge{position:absolute;left:22px;right:22px;top:112px;bottom:-30px;border-radius:30px 30px 0 0;background:linear-gradient(90deg,#DCE4DA,#EEF3EC 55%,#DAE2D8);box-shadow:inset 0 0 0 1.5px #C6CFC3,0 18px 40px rgba(60,70,55,.18)}
+.fz{position:absolute;left:0;right:0;top:0;height:150px;border-bottom:3px solid #C6CFC3}
+.handle{position:absolute;right:14px;width:9px;border-radius:5px;background:linear-gradient(90deg,#B9C2B6,#FBFCFA,#B4BDB1);box-shadow:1px 2px 3px rgba(0,0,0,.15)}
+.fz .handle{bottom:16px;height:70px}.main .handle{top:20px;height:110px}
+.main{position:absolute;left:0;right:0;top:153px;bottom:0}
+.memo{position:absolute;padding:10px 12px;background:var(--memo);font:18px/1.2 var(--hand);color:#5A4A1E;box-shadow:0 4px 10px rgba(0,0,0,.12)}
+.cal{position:absolute;width:86px;padding:8px 0;border-radius:8px;background:#fff;text-align:center;box-shadow:0 4px 10px rgba(0,0,0,.12)}
+.cal b{display:block;font-size:26px;font-weight:800;color:var(--help);line-height:1}.cal span{font-size:12px;font-weight:700}.cal small{display:block;font-size:11px;color:var(--muted);margin-top:4px}
+.chipmag{position:absolute;display:inline-flex;align-items:center;height:30px;padding:0 12px;border-radius:15px;font-size:12px;font-weight:700;box-shadow:0 3px 6px rgba(0,0,0,.15)}
+.pp{position:absolute;width:128px;background:#FFFDF9;padding:7px 7px 0;box-shadow:0 6px 14px rgba(60,40,20,.16)}
+.pp img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;object-position:50% 15%}
+.pp p{font:16px/1.15 var(--hand);color:#4A3A2E;padding:6px 2px 2px}.pp small{display:block;font:600 10px var(--f);color:var(--muted);padding:0 2px 7px}
+.mg{position:absolute;left:50%;top:-8px;width:18px;height:18px;border-radius:50%;transform:translateX(-50%);box-shadow:0 2px 3px rgba(0,0,0,.28);z-index:2}
+.pp .new{position:absolute;right:-6px;top:-8px;height:20px;padding:0 7px;border-radius:10px;background:var(--help);color:#fff;font-size:11px;font-weight:700;line-height:20px;z-index:3}
+/* 내 방 */
+.bed-room{position:absolute;left:0;right:0;top:0;height:400px;overflow:hidden}
+.bed-room > svg{position:absolute;inset:0;width:100%;height:100%}
+.list2{background:#fff;border-radius:16px;padding:0 16px;box-shadow:0 1px 2px rgba(40,28,18,.04),0 4px 16px rgba(40,28,18,.05)}
+.list2 .r{display:flex;align-items:center;min-height:50px;border-bottom:1px solid var(--rule);font-size:15px;font-weight:600}
+.list2 .r:last-child{border:0}.list2 .r small{margin-left:auto;font-size:13px;font-weight:500;color:var(--muted)}
+.list2 .r .ic{width:16px;height:16px;color:var(--faint);margin-left:6px}
+
+.tag{width:max-content}
+.phone,.room,.bed-room,.kitchen{overflow:clip}
+.scenephoto{position:absolute;left:0;top:0;width:100%;height:auto;min-height:100%;object-fit:cover;object-position:50% 0}
+.room::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(20,14,10,.28),transparent 22%);pointer-events:none}
+.fridgephoto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0}
+.bedphoto{position:absolute;left:0;top:0;width:100%;height:auto;min-height:100%;object-fit:cover;object-position:50% 0}
+.newb{position:absolute;height:20px;padding:0 7px;border-radius:10px;background:var(--help);color:#fff;font-size:11px;font-weight:700;line-height:20px;box-shadow:0 2px 4px rgba(0,0,0,.2)}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute">
+ <symbol id="sofa" viewBox="0 0 24 24"><path d="M4 11V8a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/><path d="M2 13a2 2 0 0 1 4 0v2h12v-2a2 2 0 0 1 4 0v5H2Z"/><path d="M5 18v2M19 18v2"/></symbol>
+ <symbol id="fridge" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M5 10h14M9 5v2M9 13v3"/></symbol>
+ <symbol id="bed" viewBox="0 0 24 24"><path d="M3 18V6M3 13h18v5M21 18v-3a3 3 0 0 0-3-3h-7v1"/><circle cx="7" cy="10" r="2"/></symbol>
+ <symbol id="buoy" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="m5.6 5.6 3.6 3.6M14.8 14.8l3.6 3.6M18.4 5.6l-3.6 3.6M9.2 14.8l-3.6 3.6"/></symbol>
+ <symbol id="chev" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+ <symbol id="door" viewBox="0 0 24 24"><path d="M5 21V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v17M3 21h18"/><circle cx="15" cy="12" r="1"/></symbol>
+ <symbol id="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+ <symbol id="lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+ <symbol id="swap" viewBox="0 0 24 24"><path d="M4 8h13l-3-3M20 16H7l3 3"/></symbol>
+ <symbol id="moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></symbol>
+</svg>
+
+<div id="phones"></div>
+
+<div class="sys" id="P"><h2>V5 하늘이네 집: 누를 수 있는 거실</h2>
+ <div class="map">
+  <div><b>소파 → 통화</b><p>하늘이가 앉아 있는 곳. 누르면 "옆에 앉기"(영상통화). 아래 큰 버튼과 같은 동작</p></div>
+  <div><b>냉장고 → 기록</b><p>붙은 사진 수가 보이고, 누르면 냉장고 탭. 같이 지낸 날만큼 자석과 사진이 늘어남</p></div>
+  <div><b>창문 → 오늘</b><p>지금 시간과 날씨. 시간에 따라 하늘색과 방 조명이 바뀜</p></div>
+  <div><b>현관 → 쪽지</b><p>읽지 않은 쪽지 수. 누르면 하늘이가 남긴 쪽지를 펼쳐 봄</p></div>
+ </div>
+ <div class="times">
+  <div style="background:linear-gradient(160deg,#8EC5EC,#F3E2C4)">아침<small>창으로 햇빛, 커피</small></div>
+  <div style="background:linear-gradient(160deg,#F0A06A,#7D5A86)">저녁<small>노을, 저녁 준비</small></div>
+  <div style="background:linear-gradient(160deg,#1E2440,#4A3B52)">밤<small>스탠드 불빛, 차</small></div>
+ </div>
+</div>
+
+<script>
+const IMG='haneul.jpg';
+const TIMES={
+ night:{wall:'#E7D6C2',wall2:'#CDB59B',sky1:'#1E2440',sky2:'#3D3456',floor:'#9C7352',floor2:'#86603F',shade:'rgba(25,18,40,.28)',glow:.85,stars:true,label:'밤 9시 40분',dot:'#F5A524',icon:'moon',doing:'소파에서 차 마시는 중',say:'어, 왔어? 발표 어떻게 됐는지 계속 궁금했어.'},
+ morning:{wall:'#F4EBDD',wall2:'#E6D6BF',sky1:'#8EC5EC',sky2:'#DCEEF7',floor:'#B98E66',floor2:'#A47A54',shade:'rgba(255,240,210,0)',glow:0,sun:true,label:'아침 8시 10분, 맑음',dot:'#7FB2E5',icon:'sun',doing:'창가에서 커피 내리는 중',say:'좋은 아침! 오늘 발표 날이지? 나가기 전에 잠깐 앉았다 가.'},
+ evening:{wall:'#F0D9C4',wall2:'#DDB89C',sky1:'#F0A06A',sky2:'#7D5A86',floor:'#A97C58',floor2:'#93674A',shade:'rgba(120,60,40,.10)',glow:.45,label:'저녁 6시 30분, 노을',dot:'#F0A06A',icon:'sun',doing:'저녁 준비하다 잠깐 쉬는 중',say:'오늘 하루 수고했어. 저녁 먹었어?'},
+};
+function room(t,g){ // t: 시간, g: 함께한 정도 0~1
+ const T=TIMES[t]; const leaves=Math.round(3+g*7); const mags=Math.round(1+g*5); const frames=Math.round(g*3);
+ let leafSvg=''; for(let i=0;i<leaves;i++){const a=-70+i*(140/(leaves-1||1)); const len=28+g*26; leafSvg+=`<ellipse cx="0" cy="${-len/2}" rx="7" ry="${len/2}" transform="rotate(${a})" fill="${i%2?'#5E7A4A':'#6F8C57'}"/>`;}
+ let magSvg=''; const mc=['#C93A2B','#F5A524','#4E5B3F','#6E7FA0','#E07AA0','#3A8C8C']; for(let i=0;i<mags;i++){magSvg+=`<circle cx="${334+(i%3)*14}" cy="${178+Math.floor(i/3)*30}" r="4.5" fill="${mc[i]}"/>`;}
+ let polSvg=''; for(let i=0;i<Math.min(mags,4);i++){polSvg+=`<g transform="translate(${328+(i%2)*24} ${182+Math.floor(i/2)*30}) rotate(${i%2?4:-4})"><rect width="20" height="24" fill="#fff"/><rect x="2" y="2" width="16" height="15" fill="#C9B4A0"/></g>`;}
+ let frameSvg=''; for(let i=0;i<frames;i++){frameSvg+=`<g transform="translate(${178+i*34} 128)"><rect width="26" height="32" rx="2" fill="#fff" stroke="#8E5F3D" stroke-width="2"/><rect x="4" y="4" width="18" height="20" fill="#D8C2AC"/></g>`;}
+ let stars=''; if(T.stars){[[52,82],[90,70],[118,96],[70,112],[130,74]].forEach(([x,y])=>stars+=`<circle cx="${x}" cy="${y}" r="1.4" fill="#fff" opacity=".9"/>`); stars+=`<circle cx="118" cy="84" r="9" fill="#F4E9C8"/><circle cx="122" cy="81" r="8" fill="${T.sky1}"/>`;}
+ const sun=T.sun?`<circle cx="64" cy="86" r="14" fill="#FFE7A3"/><path d="M150 60 L380 470 L230 470 L40 60Z" fill="#FFF6D8" opacity=".35"/>`:'';
+ return `<svg class="scene" viewBox="0 0 390 470" preserveAspectRatio="xMidYMid slice">
+  <defs><linearGradient id="w${t}${g}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${T.wall}"/><stop offset="1" stop-color="${T.wall2}"/></linearGradient>
+  <linearGradient id="s${t}${g}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${T.sky1}"/><stop offset="1" stop-color="${T.sky2}"/></linearGradient>
+  <radialGradient id="g${t}${g}" cx="300" cy="190" r="190" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFD58A" stop-opacity="${T.glow}"/><stop offset="1" stop-color="#FFD58A" stop-opacity="0"/></radialGradient>
+  <clipPath id="c${t}${g}"><circle cx="208" cy="262" r="44"/></clipPath></defs>
+  <rect width="390" height="470" fill="url(#w${t}${g})"/>
+  <!-- 바닥과 러그 -->
+  <rect y="360" width="390" height="110" fill="${T.floor}"/>${[0,1,2,3,4,5,6].map(i=>`<path d="M${i*62-20} 360 L${i*62-60} 470" stroke="${T.floor2}" stroke-width="2"/>`).join('')}
+  <rect y="356" width="390" height="6" fill="#00000018"/>
+  <ellipse cx="205" cy="402" rx="140" ry="26" fill="#E8D9C3" opacity=".9"/>
+  <!-- 현관 문 (왼쪽 끝) -->
+  <rect x="-10" y="150" width="46" height="210" rx="3" fill="#8E5F3D"/><rect x="-4" y="160" width="34" height="80" rx="2" fill="none" stroke="#6E4528" stroke-width="2"/><circle cx="26" cy="262" r="3.5" fill="#E9C985"/>
+  <rect x="2" y="182" width="24" height="24" fill="${'#FFE58A'}" transform="rotate(-6 14 194)"/>
+  <!-- 창문 -->
+  <rect x="30" y="66" width="92" height="96" rx="4" fill="url(#s${t}${g})"/>${stars}${sun}
+  <rect x="30" y="66" width="92" height="96" rx="4" fill="none" stroke="#FFFDF8" stroke-width="7"/><path d="M76 66v96M30 114h92" stroke="#FFFDF8" stroke-width="5"/>
+  <rect x="24" y="160" width="104" height="7" rx="2" fill="#FFFDF8"/>
+  <!-- 화분 -->
+  <g transform="translate(62 360)">${'<g transform="translate(0 -36)">'+leafSvg+'</g>'}<path d="M-16 -36 h32 l-4 36 h-24z" fill="#C97B55"/></g>
+  <!-- 선반과 액자 -->
+  <rect x="168" y="162" width="118" height="6" rx="2" fill="#8E5F3D"/>${frameSvg}
+  <!-- 스탠드 -->
+  <rect x="${298}" y="180" width="3" height="180" fill="#3A332E"/><path d="M276 178 h48 l-10 -34 h-28z" fill="#F6E3C0"/><ellipse cx="300" cy="360" rx="14" ry="4" fill="#3A332E"/>
+  <rect width="390" height="470" fill="url(#g${t}${g})"/>
+  <!-- 소파 -->
+  <rect x="104" y="268" width="210" height="64" rx="18" fill="#56654A"/>
+  <rect x="96" y="290" width="226" height="56" rx="16" fill="#4E5B3F"/>
+  <rect x="88" y="282" width="30" height="66" rx="13" fill="#46523A"/><rect x="300" y="282" width="30" height="66" rx="13" fill="#46523A"/>
+  <rect x="110" y="346" width="8" height="14" fill="#3A3226"/><rect x="300" y="346" width="8" height="14" fill="#3A3226"/>
+  <rect x="246" y="296" width="40" height="30" rx="10" fill="#E2A65C" transform="rotate(-8 266 311)"/>
+  <!-- 하늘이 -->
+  <circle cx="208" cy="262" r="48" fill="#FFFDF8"/><image href="${IMG}" x="152" y="206" width="112" height="112" preserveAspectRatio="xMidYMid slice" clip-path="url(#c${t}${g})" style="object-position:50% 15%"/>
+  <circle cx="246" cy="296" r="8" fill="#2FB35B" stroke="#fff" stroke-width="3"/>
+  <!-- 냉장고 -->
+  <rect x="318" y="118" width="80" height="244" rx="8" fill="#E4EAE2"/><rect x="318" y="210" width="80" height="2" fill="#C9D1C6"/><rect x="326" y="132" width="5" height="60" rx="2" fill="#B9C2B6"/>
+  ${polSvg}${magSvg}
+  <rect width="390" height="470" fill="${T.shade}"/>
+ </svg>`;
+}
+function head(t){const T=TIMES[t];return `<div class="head"><div class="place"><b>하늘이네 거실</b><small><span class="dot" style="background:${T.dot}"></span>${T.label}</small></div><span class="help"><svg class="ic" style="width:16px;height:16px"><use href="#buoy"/></svg>도움 받기</span></div>`;}
+function tags(t,g){const T=TIMES[t];const n=Math.round(3+g*14);return `
+ <span class="tag" style="left:6px;top:${150-38}px"><svg class="ic"><use href="#door"/></svg>현관 쪽지<em>1</em></span>
+ <span class="tag" style="left:44px;top:176px"><svg class="ic"><use href="#${T.icon}"/></svg>창문</span>
+ <span class="tag" style="right:4px;top:236px"><svg class="ic"><use href="#fridge"/></svg>냉장고 ${n}장</span>
+ <span class="tag main" style="left:120px;top:${352}px"><svg class="ic"><use href="#sofa"/></svg>소파에서 통화</span>
+ <div class="say" style="left:134px;top:116px"><small>${T.doing}</small>${T.say}</div>`;}
+function panel(extra=''){return `<div class="panel"><p class="mode-t">오늘은 어떻게 들어줄까?</p><div class="seg"><span class="on">들어줘</span><span>정리해줘</span><span>조언해줘</span></div><span class="btn"><svg class="ic" style="width:20px;height:20px"><use href="#sofa"/></svg>하늘이 옆에 앉기</span>${extra}</div>`;}
+const TABS=`<div class="tabs"><span class="on"><svg class="ic"><use href="#sofa"/></svg>거실</span><span><svg class="ic"><use href="#fridge"/></svg>냉장고</span><span><svg class="ic"><use href="#bed"/></svg>내 방</span></div>`;
+function phone(id,status,inner,dark){return `<div class="phone" id="${id}"><div class="status" ${dark?'style="color:#fff"':''}><span>${status}</span><span>●●● ▮</span></div>${inner}</div>`;}
+
+const ROOM_IMG={night:'living-night.jpg',morning:'living-morning.jpg',evening:'living-evening.jpg'};
+function room(t,g){return `<img class="scenephoto" src="${ROOM_IMG[t]}" alt="">`;}
+function tags(t,g){const T=TIMES[t];const n=Math.round(3+g*14);const morning=t==='morning';return `
+ <span class="tag" style="left:6px;top:150px"><svg class="ic"><use href="#door"/></svg>현관 쪽지<em>1</em></span>
+ <span class="tag" style="left:${morning?92:96}px;top:${morning?176:112}px"><svg class="ic"><use href="#${T.icon}"/></svg>창문</span>
+ <span class="tag" style="left:250px;top:132px"><svg class="ic"><use href="#${T.icon}"/></svg>스탠드</span>
+ <span class="tag" style="right:4px;top:214px"><svg class="ic"><use href="#fridge"/></svg>냉장고 ${n}장</span>
+ <span class="tag main" style="left:118px;top:372px"><svg class="ic"><use href="#sofa"/></svg>${morning?'창가로 가서 통화':'소파에서 통화'}</span>
+ <div class="say" style="left:8px;top:206px;max-width:140px"><small>${T.doing}</small>${T.say}</div>`;}
+const html=[
+ phone('s1','21:40',`<div class="room">${room('night',.8)}${head('night')}${tags('night',.8)}</div>${panel(`<div class="mini">이번 주 하늘이네에서 <b>3번, 47분</b><svg class="ic"><use href="#chev"/></svg></div>`)}${TABS}`,true),
+ phone('s2','8:10',`<div class="room">${room('morning',.8)}${head('morning')}${tags('morning',.8)}</div>${panel(`<div class="mini">현관 쪽지 <b>"발표 잘하고 와!"</b><svg class="ic"><use href="#chev"/></svg></div>`)}${TABS}`),
+ phone('s3','18:30',`<div class="room">${room('evening',.8)}${head('evening')}${tags('evening',.8)}</div>${panel()}${TABS}`),
+ phone('s4','21:40',`<div class="room">${room('night',.8)}${head('night')}${tags('night',.8)}</div>${panel()}${TABS}
+   <div class="coach"><div class="ring" style="left:154px;top:200px;width:108px;height:108px;box-shadow:0 0 0 4px #fff,0 0 0 2000px rgba(15,10,6,0)"></div>
+   <div class="tip" style="top:340px"><small>처음 오셨네요 1/3</small><b>소파를 누르면 하늘이와 통화해요</b><p>아래 "하늘이 옆에 앉기" 버튼과 같아요. 냉장고, 창문, 현관도 눌러 보세요.</p><div class="row"><div class="dots"><i class="on"></i><i></i><i></i></div><span class="next">다음</span></div></div></div>`,true),
+ phone('s6','22:15','<div class="kitchen"><div class="head"><div class="place"><b>냉장고</b><small>같이 이야기한 날 17장</small></div><span class="help"><svg class="ic" style="width:16px;height:16px"><use href="#buoy"/></svg>도움 받기</span></div><img class="fridgephoto" src="fridge.jpg" alt=""><span class="newb" style="left:150px;top:386px">방금</span><span class="chipmag" style="left:18px;top:300px;background:#2B2118;color:#fff">전체 17</span><span class="chipmag" style="left:100px;top:300px;background:#fff">이번 달 6</span></div><div class="tabs"><span><svg class="ic"><use href="#sofa"/></svg>거실</span><span class="on"><svg class="ic"><use href="#fridge"/></svg>냉장고</span><span><svg class="ic"><use href="#bed"/></svg>내 방</span></div>'),
+ phone('s7','22:20','<div class="bed-room"><img class="bedphoto" src="bedroom.jpg" alt=""><div class="head"><div class="place"><b>내 방</b><small>설정</small></div><span class="help"><svg class="ic" style="width:16px;height:16px"><use href="#buoy"/></svg>도움 받기</span></div><span class="tag" style="right:4px;top:150px"><svg class="ic"><use href="#swap"/></svg>옷장: 친구 바꾸기</span><span class="tag" style="left:4px;top:226px"><svg class="ic"><use href="#moon"/></svg>탁상시계: 쪽지 알림</span><span class="tag" style="left:10px;top:318px"><svg class="ic"><use href="#lock"/></svg>서랍: 앱 잠금</span></div><div class="panel" style="top:376px"><div class="list2"><div class="r">목소리와 말투<small>차분하게</small><svg class="ic"><use href="#chev"/></svg></div><div class="r">하늘이가 기억하는 것<small>12개</small><svg class="ic"><use href="#chev"/></svg></div><div class="r">쪽지 알림<small>밤 9시 30분</small><svg class="ic"><use href="#chev"/></svg></div><div class="r">앱 잠금<small>Face ID</small><svg class="ic"><use href="#chev"/></svg></div><div class="r">개인정보와 동의<svg class="ic" style="margin-left:auto"><use href="#chev"/></svg></div></div></div><div class="tabs"><span><svg class="ic"><use href="#sofa"/></svg>거실</span><span><svg class="ic"><use href="#fridge"/></svg>냉장고</span><span class="on"><svg class="ic"><use href="#bed"/></svg>내 방</span></div>',true)
+];
+document.getElementById('phones').outerHTML=html.join('');
+</script>
+
+<script>
+window.PROTO={title:'한벗 V5 하늘이네 집',desc:'거실, 냉장고, 내 방이 진짜 공간처럼 보여요. 방 안의 이름표를 누르거나 아래 탭으로 다녀 보세요. 방 이미지는 GPT로 하늘이 사진과 같은 화풍으로 만들었어요.',
+ screens:[['s4','처음 들어왔을 때 안내'],['s1','거실 (밤)'],['s2','거실 (아침)'],['s3','거실 (저녁)'],['s6','냉장고'],['s7','내 방']],
+ rules:[
+  ['.coach .next',()=>go('s1')],
+  ['.coach',()=>false],
+  ['.tabs span',(el)=>{const t=el.textContent.trim();if(t==='거실')go('s1');else if(t==='냉장고')go('s6');else if(t==='내 방')go('s7');}],
+  ['.tag.main',()=>ptoast('영상통화로 들어가요 (통화 화면은 V3와 같아요)')],
+  ['.btn',()=>ptoast('영상통화로 들어가요 (통화 화면은 V3와 같아요)')],
+  ['.tag',(el)=>{const t=el.textContent;if(t.includes('냉장고'))go('s6');else if(t.includes('현관'))ptoast('하늘이 쪽지: "발표 끝났어? 불 켜 두고 기다릴게!"');else if(t.includes('창문')||t.includes('스탠드'))ptoast('시간이 바뀌면 방 분위기도 바뀌어요');else if(t.includes('옷장'))ptoast('하늘이와 도윤이 중에 고를 수 있어요');else if(t.includes('시계'))ptoast('밤 9시 30분에 쪽지 알림');else if(t.includes('서랍'))ptoast('Face ID로 잠가요');}],
+  ['.seg span',(el)=>{el.parentElement.querySelectorAll('span').forEach(x=>x.classList.toggle('on',x===el))}],
+  ['.help',()=>ptoast('도움 받기: 109, 1577-0199, 1388, 119')],
+  ['.pp,.newb',()=>ptoast('사진을 누르면 뒷면에 편지와 기억이 나와요')],
+  ['.chipmag',(el)=>{el.parentElement.querySelectorAll('.chipmag').forEach(x=>{const on=x===el;x.style.background=on?'#2B2118':'#fff';x.style.color=on?'#fff':''})}],
+  ['.mini',()=>go('s6')],
+ ]};
+</script>
+<style>
+body.proto{display:grid;grid-template-columns:auto minmax(0,320px);gap:36px;align-items:start;justify-content:center;min-height:100vh;padding:32px 20px}
+body.proto .phone{display:none}
+body.proto .phone.cur{display:block}
+body.proto #P{display:none}
+.pnav{display:grid;gap:14px;font-family:'Pretendard Variable',Pretendard,sans-serif;color:#2b2118}
+.pnav h1{font:800 22px/1.3 'Pretendard Variable',Pretendard,sans-serif;letter-spacing:-.02em}
+.pnav p{font-size:13px;line-height:1.6;color:#6b5a48}
+.pnav .list{display:grid;gap:2px}
+.pnav button{all:unset;cursor:pointer;display:flex;gap:10px;padding:10px 8px;border-radius:10px;font-size:14px}
+.pnav button span{width:20px;color:#a8977f;font-variant-numeric:tabular-nums}
+.pnav button:hover{background:rgba(0,0,0,.05)}
+.pnav button.on{background:#fff;font-weight:700;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.ptoast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#2b2118;color:#fff;font:600 13px 'Pretendard Variable',sans-serif;padding:10px 16px;border-radius:999px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:99}
+.ptoast.on{opacity:1}
+.phone [data-go],.phone .tab,.phone .tabs span,.phone .pick,.phone .link{cursor:pointer}
+@media (max-width:760px){body.proto{grid-template-columns:1fr;justify-items:center}}
+</style>
+<script>
+(function(){
+ const C=window.PROTO;
+ document.body.classList.add('proto');
+ const nav=document.createElement('div');nav.className='pnav';
+ nav.innerHTML=`<h1>${C.title}</h1><p>${C.desc}</p><div class="list">${C.screens.map(([id,l],i)=>`<button data-id="${id}"><span>${i+1}</span>${l}</button>`).join('')}</div><p>폰 화면을 직접 눌러 보세요. 시안이라 일부 버튼은 안내만 떠요.</p>`;
+ document.body.appendChild(nav);
+ const toast=document.createElement('div');toast.className='ptoast';document.body.appendChild(toast);
+ window.ptoast=t=>{toast.textContent=t;toast.classList.add('on');clearTimeout(toast._t);toast._t=setTimeout(()=>toast.classList.remove('on'),1800)};
+ window.go=id=>{document.querySelectorAll('.phone').forEach(p=>p.classList.toggle('cur',p.id===id));nav.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.id===id));};
+ nav.addEventListener('click',e=>{const b=e.target.closest('button[data-id]');if(b)go(b.dataset.id)});
+ document.addEventListener('click',e=>{
+  const ph=e.target.closest('.phone');if(!ph)return;
+  for(const [sel,act] of C.rules){const el=e.target.closest(sel);if(el&&ph.contains(el)){const r=act(el,ph);if(r!==false)return;}}
+ });
+ go(C.screens[0][0]);
+})();
+</script></body></html>

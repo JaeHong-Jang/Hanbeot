@@ -1,0 +1,40 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  vertical-align: middle;
+}
+.word {
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--color-text);
+}
+.mark {
+  display: block;
+  flex-shrink: 0;
+}
+.flap {
+  fill: none;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.brand .tile {
+  fill: var(--color-primary);
+}
+.brand .bubble {
+  fill: #fff;
+}
+.brand .flap {
+  stroke: var(--color-primary);
+}
+.inverse .tile {
+  fill: #fff;
+}
+.inverse .bubble {
+  fill: var(--color-primary);
+}
+.inverse .flap {
+  stroke: #fff;
+}

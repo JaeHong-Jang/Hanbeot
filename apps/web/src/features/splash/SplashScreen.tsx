@@ -1,117 +1,51 @@
 import { useEffect, useRef, useState } from 'react';
 
-import { InkBrush } from './InkBrush';
 import styles from './SplashScreen.module.css';
 import { splashStrings as s } from './strings';
-import { useWritingAnimation } from './useWritingAnimation';
 
-import { BrushStroke, LETTERING, SLANT_TRANSFORM } from '@/shared/ui';
+import { LOGO_BUBBLE, LOGO_FLAP } from '@/shared/ui';
 
-const TAGLINE_MS = 1900; // 한 줄 소개를 읽을 시간
-const LEAVE_MS = 450;
+const SHOW_MS = 1800; // 로고가 뜨고 한 줄 소개를 읽을 시간
+const LEAVE_MS = 350;
 
-type Phase = 'writing' | 'tagline' | 'leaving';
-const PHASE_CLASS: Record<Phase, string | undefined> = {
-  writing: styles.phaseWriting,
-  tagline: styles.phaseTagline,
-  leaving: styles.phaseLeaving,
-};
-
-/** 시작 화면. 붓이 "한벗"을 흘려 쓰고, 한 줄 소개가 따라 써진 뒤 넘어간다. 누르면 건너뛴다. */
+/**
+ * 시작 화면. 브랜드 색 바탕에 말풍선 봉투가 떠오르고, 봉투 덮개가 닫히면 이름과 한 줄 소개가 뜬다.
+ * 2초 안에 넘어가고, 누르면 바로 건너뛴다. 움직임 줄이기 설정이면 움직이지 않는다.
+ */
 export function SplashScreen({ onDone }: { onDone: () => void }) {
-  const [phase, setPhase] = useState<Phase>('writing');
+  const [leaving, setLeaving] = useState(false);
   const finishedRef = useRef(false);
-  const { strokeRefs, penRef } = useWritingAnimation(() => setPhase('tagline'));
 
   const finish = () => {
     if (finishedRef.current) return;
     finishedRef.current = true;
-    setPhase('leaving');
+    setLeaving(true);
     window.setTimeout(onDone, LEAVE_MS);
   };
   const finishRef = useRef(finish);
   finishRef.current = finish;
 
   useEffect(() => {
-    if (phase !== 'tagline') return;
-    const id = window.setTimeout(() => finishRef.current(), TAGLINE_MS);
+    const id = window.setTimeout(() => finishRef.current(), SHOW_MS);
     return () => window.clearTimeout(id);
-  }, [phase]);
+  }, []);
 
   return (
     <button
       type="button"
-      className={`${styles.splash} ${PHASE_CLASS[phase]}`}
+      className={`${styles.splash} ${leaving ? styles.leaving : ''}`}
       onClick={finish}
       aria-label={s.skipLabel}
     >
-      <span className={styles.paper}>
-        <svg
-          className={styles.logo}
-          viewBox={`-22 -34 ${LETTERING.width + 44} ${LETTERING.height + 68}`}
-          role="img"
-          aria-label={s.logoLabel}
-        >
-          <defs>
-            {/* 먹 번짐: 획 가장자리를 크게 한 번, 잘게 한 번 흔들어 붓털 자국처럼 거칠게 만든다 */}
-            <filter id="brush-ink" x="-10%" y="-20%" width="120%" height="140%">
-              <feTurbulence
-                type="fractalNoise"
-                baseFrequency="0.035"
-                numOctaves="2"
-                seed="7"
-                result="wash"
-              />
-              <feDisplacementMap
-                in="SourceGraphic"
-                in2="wash"
-                scale="3.2"
-                xChannelSelector="R"
-                yChannelSelector="G"
-                result="soft"
-              />
-              <feTurbulence
-                type="fractalNoise"
-                baseFrequency="0.7"
-                numOctaves="1"
-                seed="3"
-                result="grain"
-              />
-              <feDisplacementMap
-                in="soft"
-                in2="grain"
-                scale="1.6"
-                xChannelSelector="G"
-                yChannelSelector="R"
-              />
-            </filter>
-          </defs>
-          <g transform={SLANT_TRANSFORM} filter="url(#brush-ink)">
-            {LETTERING.strokes.map((stroke, order) => (
-              <BrushStroke
-                key={stroke.d}
-                stroke={stroke}
-                animated
-                groupRef={(el) => {
-                  strokeRefs.current[order] = el;
-                }}
-              />
-            ))}
-          </g>
-          <g ref={penRef} className={styles.pen}>
-            <InkBrush />
-          </g>
+      <span className={styles.center}>
+        <svg className={styles.mark} viewBox="0 0 48 48" role="img" aria-label={s.logoLabel}>
+          <rect className={styles.tile} width="48" height="48" rx="13" />
+          <path className={styles.bubble} d={LOGO_BUBBLE} />
+          <path className={styles.flap} d={LOGO_FLAP} pathLength={1} />
         </svg>
-        <span className={styles.caption}>
-          {phase === 'writing' ? null : (
-            <>
-              <span className={styles.line}>{s.tagline}</span>
-              <span className={`${styles.line} ${styles.sub}`}>{s.sub}</span>
-            </>
-          )}
-        </span>
+        <span className={styles.word}>{s.logoLabel}</span>
+        <span className={styles.tagline}>{s.tagline}</span>
       </span>
-      <span className={styles.skip}>{s.skip}</span>
     </button>
   );
 }

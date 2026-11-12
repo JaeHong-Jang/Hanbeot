@@ -1,5 +1,7 @@
 export const onboardingStrings = {
-  title: '시작하기',
+  title: '시작하기 전에\n알려 드릴게요',
+  lead: '한벗은 말로 털어놓으면 들어 주고, 오늘 이야기를 편지로 남겨 주는 AI 친구예요.',
+  needBasic: '필수 동의를 켜야 시작할 수 있어요.',
   next: '다음',
   consentTitle: '동의',
   basic: {

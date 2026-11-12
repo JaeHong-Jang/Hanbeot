@@ -1,39 +1,69 @@
-/* 색인 카드 한 장. 기억은 같은 종류가 여러 개 모인 목록이라 카드로 둔다. */
 .row {
   display: grid;
   gap: var(--space-2);
-  justify-items: start;
-  padding: var(--space-3) var(--space-4);
-  border-radius: var(--radius);
-  background-color: var(--color-surface);
-  box-shadow: var(--shadow-paper);
+  padding: var(--space-4) 0 var(--space-3);
+  border-bottom: 1px solid var(--color-rule);
+}
+.row:last-child {
+  border-bottom: 0;
 }
 .text {
-  font-size: var(--text-md);
+  font-size: 16px;
+  line-height: 1.55;
   /* 띄어쓰기 없는 긴 글(주소 등)도 카드 밖으로 나가지 않게 */
   overflow-wrap: anywhere;
 }
-.edit {
+.meta {
   display: flex;
-  gap: var(--space-2);
   align-items: center;
-  width: 100%;
+  gap: var(--space-2);
 }
-.input {
-  flex: 1;
-  min-width: 0;
-  min-height: var(--tap-min);
-  padding: 0 var(--space-2);
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  background: #fffdf8;
+.when {
+  color: var(--color-muted);
+  font-size: var(--text-xs);
 }
 .actions {
   display: flex;
-  gap: var(--space-2);
-  justify-self: end;
+  margin-left: auto;
 }
-.actions button {
-  padding: 0 var(--space-4);
-  font-size: var(--text-sm);
+.iconBtn {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 10px;
+  background: none;
+  color: var(--color-muted);
+  cursor: pointer;
+}
+.iconBtn:active {
+  background: var(--color-bg-deep);
+}
+@media (hover: hover) and (pointer: fine) {
+  .iconBtn:hover {
+    background: var(--color-bg-deep);
+    color: var(--color-text);
+  }
+}
+.edit {
+  display: grid;
+  gap: var(--space-2);
+}
+.input {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 var(--space-3);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+.input:focus {
+  border-color: var(--color-text);
+  outline: none;
+}
+.editActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-1);
 }

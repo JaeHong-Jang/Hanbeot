@@ -1,59 +1,41 @@
-/* 카드로 감싸지 않고 편지지의 줄 위에 바로 적는다 */
 .note {
-  margin-top: var(--space-5);
-}
-.note h2 {
-  padding-bottom: var(--space-1);
-  border-bottom: 1px solid var(--color-rule);
-}
-.line {
   display: flex;
-  align-items: center;
-  width: 100%;
-  min-height: 46px;
-  padding: 0 var(--space-3);
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: 0 var(--space-1);
+}
+.title {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-sub);
+}
+.seg {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  padding: 3px;
+  border-radius: var(--radius);
+  background: var(--color-bg-deep);
+}
+.option {
+  min-height: 40px;
   border: 0;
-  border-bottom: 1px solid var(--color-rule);
-  background: none;
-  text-align: left;
-  cursor: pointer;
-}
-.label {
-  position: relative;
-  font-size: var(--text-lg);
+  border-radius: 9px;
+  background: transparent;
   color: var(--color-muted);
-  transition: color var(--dur-ui) ease;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color var(--dur-ui) ease,
+    color var(--dur-ui) ease;
 }
-.line[aria-checked='true'] .label {
-  color: var(--color-primary);
-}
-.circle {
-  position: absolute;
-  left: -14px;
-  top: -5px;
-  width: calc(100% + 28px);
-  height: calc(100% + 10px);
-  overflow: visible;
-  pointer-events: none;
-}
-/* 고르는 순간 붓으로 동그라미를 친다. 사용자의 동작에 답하는 움직임이다. */
-.circle path {
-  fill: none;
-  stroke: var(--color-primary);
-  stroke-width: 2.4;
-  stroke-linecap: round;
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  animation: draw 280ms var(--ease-out) forwards;
-}
-@keyframes draw {
-  to {
-    stroke-dashoffset: 0;
-  }
+.option[aria-checked='true'] {
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: 0 1px 3px rgba(40, 28, 18, 0.1);
 }
 .desc {
-  min-height: 32px;
-  padding: var(--space-2) var(--space-3) 0;
   color: var(--color-muted);
   font-size: var(--text-sm);
 }

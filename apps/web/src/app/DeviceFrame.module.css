@@ -19,8 +19,10 @@
   border-radius: 62px;
   isolation: isolate;
   background-color: var(--color-bg);
+  /* 종이 결 + 위쪽에서 번지는 스탠드 불빛 + 아래로 갈수록 살짝 짙어지는 책상 그늘 */
   background-image:
-    var(--noise), linear-gradient(180deg, #f6ecdb 0%, var(--color-bg) 40%, #efdfc6 100%);
+    var(--noise), radial-gradient(120% 55% at 78% -6%, var(--color-glow), transparent 62%),
+    linear-gradient(180deg, #f7eedf 0%, var(--color-bg) 45%, #ecdfc9 100%);
   box-shadow:
     0 0 0 11px #120c0a,
     0 0 0 13px #4a3a31,

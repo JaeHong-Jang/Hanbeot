@@ -1,0 +1,35 @@
+.week {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+.icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-bg-deep);
+  color: var(--color-sub);
+}
+.title {
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+.title strong {
+  display: block;
+  color: var(--color-text);
+  font-size: 16px;
+  font-weight: 700;
+}
+.note {
+  margin-top: 2px;
+  color: var(--color-muted);
+  font-size: var(--text-xs);
+}

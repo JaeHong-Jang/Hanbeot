@@ -1,59 +1,76 @@
 /* 디자인 토큰은 이 파일 한 곳에만 둔다.
-   콘셉트: 스탠드 불빛 아래 편지지에 손으로 쓴 글. 종이 · 먹과 세피아 잉크 · 와인색 봉랍. */
+   콘셉트: 오두막 책상 위의 비밀 편지. 밝은 편지지 바탕에 스탠드 불빛이 번지고,
+   카드는 종이와 봉투, 포인트는 봉랍 빨강. 구조(하단 탭, 큰 버튼, 4px 간격)는 운영 앱 문법을 따른다.
+   글자: 버튼·설명은 고딕(읽기 쉬움), 제목·편지는 명조, 하늘이 말은 손글씨. */
 :root {
   /* 색 */
-  --color-bg: #f3e7d3; /* 편지지 */
-  --color-bg-deep: #ecdcc3;
-  --color-surface: #fbf5ea; /* 카드로 쓰는 밝은 종이 */
-  --color-text: #2f2019; /* 세피아 잉크 */
-  --color-ink: #1d1613; /* 붓글씨 먹색 */
-  --color-muted: #6f5847; /* 연한 잉크. 종이 위 대비 4.5:1 이상 */
-  --color-border: #dcc8ab;
-  --color-rule: rgba(160, 120, 80, 0.18); /* 줄노트 선 */
-  --color-primary: #7a2e3b; /* 와인색 봉랍 */
-  --color-primary-strong: #5f2230;
-  --color-primary-soft: rgba(122, 46, 59, 0.1);
-  --color-on-primary: #fff6ec;
-  --color-danger: #a8322a;
-  --color-ok: #4f8a52;
+  --color-bg: #f4ebdc; /* 편지지 바탕 */
+  --color-bg-deep: #eadfcc; /* 눌린 칸, 세그먼트 바탕 */
+  --color-surface: #fffbf3; /* 카드: 새 편지지 */
+  --color-paper: #fff8ec; /* 편지 본문 */
+  --color-envelope: #f1e2c8; /* 봉투 */
+  --color-glow: rgba(255, 190, 110, 0.32); /* 스탠드 불빛 */
+  --color-text: #2b2118; /* 제목, 본문 */
+  --color-ink: #2a2019; /* 편지 글씨 */
+  --color-sub: #54463a; /* 보조 본문 */
+  --color-muted: #725f4c; /* 설명, 날짜. 바탕 위 대비 4.5:1 이상 */
+  --color-faint: #a8977f; /* 비활성 */
+  --color-border: #e2d4be;
+  --color-rule: #ebdfcb; /* 목록 구분선 */
+  --color-primary: #b23a2e; /* 봉랍 빨강: 주요 버튼, 선택 */
+  --color-primary-strong: #922c22;
+  --color-primary-soft: #f5e0d8;
+  --color-on-primary: #ffffff;
+  --color-danger: #b23a2e;
+  --color-ok: #2f8a4f;
+  --color-ok-soft: #e7f4ea;
+  --color-friend: #7a4b2a; /* 친구 서명 손글씨 */
   --color-night: #241812; /* 통화 화면 바탕 */
   --color-on-night: #fff3e4;
-  --color-night-surface: #3a2a21; /* 통화 화면 위의 말풍선·버튼 바탕. 반투명 유리 효과는 쓰지 않는다 */
+  --color-night-surface: #3a2a21;
   --color-night-line: rgba(255, 236, 214, 0.16);
 
-  /* 간격 */
+  /* 간격: 4px 단위 */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
   --space-4: 16px;
-  --space-5: 24px;
+  --space-5: 20px;
   --space-6: 32px;
+  --gutter: 20px; /* 화면 좌우 여백 */
 
-  /* 모양 */
-  /* 모서리는 요소마다 다르게: 입력 6, 카드 10, 말풍선 14, 버튼은 알약 */
-  --radius: 10px;
-  --radius-sm: 6px;
+  /* 모양: 위계에 따라 다르게 */
+  --radius-sm: 8px; /* 칩, 입력 */
+  --radius: 12px; /* 버튼 */
+  --radius-lg: 16px; /* 카드 */
   --radius-pill: 999px;
-  --shadow-paper: 0 1px 0 var(--color-border), 0 10px 22px rgba(90, 60, 30, 0.1);
-  --tap-min: 44px; /* 손가락으로 누르는 것의 최소 크기 */
+  --shadow-card: 0 1px 2px rgba(70, 45, 20, 0.06), 0 6px 18px rgba(70, 45, 20, 0.07);
+  --shadow-paper: 0 2px 6px rgba(70, 50, 30, 0.06), 0 12px 28px rgba(70, 50, 30, 0.08);
+  --tap-min: 44px;
+  --button-h: 54px;
 
-  /* 글자: 화면 전체를 펜 글씨 한 가지로 쓴다. 획이 가늘어 보여서 크기를 넉넉히 잡는다. */
-  --font-body: 'Nanum Pen Script', 'Gaegu', 'Apple SD Gothic Neo', 'Malgun Gothic', cursive;
-  --font-ui:
-    system-ui, -apple-system, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; /* 시계 숫자 등 */
-  --text-xs: 17px;
-  --text-sm: 19px;
-  --text-md: 22px;
-  --text-lg: 27px;
-  --text-xl: 34px;
-  --text-2xl: 44px;
+  /* 글자 */
+  --font-body:
+    'Pretendard Variable', Pretendard, -apple-system, 'Apple SD Gothic Neo', 'Malgun Gothic',
+    sans-serif;
+  --font-ui: var(--font-body);
+  --font-letter: 'Gowun Batang', 'Nanum Myeongjo', 'AppleMyungjo', serif; /* 편지 본문 */
+  --font-display: var(--font-letter); /* 화면 제목 */
+  --font-hand: 'Hi Melody', cursive; /* 하늘이 말, 서명 */
+  --text-xs: 12px;
+  --text-sm: 13px;
+  --text-base: 15px;
+  --text-md: 17px;
+  --text-lg: 20px;
+  --text-xl: 24px;
+  --text-2xl: 28px;
 
-  /* 움직임: 들어오고 나갈 때는 강한 ease-out, 누름 반응은 160ms, 화면 요소는 300ms 안쪽 */
+  /* 움직임 */
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
   --ease-sheet: cubic-bezier(0.32, 0.72, 0, 1);
   --dur-press: 160ms;
-  --dur-ui: 240ms;
+  --dur-ui: 220ms;
   --dur-sheet: 320ms;
 
   --noise: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .42 0 0 0 0 .3 0 0 0 0 .18 0 0 0 .09 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");

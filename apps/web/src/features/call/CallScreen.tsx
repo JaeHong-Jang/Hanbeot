@@ -24,8 +24,8 @@ type Props = {
   friend?: Friend;
   /** 연결되면 이 모드로 시작한다(홈에서 고른 방식). */
   initialMode?: CallMode;
-  /** 통화가 끝났을 때(요약 화면으로 넘어갈 때). */
-  onEnded?: () => void;
+  /** 통화가 끝났을 때(요약 화면으로 넘어갈 때). 통화한 시간(초)을 함께 준다. */
+  onEnded?: (elapsedSec: number) => void;
   /** 통화 전에 화면을 닫을 때. */
   onClose?: () => void;
 };
@@ -72,8 +72,10 @@ export function CallScreen({
 
   const onEndedRef = useRef(onEnded);
   onEndedRef.current = onEnded;
+  const elapsedRef = useRef(elapsedSec);
+  elapsedRef.current = elapsedSec;
   useEffect(() => {
-    if (state.status === 'ended') onEndedRef.current?.();
+    if (state.status === 'ended') onEndedRef.current?.(elapsedRef.current);
   }, [state.status]);
 
   const togglePanel = (next: Panel) => setPanel((current) => (current === next ? 'none' : next));
