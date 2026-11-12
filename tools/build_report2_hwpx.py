@@ -231,8 +231,12 @@ def build(template: Path, out_dir: Path) -> Path:
     images: list[tuple[str, Path]] = []
     for idx, blk in enumerate(C.T):
         kind = blk[0]
+        prev_kind = C.T[idx - 1][0] if idx else "start"
         next_kind = C.T[idx + 1][0] if idx + 1 < len(C.T) else "end"
         next_is_heading = next_kind in ("h1", "h2", "h3")
+        # 1차 보고서처럼 항목 사이를 띄운다: 중제목 앞(대제목 바로 뒤 제외), 소제목 앞(중제목 바로 뒤 제외), ■ 앞(소제목 바로 뒤 제외)
+        if (kind == "h2" and prev_kind != "h1") or (kind == "h3" and prev_kind != "h2") or (kind == "sq" and prev_kind != "h3"):
+            body.append(empty(57, 74))
         if kind == "h1":
             body.append(para(blk[1], 66, 82, page_break=first_h1))
             first_h1 = False
