@@ -1,65 +1,100 @@
-/* 브랜드 색 바탕 + 가운데 로고. 움직임은 한 번의 순서(떠오르기 → 덮개 닫힘 → 이름)만 둔다. */
+/* 거실 그림 + 걷히는 어둠 + 아래쪽 이름. 움직임은 한 번의 순서(불 켜짐 → 로고 → 이름)만 둔다. */
 .splash {
   position: absolute;
   inset: 0;
   z-index: 50;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
   border: 0;
   padding: 0;
-  background: var(--color-primary);
+  background: #14100c;
   color: #fff;
   cursor: pointer;
-  transition: opacity 350ms var(--ease-out);
+  transition: opacity 400ms var(--ease-out);
 }
 .leaving {
   opacity: 0;
   pointer-events: none;
 }
+.room {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%;
+  animation: settle 1600ms var(--ease-out) both;
+}
+/* 처음엔 거의 깜깜했다가 스탠드가 켜지듯 밝아진다. 아래쪽은 글씨가 읽히도록 남는다. */
+.dark {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 40% at 74% 24%, rgba(255, 200, 120, 0.22), transparent 70%),
+    linear-gradient(rgba(16, 11, 8, 0.15) 30%, rgba(16, 11, 8, 0.82) 82%);
+}
+.dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #0e0a07;
+  animation: lightsOn 900ms 150ms var(--ease-out) forwards;
+}
 .center {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(96px + var(--safe-bottom));
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: -48px;
 }
 .mark {
-  width: 92px;
-  height: 92px;
-  filter: drop-shadow(0 10px 24px rgba(90, 20, 12, 0.28));
-  animation: pop 520ms var(--ease-out) both;
+  width: 76px;
+  height: 76px;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.35));
+  animation: pop 520ms 700ms var(--ease-out) both;
 }
 .tile {
-  fill: #fff;
+  fill: var(--color-primary);
 }
 .bubble {
-  fill: var(--color-primary);
+  fill: #fff;
 }
 /* 봉투 덮개가 왼쪽에서 오른쪽으로 그어지며 닫힌다 */
 .flap {
   fill: none;
-  stroke: #fff;
+  stroke: var(--color-primary);
   stroke-width: 2.6;
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  animation: draw 420ms 360ms var(--ease-in-out) forwards;
+  animation: draw 420ms 1000ms var(--ease-in-out) forwards;
 }
 .word {
-  margin-top: 20px;
+  margin-top: 16px;
   font-size: 34px;
   font-weight: 800;
   letter-spacing: -0.04em;
   line-height: 1;
-  animation: rise 420ms 620ms var(--ease-out) both;
+  animation: rise 420ms 1100ms var(--ease-out) both;
 }
 .tagline {
   margin-top: 10px;
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(255, 255, 255, 0.86);
   font-size: var(--text-base);
   font-weight: 500;
-  animation: rise 420ms 760ms var(--ease-out) both;
+  animation: rise 420ms 1220ms var(--ease-out) both;
+}
+@keyframes lightsOn {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes settle {
+  from {
+    transform: scale(1.06);
+  }
 }
 @keyframes pop {
   from {
@@ -79,6 +114,9 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .dark::before {
+    opacity: 0;
+  }
   .flap {
     stroke-dashoffset: 0;
   }

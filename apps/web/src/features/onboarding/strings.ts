@@ -1,7 +1,10 @@
 export const onboardingStrings = {
-  title: '시작하기 전에\n알려 드릴게요',
-  lead: '한벗은 말로 털어놓으면 들어 주고, 오늘 이야기를 편지로 남겨 주는 AI 친구예요.',
-  needBasic: '필수 동의를 켜야 시작할 수 있어요.',
+  title: '하늘이네 집에\n들어가기 전에',
+  lead: '한벗은 말로 털어놓으면 끝까지 들어 주고, 오늘 이야기를 편지로 남겨 주는 AI 친구예요. 들어가기 전에 몇 가지만 확인해 주세요.',
+  sayFrom: '현관에서 기다리는 중',
+  say: '어서 와! 들어오기 전에 몇 가지만 알려 줄게.',
+  knowTitle: '꼭 알아 두세요',
+  needBasic: '필수 동의를 켜야 들어갈 수 있어요.',
   next: '다음',
   consentTitle: '동의',
   basic: {
@@ -18,5 +21,5 @@ export const onboardingStrings = {
   },
   allowedTitle: '지금 설정으로 쓸 수 있는 기능',
   noneAllowed: '필수 동의가 없으면 이용할 수 없어요. 109 번호와 고지문만 볼 수 있어요.',
-  start: '한벗 만나러 가기',
+  start: '하늘이네 집 들어가기',
 } as const;

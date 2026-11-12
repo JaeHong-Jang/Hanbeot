@@ -1,27 +1,27 @@
 /* 디자인 토큰은 이 파일 한 곳에만 둔다.
-   콘셉트: 오두막 책상 위의 비밀 편지. 밝은 편지지 바탕에 스탠드 불빛이 번지고,
-   카드는 종이와 봉투, 포인트는 봉랍 빨강. 구조(하단 탭, 큰 버튼, 4px 간격)는 운영 앱 문법을 따른다.
-   글자: 버튼·설명은 고딕(읽기 쉬움), 제목·편지는 명조, 하늘이 말은 손글씨. */
+   콘셉트: 하늘이네 집. 따뜻한 아파트 거실에 놀러 가서 이야기하는 느낌.
+   바탕은 밝은 벽지, 포인트는 소파 초록, 도움·위험은 빨강. 구조(하단 탭, 큰 버튼, 4px 간격)는 운영 앱 문법을 따른다.
+   글자: 화면은 고딕, 편지 본문은 명조, 하늘이 말은 손글씨. */
 :root {
   /* 색 */
-  --color-bg: #f4ebdc; /* 편지지 바탕 */
-  --color-bg-deep: #eadfcc; /* 눌린 칸, 세그먼트 바탕 */
-  --color-surface: #fffbf3; /* 카드: 새 편지지 */
+  --color-bg: #f7f4ef; /* 벽지 */
+  --color-bg-deep: #efeae2; /* 눌린 칸, 세그먼트 바탕 */
+  --color-surface: #ffffff; /* 카드 */
   --color-paper: #fff8ec; /* 편지 본문 */
   --color-envelope: #f1e2c8; /* 봉투 */
   --color-glow: rgba(255, 190, 110, 0.32); /* 스탠드 불빛 */
-  --color-text: #2b2118; /* 제목, 본문 */
+  --color-text: #1f1b17; /* 제목, 본문 */
   --color-ink: #2a2019; /* 편지 글씨 */
-  --color-sub: #54463a; /* 보조 본문 */
-  --color-muted: #725f4c; /* 설명, 날짜. 바탕 위 대비 4.5:1 이상 */
-  --color-faint: #a8977f; /* 비활성 */
-  --color-border: #e2d4be;
-  --color-rule: #ebdfcb; /* 목록 구분선 */
-  --color-primary: #b23a2e; /* 봉랍 빨강: 주요 버튼, 선택 */
-  --color-primary-strong: #922c22;
-  --color-primary-soft: #f5e0d8;
+  --color-sub: #4f4840; /* 보조 본문 */
+  --color-muted: #6f665b; /* 설명, 날짜. 바탕 위 대비 4.5:1 이상 */
+  --color-faint: #aaa196; /* 비활성 */
+  --color-border: #e7e0d5;
+  --color-rule: #efe9df; /* 목록 구분선 */
+  --color-primary: #4e5b3f; /* 소파 초록: 주요 버튼, 선택 */
+  --color-primary-strong: #3c4730;
+  --color-primary-soft: #e9eddf;
   --color-on-primary: #ffffff;
-  --color-danger: #b23a2e;
+  --color-danger: #c93a2b; /* 도움 받기, 삭제 */
   --color-ok: #2f8a4f;
   --color-ok-soft: #e7f4ea;
   --color-friend: #7a4b2a; /* 친구 서명 손글씨 */
@@ -55,7 +55,7 @@
     sans-serif;
   --font-ui: var(--font-body);
   --font-letter: 'Gowun Batang', 'Nanum Myeongjo', 'AppleMyungjo', serif; /* 편지 본문 */
-  --font-display: var(--font-letter); /* 화면 제목 */
+  --font-display: var(--font-body); /* 화면 제목 */
   --font-hand: 'Hi Melody', cursive; /* 하늘이 말, 서명 */
   --text-xs: 12px;
   --text-sm: 13px;
