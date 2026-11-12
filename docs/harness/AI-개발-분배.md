@@ -45,7 +45,7 @@ domain 규칙(`apps/api/app/domain/`)을 바꿀 때는 ⑤ 앞에 테스터(`REV
 | 영역 | 주 담당 | AI가 바꿀 때 조건 |
 |---|---|---|
 | `apps/web` 디자인 (home, splash, `shared/ui`, `tokens.css`) | hayun-0 | 사람이 준 시안이 있을 때만. 토큰 규칙과 다르면 커밋 메시지에 적고 알린다 |
-| `apps/web` 기능 화면 (call, memory, settings, summary, crisis) | 지휘자 + 구현자 | P0 수용 기준 유지 확인, 스크린샷 |
+| `apps/web` 기능 화면 (call, memory, settings, summary, crisis) | 지휘자 + 구현자 | P0 수용 기준 유지 확인, 스크린샷, `frontend-design` 스킬 적용 + 리뷰에서 AI 티 점검 |
 | `apps/api/app/domain/` | 구현자 | 테스터 반례 + 리뷰어 2명(codex, gemini) 필수. 표 하나 = 함수 하나 = 테스트 하나 |
 | `apps/api` pipeline·services | 구현자 | 외부 키는 `.env`만, 실제 호출 테스트는 사람이 실행 |
 | P0 안전·법적 요구 파일: 위기(`keyword_gate`, `risk_tag_parser`, `features/crisis`), 동의(`api/consents`, `onboarding`, `settings`), 기억 격리·삭제(`db/`, `workers/deletion`, `infra/db/migrations`), 음성 폐기(`ser_emotion2vec`), AI 고지(`shared/strings/disclosure.ts`) | 지휘자 + 구현자 | 리뷰어 2명(codex, gemini) 필수 |
