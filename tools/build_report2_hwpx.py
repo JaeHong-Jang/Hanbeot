@@ -94,7 +94,7 @@ def table_xml(header: list[str], rows: list[list[str]], widths: list[float] | No
 CAPTION_LINE_H = 1250  # 캡션(9.5pt, 줄간격 125%) 한 줄 높이(HWPUNIT)
 
 
-SPLIT_MIN_ROWS = 9  # 이 행 수 이상이면 쪽 경계에서 나뉘는 표로 만든다
+SPLIT_MIN_ROWS = 7  # 이 행 수 이상이면 쪽 경계에서 나뉘는 표로 만든다
 
 
 def table_para(caption: str, header, rows, widths, **kw) -> str:
@@ -171,7 +171,7 @@ def footer_ctrl() -> str:
 
 
 def build_md() -> str:
-    lines = [f"# {C.TITLE}", "", f"{C.SUBTITLE[0]} {C.SUBTITLE[1]} · {C.TEAM} · {C.DATE}", ""]
+    lines = [f"# {C.TITLE}", "", f"{C.SUBTITLE[0]} {C.SUBTITLE[1]}, {', '.join(C.AFFIL)}, {C.DATE}", ""]
     h1_no = 0
     for blk in C.T:
         kind = blk[0]
@@ -220,11 +220,12 @@ def build(template: Path, out_dir: Path) -> Path:
     body.append(cover_box([C.TITLE], 51, 3, 2600))
     body.append(empty())
     body.append(cover_box(list(C.SUBTITLE), 49, 15, 9000))
-    for _ in range(16):
+    for _ in range(15):
         body.append(empty())
     body.append(para(C.DATE, 57, 50))
-    body.append(empty())
-    body.append(para(C.TEAM, 57, 58))
+    for line in C.AFFIL:  # 1차 보고서 표지: 날짜 아래 학과, 이름
+        body.append(empty())
+        body.append(para(line, 57, 58))
     # ---- 본문 ----
     first_h1 = True
     images: list[tuple[str, Path]] = []
