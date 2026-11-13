@@ -7,14 +7,24 @@ import { PREF_KEYS, useLocalPref } from '@/shared/hooks/useLocalPref';
 
 /** 단계마다 강조할 자리. 소파·냉장고는 거실 그림 기준, 도움 받기는 화면 오른쪽 위. */
 const RINGS: readonly CSSProperties[] = [
-  { left: '50cqw', top: 'calc(100cqw * 1.2497 * 0.8 - 24px)', width: 190, height: 54 },
+  {
+    left: '50cqw',
+    top: 'calc(var(--safe-top) + 74px + 100cqw * 1.2497 * 0.8 - 24px)',
+    width: 190,
+    height: 54,
+  },
   {
     left: 'calc(92cqw - 46px)',
-    top: 'calc(100cqw * 1.2497 * 0.31 - 22px)',
+    top: 'calc(var(--safe-top) + 74px + 100cqw * 1.2497 * 0.31 - 22px)',
     width: 130,
     height: 50,
   },
-  { left: 'calc(100cqw - 70px)', top: 'calc(var(--safe-top) + 16px)', width: 124, height: 50 },
+  {
+    left: 'calc(100cqw - 70px)',
+    top: 'calc(var(--safe-top) + 74px + 30px)',
+    width: 124,
+    height: 50,
+  },
 ];
 
 /** 하늘이네 집에 처음 들어왔을 때 한 번만 보여 주는 세 단계 안내. */

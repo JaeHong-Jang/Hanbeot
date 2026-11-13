@@ -7,6 +7,15 @@ export const houseStrings = {
   help: '도움 받기',
   // 거실
   livingTitle: (friendName: string) => `${josa(friendName, '이네', '네')} 거실`,
+  placeTitle: (friendName: string, place: string) => `${josa(friendName, '이네', '네')} ${place}`,
+  friendLabel: '지금 이야기할 친구',
+  places: {
+    haneul: { name: '거실', call: '소파에서 통화', alt: '하늘이 머무는 올리브 소파가 있는 거실' },
+    doyun: { name: '창가', call: '창가에서 통화', alt: '도윤이 머무는 책과 조명이 놓인 창가 책상' },
+    jiwoo: { name: '주방', call: '주방에서 통화', alt: '지우가 머무는 과일과 머그가 놓인 주방' },
+    seoyun: { name: '베란다', call: '베란다에서 통화', alt: '서윤이 머무는 저녁빛 베란다' },
+  },
+  replayIntro: '처음 이야기 다시 보기',
   doing: {
     morning: '창가에서 커피 내리는 중',
     evening: '저녁 준비하다 잠깐 쉬는 중',

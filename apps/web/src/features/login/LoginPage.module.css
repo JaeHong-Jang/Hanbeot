@@ -1,0 +1,203 @@
+/* 로그인: 닫힌 현관문 사이로 거실 불빛이 새어 나오고, 이름을 말하면 문이 열린다 */
+.page {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #110d0a;
+  color: #fff6ea;
+}
+.room {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 40%;
+  transform: scale(1.04);
+  transition: transform 1600ms var(--ease-out);
+}
+.opening .room {
+  transform: scale(1);
+}
+/* 문짝 두 개: 문틈으로 거실이 보일 만큼 벌어져 있다가 열린다 */
+.doorLeft,
+.doorRight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 45%;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.18),
+      transparent 12%,
+      transparent 88%,
+      rgba(0, 0, 0, 0.22)
+    ),
+    linear-gradient(180deg, #4b3627, #3f2c20);
+  /* 문판 홈 두 개 */
+  box-shadow:
+    inset 0 0 0 10px #46311f,
+    inset 0 0 0 13px rgba(0, 0, 0, 0.25),
+    inset 0 0 60px rgba(0, 0, 0, 0.3);
+  transition: transform 1400ms var(--ease-in-out);
+}
+.doorLeft {
+  left: 0;
+  transform-origin: left;
+}
+.doorLeft::after {
+  /* 손잡이 */
+  content: '';
+  position: absolute;
+  right: 18px;
+  top: 52%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #e8c98f, #8a6a3c);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+.doorRight {
+  right: 0;
+  transform-origin: right;
+}
+.opening .doorLeft {
+  transform: perspective(900px) rotateY(-80deg);
+}
+.opening .doorRight {
+  transform: perspective(900px) rotateY(80deg);
+}
+.gapLight {
+  position: absolute;
+  left: 45%;
+  right: 45%;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 214, 150, 0.35),
+    rgba(255, 214, 150, 0) 30%,
+    rgba(255, 214, 150, 0) 70%,
+    rgba(255, 214, 150, 0.35)
+  );
+  box-shadow: 0 0 40px 10px rgba(255, 200, 130, 0.25);
+  transition: opacity 600ms;
+}
+.opening .gapLight {
+  opacity: 0;
+}
+
+.talk {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  top: calc(var(--safe-top) + 72px);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.ask {
+  align-self: flex-start;
+  max-width: 82%;
+  padding: 12px 15px;
+  border-radius: 18px 18px 18px 4px;
+  background: rgba(255, 252, 247, 0.96);
+  color: var(--color-text);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.45;
+  white-space: pre-line;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  animation: pop 420ms var(--ease-out) both;
+}
+.ask small {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+.ask.open {
+  animation-delay: 300ms;
+}
+/* 내 말풍선: 답하기 전에는 입력 칸, 답한 뒤에는 글자 */
+.me {
+  align-self: flex-end;
+  display: flex;
+  gap: 6px;
+  max-width: 90%;
+  padding: 6px;
+  border-radius: 18px 18px 4px 18px;
+  background: var(--color-primary);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  animation: pop 420ms 250ms var(--ease-out) both;
+}
+p.me {
+  padding: 11px 15px;
+  font-size: 17px;
+  font-weight: 700;
+}
+.me input {
+  width: 150px;
+  height: 42px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 13px 13px 2px 13px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+}
+.me input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+.me input:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.7);
+}
+.me button {
+  height: 42px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 13px;
+  background: #fff;
+  color: var(--color-primary);
+  font: 700 14px var(--font-body);
+  cursor: pointer;
+}
+.me button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.note {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: calc(var(--safe-bottom) + 24px);
+  z-index: 3;
+  font-size: 12px;
+  line-height: 1.6;
+  color: rgba(255, 246, 234, 0.7);
+  text-align: center;
+}
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .doorLeft,
+  .doorRight,
+  .room,
+  .ask,
+  .me {
+    transition: none;
+    animation: none;
+  }
+}

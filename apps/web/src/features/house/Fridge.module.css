@@ -1,3 +1,19 @@
+/* 냉장고 화면은 세로로 꽉 찬다: 그림이 끝나고 흰 바닥이 보이지 않게 그림을 화면 높이에 맞춘다 */
+.fridge {
+  position: relative;
+  height: 100%;
+  background: #cfc7bd; /* 냉장고 옆 벽 */
+}
+/* 공용 .scene > img { height: auto } 보다 뒤에 적용되도록 선택자를 하나 더 붙인다 */
+.fridge .scene {
+  height: 100%;
+}
+.fridge .scene > img {
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 0;
+}
+
 /* 냉장고 문 위에 붙이는 것들. 자리는 냉장고 그림 기준 % */
 .chips {
   position: absolute;
@@ -108,9 +124,21 @@
 }
 
 .below {
-  padding: 16px 20px 24px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 6;
+  max-height: 45%;
+  overflow-y: auto;
+  padding: 18px 20px 24px;
+  border-radius: 22px 22px 0 0;
+  background: var(--h-bg);
   display: grid;
   gap: 10px;
+}
+.below:empty {
+  display: none;
 }
 .empty {
   font-size: 14px;

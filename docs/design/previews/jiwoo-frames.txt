@@ -1,0 +1,9 @@
+file '../../../apps/web/src/shared/assets/friend-jiwoo-mouth-closed.jpg'
+duration 0.15
+file '../../../apps/web/src/shared/assets/friend-jiwoo-mouth-half.jpg'
+duration 0.15
+file '../../../apps/web/src/shared/assets/friend-jiwoo-mouth-open.jpg'
+duration 0.15
+file '../../../apps/web/src/shared/assets/friend-jiwoo-mouth-half.jpg'
+duration 0.15
+file '../../../apps/web/src/shared/assets/friend-jiwoo-mouth-closed.jpg'

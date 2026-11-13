@@ -7,26 +7,10 @@
   color: #fffaf3;
   isolation: isolate;
 }
-/* 지금 사진은 가로로 짧은 임시 이미지라 화면을 꽉 채우면 얼굴만 크게 잘린다.
-   같은 사진을 흐리게 깔고(.backdrop) 원본은 덜 확대해 위아래를 흐려 붙인다.
-   세로로 긴 고해상도 사진(예: 1080x1920)이 생기면 .photo만 cover로 바꾸면 된다. */
-.backdrop {
-  position: absolute;
-  inset: -40px;
-  width: calc(100% + 80px);
-  height: calc(100% + 80px);
-  object-fit: cover;
-  filter: blur(28px) brightness(0.7);
-}
+/* 친구 초상(세로 1080x1620)이 화면을 채운다. 입 모양 세 장은 TalkingPortrait 가 겹쳐서 바꾼다. */
 .photo {
   position: absolute;
-  top: 16%;
-  left: 50%;
-  width: max(100%, 560px);
-  height: auto;
-  transform: translateX(-50%);
-  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 80%, transparent 100%);
-  mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 80%, transparent 100%);
+  inset: 0;
 }
 /* 위·아래만 어둡게 해서 흰 글자가 읽히게 한다 */
 .shade {

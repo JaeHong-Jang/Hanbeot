@@ -40,4 +40,11 @@ describe('callReducer', () => {
     expect(closed.status).toBe('ended');
     expect(closed.cue).toBeNull();
   });
+
+  it('closes the speaking state when playback ends without overwriting a new turn', () => {
+    const speaking = apply(initialCallState, { type: 'playback_started', at_ms: 500 });
+    expect(apply(speaking, { type: 'playback_stopped' }).orb).toBe('listening');
+    const thinking = { ...initialCallState, orb: 'thinking' as const };
+    expect(apply(thinking, { type: 'playback_stopped' })).toBe(thinking);
+  });
 });

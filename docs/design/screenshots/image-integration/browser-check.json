@@ -1,0 +1,16 @@
+{
+  "viewport": [
+    390,
+    844
+  ],
+  "checks": [
+    "First visit: intro -> nickname -> required consent -> home",
+    "Four friends select and persist with matching rooms",
+    "Selected friend call: speech, output mute, interrupt, SOS, end -> summary",
+    "320x640: no horizontal overflow; selection persists across pages",
+    "Reduced motion: manual intro; static portrait during speech",
+    "Slow image: closed portrait remains until all mouth frames load, then animation starts"
+  ],
+  "page_errors": [],
+  "failed_images": []
+}

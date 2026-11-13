@@ -13,7 +13,7 @@ import { useConsents, useMemories } from '@/shared/api';
 import livingEvening from '@/shared/assets/rooms/living-evening.jpg';
 import livingMorning from '@/shared/assets/rooms/living-morning.jpg';
 import livingNight from '@/shared/assets/rooms/living-night.jpg';
-import { friendById } from '@/shared/friend';
+import { FRIENDS, friendById, type FriendId } from '@/shared/friend';
 import { useCallLog } from '@/shared/hooks/useCallLog';
 import { PREF_KEYS, useLocalPref } from '@/shared/hooks/useLocalPref';
 import { weekStats } from '@/shared/lib/callLog';
@@ -30,6 +30,7 @@ const ROOM_IMAGE: Record<DayPart, string> = {
 const DOT: Record<DayPart, string> = { morning: '#7fb2e5', evening: '#f0a06a', night: '#f5a524' };
 const PART_ORDER: readonly DayPart[] = ['morning', 'evening', 'night'];
 const MODE_OPTIONS = CALL_MODES.map((mode) => ({ value: mode, label: g.modes[mode].short }));
+const FRIEND_OPTIONS = FRIENDS.map((friend) => ({ value: friend.id, label: friend.name }));
 
 /**
  * V5 거실(홈). 위는 누를 수 있는 방, 아래는 앱 기본 조작(대화 방식, 큰 통화 버튼, 이번 주).
@@ -51,6 +52,8 @@ export function LivingRoom() {
   if (consents.data && !consents.data.basic) return <Navigate to="/start" replace />;
 
   const friend = friendById(friendPref.value);
+  const place = s.places[friend.id];
+  const isLivingRoom = friend.id === 'haneul';
   const mode = isCallMode(modePref.value) ? modePref.value : 'listen';
   const lastMemory = memories.data?.find((m) => m.kind === 'stated');
   const opener = g.opener(now.getHours(), Boolean(lastMemory));
@@ -64,34 +67,49 @@ export function LivingRoom() {
 
   return (
     <main>
-      <div className={`${r.scene} ${r.shade}`}>
-        <img src={ROOM_IMAGE[part]} alt="" />
+      <div className={styles.friends}>
+        <Segmented<FriendId>
+          label={s.friendLabel}
+          options={FRIEND_OPTIONS}
+          value={friend.id}
+          onChange={(id) => {
+            friendPref.set(id);
+            setNoteOpen(false);
+          }}
+        />
+      </div>
+      <div className={`${r.scene} ${r.shade} ${styles.scene}`}>
+        <img src={isLivingRoom ? ROOM_IMAGE[part] : friend.room} alt={place.alt} />
         <RoomHead
-          title={s.livingTitle(friend.name)}
-          sub={isLive ? clockLabel(now) : s.partLabel[part]}
+          title={s.placeTitle(friend.name, place.name)}
+          sub={isLivingRoom ? (isLive ? clockLabel(now) : s.partLabel[part]) : friend.mood}
           dot={DOT[part]}
         />
-        <RoomTag
-          x={11}
-          y={31}
-          align="start"
-          icon="door"
-          badge={noteRead ? undefined : 1}
-          onClick={() => {
-            setNoteOpen((open) => !open);
-            setNoteRead(true);
-          }}
-        >
-          {s.doorNote}
-        </RoomTag>
-        <RoomTag x={33} y={41} icon={part === 'morning' ? 'sun' : 'moon'} onClick={nextPart}>
-          {s.window}
-        </RoomTag>
-        <RoomTag x={92} y={31} align="end" icon="fridge" to="/fridge">
-          {s.fridgeCount(log.length)}
-        </RoomTag>
+        {isLivingRoom ? (
+          <>
+            <RoomTag
+              x={11}
+              y={31}
+              align="start"
+              icon="door"
+              badge={noteRead ? undefined : 1}
+              onClick={() => {
+                setNoteOpen((open) => !open);
+                setNoteRead(true);
+              }}
+            >
+              {s.doorNote}
+            </RoomTag>
+            <RoomTag x={33} y={41} icon={part === 'morning' ? 'sun' : 'moon'} onClick={nextPart}>
+              {s.window}
+            </RoomTag>
+            <RoomTag x={92} y={31} align="end" icon="fridge" to="/fridge">
+              {s.fridgeCount(log.length)}
+            </RoomTag>
+          </>
+        ) : null}
         <RoomTag x={50} y={80} icon="sofa" main onClick={goCall}>
-          {part === 'morning' ? s.windowCall : s.sofaCall}
+          {isLivingRoom && part === 'morning' ? s.windowCall : place.call}
         </RoomTag>
 
         {noteOpen ? (
@@ -105,7 +123,7 @@ export function LivingRoom() {
           </div>
         ) : (
           <p className={r.say} style={{ left: 10, top: '45%' }}>
-            <small>{s.doing[part]}</small>
+            <small>{isLivingRoom ? s.doing[part] : friend.mood}</small>
             {opener}
           </p>
         )}

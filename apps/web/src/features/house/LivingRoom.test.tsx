@@ -1,9 +1,12 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 
 import { HouseLayout } from './HouseLayout';
 import { LivingRoom } from './LivingRoom';
+
+import { friendById } from '@/shared/friend';
+import { PREF_KEYS } from '@/shared/hooks/useLocalPref';
 
 function renderLiving({ coached }: { coached: boolean }) {
   if (coached) window.localStorage.setItem('hanbeot.pref.houseCoached', 'yes');
@@ -58,5 +61,26 @@ describe('LivingRoom (V5 하늘이네 집)', () => {
     fireEvent.click(door);
     expect(screen.getByRole('note')).toHaveTextContent('하늘이가 남긴 쪽지');
     expect(door).not.toHaveTextContent('1');
+  });
+
+  it('switches all four friends together with their rooms and persists the selection', () => {
+    renderLiving({ coached: true });
+    const picker = within(screen.getByRole('radiogroup', { name: '지금 이야기할 친구' }));
+    expect(picker.getAllByRole('radio')).toHaveLength(4);
+    for (const friend of [friendById('doyun'), friendById('jiwoo'), friendById('seoyun')]) {
+      fireEvent.click(picker.getByRole('radio', { name: friend.name }));
+      expect(picker.getByRole('radio', { name: friend.name })).toHaveAttribute(
+        'aria-checked',
+        'true',
+      );
+      expect(screen.getByRole('img', { name: new RegExp(friend.name) })).toHaveAttribute(
+        'src',
+        friend.room,
+      );
+      expect(window.localStorage.getItem(PREF_KEYS.friend)).toBe(friend.id);
+      expect(screen.queryByRole('button', { name: /현관 쪽지/ })).not.toBeInTheDocument();
+    }
+    fireEvent.click(screen.getByRole('button', { name: '베란다에서 통화' }));
+    expect(screen.getByText('통화 화면')).toBeInTheDocument();
   });
 });

@@ -1,0 +1,366 @@
+{
+  "date": "2026-11-13",
+  "status": "passed",
+  "required_images": 27,
+  "app_images": 23,
+  "reference_sheets": 4,
+  "all_at_or_under_2MB": true,
+  "total_bytes": 11397455,
+  "files": [
+    {
+      "path": "docs/design/characters/friend-haneul-sheet.png",
+      "width": 1280,
+      "height": 720,
+      "bytes": 1977411,
+      "sha256": "e0dc012efb705cdb0381b1dc890ad473359b3f7349a26c9e3f59c1247b00c14c"
+    },
+    {
+      "path": "apps/web/src/shared/assets/friend-haneul.jpg",
+      "width": 1080,
+      "height": 1620,
+      "bytes": 242363,
+      "sha256": "ca552eac17d7231763adad1622743679344aee792cf4e071e195f2c99493b7c4"
+    },
+    {
+      "path": "apps/web/src/shared/assets/friend-haneul-mouth-closed.jpg",
+      "width": 1080,
+      "height": 1620,
+      "bytes": 241994,
+      "sha256": "7e09b1c51c46fd4ab1eeb1e849b5dd63bc5230b4a5ab877eeda5b3e6a3ecad0e"
+    },
+    {
+      "path": "apps/web/src/shared/assets/friend-haneul-mouth-half.jpg",
+      "width": 1080,
+      "height": 1620,
+      "bytes": 241990,
+      "sha256": "b1605ba39bacf857bb31efa3249e90698037b1dddab2a817ef5a6d9d9d1ac631"
+    },
+    {
+      "path": "apps/web/src/shared/assets/friend-haneul-mouth-open.jpg",
+      "width": 1080,
+      "height": 1620,
+      "bytes": 242033,
+      "sha256": "0c72c4f49daf0637b89aa08b525d03e5892b7c66f0f9fd926e7faa177677d9f8"
+    },
+    {
+      "path": "docs/design/characters/friend-doyun-sheet.png",
+      "width": 1280,
+      "height": 720,
+      "bytes": 1548731,
+      "sha256": "30c27e05bbc6ea5bc4afeace37e599d0dd11f9bc78bb522ca8f79adcfdfd7bce"
+    },
+    {
+      "path": "apps/web/src/shared/assets/friend-doyun.jpg",
+      "width": 1080,
+      "height": 1620,
+      "bytes": 155332,
+      "sha256": "6074799880188c54627eb706c46781eb400f6579adabda6ac523e91785a4ca20"
+    },
+    {
+      "path": "apps/web/src/shared/assets/friend-doyun-mouth-closed.jpg",
+      "width": 1080,
+      "height": 1620,
+      "bytes": 154988,
+      "sha256": "958f0890c6f5990c3e0f1fcd5704d75bbf71355d3d7019522bae31674374dfe5"
+    },
+    {
+      "path": "apps/web/src/shared/assets/friend-doyun-mouth-half.jpg",
+      "width": 1080,
+      "height": 1620,
+      "bytes": 155075,
+      "sha256": "58258ed683b1fc4e2db62c5f225388ee68c33c2cb679ca99cd987f779a0ade3d"
+    },
+    {
+      "path": "apps/web/src/shared/assets/friend-doyun-mouth-open.jpg",
+      "width": 1080,
+      "height": 1620,
+      "bytes": 155038,
+      "sha256": "75e3fbe376c4b0c0dbd4a3afcbb9d9b26613cbd69c1c82d01a3a3517d6a8914d"
+    },
+    {
+      "path": "docs/design/characters/friend-jiwoo-sheet.png",
+      "width": 1280,
+      "height": 720,
+      "bytes": 1673373,
+      "sha256": "dfc9d0b35f9a15ff712e279e43af6c3ba7956b6fa91c2a1b646001589fc1764d"
+    },
+    {
+      "path": "apps/web/src/shared/assets/friend-jiwoo.jpg",
+      "width": 1080,
+      "height": 1620,
+      "bytes": 175094,
+      "sha256": "a031f055cf302b5078412a4b1191549f2d77007517cdd58b6296ca4374c157b8"
+    },
+    {
+      "path": "apps/web/src/shared/assets/friend-jiwoo-mouth-closed.jpg",
+      "width": 1080,
+      "height": 1620,
+      "bytes": 174157,
+      "sha256": "bc6dc24e42031f74517e1f2522356157ebabe378156e8070591f6815d7b47eb4"
+    },
+    {
+      "path": "apps/web/src/shared/assets/friend-jiwoo-mouth-half.jpg",
+      "width": 1080,
+      "height": 1620,
+      "bytes": 174259,
+      "sha256": "ff512aee60af8858c6f9a4c5b840190aee03cd17525227d03b1a255fe8fcac9a"
+    },
+    {
+      "path": "apps/web/src/shared/assets/friend-jiwoo-mouth-open.jpg",
+      "width": 1080,
+      "height": 1620,
+      "bytes": 174675,
+      "sha256": "55bf91d6b37e1587193ad32b68ea48382040a62d01b7ad48094024af25ecc2e3"
+    },
+    {
+      "path": "docs/design/characters/friend-seoyun-sheet.png",
+      "width": 1280,
+      "height": 720,
+      "bytes": 1808393,
+      "sha256": "719f845d1c96e40a7e32d071a5ebfbc3213709a3dd17a5daca6842f7d6e4caf8"
+    },
+    {
+      "path": "apps/web/src/shared/assets/friend-seoyun.jpg",
+      "width": 1080,
+      "height": 1620,
+      "bytes": 201567,
+      "sha256": "d2cf0d6ecae1978dea654bb9fae47dc5a1a5c82ba891128b002a4815b7e06174"
+    },
+    {
+      "path": "apps/web/src/shared/assets/friend-seoyun-mouth-closed.jpg",
+      "width": 1080,
+      "height": 1620,
+      "bytes": 201242,
+      "sha256": "49f8f1705f16b8805ddce692c5f0bd53d8f976e3a4606ee8447babd9a99da05d"
+    },
+    {
+      "path": "apps/web/src/shared/assets/friend-seoyun-mouth-half.jpg",
+      "width": 1080,
+      "height": 1620,
+      "bytes": 201327,
+      "sha256": "e0440d8de429f49bfedf15dd28a518f5defe3abdd37f721ad554f1518a60419d"
+    },
+    {
+      "path": "apps/web/src/shared/assets/friend-seoyun-mouth-open.jpg",
+      "width": 1080,
+      "height": 1620,
+      "bytes": 201355,
+      "sha256": "cc2319cc636ad06ce87394788b2175afa08dee9609050a7c3bd886a7360b8869"
+    },
+    {
+      "path": "apps/web/src/shared/assets/intro/alone.jpg",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 122760,
+      "sha256": "0d94dfc3229af910eec09e1f62a6b34f23187c1fdb8d75f645e708c7130ce641"
+    },
+    {
+      "path": "apps/web/src/shared/assets/intro/team.jpg",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 134368,
+      "sha256": "06fa8c9a0cff38716600369850f1ce0fd3d6cd6a9d9d492b3296403d3eb51cdc"
+    },
+    {
+      "path": "apps/web/src/shared/assets/intro/tangled.jpg",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 157274,
+      "sha256": "6071245e61303340956fd2543d55ec308dde3e5d0bd6701759912670c4aa99fd"
+    },
+    {
+      "path": "apps/web/src/shared/assets/intro/home.jpg",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 186843,
+      "sha256": "290db2dbf86ab54a989ef98276f55a750b9b102d6702a42883cf8439e78ba9cd"
+    },
+    {
+      "path": "apps/web/src/shared/assets/rooms/desk-dusk.jpg",
+      "width": 1600,
+      "height": 2000,
+      "bytes": 217045,
+      "sha256": "9fe7e127242d0a53112cbafc8df015b7912300c9849b11c38d0b090988973d4c"
+    },
+    {
+      "path": "apps/web/src/shared/assets/rooms/kitchen-night.jpg",
+      "width": 1600,
+      "height": 2000,
+      "bytes": 193021,
+      "sha256": "8d2b9d1d2a01e618ae30b8a5cae5e1e1307f0a58221a4049337c2edd44aa5e79"
+    },
+    {
+      "path": "apps/web/src/shared/assets/rooms/balcony-dusk.jpg",
+      "width": 1600,
+      "height": 2000,
+      "bytes": 285747,
+      "sha256": "e091dfde29e65e0af81e0b000057110c2b9ea534c92eb5019249f3d07da75daf"
+    }
+  ],
+  "mouth_comparisons": [
+    {
+      "friend": "haneul",
+      "state": "half",
+      "changed_pixels": 4112,
+      "changed_bounds": {
+        "left": 512,
+        "top": 575,
+        "right_inclusive": 607,
+        "bottom_inclusive": 639
+      },
+      "mouth_check_bounds": {
+        "left": 498,
+        "top": 561,
+        "right_exclusive": 622,
+        "bottom_exclusive": 649
+      },
+      "changed_pixels_outside_mouth": 0
+    },
+    {
+      "friend": "haneul",
+      "state": "open",
+      "changed_pixels": 4294,
+      "changed_bounds": {
+        "left": 512,
+        "top": 575,
+        "right_inclusive": 607,
+        "bottom_inclusive": 637
+      },
+      "mouth_check_bounds": {
+        "left": 498,
+        "top": 561,
+        "right_exclusive": 622,
+        "bottom_exclusive": 649
+      },
+      "changed_pixels_outside_mouth": 0
+    },
+    {
+      "friend": "doyun",
+      "state": "half",
+      "changed_pixels": 4588,
+      "changed_bounds": {
+        "left": 447,
+        "top": 447,
+        "right_inclusive": 543,
+        "bottom_inclusive": 512
+      },
+      "mouth_check_bounds": {
+        "left": 435,
+        "top": 437,
+        "right_exclusive": 559,
+        "bottom_exclusive": 525
+      },
+      "changed_pixels_outside_mouth": 0
+    },
+    {
+      "friend": "doyun",
+      "state": "open",
+      "changed_pixels": 4209,
+      "changed_bounds": {
+        "left": 447,
+        "top": 447,
+        "right_inclusive": 543,
+        "bottom_inclusive": 512
+      },
+      "mouth_check_bounds": {
+        "left": 435,
+        "top": 437,
+        "right_exclusive": 559,
+        "bottom_exclusive": 525
+      },
+      "changed_pixels_outside_mouth": 0
+    },
+    {
+      "friend": "jiwoo",
+      "state": "half",
+      "changed_pixels": 10271,
+      "changed_bounds": {
+        "left": 495,
+        "top": 399,
+        "right_inclusive": 640,
+        "bottom_inclusive": 503
+      },
+      "mouth_check_bounds": {
+        "left": 486,
+        "top": 388,
+        "right_exclusive": 654,
+        "bottom_exclusive": 514
+      },
+      "changed_pixels_outside_mouth": 0
+    },
+    {
+      "friend": "jiwoo",
+      "state": "open",
+      "changed_pixels": 10505,
+      "changed_bounds": {
+        "left": 495,
+        "top": 399,
+        "right_inclusive": 640,
+        "bottom_inclusive": 496
+      },
+      "mouth_check_bounds": {
+        "left": 486,
+        "top": 388,
+        "right_exclusive": 654,
+        "bottom_exclusive": 514
+      },
+      "changed_pixels_outside_mouth": 0
+    },
+    {
+      "friend": "seoyun",
+      "state": "half",
+      "changed_pixels": 5590,
+      "changed_bounds": {
+        "left": 357,
+        "top": 431,
+        "right_inclusive": 463,
+        "bottom_inclusive": 503
+      },
+      "mouth_check_bounds": {
+        "left": 341,
+        "top": 423,
+        "right_exclusive": 479,
+        "bottom_exclusive": 517
+      },
+      "changed_pixels_outside_mouth": 0
+    },
+    {
+      "friend": "seoyun",
+      "state": "open",
+      "changed_pixels": 5625,
+      "changed_bounds": {
+        "left": 357,
+        "top": 431,
+        "right_inclusive": 464,
+        "bottom_inclusive": 503
+      },
+      "mouth_check_bounds": {
+        "left": 341,
+        "top": 423,
+        "right_exclusive": 479,
+        "bottom_exclusive": 517
+      },
+      "changed_pixels_outside_mouth": 0
+    }
+  ],
+  "preview_frame_ms": 150,
+  "build": {
+    "command": "cd apps/web && npm run build",
+    "result": "passed"
+  },
+  "scope": {
+    "existing_portrait_files_replaced": false,
+    "runtime_portraits": "All four friends use their new mouth-closed JPG for a consistent card and call composition.",
+    "new_assets_saved": true,
+    "new_friend_room_intro_runtime_wiring": true,
+    "call_lipsync_runtime_wiring": true,
+    "runtime_wiring_updated_at": "2026-11-14",
+    "runtime_validation_report": "이미지-화면-연결-작업카드.md",
+    "real_output_audio_analyser_connected": false,
+    "optional_app_icon": "not_requested_as_required_deliverable"
+  },
+  "limitations": [
+    "JPG frames are pixel-identical outside the mouth region across the three exported states; JPEG re-encoding means they are not asserted pixel-identical to the initial generated portrait.",
+    "Export sizes were normalized using FFmpeg; some source generations were smaller than requested, so final dimensions do not imply native detail at that resolution."
+  ]
+}

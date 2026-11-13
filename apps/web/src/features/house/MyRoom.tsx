@@ -87,6 +87,10 @@ export function MyRoom() {
             {s.consentRow}
             <Icon name="chevronRight" size={16} className={r.push} />
           </Link>
+          <Link to="/intro" className={r.row}>
+            {s.replayIntro}
+            <Icon name="chevronRight" size={16} className={r.push} />
+          </Link>
           <div className={r.row}>
             <button
               type="button"

@@ -1,0 +1,145 @@
+{
+  "date": "2026-11-14",
+  "connected_new_images": 19,
+  "all_below_2MB": true,
+  "files": [
+    {
+      "path": "apps/web/src/shared/assets/friend-doyun-mouth-closed.jpg",
+      "width": 1080,
+      "height": 1620,
+      "bytes": 154988,
+      "sha256": "958f0890c6f5990c3e0f1fcd5704d75bbf71355d3d7019522bae31674374dfe5"
+    },
+    {
+      "path": "apps/web/src/shared/assets/friend-doyun-mouth-half.jpg",
+      "width": 1080,
+      "height": 1620,
+      "bytes": 155075,
+      "sha256": "58258ed683b1fc4e2db62c5f225388ee68c33c2cb679ca99cd987f779a0ade3d"
+    },
+    {
+      "path": "apps/web/src/shared/assets/friend-doyun-mouth-open.jpg",
+      "width": 1080,
+      "height": 1620,
+      "bytes": 155038,
+      "sha256": "75e3fbe376c4b0c0dbd4a3afcbb9d9b26613cbd69c1c82d01a3a3517d6a8914d"
+    },
+    {
+      "path": "apps/web/src/shared/assets/friend-haneul-mouth-closed.jpg",
+      "width": 1080,
+      "height": 1620,
+      "bytes": 241994,
+      "sha256": "7e09b1c51c46fd4ab1eeb1e849b5dd63bc5230b4a5ab877eeda5b3e6a3ecad0e"
+    },
+    {
+      "path": "apps/web/src/shared/assets/friend-haneul-mouth-half.jpg",
+      "width": 1080,
+      "height": 1620,
+      "bytes": 241990,
+      "sha256": "b1605ba39bacf857bb31efa3249e90698037b1dddab2a817ef5a6d9d9d1ac631"
+    },
+    {
+      "path": "apps/web/src/shared/assets/friend-haneul-mouth-open.jpg",
+      "width": 1080,
+      "height": 1620,
+      "bytes": 242033,
+      "sha256": "0c72c4f49daf0637b89aa08b525d03e5892b7c66f0f9fd926e7faa177677d9f8"
+    },
+    {
+      "path": "apps/web/src/shared/assets/friend-jiwoo-mouth-closed.jpg",
+      "width": 1080,
+      "height": 1620,
+      "bytes": 174157,
+      "sha256": "bc6dc24e42031f74517e1f2522356157ebabe378156e8070591f6815d7b47eb4"
+    },
+    {
+      "path": "apps/web/src/shared/assets/friend-jiwoo-mouth-half.jpg",
+      "width": 1080,
+      "height": 1620,
+      "bytes": 174259,
+      "sha256": "ff512aee60af8858c6f9a4c5b840190aee03cd17525227d03b1a255fe8fcac9a"
+    },
+    {
+      "path": "apps/web/src/shared/assets/friend-jiwoo-mouth-open.jpg",
+      "width": 1080,
+      "height": 1620,
+      "bytes": 174675,
+      "sha256": "55bf91d6b37e1587193ad32b68ea48382040a62d01b7ad48094024af25ecc2e3"
+    },
+    {
+      "path": "apps/web/src/shared/assets/friend-seoyun-mouth-closed.jpg",
+      "width": 1080,
+      "height": 1620,
+      "bytes": 201242,
+      "sha256": "49f8f1705f16b8805ddce692c5f0bd53d8f976e3a4606ee8447babd9a99da05d"
+    },
+    {
+      "path": "apps/web/src/shared/assets/friend-seoyun-mouth-half.jpg",
+      "width": 1080,
+      "height": 1620,
+      "bytes": 201327,
+      "sha256": "e0440d8de429f49bfedf15dd28a518f5defe3abdd37f721ad554f1518a60419d"
+    },
+    {
+      "path": "apps/web/src/shared/assets/friend-seoyun-mouth-open.jpg",
+      "width": 1080,
+      "height": 1620,
+      "bytes": 201355,
+      "sha256": "cc2319cc636ad06ce87394788b2175afa08dee9609050a7c3bd886a7360b8869"
+    },
+    {
+      "path": "apps/web/src/shared/assets/intro/alone.jpg",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 122760,
+      "sha256": "0d94dfc3229af910eec09e1f62a6b34f23187c1fdb8d75f645e708c7130ce641"
+    },
+    {
+      "path": "apps/web/src/shared/assets/intro/home.jpg",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 186843,
+      "sha256": "290db2dbf86ab54a989ef98276f55a750b9b102d6702a42883cf8439e78ba9cd"
+    },
+    {
+      "path": "apps/web/src/shared/assets/intro/tangled.jpg",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 157274,
+      "sha256": "6071245e61303340956fd2543d55ec308dde3e5d0bd6701759912670c4aa99fd"
+    },
+    {
+      "path": "apps/web/src/shared/assets/intro/team.jpg",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 134368,
+      "sha256": "06fa8c9a0cff38716600369850f1ce0fd3d6cd6a9d9d492b3296403d3eb51cdc"
+    },
+    {
+      "path": "apps/web/src/shared/assets/rooms/balcony-dusk.jpg",
+      "width": 1600,
+      "height": 2000,
+      "bytes": 285747,
+      "sha256": "e091dfde29e65e0af81e0b000057110c2b9ea534c92eb5019249f3d07da75daf"
+    },
+    {
+      "path": "apps/web/src/shared/assets/rooms/desk-dusk.jpg",
+      "width": 1600,
+      "height": 2000,
+      "bytes": 217045,
+      "sha256": "9fe7e127242d0a53112cbafc8df015b7912300c9849b11c38d0b090988973d4c"
+    },
+    {
+      "path": "apps/web/src/shared/assets/rooms/kitchen-night.jpg",
+      "width": 1600,
+      "height": 2000,
+      "bytes": 193021,
+      "sha256": "8d2b9d1d2a01e618ae30b8a5cae5e1e1307f0a58221a4049337c2edd44aa5e79"
+    }
+  ],
+  "historical_validation_mismatches": [
+    "apps/web/src/shared/assets/friend-haneul.jpg",
+    "apps/web/src/shared/assets/friend-doyun.jpg"
+  ],
+  "note": "The app uses new closed-mouth images for all four friend portraits. Historical base portraits are retained and are not imported by the friend registry."
+}

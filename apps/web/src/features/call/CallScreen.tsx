@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { CallControls } from './CallControls';
 import styles from './CallScreen.module.css';
@@ -6,6 +6,7 @@ import { Captions } from './Captions';
 import { CueConfirmCard } from './CueConfirmCard';
 import { MemorySheet } from './MemorySheet';
 import { ModeSelector } from './ModeSelector';
+import { TalkingPortrait } from './TalkingPortrait';
 import { callStrings as s } from './strings';
 import { useCallTimer } from './useCallTimer';
 
@@ -61,6 +62,7 @@ export function CallScreen({
   const live = state.status === 'connected';
   const beforeOrAfter = state.status === 'idle' || state.status === 'ended';
   const canBargeIn = live && state.orb === 'speaking';
+  const readOutputLevel = useCallback(() => client.getOutputLevel?.() ?? null, [client]);
 
   // 연결되면 홈에서 고른 대화 방식을 한 번 알린다.
   const modeSentRef = useRef(false);
@@ -95,8 +97,12 @@ export function CallScreen({
 
   return (
     <main className={styles.call}>
-      <img className={styles.backdrop} src={friend.image} alt="" aria-hidden="true" />
-      <img className={styles.photo} src={friend.image} alt="" />
+      <TalkingPortrait
+        friend={friend}
+        speaking={canBargeIn && !state.held && !speakerOff}
+        readOutputLevel={readOutputLevel}
+        className={styles.photo}
+      />
       <div className={styles.shade} aria-hidden="true" />
       <button
         type="button"

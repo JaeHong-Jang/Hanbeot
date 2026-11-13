@@ -1,0 +1,9 @@
+file '../../../apps/web/src/shared/assets/friend-seoyun-mouth-closed.jpg'
+duration 0.15
+file '../../../apps/web/src/shared/assets/friend-seoyun-mouth-half.jpg'
+duration 0.15
+file '../../../apps/web/src/shared/assets/friend-seoyun-mouth-open.jpg'
+duration 0.15
+file '../../../apps/web/src/shared/assets/friend-seoyun-mouth-half.jpg'
+duration 0.15
+file '../../../apps/web/src/shared/assets/friend-seoyun-mouth-closed.jpg'

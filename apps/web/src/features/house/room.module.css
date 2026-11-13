@@ -34,41 +34,22 @@
   padding: 0 11px;
   border: 0;
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 252, 247, 0.94);
   color: var(--h-text);
   font: 700 12px var(--font-body);
   text-decoration: none;
   white-space: nowrap;
-  box-shadow: 0 3px 10px rgba(30, 20, 10, 0.18);
+  box-shadow: 0 2px 8px rgba(30, 20, 10, 0.14);
   cursor: pointer;
-}
-.tag::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  width: 10px;
-  height: 10px;
-  background: inherit;
-  transform: rotate(45deg);
-  border-radius: 2px;
 }
 .center {
   transform: translate(-50%, calc(-100% - 6px));
 }
-.center::after {
-  left: calc(50% - 5px);
-}
 .start {
   transform: translate(-16px, calc(-100% - 6px));
 }
-.start::after {
-  left: 11px;
-}
 .end {
   transform: translate(calc(-100% + 16px), calc(-100% - 6px));
-}
-.end::after {
-  right: 11px;
 }
 .main {
   height: 36px;
@@ -99,12 +80,14 @@
   z-index: 5;
   max-width: 156px;
   padding: 10px 13px;
+  border: 0;
   border-radius: 14px 14px 14px 4px;
-  background: #fff;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.45;
-  box-shadow: 0 6px 16px rgba(30, 20, 10, 0.18);
+  background: var(--color-surface);
+  color: var(--h-text);
+  font: 600 14px/1.45 var(--font-body);
+  text-align: left;
+  box-shadow: 0 6px 16px rgba(30, 20, 10, 0.16);
+  cursor: pointer;
 }
 .say small {
   display: block;

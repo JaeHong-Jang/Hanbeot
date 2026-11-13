@@ -1,0 +1,304 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "assets": [
+    {
+      "id": "friend-doyun-sheet",
+      "prompt": "/mnt/c/Users/User/Desktop/대학교/3학년/창업(개인 맞춤형 AI 동반자 서비스)/docs/design/generated-prompts/friend-doyun-sheet.txt",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-f329d821-1c7e-4cb3-8a25-04024a36beae.png",
+      "dest": "docs/design/characters/friend-doyun-sheet.png",
+      "kind": "sheet"
+    },
+    {
+      "id": "friend-jiwoo-sheet",
+      "prompt": "/mnt/c/Users/User/Desktop/대학교/3학년/창업(개인 맞춤형 AI 동반자 서비스)/docs/design/generated-prompts/friend-jiwoo-sheet.txt",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-256d0506-c5e6-4d85-a186-11e69f8d6353.png",
+      "dest": "docs/design/characters/friend-jiwoo-sheet.png",
+      "kind": "sheet"
+    },
+    {
+      "id": "friend-seoyun-sheet",
+      "prompt": "/mnt/c/Users/User/Desktop/대학교/3학년/창업(개인 맞춤형 AI 동반자 서비스)/docs/design/generated-prompts/friend-seoyun-sheet.txt",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-556e11dd-2218-4e7c-aa00-b967522a27bb.png",
+      "dest": "docs/design/characters/friend-seoyun-sheet.png",
+      "kind": "sheet"
+    },
+    {
+      "id": "friend-haneul",
+      "prompt": "/mnt/c/Users/User/Desktop/대학교/3학년/창업(개인 맞춤형 AI 동반자 서비스)/docs/design/generated-prompts/friend-haneul.txt",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-37633030-a43d-43eb-8b17-47e5f0508b51.png",
+      "dest": "apps/web/src/shared/assets/friend-haneul.jpg",
+      "kind": "portrait"
+    },
+    {
+      "id": "room-desk-dusk",
+      "prompt": "/mnt/c/Users/User/Desktop/대학교/3학년/창업(개인 맞춤형 AI 동반자 서비스)/docs/design/generated-prompts/room-desk-dusk.txt",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-a89e042e-fc79-4fff-9fbc-0bb9fbebb1a6.png",
+      "dest": "apps/web/src/shared/assets/rooms/desk-dusk.jpg",
+      "kind": "room"
+    },
+    {
+      "id": "friend-doyun",
+      "prompt": "/mnt/c/Users/User/Desktop/대학교/3학년/창업(개인 맞춤형 AI 동반자 서비스)/docs/design/generated-prompts/friend-doyun.txt",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-5417a4d0-1f3e-46ff-8ce0-d92407ef0952.png",
+      "dest": "apps/web/src/shared/assets/friend-doyun.jpg",
+      "kind": "portrait"
+    },
+    {
+      "id": "room-kitchen-night",
+      "prompt": "/mnt/c/Users/User/Desktop/대학교/3학년/창업(개인 맞춤형 AI 동반자 서비스)/docs/design/generated-prompts/room-kitchen-night.txt",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-9fcfe97f-c8f2-4a49-b8db-af9d0feff0e9.png",
+      "dest": "apps/web/src/shared/assets/rooms/kitchen-night.jpg",
+      "kind": "room"
+    },
+    {
+      "id": "room-kitchen-night-clean",
+      "prompt": "/mnt/c/Users/User/Desktop/대학교/3학년/창업(개인 맞춤형 AI 동반자 서비스)/docs/design/generated-prompts/room-kitchen-night-clean.txt",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-a015d1ab-4162-4403-8a32-98d3d21dc1fe.png",
+      "dest": "apps/web/src/shared/assets/rooms/kitchen-night.jpg",
+      "kind": "room"
+    },
+    {
+      "id": "friend-jiwoo",
+      "prompt": "/mnt/c/Users/User/Desktop/대학교/3학년/창업(개인 맞춤형 AI 동반자 서비스)/docs/design/generated-prompts/friend-jiwoo.txt",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-52f8f3a4-be93-4a48-969a-25e422f9d0b4.png",
+      "dest": "apps/web/src/shared/assets/friend-jiwoo.jpg",
+      "kind": "portrait"
+    },
+    {
+      "id": "friend-jiwoo-framing",
+      "prompt": "/mnt/c/Users/User/Desktop/대학교/3학년/창업(개인 맞춤형 AI 동반자 서비스)/docs/design/generated-prompts/friend-jiwoo-framing.txt",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-edf61404-2645-48a1-8500-6570743d87d8.png",
+      "dest": "apps/web/src/shared/assets/friend-jiwoo.jpg",
+      "kind": "portrait"
+    },
+    {
+      "id": "room-balcony-dusk",
+      "prompt": "/mnt/c/Users/User/Desktop/대학교/3학년/창업(개인 맞춤형 AI 동반자 서비스)/docs/design/generated-prompts/room-balcony-dusk.txt",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-6bde99b4-4cb0-4b4f-898c-899db620e6f2.png",
+      "dest": "apps/web/src/shared/assets/rooms/balcony-dusk.jpg",
+      "kind": "room"
+    },
+    {
+      "id": "friend-seoyun",
+      "prompt": "/mnt/c/Users/User/Desktop/대학교/3학년/창업(개인 맞춤형 AI 동반자 서비스)/docs/design/generated-prompts/friend-seoyun.txt",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-5f730d94-5a57-4066-b911-b8e520e9dc99.png",
+      "dest": "apps/web/src/shared/assets/friend-seoyun.jpg",
+      "kind": "portrait"
+    },
+    {
+      "id": "intro-alone",
+      "prompt": "/mnt/c/Users/User/Desktop/대학교/3학년/창업(개인 맞춤형 AI 동반자 서비스)/docs/design/generated-prompts/intro-alone.txt",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-b99bfb72-712e-4a94-b9ed-dd6e93368135.png",
+      "dest": "apps/web/src/shared/assets/intro/alone.jpg",
+      "kind": "intro"
+    },
+    {
+      "id": "intro-team",
+      "prompt": "/mnt/c/Users/User/Desktop/대학교/3학년/창업(개인 맞춤형 AI 동반자 서비스)/docs/design/generated-prompts/intro-team.txt",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-69b58659-6e68-4edb-8aab-4c2c0cd1c69d.png",
+      "dest": "apps/web/src/shared/assets/intro/team.jpg",
+      "kind": "intro"
+    },
+    {
+      "id": "intro-tangled",
+      "prompt": "/mnt/c/Users/User/Desktop/대학교/3학년/창업(개인 맞춤형 AI 동반자 서비스)/docs/design/generated-prompts/intro-tangled.txt",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-3611c2ef-133b-45a3-b162-cc74386496da.png",
+      "dest": "apps/web/src/shared/assets/intro/tangled.jpg",
+      "kind": "intro"
+    },
+    {
+      "id": "intro-home",
+      "prompt": "/mnt/c/Users/User/Desktop/대학교/3학년/창업(개인 맞춤형 AI 동반자 서비스)/docs/design/generated-prompts/intro-home.txt",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-f0b112dd-6d5b-4ed4-9a04-319d4c670bac.png",
+      "dest": "apps/web/src/shared/assets/intro/home.jpg",
+      "kind": "intro"
+    },
+    {
+      "id": "intro-home-clean",
+      "prompt": "/mnt/c/Users/User/Desktop/대학교/3학년/창업(개인 맞춤형 AI 동반자 서비스)/docs/design/generated-prompts/intro-home-clean.txt",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-cb8d01f1-b908-41ab-bb04-1863d3c562b2.png",
+      "dest": "apps/web/src/shared/assets/intro/home.jpg",
+      "kind": "intro"
+    }
+  ],
+  "mouth_assets": [
+    {
+      "id": "haneul",
+      "state": "half",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-2823e65f-ee66-4b21-a0e6-fa8552aebc81.png",
+      "dest": "apps/web/src/shared/assets/friend-haneul-mouth-half.jpg",
+      "lossless": "/tmp/hanbeot-image-composites-2026-11-13/haneul-half-composite.png",
+      "region": {
+        "x": 450,
+        "y": 530,
+        "cx": 110,
+        "cy": 75,
+        "rx": 46,
+        "ry": 28
+      },
+      "localSource": "docs/design/mouth-work/haneul-half-generated.png"
+    },
+    {
+      "id": "haneul",
+      "state": "open",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-cd007bf5-3726-4660-9d3f-a9b813979f6a.png",
+      "dest": "apps/web/src/shared/assets/friend-haneul-mouth-open.jpg",
+      "lossless": "/tmp/hanbeot-image-composites-2026-11-13/haneul-open-composite.png",
+      "region": {
+        "x": 450,
+        "y": 530,
+        "cx": 110,
+        "cy": 75,
+        "rx": 46,
+        "ry": 28
+      },
+      "localSource": "docs/design/mouth-work/haneul-open-generated.png"
+    },
+    {
+      "id": "doyun",
+      "state": "half",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-f76fea4c-5ebc-4c3b-a849-3a4deebea04b.png",
+      "dest": "apps/web/src/shared/assets/friend-doyun-mouth-half.jpg",
+      "lossless": "/tmp/hanbeot-image-composites-2026-11-13/doyun-half-composite.png",
+      "region": {
+        "x": 380,
+        "y": 410,
+        "cx": 117,
+        "cy": 71,
+        "rx": 46,
+        "ry": 28
+      },
+      "localSource": "docs/design/mouth-work/doyun-half-generated.png"
+    },
+    {
+      "id": "doyun",
+      "state": "open",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-cf16354f-335a-482e-b036-5d04717012df.png",
+      "dest": "apps/web/src/shared/assets/friend-doyun-mouth-open.jpg",
+      "lossless": "/tmp/hanbeot-image-composites-2026-11-13/doyun-open-composite.png",
+      "region": {
+        "x": 380,
+        "y": 410,
+        "cx": 117,
+        "cy": 71,
+        "rx": 46,
+        "ry": 28
+      },
+      "localSource": "docs/design/mouth-work/doyun-open-generated.png"
+    },
+    {
+      "id": "jiwoo",
+      "state": "closed",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-f6d4e2ea-87b9-4f6a-b506-f284489194a7.png",
+      "dest": "apps/web/src/shared/assets/friend-jiwoo-mouth-closed.jpg",
+      "lossless": "/tmp/hanbeot-image-composites-2026-11-13/jiwoo-closed-composite.png",
+      "region": {
+        "x": 460,
+        "y": 375,
+        "cx": 110,
+        "cy": 76,
+        "rx": 68,
+        "ry": 47
+      },
+      "localSource": "docs/design/mouth-work/jiwoo-closed-generated.png"
+    },
+    {
+      "id": "jiwoo",
+      "state": "half",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-e47e7876-65fc-4b1a-92fc-2732e060939b.png",
+      "dest": "apps/web/src/shared/assets/friend-jiwoo-mouth-half.jpg",
+      "lossless": "/tmp/hanbeot-image-composites-2026-11-13/jiwoo-half-composite.png",
+      "region": {
+        "x": 460,
+        "y": 375,
+        "cx": 110,
+        "cy": 76,
+        "rx": 68,
+        "ry": 47
+      },
+      "localSource": "docs/design/mouth-work/jiwoo-half-generated.png"
+    },
+    {
+      "id": "jiwoo",
+      "state": "open",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-006eb495-420d-40e5-8a69-aca6939ad085.png",
+      "dest": "apps/web/src/shared/assets/friend-jiwoo-mouth-open.jpg",
+      "lossless": "/tmp/hanbeot-image-composites-2026-11-13/jiwoo-open-composite.png",
+      "region": {
+        "x": 460,
+        "y": 375,
+        "cx": 110,
+        "cy": 76,
+        "rx": 68,
+        "ry": 47
+      },
+      "localSource": "docs/design/mouth-work/jiwoo-open-generated.png"
+    },
+    {
+      "id": "seoyun",
+      "state": "half",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-7be15c33-16bf-4af5-be88-b6e686046ca9.png",
+      "dest": "apps/web/src/shared/assets/friend-seoyun-mouth-half.jpg",
+      "lossless": "/tmp/hanbeot-image-composites-2026-11-13/seoyun-half-composite.png",
+      "region": {
+        "x": 300,
+        "y": 400,
+        "cx": 110,
+        "cy": 70,
+        "rx": 53,
+        "ry": 31
+      },
+      "localSource": "docs/design/mouth-work/seoyun-half-generated.png"
+    },
+    {
+      "id": "seoyun",
+      "state": "open",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-4cb198b7-4b09-42cb-837d-d04c952b49f6.png",
+      "dest": "apps/web/src/shared/assets/friend-seoyun-mouth-open.jpg",
+      "lossless": "/tmp/hanbeot-image-composites-2026-11-13/seoyun-open-composite.png",
+      "region": {
+        "x": 300,
+        "y": 400,
+        "cx": 110,
+        "cy": 70,
+        "rx": 53,
+        "ry": 31
+      },
+      "localSource": "docs/design/mouth-work/seoyun-open-generated.png"
+    }
+  ],
+  "mouth_regions": {
+    "haneul": {
+      "x": 450,
+      "y": 530,
+      "cx": 110,
+      "cy": 75,
+      "rx": 46,
+      "ry": 28
+    },
+    "doyun": {
+      "x": 380,
+      "y": 410,
+      "cx": 117,
+      "cy": 71,
+      "rx": 46,
+      "ry": 28
+    },
+    "jiwoo": {
+      "x": 460,
+      "y": 375,
+      "cx": 110,
+      "cy": 76,
+      "rx": 68,
+      "ry": 47
+    },
+    "seoyun": {
+      "x": 300,
+      "y": 400,
+      "cx": 110,
+      "cy": 70,
+      "rx": 53,
+      "ry": 31
+    }
+  }
+}

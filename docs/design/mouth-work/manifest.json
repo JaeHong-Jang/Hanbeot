@@ -1,0 +1,182 @@
+{
+  "regions": {
+    "haneul": {
+      "x": 450,
+      "y": 530,
+      "cx": 110,
+      "cy": 75,
+      "rx": 46,
+      "ry": 28
+    },
+    "doyun": {
+      "x": 380,
+      "y": 410,
+      "cx": 117,
+      "cy": 71,
+      "rx": 46,
+      "ry": 28
+    },
+    "jiwoo": {
+      "x": 460,
+      "y": 375,
+      "cx": 110,
+      "cy": 76,
+      "rx": 68,
+      "ry": 47
+    },
+    "seoyun": {
+      "x": 300,
+      "y": 400,
+      "cx": 110,
+      "cy": 70,
+      "rx": 53,
+      "ry": 31
+    }
+  },
+  "assets": [
+    {
+      "id": "haneul",
+      "state": "half",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-2823e65f-ee66-4b21-a0e6-fa8552aebc81.png",
+      "dest": "apps/web/src/shared/assets/friend-haneul-mouth-half.jpg",
+      "lossless": "/tmp/hanbeot-image-composites-2026-11-13/haneul-half-composite.png",
+      "region": {
+        "x": 450,
+        "y": 530,
+        "cx": 110,
+        "cy": 75,
+        "rx": 46,
+        "ry": 28
+      },
+      "localSource": "docs/design/mouth-work/haneul-half-generated.png"
+    },
+    {
+      "id": "haneul",
+      "state": "open",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-cd007bf5-3726-4660-9d3f-a9b813979f6a.png",
+      "dest": "apps/web/src/shared/assets/friend-haneul-mouth-open.jpg",
+      "lossless": "/tmp/hanbeot-image-composites-2026-11-13/haneul-open-composite.png",
+      "region": {
+        "x": 450,
+        "y": 530,
+        "cx": 110,
+        "cy": 75,
+        "rx": 46,
+        "ry": 28
+      },
+      "localSource": "docs/design/mouth-work/haneul-open-generated.png"
+    },
+    {
+      "id": "doyun",
+      "state": "half",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-f76fea4c-5ebc-4c3b-a849-3a4deebea04b.png",
+      "dest": "apps/web/src/shared/assets/friend-doyun-mouth-half.jpg",
+      "lossless": "/tmp/hanbeot-image-composites-2026-11-13/doyun-half-composite.png",
+      "region": {
+        "x": 380,
+        "y": 410,
+        "cx": 117,
+        "cy": 71,
+        "rx": 46,
+        "ry": 28
+      },
+      "localSource": "docs/design/mouth-work/doyun-half-generated.png"
+    },
+    {
+      "id": "doyun",
+      "state": "open",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-cf16354f-335a-482e-b036-5d04717012df.png",
+      "dest": "apps/web/src/shared/assets/friend-doyun-mouth-open.jpg",
+      "lossless": "/tmp/hanbeot-image-composites-2026-11-13/doyun-open-composite.png",
+      "region": {
+        "x": 380,
+        "y": 410,
+        "cx": 117,
+        "cy": 71,
+        "rx": 46,
+        "ry": 28
+      },
+      "localSource": "docs/design/mouth-work/doyun-open-generated.png"
+    },
+    {
+      "id": "jiwoo",
+      "state": "closed",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-f6d4e2ea-87b9-4f6a-b506-f284489194a7.png",
+      "dest": "apps/web/src/shared/assets/friend-jiwoo-mouth-closed.jpg",
+      "lossless": "/tmp/hanbeot-image-composites-2026-11-13/jiwoo-closed-composite.png",
+      "region": {
+        "x": 460,
+        "y": 375,
+        "cx": 110,
+        "cy": 76,
+        "rx": 68,
+        "ry": 47
+      },
+      "localSource": "docs/design/mouth-work/jiwoo-closed-generated.png"
+    },
+    {
+      "id": "jiwoo",
+      "state": "half",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-e47e7876-65fc-4b1a-92fc-2732e060939b.png",
+      "dest": "apps/web/src/shared/assets/friend-jiwoo-mouth-half.jpg",
+      "lossless": "/tmp/hanbeot-image-composites-2026-11-13/jiwoo-half-composite.png",
+      "region": {
+        "x": 460,
+        "y": 375,
+        "cx": 110,
+        "cy": 76,
+        "rx": 68,
+        "ry": 47
+      },
+      "localSource": "docs/design/mouth-work/jiwoo-half-generated.png"
+    },
+    {
+      "id": "jiwoo",
+      "state": "open",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-006eb495-420d-40e5-8a69-aca6939ad085.png",
+      "dest": "apps/web/src/shared/assets/friend-jiwoo-mouth-open.jpg",
+      "lossless": "/tmp/hanbeot-image-composites-2026-11-13/jiwoo-open-composite.png",
+      "region": {
+        "x": 460,
+        "y": 375,
+        "cx": 110,
+        "cy": 76,
+        "rx": 68,
+        "ry": 47
+      },
+      "localSource": "docs/design/mouth-work/jiwoo-open-generated.png"
+    },
+    {
+      "id": "seoyun",
+      "state": "half",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-7be15c33-16bf-4af5-be88-b6e686046ca9.png",
+      "dest": "apps/web/src/shared/assets/friend-seoyun-mouth-half.jpg",
+      "lossless": "/tmp/hanbeot-image-composites-2026-11-13/seoyun-half-composite.png",
+      "region": {
+        "x": 300,
+        "y": 400,
+        "cx": 110,
+        "cy": 70,
+        "rx": 53,
+        "ry": 31
+      },
+      "localSource": "docs/design/mouth-work/seoyun-half-generated.png"
+    },
+    {
+      "id": "seoyun",
+      "state": "open",
+      "source": "/home/data/.local/share/orca/codex-accounts/41245642-2fb9-489b-a66e-16c7b6c8151b/home/generated_images/01a1d0e7-f58e-7b73-9928-4c39d80eb372/exec-4cb198b7-4b09-42cb-837d-d04c952b49f6.png",
+      "dest": "apps/web/src/shared/assets/friend-seoyun-mouth-open.jpg",
+      "lossless": "/tmp/hanbeot-image-composites-2026-11-13/seoyun-open-composite.png",
+      "region": {
+        "x": 300,
+        "y": 400,
+        "cx": 110,
+        "cy": 70,
+        "rx": 53,
+        "ry": 31
+      },
+      "localSource": "docs/design/mouth-work/seoyun-open-generated.png"
+    }
+  ]
+}

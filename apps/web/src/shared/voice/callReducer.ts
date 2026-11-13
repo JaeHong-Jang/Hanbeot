@@ -62,6 +62,8 @@ function reduceEvent(state: CallState, event: VoiceEvent): CallState {
       };
     case 'mode_changed':
       return { ...state, mode: event.mode };
+    case 'playback_stopped':
+      return state.orb === 'speaking' ? { ...state, orb: 'listening' } : state;
     case 'cue_detected':
       // 안전 모드에서는 확인 질문을 하지 않는다(설계서 5-4).
       return state.safeMode ? state : { ...state, cue: event };

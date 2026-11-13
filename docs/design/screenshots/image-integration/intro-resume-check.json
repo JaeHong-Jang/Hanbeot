@@ -1,0 +1,5 @@
+{
+  "check": "Pause at about two seconds, resume after 1.2 seconds: advance using remaining time",
+  "elapsed_after_resume_ms": 933,
+  "status": "passed"
+}

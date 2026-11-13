@@ -81,8 +81,8 @@ export function Fridge() {
   const rest = log.slice(PHOTO_SLOTS.length);
 
   return (
-    <main>
-      <div className={r.scene}>
+    <main className={styles.fridge}>
+      <div className={`${r.scene} ${styles.scene}`}>
         <img src={fridgeImage} alt="" />
         <RoomHead title={s.fridgeTitle} sub={s.fridgeSub(log.length)} />
 

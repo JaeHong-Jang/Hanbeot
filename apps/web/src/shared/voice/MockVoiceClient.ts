@@ -111,6 +111,9 @@ export class MockVoiceClient implements VoiceClient {
         });
       }
     });
+    this.later(USER_SPEAKS_MS + THINK_MS + AI_SPEAKS_MS, () => {
+      this.emit({ type: 'playback_stopped' });
+    });
     this.scheduleTurn(USER_SPEAKS_MS + THINK_MS + AI_SPEAKS_MS + BETWEEN_TURNS_MS);
   }
 

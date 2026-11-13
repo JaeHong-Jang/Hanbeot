@@ -12,8 +12,10 @@ export type CaptionAdded = {
   text: string;
 };
 export type PlaybackStarted = { type: 'playback_started'; at_ms: number };
+export type PlaybackStopped = { type: 'playback_stopped' };
 
-export type VoiceEvent = CallEvent | ConnectionChanged | CaptionAdded | PlaybackStarted;
+export type VoiceEvent =
+  CallEvent | ConnectionChanged | CaptionAdded | PlaybackStarted | PlaybackStopped;
 export type VoiceEventHandler = (event: VoiceEvent) => void;
 
 /**
@@ -28,6 +30,8 @@ export interface VoiceClient {
   setMuted(muted: boolean): void;
   /** 한벗 목소리(출력)만 끈다. 통화와 마이크는 그대로다. */
   setOutputMuted(muted: boolean): void;
+  /** 재생 중인 AI 음성의 AnalyserNode 등에서 얻는 0~1 음량. 미연결은 null. */
+  getOutputLevel?(): number | null;
   /** 마이크와 AI 발화를 모두 멈춘다. */
   setHeld(held: boolean): void;
   /** 탭으로 AI 발화 끊기(끼어들기). */

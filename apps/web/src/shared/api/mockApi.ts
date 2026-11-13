@@ -9,8 +9,37 @@ import type { Consent, Memory, MemoryCandidate, Summary } from '@/entities';
  * 주소에 ?data=worst 를 붙이면 극단값 데이터로 시작한다(break-ui 방식의 개발용 시험).
  * 실제 사용자가 만들 법한 최악의 값만 넣는다: 아주 긴 글, 띄어쓰기 없는 주소, 한 글자, 많은 개수, 빈 목록.
  */
-const WORST_CASE = new URLSearchParams(window.location.search).get('data') === 'worst';
+const QUERY = new URLSearchParams(window.location.search);
+const WORST_CASE = QUERY.get('data') === 'worst';
 const STORE_KEY = WORST_CASE ? 'hanbeot.mock.worst' : 'hanbeot.mock';
+
+/**
+ * 주소에 ?demo=in 을 붙이면 입장 이야기, 로그인, 동의, 첫 안내를 모두 마친 상태로 시작한다.
+ * 시연 캡처나 방 화면만 바로 볼 때 쓴다(mock 모드에서만).
+ */
+function seedDemoEntry(): void {
+  // ?reset=1 : 이 기기에 남은 입장 상태(이야기 봤음, 이름, 동의)를 모두 지우고 처음부터
+  if (QUERY.get('reset') === '1') {
+    try {
+      window.localStorage.clear();
+      window.sessionStorage.clear();
+    } catch {
+      /* 무시 */
+    }
+  }
+  if (QUERY.get('demo') !== 'in') return;
+  try {
+    window.localStorage.setItem('hanbeot.pref.introSeen', 'yes');
+    window.localStorage.setItem('hanbeot.pref.user', '지민');
+    window.localStorage.setItem('hanbeot.pref.name', '지민');
+    window.localStorage.setItem('hanbeot.pref.houseCoached', 'yes');
+    const store = load();
+    store.consent = { basic: true, voice: true, sensitive: false };
+    save(store);
+  } catch {
+    /* 저장소를 못 쓰면 그냥 처음부터 */
+  }
+}
 
 type Store = {
   consent: Consent;
@@ -205,6 +234,7 @@ async function handle(
 
 /** window.fetch를 감싸 `/api/`로 시작하는 요청만 가짜로 답한다. */
 export function installMockApi(): void {
+  seedDemoEntry();
   const realFetch = window.fetch.bind(window);
   window.fetch = async (input: RequestInfo | URL, init?: RequestInit): Promise<Response> => {
     const raw = typeof input === 'string' ? input : input instanceof URL ? input.href : input.url;

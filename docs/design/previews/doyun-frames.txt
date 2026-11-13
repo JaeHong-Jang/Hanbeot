@@ -1,0 +1,9 @@
+file '../../../apps/web/src/shared/assets/friend-doyun-mouth-closed.jpg'
+duration 0.15
+file '../../../apps/web/src/shared/assets/friend-doyun-mouth-half.jpg'
+duration 0.15
+file '../../../apps/web/src/shared/assets/friend-doyun-mouth-open.jpg'
+duration 0.15
+file '../../../apps/web/src/shared/assets/friend-doyun-mouth-half.jpg'
+duration 0.15
+file '../../../apps/web/src/shared/assets/friend-doyun-mouth-closed.jpg'
