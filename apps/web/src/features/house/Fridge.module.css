@@ -1,17 +1,26 @@
-/* 냉장고 화면은 세로로 꽉 찬다: 그림이 끝나고 흰 바닥이 보이지 않게 그림을 화면 높이에 맞춘다 */
+/* 냉장고는 화면 높이를 꽉 채운다. 그림과 그 위에 붙이는 것들은 그림 비율 그대로인 무대(.stage)에
+   함께 두어, 화면 크기가 달라져도 % 자리가 그림과 어긋나지 않는다.
+   못 붙인 편지 목록은 냉장고 아래로 이어져(스크롤) 사진을 덮지 않는다. */
 .fridge {
   position: relative;
   height: 100%;
-  background: #cfc7bd; /* 냉장고 옆 벽 */
+  background: var(--h-bg);
 }
-/* 공용 .scene > img { height: auto } 보다 뒤에 적용되도록 선택자를 하나 더 붙인다 */
 .fridge .scene {
   height: 100%;
+  container-type: size;
 }
-.fridge .scene > img {
+.stage {
+  position: relative;
+  left: 50%;
+  /* 화면을 덮을 만큼 크게(가로나 세로 중 큰 쪽에 맞춤), 넘치는 양옆은 잘린다 */
+  width: max(100cqw, 100cqh * 694 / 1110);
+  aspect-ratio: 694 / 1110;
+  transform: translateX(-50%);
+}
+.fridge .stage > img {
+  width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: 50% 0;
 }
 
 /* 냉장고 문 위에 붙이는 것들. 자리는 냉장고 그림 기준 % */
@@ -39,17 +48,20 @@
 /* 왼쪽 위 노란 메모: 가장 최근에 기억한 것 */
 .memo {
   position: absolute;
-  left: 26.4%;
-  top: 20.6%;
-  width: 12.6%;
-  height: 8.6%;
+  /* 그림 속 노란 종이(가로 24.5~39.6%, 세로 18.7~28.6%) 안쪽, 자석 아래에만 글씨를 둔다 */
+  left: 25.8%;
+  top: 22.4%;
+  width: 12.8%;
+  /* 높이는 정확히 세 줄: 넷째 줄이 살짝 비치지 않게 */
+  max-height: 3.45em;
   overflow: hidden;
-  font: 400 13px/1.1 var(--font-hand);
+  font: 400 12px/1.15 var(--font-hand);
+  letter-spacing: -0.04em;
   transform: rotate(-4deg);
   color: #5a4a1e;
   text-decoration: none;
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
 
@@ -117,33 +129,82 @@
   font: 700 11px/20px var(--font-body);
   font-style: normal;
 }
+/* 아래 노란 메모(그림 속 빈 메모 자리): 안내 글 또는 못 붙인 편지 열기 */
+.sticky {
+  position: absolute;
+  left: 46.8%;
+  top: 84.6%;
+  width: 15.2%;
+  height: 8.2%;
+  display: grid;
+  place-items: center;
+  padding: 0 2px;
+  border: 0;
+  background: transparent;
+  font: 400 13px/1.15 var(--font-hand);
+  color: #5a4a1e;
+  text-align: center;
+  white-space: pre-line;
+  transform: rotate(-3deg);
+}
+button.sticky {
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 .photo:focus-visible,
-.memo:focus-visible {
+.memo:focus-visible,
+.sticky:focus-visible {
   outline: 3px solid var(--h-sofa);
   outline-offset: 2px;
 }
 
-.below {
+/* 못 붙인 편지: 노란 메모를 누르면 아래에서 올라오는 판 */
+.dim {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  border: 0;
+  background: rgba(20, 14, 10, 0.35);
+}
+.sheet {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 6;
-  max-height: 45%;
+  z-index: 9;
+  max-height: 62%;
   overflow-y: auto;
   padding: 18px 20px 24px;
   border-radius: 22px 22px 0 0;
   background: var(--h-bg);
   display: grid;
   gap: 10px;
+  animation: sheetUp 220ms var(--ease-out);
 }
-.below:empty {
-  display: none;
+.sheetHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.empty {
-  font-size: 14px;
-  color: var(--h-muted);
-  text-align: center;
+.close {
+  min-height: 44px;
+  padding: 0 4px 0 12px;
+  border: 0;
+  background: none;
+  color: var(--h-sub);
+  font: 600 14px var(--font-body);
+}
+@keyframes sheetUp {
+  from {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sheet {
+    animation: none;
+  }
 }
 .rowDate {
   flex: none;

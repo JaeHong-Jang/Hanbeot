@@ -1,4 +1,4 @@
-import type { CSSProperties } from 'react';
+import { useState, type CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
 
 import styles from './Fridge.module.css';
@@ -10,7 +10,6 @@ import { useMemories, useSummary } from '@/shared/api';
 import fridgeImage from '@/shared/assets/rooms/fridge.jpg';
 import { friendById } from '@/shared/friend';
 import { useCallLog } from '@/shared/hooks/useCallLog';
-import { PREF_KEYS, useLocalPref } from '@/shared/hooks/useLocalPref';
 import { weekStats, type CallLogEntry } from '@/shared/lib/callLog';
 
 const DAY_MS = 86_400_000;
@@ -63,13 +62,12 @@ function LetterRow({ entry }: { entry: CallLogEntry }) {
 
 /**
  * V5 냉장고 = 편지 모음. 냉장고 문에 최근 편지 사진 넷, 달력에 이번 주 통화,
- * 노란 메모에 가장 최근 기억. 더 오래된 편지는 아래 목록으로.
+ * 노란 메모에 가장 최근 기억. 더 오래된 편지는 아래 노란 메모를 누르면 올라오는 목록으로.
  */
 export function Fridge() {
   const { log } = useCallLog();
   const memories = useMemories('approved');
-  const friendPref = useLocalPref(PREF_KEYS.friend, 'haneul');
-  const friend = friendById(friendPref.value);
+  const [moreOpen, setMoreOpen] = useState(false);
   const now = new Date();
   const week = weekStats(log, now);
   const thisMonth = log.filter((e) => {
@@ -83,45 +81,76 @@ export function Fridge() {
   return (
     <main className={styles.fridge}>
       <div className={`${r.scene} ${styles.scene}`}>
-        <img src={fridgeImage} alt="" />
-        <RoomHead title={s.fridgeTitle} sub={s.fridgeSub(log.length)} />
+        {/* 그림과 그 위에 붙인 것들은 같은 무대에: 화면 크기가 달라도 자리가 어긋나지 않는다 */}
+        <div className={styles.stage}>
+          <img src={fridgeImage} alt="" />
 
+          <Link to="/memory" className={styles.memo} aria-label={s.memoNote}>
+            {lastMemory ? lastMemory.text : s.memoEmpty}
+          </Link>
+
+          <div className={styles.calendar}>
+            <small>{s.calendarTitle}</small>
+            <b>{s.calendarCalls(week.calls)}</b>
+            <span>{s.calendarMinutes(week.minutes)}</span>
+          </div>
+
+          {pinned.map((entry, slotIndex) => {
+            const slot = PHOTO_SLOTS[slotIndex];
+            return slot ? (
+              <LetterPhoto key={entry.sessionId} entry={entry} slot={slot} now={now} />
+            ) : null;
+          })}
+
+          {/* 아래 노란 메모: 편지가 없으면 안내, 넷보다 많으면 나머지를 여는 손잡이 */}
+          {log.length === 0 ? <p className={styles.sticky}>{s.fridgeEmptyNote}</p> : null}
+          {log.length > 0 && rest.length === 0 ? (
+            <p className={styles.sticky}>{s.fridgeNextNote}</p>
+          ) : null}
+          {rest.length > 0 ? (
+            <button
+              type="button"
+              className={styles.sticky}
+              aria-expanded={moreOpen}
+              onClick={() => setMoreOpen(true)}
+            >
+              {s.moreNote(rest.length)}
+            </button>
+          ) : null}
+        </div>
+
+        <RoomHead title={s.fridgeTitle} sub={s.fridgeSub(log.length)} />
         <div className={styles.chips}>
           <span className={styles.chipOn}>{s.all(log.length)}</span>
           <span>{s.thisMonth(thisMonth)}</span>
         </div>
-
-        <Link to="/memory" className={styles.memo} aria-label={s.memoNote}>
-          {lastMemory ? lastMemory.text : s.memoEmpty}
-        </Link>
-
-        <div className={styles.calendar}>
-          <small>{s.calendarTitle}</small>
-          <b>{s.calendarCalls(week.calls)}</b>
-          <span>{s.calendarMinutes(week.minutes)}</span>
-        </div>
-
-        {pinned.map((entry, slotIndex) => {
-          const slot = PHOTO_SLOTS[slotIndex];
-          return slot ? (
-            <LetterPhoto key={entry.sessionId} entry={entry} slot={slot} now={now} />
-          ) : null;
-        })}
       </div>
 
-      <section className={styles.below}>
-        {log.length === 0 ? <p className={styles.empty}>{s.fridgeEmpty(friend.name)}</p> : null}
-        {rest.length > 0 ? (
-          <>
-            <h2 className={r.panelTitle}>{s.moreLetters}</h2>
+      {moreOpen && rest.length > 0 ? (
+        <>
+          <button
+            type="button"
+            className={styles.dim}
+            aria-label={s.moreClose}
+            onClick={() => setMoreOpen(false)}
+          />
+          <section className={styles.sheet} aria-labelledby="fridge-more">
+            <div className={styles.sheetHead}>
+              <h2 id="fridge-more" className={r.panelTitle}>
+                {s.moreLetters}
+              </h2>
+              <button type="button" className={styles.close} onClick={() => setMoreOpen(false)}>
+                {s.moreClose}
+              </button>
+            </div>
             <div className={r.list}>
               {rest.map((entry) => (
                 <LetterRow key={entry.sessionId} entry={entry} />
               ))}
             </div>
-          </>
-        ) : null}
-      </section>
+          </section>
+        </>
+      ) : null}
     </main>
   );
 }

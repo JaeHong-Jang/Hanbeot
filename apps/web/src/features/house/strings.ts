@@ -11,15 +11,37 @@ export const houseStrings = {
   friendLabel: '지금 이야기할 친구',
   places: {
     haneul: { name: '거실', call: '소파에서 통화', alt: '하늘이 머무는 올리브 소파가 있는 거실' },
-    doyun: { name: '창가', call: '창가에서 통화', alt: '도윤이 머무는 책과 조명이 놓인 창가 책상' },
-    jiwoo: { name: '주방', call: '주방에서 통화', alt: '지우가 머무는 과일과 머그가 놓인 주방' },
-    seoyun: { name: '베란다', call: '베란다에서 통화', alt: '서윤이 머무는 저녁빛 베란다' },
+    doyun: { name: '창가', call: '창가에서 통화', alt: '창가 책상 의자에 앉아 책을 든 도윤' },
+    jiwoo: { name: '주방', call: '주방에서 통화', alt: '주방 조리대에 기대어 사과 접시를 든 지우' },
+    seoyun: {
+      name: '베란다',
+      call: '베란다에서 통화',
+      alt: '퇴근하고 베란다 의자에 앉아 머그를 든 서윤',
+    },
   },
   replayIntro: '처음 이야기 다시 보기',
+  /** 친구가 지금 하는 일. 방 그림의 시간대(아침, 저녁, 밤)에 맞춘다. */
   doing: {
-    morning: '창가에서 커피 내리는 중',
-    evening: '저녁 준비하다 잠깐 쉬는 중',
-    night: '소파에서 차 마시는 중',
+    haneul: {
+      morning: '창가에서 커피 내리는 중',
+      evening: '저녁 준비하다 잠깐 쉬는 중',
+      night: '소파에서 차 마시는 중',
+    },
+    doyun: {
+      morning: '아침 햇빛 받으며 책 읽는 중',
+      evening: '해 지는 창가에서 책 읽는 중',
+      night: '스탠드 켜 놓고 책 읽는 중',
+    },
+    jiwoo: {
+      morning: '아침으로 사과 깎아 먹는 중',
+      evening: '저녁 간식 만드는 중',
+      night: '야식으로 사과 먹는 중',
+    },
+    seoyun: {
+      morning: '출근 전에 커피 한 잔 하는 중',
+      evening: '퇴근하고 베란다에서 쉬는 중',
+      night: '야근하고 와서 바람 쐬는 중',
+    },
   },
   doorNote: '현관 쪽지',
   window: '창문',
@@ -69,8 +91,10 @@ export const houseStrings = {
   memoEmpty: '통화에서 기억해 달라고 한 것이 여기 붙어요',
   justNow: '방금',
   moreLetters: '냉장고에 다 못 붙인 편지',
-  fridgeEmpty: (friendName: string) =>
-    `${josa(friendName, '이랑', '랑')} 통화가 끝나면 편지 사진이 여기 붙어요.`,
+  moreNote: (count: number) => `다 못 붙인 편지\n${count}통 더 보기`,
+  moreClose: '닫기',
+  fridgeEmptyNote: '통화가 끝나면 편지가 여기 붙어요',
+  fridgeNextNote: '다음 편지도 여기 붙여 둘게',
   // 내 방
   roomTitle: '내 방',
   roomSub: '설정',

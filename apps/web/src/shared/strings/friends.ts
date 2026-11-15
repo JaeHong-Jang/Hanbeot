@@ -10,7 +10,7 @@ export const FRIEND_STRINGS = {
   seoyun: {
     name: '서윤',
     tagline: '솔직하게 말해 주는 든든한 친구',
-    mood: '베란다에서 바람 쐬는 중',
+    mood: '퇴근하고 베란다에서 쉬는 중',
   },
 } as const;
 

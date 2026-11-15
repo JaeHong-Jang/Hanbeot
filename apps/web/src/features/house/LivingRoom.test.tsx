@@ -7,6 +7,7 @@ import { LivingRoom } from './LivingRoom';
 
 import { friendById } from '@/shared/friend';
 import { PREF_KEYS } from '@/shared/hooks/useLocalPref';
+import { dayPart } from '@/shared/lib/dayPart';
 
 function renderLiving({ coached }: { coached: boolean }) {
   if (coached) window.localStorage.setItem('hanbeot.pref.houseCoached', 'yes');
@@ -50,7 +51,8 @@ describe('LivingRoom (V5 하늘이네 집)', () => {
 
   it('starts a call from the sofa tag', () => {
     renderLiving({ coached: true });
-    fireEvent.click(screen.getByRole('button', { name: /에서 통화/ }));
+    // 아침에는 "창가로 가서 통화", 그 밖에는 "소파에서 통화"라서 시간대와 상관없이 찾는다.
+    fireEvent.click(screen.getByRole('button', { name: /(에서|가서) 통화/ }));
     expect(screen.getByText('통화 화면')).toBeInTheDocument();
   });
 
@@ -75,7 +77,7 @@ describe('LivingRoom (V5 하늘이네 집)', () => {
       );
       expect(screen.getByRole('img', { name: new RegExp(friend.name) })).toHaveAttribute(
         'src',
-        friend.room,
+        friend.room[dayPart(new Date().getHours())],
       );
       expect(window.localStorage.getItem(PREF_KEYS.friend)).toBe(friend.id);
       expect(screen.queryByRole('button', { name: /현관 쪽지/ })).not.toBeInTheDocument();

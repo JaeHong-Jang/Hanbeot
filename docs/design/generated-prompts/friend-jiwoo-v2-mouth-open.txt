@@ -1,0 +1,4 @@
+Use your image editing/generation tool on the attached image crop.png and save the result as patch.png in the current directory.
+This is a close-up crop of a woman's mouth from a locked portrait. Edit ONLY the lips and the mouth opening. Keep nose, cheeks, chin, skin texture, hair, lighting, color, camera angle and pixel placement exactly identical. Do not move, zoom, reframe, recolor or beautify anything. Keep the mouth at the same position and the same width, and keep a gentle friendly expression.
+Mouth OPEN a little more as if saying "ah": natural relaxed speaking jaw drop, upper teeth and a hint of dark mouth interior visible, not exaggerated, not a scream.
+Output exactly ONE image with the same framing as the input, 1408x1024 pixels (11:8). Photorealistic, no text.

@@ -10,10 +10,19 @@ import jiwooOpen from '@/shared/assets/friend-jiwoo-mouth-open.jpg';
 import seoyunClosed from '@/shared/assets/friend-seoyun-mouth-closed.jpg';
 import seoyunHalf from '@/shared/assets/friend-seoyun-mouth-half.jpg';
 import seoyunOpen from '@/shared/assets/friend-seoyun-mouth-open.jpg';
-import balconyRoom from '@/shared/assets/rooms/balcony-dusk.jpg';
-import deskRoom from '@/shared/assets/rooms/desk-dusk.jpg';
-import kitchenRoom from '@/shared/assets/rooms/kitchen-night.jpg';
-import livingRoom from '@/shared/assets/rooms/living-night.jpg';
+import doyunEvening from '@/shared/assets/rooms/doyun-evening.jpg';
+import doyunMorning from '@/shared/assets/rooms/doyun-morning.jpg';
+import doyunNight from '@/shared/assets/rooms/doyun-night.jpg';
+import haneulEvening from '@/shared/assets/rooms/living-evening.jpg';
+import haneulMorning from '@/shared/assets/rooms/living-morning.jpg';
+import haneulNight from '@/shared/assets/rooms/living-night.jpg';
+import jiwooEvening from '@/shared/assets/rooms/jiwoo-evening.jpg';
+import jiwooMorning from '@/shared/assets/rooms/jiwoo-morning.jpg';
+import jiwooNight from '@/shared/assets/rooms/jiwoo-night.jpg';
+import seoyunEvening from '@/shared/assets/rooms/seoyun-evening.jpg';
+import seoyunMorning from '@/shared/assets/rooms/seoyun-morning.jpg';
+import seoyunNight from '@/shared/assets/rooms/seoyun-night.jpg';
+import type { DayPart } from '@/shared/lib/dayPart';
 import { FRIEND_STRINGS } from '@/shared/strings/friends';
 
 export type FriendId = keyof typeof FRIEND_STRINGS;
@@ -27,8 +36,8 @@ export type Friend = {
   /** 카드와 통화 대기 상태에서 같은 인물·구도를 쓰도록 닫힌 입 초상을 공유한다. */
   image: string;
   mouth: MouthFrames;
-  /** 이 친구가 머무는 자리(빈 방 그림) */
-  room: string;
+  /** 이 친구가 머무는 자리. 친구가 그 방에 있는 그림을 시간대(아침, 저녁, 밤)마다 한 장씩 */
+  room: Record<DayPart, string>;
 };
 
 const frames = (closed: string, half: string, open: string): MouthFrames => ({
@@ -37,12 +46,18 @@ const frames = (closed: string, half: string, open: string): MouthFrames => ({
   open,
 });
 
+const rooms = (morning: string, evening: string, night: string): Record<DayPart, string> => ({
+  morning,
+  evening,
+  night,
+});
+
 const DEFAULT_FRIEND: Friend = {
   id: 'haneul',
   ...FRIEND_STRINGS.haneul,
   image: haneulClosed,
   mouth: frames(haneulClosed, haneulHalf, haneulOpen),
-  room: livingRoom,
+  room: rooms(haneulMorning, haneulEvening, haneulNight),
 };
 
 /** 고를 수 있는 AI 친구. 그림은 같은 아파트, 같은 조명으로 생성했다. */
@@ -53,21 +68,21 @@ export const FRIENDS: readonly Friend[] = [
     ...FRIEND_STRINGS.doyun,
     image: doyunClosed,
     mouth: frames(doyunClosed, doyunHalf, doyunOpen),
-    room: deskRoom,
+    room: rooms(doyunMorning, doyunEvening, doyunNight),
   },
   {
     id: 'jiwoo',
     ...FRIEND_STRINGS.jiwoo,
     image: jiwooClosed,
     mouth: frames(jiwooClosed, jiwooHalf, jiwooOpen),
-    room: kitchenRoom,
+    room: rooms(jiwooMorning, jiwooEvening, jiwooNight),
   },
   {
     id: 'seoyun',
     ...FRIEND_STRINGS.seoyun,
     image: seoyunClosed,
     mouth: frames(seoyunClosed, seoyunHalf, seoyunOpen),
-    room: balconyRoom,
+    room: rooms(seoyunMorning, seoyunEvening, seoyunNight),
   },
 ];
 

@@ -1,0 +1,8 @@
+Use your image generation tool to create ONE new photo and save it as jiwoo-room.png in the current directory.
+Reference image 1 (person.png): keep this EXACT same woman: same face, hair, outfit, same photo quality and soft flattering look.
+Reference image 2 (room.jpg): the exact small kitchen to use, same furniture, window and lamps in the same places.
+Reference image 3 (layout.jpg): a scene from our app. Copy its composition idea: a wider room view where the person is a natural part of the room, placed in the center, the room readable around her, the lower 25% of the image calm floor or furniture.
+Scene: At night Jiwoo leans back against the walnut kitchen counter under the pendant lamp, holding the small plate of sliced apples, as if offering one to a friend who just walked in. She looks at the camera with a warm, friendly smile, eyes open. Person centered horizontally, her face around 35-40% of the image height.
+Portrait 4:5, 1600x2000 pixels. One person only, natural hands, no text or logos anywhere.
+Style: match reference image 1 in photographic quality and beauty level: photorealistic Korean lifestyle editorial photo, 50mm lens, shallow depth of field, soft warm tungsten lamp light (2700K) with a cool window fill, warm low-saturation palette of cream, oatmeal, olive green and walnut brown, gentle film grain, soft flattering skin with natural texture (same retouching level as reference 1), clear bright eyes. No text, no logos, no watermark.
+Avoid: looking older than 25, tired or sallow skin, closed or squinting eyes, heavy glasses, harsh flash, neon colors, stock-photo grin, anime or 3D render look, extra fingers, duplicated people.

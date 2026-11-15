@@ -1,0 +1,6 @@
+Use your image generation tool to create ONE new photo and save it as out.png in the current directory.
+Reference image 1 (person.png): keep this EXACT same woman: same face, shoulder-length side-parted C-curl bob with no bangs, makeup, ivory blouse, charcoal skirt and ID lanyard, same soft flattering photo quality.
+Reference image 2 (layout.jpg): copy this exact scene: the same balcony, railing, potted tree, folding wooden chair, glass door to the warm living room, sunset sky, camera angle and composition, with the person seated on the chair in the center.
+Scene: EVENING at sunset; she just got home from work and unwinds on the balcony. She sits on the folding wooden chair, legs crossed elegantly, one arm resting on the railing, a warm mug in her other hand, looking at the camera with a calm, soft warm older-sister smile. Outfit: ivory blouse tucked into a charcoal-grey H-line pencil skirt that ends at mid-thigh, sheer black tights, black low-heel pumps, ID lanyard. Tasteful, elegant office style.
+Portrait 4:5, 1600x2000 pixels. Person centered horizontally, face around 35-40% of image height. One person only, natural hands, no text or logos (ID card blank).
+Style: photorealistic Korean lifestyle editorial photo, 35mm lens, warm sunset light, warm low-saturation palette, gentle film grain. Avoid: bangs, looking older than 29, anime or 3D look.

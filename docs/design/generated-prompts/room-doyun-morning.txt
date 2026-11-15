@@ -1,0 +1,4 @@
+Use your image editing/generation tool on the attached base.jpg and save the result as out.png in the current directory.
+Re-light this exact photo for a different time of day. Keep EVERYTHING else identical: the same person with the exact same face, hair, outfit, pose, expression and position; the same furniture, objects, framing and camera angle. Change only the light, the sky outside the window, and whether lamps are on.
+MORNING: bright soft natural daylight streaming through the window, pale blue morning sky and sunlit buildings outside, lamps switched OFF, fresh airy cream tones, gentle window shadows.
+Portrait 4:5, 1600x2000 pixels. Photorealistic, same soft flattering look, no text, no logos.

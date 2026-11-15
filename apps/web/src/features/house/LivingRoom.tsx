@@ -10,9 +10,6 @@ import { Segmented } from './Segmented';
 import { houseStrings as s } from './strings';
 
 import { useConsents, useMemories } from '@/shared/api';
-import livingEvening from '@/shared/assets/rooms/living-evening.jpg';
-import livingMorning from '@/shared/assets/rooms/living-morning.jpg';
-import livingNight from '@/shared/assets/rooms/living-night.jpg';
 import { FRIENDS, friendById, type FriendId } from '@/shared/friend';
 import { useCallLog } from '@/shared/hooks/useCallLog';
 import { PREF_KEYS, useLocalPref } from '@/shared/hooks/useLocalPref';
@@ -21,15 +18,16 @@ import { clockLabel, dayPart, type DayPart } from '@/shared/lib/dayPart';
 import { CALL_MODES, greetingStrings as g, isCallMode } from '@/shared/strings/greeting';
 import { Icon } from '@/shared/ui';
 
-/** 시간대별 거실. 같은 방을 아침 햇빛, 저녁 노을, 밤 스탠드 불빛으로 그렸다. */
-const ROOM_IMAGE: Record<DayPart, string> = {
-  morning: livingMorning,
-  evening: livingEvening,
-  night: livingNight,
-};
 const DOT: Record<DayPart, string> = { morning: '#7fb2e5', evening: '#f0a06a', night: '#f5a524' };
 const PART_ORDER: readonly DayPart[] = ['morning', 'evening', 'night'];
 const MODE_OPTIONS = CALL_MODES.map((mode) => ({ value: mode, label: g.modes[mode].short }));
+/** 방마다 창문(또는 하늘)이 보이는 자리(그림 기준 %). 누르면 시간대가 바뀐다. */
+const WINDOW_TAG: Record<FriendId, { x: number; y: number }> = {
+  haneul: { x: 33, y: 41 },
+  doyun: { x: 22, y: 30 },
+  jiwoo: { x: 37, y: 27 },
+  seoyun: { x: 24, y: 33 },
+};
 const FRIEND_OPTIONS = FRIENDS.map((friend) => ({ value: friend.id, label: friend.name }));
 
 /**
@@ -79,10 +77,11 @@ export function LivingRoom() {
         />
       </div>
       <div className={`${r.scene} ${r.shade} ${styles.scene}`}>
-        <img src={isLivingRoom ? ROOM_IMAGE[part] : friend.room} alt={place.alt} />
+        {/* 친구마다 같은 방을 아침 햇빛, 저녁 노을, 밤 스탠드 불빛으로 그렸다 */}
+        <img src={friend.room[part]} alt={place.alt} />
         <RoomHead
           title={s.placeTitle(friend.name, place.name)}
-          sub={isLivingRoom ? (isLive ? clockLabel(now) : s.partLabel[part]) : friend.mood}
+          sub={isLive ? clockLabel(now) : s.partLabel[part]}
           dot={DOT[part]}
         />
         {isLivingRoom ? (
@@ -100,14 +99,19 @@ export function LivingRoom() {
             >
               {s.doorNote}
             </RoomTag>
-            <RoomTag x={33} y={41} icon={part === 'morning' ? 'sun' : 'moon'} onClick={nextPart}>
-              {s.window}
-            </RoomTag>
             <RoomTag x={92} y={31} align="end" icon="fridge" to="/fridge">
               {s.fridgeCount(log.length)}
             </RoomTag>
           </>
         ) : null}
+        <RoomTag
+          x={WINDOW_TAG[friend.id].x}
+          y={WINDOW_TAG[friend.id].y}
+          icon={part === 'morning' ? 'sun' : 'moon'}
+          onClick={nextPart}
+        >
+          {s.window}
+        </RoomTag>
         <RoomTag x={50} y={80} icon="sofa" main onClick={goCall}>
           {isLivingRoom && part === 'morning' ? s.windowCall : place.call}
         </RoomTag>
@@ -123,7 +127,7 @@ export function LivingRoom() {
           </div>
         ) : (
           <p className={r.say} style={{ left: 10, top: '45%' }}>
-            <small>{isLivingRoom ? s.doing[part] : friend.mood}</small>
+            <small>{s.doing[friend.id][part]}</small>
             {opener}
           </p>
         )}
