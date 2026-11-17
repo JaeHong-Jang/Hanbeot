@@ -1,15 +1,14 @@
-/* 내 방: 스크롤 없이 한 화면. 방 그림이 남는 높이를 다 채우고 설정 판은 맨 아래에 붙는다. */
+/* 내 방: 스크롤 없이 한 화면. 방 그림이 화면을 다 채우고 설정 판은 아래에서 밀어 여닫는다. */
 .room {
-  display: flex;
-  flex-direction: column;
+  position: relative;
   height: 100%;
   overflow: hidden;
 }
 .room .scene {
-  flex: 1;
-  min-height: 0;
+  position: absolute;
+  inset: 0;
 }
-/* 무대: 그림 비율(785:981)을 지키면서 방 높이에 맞춰 커진다. 넘치는 좌우는 잘린다. */
+/* 무대: 그림 비율(785:981)을 지키면서 화면 높이에 맞춰 커진다. 넘치는 좌우는 잘린다. */
 .stage {
   position: absolute;
   top: 0;
@@ -26,8 +25,6 @@
   object-fit: cover;
   object-position: top;
 }
-.room .panel {
-  flex-shrink: 0;
-  margin-top: -24px;
-  padding: 12px 16px;
+.body {
+  padding-bottom: 10px;
 }
