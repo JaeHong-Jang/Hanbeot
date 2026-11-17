@@ -14,8 +14,19 @@ export type CaptionAdded = {
 export type PlaybackStarted = { type: 'playback_started'; at_ms: number };
 export type PlaybackStopped = { type: 'playback_stopped' };
 
+/** 받아쓰기(STT) 상태: 모델 받는 중(progress 0~1), 준비됨, 받아쓰는 중, 실패(마이크 또는 모델). */
+export type SttStatusChanged =
+  | { type: 'stt_status_changed'; status: 'loading'; progress: number }
+  | { type: 'stt_status_changed'; status: 'ready' | 'transcribing' }
+  | { type: 'stt_status_changed'; status: 'error'; reason: 'mic' | 'model' };
+
 export type VoiceEvent =
-  CallEvent | ConnectionChanged | CaptionAdded | PlaybackStarted | PlaybackStopped;
+  | CallEvent
+  | ConnectionChanged
+  | CaptionAdded
+  | PlaybackStarted
+  | PlaybackStopped
+  | SttStatusChanged;
 export type VoiceEventHandler = (event: VoiceEvent) => void;
 
 /**

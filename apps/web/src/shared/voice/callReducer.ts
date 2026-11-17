@@ -1,4 +1,4 @@
-import type { VoiceEvent } from './types';
+import type { SttStatusChanged, VoiceEvent } from './types';
 
 import type { CallMode, CueDetected, SafeModeEntered } from '@/entities';
 
@@ -16,6 +16,8 @@ export type CallState = {
   safeMode: SafeModeEntered | null;
   /** 아직 답하지 않은 확인 질문의 단서. 점수는 화면에 쓰지 않는다(설계서 5-4). */
   cue: CueDetected | null;
+  /** 받아쓰기 상태. 받아쓰기를 쓰지 않는 클라이언트(데모)에서는 null */
+  stt: SttStatusChanged | null;
   /** 마지막 발화 종료 시각(t0). 설계서 7.2. */
   lastT0Ms: number | null;
   /** 첫 오디오 재생 시각(t1)으로 계산한 TTFA. */
@@ -38,6 +40,7 @@ export const initialCallState: CallState = {
   captions: [],
   safeMode: null,
   cue: null,
+  stt: null,
   lastT0Ms: null,
   lastTtfaMs: null,
 };
@@ -67,6 +70,8 @@ function reduceEvent(state: CallState, event: VoiceEvent): CallState {
     case 'cue_detected':
       // 안전 모드에서는 확인 질문을 하지 않는다(설계서 5-4).
       return state.safeMode ? state : { ...state, cue: event };
+    case 'stt_status_changed':
+      return { ...state, stt: event };
     case 'safe_mode_entered':
       return { ...state, safeMode: event, cue: null };
     default:

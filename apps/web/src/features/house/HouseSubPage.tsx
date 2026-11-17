@@ -11,7 +11,7 @@ import { Icon } from '@/shared/ui';
 
 function BackToRoom() {
   return (
-    <Link to="/room" className={styles.back}>
+    <Link to="/my" className={styles.back}>
       <Icon name="chevronDown" size={20} className={styles.backIcon} />
       {s.back}
     </Link>

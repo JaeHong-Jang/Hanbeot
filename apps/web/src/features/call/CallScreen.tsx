@@ -36,10 +36,20 @@ type Panel = 'none' | 'mode' | 'memory';
 const MEMORY_SHEET_ID = 'call-memory-sheet';
 
 function statusTextOf(state: CallState): string {
-  if (state.status === 'connecting') return s.connecting;
+  if (state.stt?.status === 'error') {
+    return state.stt.reason === 'mic' ? s.sttMicError : s.sttModelError;
+  }
+  if (state.status === 'connecting') {
+    if (state.stt?.status !== 'loading') return s.connecting;
+    // 모델은 다 받았는데 아직 연결 중이면 마이크 허용을 기다리는 중이다.
+    return state.stt.progress >= 1
+      ? s.sttMicWait
+      : s.sttLoading(Math.round(state.stt.progress * 100));
+  }
   if (state.status === 'ended') return s.endedHint;
   if (state.status !== 'connected') return s.idleHint;
   if (state.muted) return s.muted;
+  if (state.stt?.status === 'transcribing') return s.sttTranscribing;
   return s.status[state.orb];
 }
 
@@ -120,6 +130,9 @@ export function CallScreen({
               <span className={styles.dot} data-state={dotState} aria-hidden="true" />
               {statusTextOf(state)}
             </p>
+            {state.status === 'connecting' && state.stt?.status === 'loading' ? (
+              <p className={styles.disclosure}>{s.sttLoadingNote}</p>
+            ) : null}
             <p className={styles.disclosure}>{DISCLOSURE_NOT_THERAPY}</p>
           </div>
           <div className={styles.side}>
@@ -143,7 +156,7 @@ export function CallScreen({
 
         {/* 자막·확인 질문·위기 카드·기억이 한꺼번에 뜨면 이 안에서만 스크롤된다 */}
         <div className={styles.middle}>
-          <Captions captions={state.captions} />
+          <Captions captions={state.captions} showHeard={state.stt !== null} />
 
           {state.cue && !showSafeCard ? (
             <CueConfirmCard

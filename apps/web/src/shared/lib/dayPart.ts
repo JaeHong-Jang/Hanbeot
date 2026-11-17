@@ -8,6 +8,17 @@ export function dayPart(hour: number): DayPart {
   return 'night';
 }
 
+export const DAY_PARTS: readonly DayPart[] = ['morning', 'evening', 'night'];
+
+export function isDayPart(value: string): value is DayPart {
+  return DAY_PARTS.some((part) => part === value);
+}
+
+/** 설정에서 때를 골라 두었으면 그 때, 아니면('auto') 지금 시각의 때. */
+export function resolveDayPart(pref: string, hour: number): DayPart {
+  return isDayPart(pref) ? pref : dayPart(hour);
+}
+
 /** "밤 9시 40분" 처럼 지금 시각을 하루 때와 함께 읽는다. */
 export function clockLabel(d: Date): string {
   const hour = d.getHours();

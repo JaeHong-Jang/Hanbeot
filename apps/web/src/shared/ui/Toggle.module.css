@@ -9,6 +9,10 @@
 .row:last-child {
   border-bottom: 0;
 }
+.dense {
+  padding: 0;
+  border-bottom: 0;
+}
 .row label {
   flex: 1;
   min-width: 0;

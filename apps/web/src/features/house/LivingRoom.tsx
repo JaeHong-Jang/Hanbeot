@@ -1,38 +1,26 @@
-import { useState } from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 import { Coach } from './Coach';
 import { RoomHead } from './HouseLayout';
 import styles from './LivingRoom.module.css';
+import { ModeSheet } from './ModeSheet';
 import r from './room.module.css';
-import { RoomTag } from './RoomTag';
-import { Segmented } from './Segmented';
 import { houseStrings as s } from './strings';
+import { TalkBox } from './TalkBox';
 
 import { useConsents, useMemories } from '@/shared/api';
-import { FRIENDS, friendById, type FriendId } from '@/shared/friend';
-import { useCallLog } from '@/shared/hooks/useCallLog';
+import { friendById, type FriendId } from '@/shared/friend';
 import { PREF_KEYS, useLocalPref } from '@/shared/hooks/useLocalPref';
-import { weekStats } from '@/shared/lib/callLog';
-import { clockLabel, dayPart, type DayPart } from '@/shared/lib/dayPart';
-import { CALL_MODES, greetingStrings as g, isCallMode } from '@/shared/strings/greeting';
-import { Icon } from '@/shared/ui';
+import { resolveDayPart } from '@/shared/lib/dayPart';
+import { greetingStrings as g, isCallMode } from '@/shared/strings/greeting';
 
-const DOT: Record<DayPart, string> = { morning: '#7fb2e5', evening: '#f0a06a', night: '#f5a524' };
-const PART_ORDER: readonly DayPart[] = ['morning', 'evening', 'night'];
-const MODE_OPTIONS = CALL_MODES.map((mode) => ({ value: mode, label: g.modes[mode].short }));
-/** 방마다 창문(또는 하늘)이 보이는 자리(그림 기준 %). 누르면 시간대가 바뀐다. */
-const WINDOW_TAG: Record<FriendId, { x: number; y: number }> = {
-  haneul: { x: 33, y: 41 },
-  doyun: { x: 22, y: 30 },
-  jiwoo: { x: 37, y: 27 },
-  seoyun: { x: 24, y: 33 },
-};
-const FRIEND_OPTIONS = FRIENDS.map((friend) => ({ value: friend.id, label: friend.name }));
+/** 방 그림을 화면 높이에 맞춰 자를 때 친구가 가운데 오도록 하는 가로 기준점(%). */
+const FOCUS_X: Record<FriendId, number> = { haneul: 50, doyun: 60, jiwoo: 47, seoyun: 50 };
 
 /**
- * V5 거실(홈). 위는 누를 수 있는 방, 아래는 앱 기본 조작(대화 방식, 큰 통화 버튼, 이번 주).
- * 소파 = 통화, 냉장고 = 편지 모음, 현관 = 친구가 남긴 쪽지, 창문 = 시간대 바꿔 보기.
+ * V5 홈. 방 그림이 화면 전체를 채우고, 그 위에 머리(누구네 집, 도움 받기),
+ * 아래에 친구의 말(대화 상자)과 밀어서 여닫는 판(대화 방식, 통화 버튼)이 놓인다.
+ * 친구와 방 시간은 마이페이지에서 고른다.
  */
 export function LivingRoom() {
   const navigate = useNavigate();
@@ -40,116 +28,43 @@ export function LivingRoom() {
   const memories = useMemories('approved');
   const friendPref = useLocalPref(PREF_KEYS.friend, 'haneul');
   const modePref = useLocalPref(PREF_KEYS.mode, 'listen');
-  const { log } = useCallLog();
-  const now = new Date();
-  const [part, setPart] = useState<DayPart>(() => dayPart(now.getHours()));
-  const [noteOpen, setNoteOpen] = useState(false);
-  const [noteRead, setNoteRead] = useState(false);
+  const partPref = useLocalPref(PREF_KEYS.dayPart, 'auto');
 
   // 필수 동의 전에는 고지문과 동의 화면부터(P0-7, P0-12).
   if (consents.data && !consents.data.basic) return <Navigate to="/start" replace />;
 
+  const now = new Date();
   const friend = friendById(friendPref.value);
-  const place = s.places[friend.id];
-  const isLivingRoom = friend.id === 'haneul';
+  const part = resolveDayPart(partPref.value, now.getHours());
   const mode = isCallMode(modePref.value) ? modePref.value : 'listen';
-  const lastMemory = memories.data?.find((m) => m.kind === 'stated');
-  const opener = g.opener(now.getHours(), Boolean(lastMemory));
-  const week = weekStats(log, now);
-  const goCall = () => navigate('/call');
-  const nextPart = () => {
-    const next = PART_ORDER[(PART_ORDER.indexOf(part) + 1) % PART_ORDER.length] ?? 'night';
-    setPart(next);
-  };
-  const isLive = part === dayPart(now.getHours());
+  const hasMemory = Boolean(memories.data?.some((m) => m.kind === 'stated'));
 
   return (
-    <main>
-      <div className={styles.friends}>
-        <Segmented<FriendId>
-          label={s.friendLabel}
-          options={FRIEND_OPTIONS}
-          value={friend.id}
-          onChange={(id) => {
-            friendPref.set(id);
-            setNoteOpen(false);
-          }}
-        />
-      </div>
+    <main className={styles.home}>
       <div className={`${r.scene} ${r.shade} ${styles.scene}`}>
         {/* 친구마다 같은 방을 아침 햇빛, 저녁 노을, 밤 스탠드 불빛으로 그렸다 */}
-        <img src={friend.room[part]} alt={place.alt} />
-        <RoomHead
-          title={s.placeTitle(friend.name, place.name)}
-          sub={isLive ? clockLabel(now) : s.partLabel[part]}
-          dot={DOT[part]}
+        <img
+          src={friend.room[part]}
+          alt={s.places[friend.id].alt}
+          style={{ objectPosition: `${FOCUS_X[friend.id]}% 50%` }}
         />
-        {isLivingRoom ? (
-          <>
-            <RoomTag
-              x={11}
-              y={31}
-              align="start"
-              icon="door"
-              badge={noteRead ? undefined : 1}
-              onClick={() => {
-                setNoteOpen((open) => !open);
-                setNoteRead(true);
-              }}
-            >
-              {s.doorNote}
-            </RoomTag>
-            <RoomTag x={92} y={31} align="end" icon="fridge" to="/fridge">
-              {s.fridgeCount(log.length)}
-            </RoomTag>
-          </>
-        ) : null}
-        <RoomTag
-          x={WINDOW_TAG[friend.id].x}
-          y={WINDOW_TAG[friend.id].y}
-          icon={part === 'morning' ? 'sun' : 'moon'}
-          onClick={nextPart}
-        >
-          {s.window}
-        </RoomTag>
-        <RoomTag x={50} y={80} icon="sofa" main onClick={goCall}>
-          {isLivingRoom && part === 'morning' ? s.windowCall : place.call}
-        </RoomTag>
-
-        {noteOpen ? (
-          <div className={styles.note} role="note">
-            <b>{s.noteTitle(friend.name)}</b>
-            <p>{opener}</p>
-            {lastMemory ? <p className={styles.memo}>{lastMemory.text}</p> : null}
-            <button type="button" onClick={() => setNoteOpen(false)}>
-              {s.noteClose}
-            </button>
-          </div>
-        ) : (
-          <p className={r.say} style={{ left: 10, top: '45%' }}>
-            <small>{s.doing[friend.id][part]}</small>
-            {opener}
-          </p>
-        )}
+        <RoomHead title={s.homeTitle(friend.name)} />
       </div>
 
-      <section className={r.panel}>
-        <p className={r.panelTitle}>{s.modeTitle}</p>
-        <Segmented
-          label={s.modeLabel}
-          options={MODE_OPTIONS}
-          value={mode}
-          onChange={modePref.set}
-        />
-        <button type="button" className={r.btn} onClick={goCall}>
-          <Icon name="sofa" size={20} />
-          {s.sitWith(friend.name)}
-        </button>
-        <Link to="/fridge" className={r.mini}>
-          {s.week(friend.name, week.calls, week.minutes)}
-          <Icon name="chevronRight" size={16} />
-        </Link>
-      </section>
+      <ModeSheet
+        mode={mode}
+        onModeChange={modePref.set}
+        callLabel={s.sitWith(friend.name)}
+        onCall={() => navigate('/call')}
+        above={
+          <TalkBox
+            key={friend.id}
+            name={friend.name}
+            doing={s.doing[friend.id][part]}
+            lines={[g.opener(now.getHours(), hasMemory), s.talkMode(g.modes[mode].short)]}
+          />
+        }
+      />
 
       <Coach />
     </main>

@@ -1,4 +1,4 @@
-import { clockLabel, dayPart } from './dayPart';
+import { clockLabel, dayPart, resolveDayPart } from './dayPart';
 
 describe('dayPart', () => {
   it.each([
@@ -11,6 +11,14 @@ describe('dayPart', () => {
     [0, 'night'],
   ] as const)('%i시는 %s', (hour, part) => {
     expect(dayPart(hour)).toBe(part);
+  });
+});
+
+describe('resolveDayPart', () => {
+  it('follows the clock on auto and keeps a chosen part otherwise', () => {
+    expect(resolveDayPart('auto', 8)).toBe('morning');
+    expect(resolveDayPart('night', 8)).toBe('night');
+    expect(resolveDayPart('이상한 값', 18)).toBe('evening');
   });
 });
 

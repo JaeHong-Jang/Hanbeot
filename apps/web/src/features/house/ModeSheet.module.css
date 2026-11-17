@@ -1,0 +1,154 @@
+/* 홈 아래 묶음: 친구의 말 + 판. 판이 접히면 묶음 전체가 --travel 만큼 내려간다.
+   --p 는 접힌 정도(0 펼침 ~ 1 접힘). 끄는 동안에는 손가락 위치로 바로 바뀐다. */
+.dock {
+  --p: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 7;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(calc(var(--p) * var(--travel, 0px)));
+  transition: transform var(--dur-sheet) var(--ease-sheet);
+}
+.closed {
+  --p: 1;
+}
+.dragging {
+  transition: none;
+}
+
+.sheet {
+  padding: 0 16px;
+  border-radius: 22px 22px 0 0;
+  background: var(--h-bg);
+  box-shadow: 0 -6px 20px rgba(20, 14, 10, 0.18);
+  /* 세로로 미는 손짓을 화면 스크롤이 아니라 이 판이 받는다 */
+  touch-action: none;
+  user-select: none;
+}
+.grip {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 12px;
+  border: 0;
+  background: none;
+  cursor: grab;
+}
+.grip i {
+  width: 38px;
+  height: 4px;
+  border-radius: 2px;
+  background: #d6cdbf;
+}
+.grip:focus-visible i {
+  outline: 2px solid var(--h-sofa);
+  outline-offset: 3px;
+}
+
+/* 접혀도 남는 한 줄: 왼쪽 글, 오른쪽 작은 통화 버튼 */
+.peek {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 34px;
+  margin-bottom: 5px;
+}
+.heading {
+  display: grid;
+  min-width: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--h-text);
+}
+.heading span {
+  grid-area: 1 / 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ask {
+  opacity: calc(1 - var(--p));
+}
+.now,
+.pill {
+  opacity: var(--p);
+}
+.ask,
+.now,
+.pill {
+  transition: opacity var(--dur-ui) ease;
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  height: 34px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 17px;
+  background: var(--h-sofa);
+  color: #fff;
+  font: 600 14px var(--font-body);
+  cursor: pointer;
+  /* 펼쳐져 있을 때는 아래 큰 버튼을 쓰므로 눌리지 않게 한다 */
+  pointer-events: none;
+}
+.closed .pill {
+  pointer-events: auto;
+}
+.pill:focus-visible {
+  outline: 2px solid var(--h-sofa);
+  outline-offset: 2px;
+}
+
+/* 펼쳤을 때만 보이는 부분 */
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 8px;
+  transition: visibility 0s;
+}
+.closed .body {
+  visibility: hidden;
+  transition: visibility 0s var(--dur-sheet);
+}
+.dragging .body {
+  visibility: visible;
+}
+.call {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 50px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--h-sofa);
+  color: #fff;
+  font: 600 17px var(--font-body);
+  cursor: pointer;
+  transition: transform var(--dur-press) var(--ease-out);
+}
+.call:active,
+.pill:active {
+  transform: scale(0.98);
+}
+.call:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: -6px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .dock,
+  .ask,
+  .now,
+  .pill {
+    transition: none;
+  }
+}

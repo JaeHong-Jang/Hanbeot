@@ -9,7 +9,9 @@
   --h-rule: #efe9df;
   --h-sofa: #4e5b3f;
   --h-help: #c93a2b;
-  --tabs-h: calc(62px + var(--safe-bottom));
+  /* 탭은 화면 맨 아래에 붙인다. 홈 막대 자리는 절반만 비워도 글자가 가리지 않는다. */
+  --tabs-pad: calc(var(--safe-bottom) * 0.5);
+  --tabs-h: calc(50px + var(--tabs-pad));
   position: absolute;
   inset: 0;
   background: var(--h-bg);
@@ -35,9 +37,9 @@
   right: 0;
   bottom: 0;
   height: var(--tabs-h);
-  padding-bottom: var(--safe-bottom);
+  padding-bottom: var(--tabs-pad);
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   align-items: center;
   background: #fff;
   border-top: 1px solid #e7e0d5;
@@ -46,7 +48,7 @@
 .tab {
   display: grid;
   justify-items: center;
-  gap: 3px;
+  gap: 2px;
   font-size: 11px;
   font-weight: 600;
   color: var(--h-faint);
@@ -61,41 +63,61 @@
   border-radius: 8px;
 }
 
-/* 방 머리 */
+/* 머리: 상태 표시줄(시각, 배터리) 바로 아래 한 줄. 왼쪽 이름과 오른쪽 도움 받기가 같은 높이다. */
 .head {
   position: absolute;
-  top: max(12px, calc(var(--safe-top) - 2px));
-  left: 16px;
-  right: 16px;
+  top: max(10px, calc(var(--safe-top) - 4px));
+  left: 14px;
+  right: 14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 6;
 }
+.lead {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+.back {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--h-text);
+}
+.back svg {
+  transform: rotate(180deg);
+}
+.back:focus-visible {
+  outline: 2px solid var(--h-sofa);
+  outline-offset: 2px;
+}
 .place {
   display: inline-flex;
   flex-direction: column;
-  padding: 8px 14px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.9);
+  justify-content: center;
+  min-height: 36px;
+  padding: 4px 14px;
+  border-radius: 18px;
+  /* 방 그림을 덜 가리게 바탕과 글자를 반투명하게 */
+  background: rgba(255, 255, 255, 0.5);
+  color: rgba(31, 27, 23, 0.72);
 }
 .place b {
-  font-size: 16px;
+  font-size: 17px;
+  line-height: 1.2;
   font-weight: 800;
   letter-spacing: -0.03em;
 }
 .place small {
   font-size: 12px;
   font-weight: 600;
+  line-height: 1.2;
   color: var(--h-muted);
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-.dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
 }
 .help {
   display: inline-flex;

@@ -124,6 +124,12 @@ const PATHS = {
       <path d="M12 9v4l2.5 2M5 3 2 6M19 3l3 3" />
     </>
   ),
+  user: (
+    <>
+      <circle cx="12" cy="8" r="4" />
+      <path d="M4 21a8 8 0 0 1 16 0" />
+    </>
+  ),
   chevronRight: <path d="m9 6 6 6-6 6" />,
   lifebuoy: (
     <>

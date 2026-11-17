@@ -35,7 +35,7 @@ function renderLiving({ coached }: { coached: boolean }) {
   );
 }
 
-describe('LivingRoom (V5 하늘이네 집)', () => {
+describe('LivingRoom (V5 홈)', () => {
   afterEach(() => {
     vi.unstubAllGlobals();
     window.localStorage.clear();
@@ -43,46 +43,71 @@ describe('LivingRoom (V5 하늘이네 집)', () => {
 
   it('shows the three-step coach once on the first visit', () => {
     renderLiving({ coached: false });
-    expect(screen.getByRole('dialog')).toHaveTextContent('소파를 누르면 통화해요');
+    expect(screen.getByRole('dialog')).toHaveTextContent('아래 버튼을 누르면 통화해요');
     fireEvent.click(screen.getByRole('button', { name: '건너뛰기' }));
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
     expect(window.localStorage.getItem('hanbeot.pref.houseCoached')).toBe('yes');
   });
 
-  it('starts a call from the sofa tag', () => {
+  it('names the home after the friend only and starts a call from the sheet button', () => {
     renderLiving({ coached: true });
-    // 아침에는 "창가로 가서 통화", 그 밖에는 "소파에서 통화"라서 시간대와 상관없이 찾는다.
-    fireEvent.click(screen.getByRole('button', { name: /(에서|가서) 통화/ }));
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/^하늘이네$/);
+    fireEvent.click(screen.getByRole('button', { name: '하늘이 옆에 앉기' }));
     expect(screen.getByText('통화 화면')).toBeInTheDocument();
   });
 
-  it('opens the note on the front door and clears its badge', () => {
+  it('keeps the friend picker, door note, window and fridge tags off the home', () => {
     renderLiving({ coached: true });
-    const door = screen.getByRole('button', { name: /현관 쪽지/ });
-    expect(door).toHaveTextContent('1');
-    fireEvent.click(door);
-    expect(screen.getByRole('note')).toHaveTextContent('하늘이가 남긴 쪽지');
-    expect(door).not.toHaveTextContent('1');
+    expect(screen.queryByRole('radiogroup', { name: /친구/ })).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole('button', { name: /현관 쪽지|창문|에서 통화/ }),
+    ).not.toBeInTheDocument();
+    const tabs = within(screen.getByRole('navigation'));
+    expect(tabs.getAllByRole('link').map((link) => link.textContent)).toEqual([
+      '거실',
+      '냉장고',
+      '내 방',
+      '마이페이지',
+    ]);
   });
 
-  it('switches all four friends together with their rooms and persists the selection', () => {
+  it('folds and opens the mode sheet from its handle', () => {
     renderLiving({ coached: true });
-    const picker = within(screen.getByRole('radiogroup', { name: '지금 이야기할 친구' }));
-    expect(picker.getAllByRole('radio')).toHaveLength(4);
-    for (const friend of [friendById('doyun'), friendById('jiwoo'), friendById('seoyun')]) {
-      fireEvent.click(picker.getByRole('radio', { name: friend.name }));
-      expect(picker.getByRole('radio', { name: friend.name })).toHaveAttribute(
-        'aria-checked',
-        'true',
-      );
-      expect(screen.getByRole('img', { name: new RegExp(friend.name) })).toHaveAttribute(
-        'src',
-        friend.room[dayPart(new Date().getHours())],
-      );
-      expect(window.localStorage.getItem(PREF_KEYS.friend)).toBe(friend.id);
-      expect(screen.queryByRole('button', { name: /현관 쪽지/ })).not.toBeInTheDocument();
-    }
-    fireEvent.click(screen.getByRole('button', { name: '베란다에서 통화' }));
-    expect(screen.getByText('통화 화면')).toBeInTheDocument();
+    const handle = screen.getByRole('button', { name: '대화 방식 접기' });
+    expect(handle).toHaveAttribute('aria-expanded', 'true');
+    fireEvent.click(handle);
+    expect(screen.getByRole('button', { name: '대화 방식 펼치기' })).toHaveAttribute(
+      'aria-expanded',
+      'false',
+    );
+    // 접혀도 통화 버튼(작은 것)은 남고, 지금 고른 방식이 한 줄로 보인다
+    expect(screen.getByText('그냥 들어줘')).toBeVisible();
+    expect(screen.getByRole('button', { name: '하늘이 옆에 앉기' })).toBeInTheDocument();
+  });
+
+  it('moves to the next line when the talk box is pressed', () => {
+    renderLiving({ coached: true });
+    const talk = screen.getByRole('button', { name: /하늘이가 하는 말/ });
+    const first = talk.textContent;
+    fireEvent.click(talk);
+    expect(talk).toHaveTextContent("오늘은 '들어줘'로 들을게");
+    expect(talk.textContent).not.toBe(first);
+  });
+
+  it('follows the friend and room time chosen in my page', () => {
+    window.localStorage.setItem(PREF_KEYS.friend, 'seoyun');
+    window.localStorage.setItem(PREF_KEYS.dayPart, 'morning');
+    renderLiving({ coached: true });
+    const seoyun = friendById('seoyun');
+    expect(screen.getByRole('img', { name: /서윤/ })).toHaveAttribute('src', seoyun.room.morning);
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('서윤이네');
+  });
+
+  it('uses the current time for the room when the time setting is auto', () => {
+    renderLiving({ coached: true });
+    expect(screen.getByRole('img', { name: /하늘/ })).toHaveAttribute(
+      'src',
+      friendById('haneul').room[dayPart(new Date().getHours())],
+    );
   });
 });

@@ -10,6 +10,7 @@ import {
   HouseLayout,
   HouseMemory,
   LivingRoom,
+  MyPage,
   MyRoom,
 } from '@/features/house';
 import { IntroStory } from '@/features/intro';
@@ -20,7 +21,7 @@ import { SummaryPage } from '@/features/summary';
 
 /**
  * 들어오는 길: 입장 이야기(/intro) → 로그인(/login) → 동의(/start) → 거실.
- * 하늘이네 집: 거실(홈, 통화) / 냉장고(편지 모음) / 내 방(설정).
+ * 하늘이네 집: 거실(홈, 통화) / 냉장고(편지 모음) / 내 방(친구, 방 시간) / 마이페이지(이름, 기억, 동의).
  * 통화, 통화 후 요약, 동의, 편지 한 장은 방 틀 밖의 화면이다.
  */
 export const router = createBrowserRouter([
@@ -39,6 +40,7 @@ export const router = createBrowserRouter([
           { path: '/', element: <LivingRoom /> },
           { path: '/fridge', element: <Fridge /> },
           { path: '/room', element: <MyRoom /> },
+          { path: '/my', element: <MyPage /> },
           { path: '/memory', element: <HouseMemory /> },
           { path: '/consent', element: <HouseConsent /> },
         ],

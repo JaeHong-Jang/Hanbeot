@@ -5,25 +5,25 @@ import { houseStrings as s } from './strings';
 
 import { PREF_KEYS, useLocalPref } from '@/shared/hooks/useLocalPref';
 
-/** 단계마다 강조할 자리. 소파·냉장고는 거실 그림 기준, 도움 받기는 화면 오른쪽 위. */
+/** 단계마다 강조할 자리: 아래 판의 통화 버튼, 냉장고 탭, 오른쪽 위 도움 받기. */
 const RINGS: readonly CSSProperties[] = [
   {
     left: '50cqw',
-    top: 'calc(var(--safe-top) + 74px + 100cqw * 1.2497 * 0.8 - 24px)',
-    width: 190,
-    height: 54,
+    top: 'calc(100% - var(--tabs-h) - 33px)', // 판 아래 여백 8 + 버튼 절반 25
+    width: 'calc(100cqw - 20px)',
+    height: 62,
   },
   {
-    left: 'calc(92cqw - 46px)',
-    top: 'calc(var(--safe-top) + 74px + 100cqw * 1.2497 * 0.31 - 22px)',
+    left: '37.5cqw',
+    top: 'calc(100% - var(--tabs-h) / 2)',
     width: 130,
-    height: 50,
+    height: 52,
   },
   {
-    left: 'calc(100cqw - 70px)',
-    top: 'calc(var(--safe-top) + 74px + 30px)',
-    width: 124,
-    height: 50,
+    left: 'calc(100cqw - 66px)',
+    top: 'calc(var(--safe-top) + 14px)',
+    width: 122,
+    height: 48,
   },
 ];
 

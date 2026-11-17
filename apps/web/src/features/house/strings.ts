@@ -2,22 +2,16 @@ import { josa } from '@/shared/strings/friends';
 
 /** V5 하늘이네 집. 방 안의 물건을 누르면 그 기능으로 간다. */
 export const houseStrings = {
-  tabs: { living: '거실', fridge: '냉장고', room: '내 방' },
+  tabs: { living: '거실', fridge: '냉장고', room: '내 방', my: '마이페이지' },
   navLabel: '하늘이네 집',
   help: '도움 받기',
-  // 거실
-  livingTitle: (friendName: string) => `${josa(friendName, '이네', '네')} 거실`,
-  placeTitle: (friendName: string, place: string) => `${josa(friendName, '이네', '네')} ${place}`,
-  friendLabel: '지금 이야기할 친구',
+  // 홈
+  homeTitle: (friendName: string) => josa(friendName, '이네', '네'),
   places: {
-    haneul: { name: '거실', call: '소파에서 통화', alt: '하늘이 머무는 올리브 소파가 있는 거실' },
-    doyun: { name: '창가', call: '창가에서 통화', alt: '창가 책상 의자에 앉아 책을 든 도윤' },
-    jiwoo: { name: '주방', call: '주방에서 통화', alt: '주방 조리대에 기대어 사과 접시를 든 지우' },
-    seoyun: {
-      name: '베란다',
-      call: '베란다에서 통화',
-      alt: '퇴근하고 베란다 의자에 앉아 머그를 든 서윤',
-    },
+    haneul: { alt: '하늘이 머무는 올리브 소파가 있는 거실' },
+    doyun: { alt: '창가 책상 의자에 앉아 책을 든 도윤' },
+    jiwoo: { alt: '주방 조리대에 기대어 사과 접시를 든 지우' },
+    seoyun: { alt: '퇴근하고 베란다 의자에 앉아 머그를 든 서윤' },
   },
   replayIntro: '처음 이야기 다시 보기',
   /** 친구가 지금 하는 일. 방 그림의 시간대(아침, 저녁, 밤)에 맞춘다. */
@@ -43,31 +37,25 @@ export const houseStrings = {
       night: '야근하고 와서 바람 쐬는 중',
     },
   },
-  doorNote: '현관 쪽지',
-  window: '창문',
-  fridgeCount: (count: number) => `냉장고 ${count}장`,
-  sofaCall: '소파에서 통화',
-  windowCall: '창가로 가서 통화',
-  noteTitle: (friendName: string) => `${josa(friendName, '이가', '가')} 남긴 쪽지`,
-  noteClose: '쪽지 접기',
-  windowPreview: (label: string) => `창밖이 ${label}이 됐어요. 한 번 더 누르면 바뀌어요.`,
+  talkLabel: (friendName: string) => `${josa(friendName, '이가', '가')} 하는 말`,
+  talkMode: (modeShort: string) =>
+    `오늘은 '${modeShort}'로 들을게. 바꾸고 싶으면 아래 판을 위로 올려 봐.`,
+  talkNext: '다음 말 보기',
+  sheetOpen: '대화 방식 펼치기',
+  sheetFold: '대화 방식 접기',
   partLabel: { morning: '아침', evening: '저녁', night: '밤' },
   modeTitle: '오늘은 어떻게 들어줄까?',
   modeLabel: '대화 방식',
   sitWith: (friendName: string) => `${josa(friendName, '이', '')} 옆에 앉기`,
-  week: (friendName: string, calls: number, minutes: number) =>
-    calls === 0
-      ? '이번 주엔 아직 놀러 오지 않았어요'
-      : `이번 주 ${josa(friendName, '이네', '네')}에서 ${calls}번, ${minutes}분`,
   // 처음 안내
   coach: [
     {
-      title: '소파를 누르면 통화해요',
-      body: '아래 큰 버튼과 같아요. 현관, 창문, 냉장고도 눌러 보세요.',
+      title: '아래 버튼을 누르면 통화해요',
+      body: '판을 아래로 밀면 접히고, 위로 밀면 어떻게 들어줄지 고를 수 있어요.',
     },
     {
       title: '통화가 끝나면 냉장고에 편지가 붙어요',
-      body: '같이 이야기한 날만큼 사진이 늘어나요.',
+      body: '냉장고 탭에서 볼 수 있어요. 친구와 방 시간은 내 방에서 바꿔요.',
     },
     {
       title: '힘들 땐 오른쪽 위 도움 받기',
@@ -97,7 +85,9 @@ export const houseStrings = {
   fridgeNextNote: '다음 편지도 여기 붙여 둘게',
   // 내 방
   roomTitle: '내 방',
-  roomSub: '설정',
+  myTitle: '마이페이지',
+  myHello: (name: string) => (name ? `${name} 님` : '이름을 알려 주세요'),
+  logout: '로그아웃',
   wardrobe: '옷장: 친구 바꾸기',
   clock: '탁상시계: 쪽지 알림',
   drawer: '서랍: 앱 잠금',
@@ -108,12 +98,15 @@ export const houseStrings = {
   nameRow: '부르는 이름',
   namePlaceholder: '이름',
   friendRow: '이야기할 친구',
+  timeRow: '방 시간',
+  timeAuto: '현재 시간에 따라',
+  timeLabel: '방 시간 고르기',
   memoryRow: (friendName: string) => `${josa(friendName, '이가', '가')} 기억하는 것`,
   memoryCount: (count: number) => `${count}개`,
   consentRow: '개인정보와 동의',
   deletion: '내 데이터 삭제 요청',
   deletionAccepted: (hours: number) => `삭제 요청을 받았어요. ${hours}시간 안에 지워요.`,
-  back: '내 방',
+  back: '마이페이지',
   consentTitle: '개인정보와 동의',
   loading: '불러오는 중…',
 } as const;

@@ -9,6 +9,8 @@ export const PREF_KEYS = {
   houseCoached: 'hanbeot.pref.houseCoached',
   /** 처음 들어올 때 보여 주는 이야기(입장 화면)를 끝까지 봤는지 */
   introSeen: 'hanbeot.pref.introSeen',
+  /** 방 그림의 때. 'auto'면 지금 시각을 따르고, 아니면 고른 때(morning, evening, night)로 고정 */
+  dayPart: 'hanbeot.pref.dayPart',
   /** 로그인한 사용자(지금은 이 기기에만 남는 이름). 비어 있으면 로그인 전 */
   user: 'hanbeot.pref.user',
 } as const;

@@ -74,34 +74,12 @@
   box-shadow: 0 0 0 4px var(--h-sofa);
 }
 
-/* 친구 말풍선 */
-.say {
-  position: absolute;
-  z-index: 5;
-  max-width: 156px;
-  padding: 10px 13px;
-  border: 0;
-  border-radius: 14px 14px 14px 4px;
-  background: var(--color-surface);
-  color: var(--h-text);
-  font: 600 14px/1.45 var(--font-body);
-  text-align: left;
-  box-shadow: 0 6px 16px rgba(30, 20, 10, 0.16);
-  cursor: pointer;
-}
-.say small {
-  display: block;
-  font-size: 11px;
-  color: var(--h-muted);
-  margin-bottom: 2px;
-}
-
 /* 방 아래 판: 방 그림 끝을 살짝 덮으며 올라온다 */
 .panel {
   position: relative;
   z-index: 7;
   margin-top: -40px;
-  padding: 18px 20px 20px;
+  padding: 16px 16px 20px;
   border-radius: 24px 24px 0 0;
   background: var(--h-bg);
   display: flex;
@@ -109,12 +87,12 @@
   gap: 14px;
 }
 .panelTitle {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--h-sub);
 }
 
-/* 고르기 */
+/* 고르기: 글자는 크게, 칸 위아래 여백은 작게 */
 .seg {
   display: grid;
   gap: 2px;
@@ -123,11 +101,11 @@
   background: var(--h-deep);
 }
 .seg button {
-  height: 38px;
+  height: 36px;
   border: 0;
   border-radius: 9px;
   background: transparent;
-  font: 600 13px var(--font-body);
+  font: 600 15px var(--font-body);
   color: var(--h-muted);
   cursor: pointer;
 }
@@ -211,10 +189,10 @@
 .stack {
   flex-direction: column;
   align-items: stretch;
-  padding: 12px 0;
-  gap: 8px;
+  padding: 8px 0;
+  gap: 6px;
 }
-.row input {
+.row > input {
   margin-left: auto;
   width: 120px;
   height: 36px;

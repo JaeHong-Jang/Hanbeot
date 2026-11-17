@@ -23,7 +23,8 @@
   position: absolute;
   left: 20px;
   right: 20px;
-  bottom: calc(var(--tabs-h) + 18px);
+  /* 강조할 자리가 화면 위아래 끝에 있어서 설명은 가운데에 둔다 */
+  top: 34%;
   padding: 18px;
   border-radius: 18px;
   background: #fff;

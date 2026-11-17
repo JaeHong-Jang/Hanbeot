@@ -8,15 +8,21 @@ import { useCreateSession, useEndSession } from '@/shared/api';
 import { friendById } from '@/shared/friend';
 import { useCallLog } from '@/shared/hooks/useCallLog';
 import { PREF_KEYS, useLocalPref } from '@/shared/hooks/useLocalPref';
-import { MockVoiceClient } from '@/shared/voice';
+import { MockVoiceClient, WhisperVoiceClient, canUseWhisper } from '@/shared/voice';
 
 const isCallMode = (value: string): value is CallMode =>
   value === 'listen' || value === 'organize' || value === 'advise';
 
-/** TODO: 서버가 준비되면 MockVoiceClient 대신 pipecat-ai/client-js 구현을 쓴다(webrtc_offer_url 사용). */
+/**
+ * 마이크를 쓸 수 있으면 내 말을 실제로 받아쓰는 클라이언트(Whisper small), 아니면 데모 클라이언트.
+ * TODO: 서버가 준비되면 pipecat-ai/client-js 구현을 쓴다(webrtc_offer_url 사용).
+ */
 export function CallPage() {
   const navigate = useNavigate();
-  const client = useMemo(() => new MockVoiceClient(), []);
+  const client = useMemo(
+    () => (canUseWhisper() ? new WhisperVoiceClient() : new MockVoiceClient()),
+    [],
+  );
   const friendPref = useLocalPref(PREF_KEYS.friend, 'haneul');
   const modePref = useLocalPref(PREF_KEYS.mode, 'listen');
   const { mutate: createSession, data: session } = useCreateSession();

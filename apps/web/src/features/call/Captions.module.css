@@ -23,6 +23,21 @@
   /* 새 자막이 아래에서 올라온다. 사용자가 지켜보는 순간이라 짧게. */
   animation: rise var(--dur-ui) var(--ease-out);
 }
+/* 받아쓴 내 말: 오른쪽에, 한벗 말보다 작고 옅게 */
+.heard {
+  align-self: flex-end;
+  background: rgba(255, 250, 243, 0.86);
+  color: #2a2019;
+  font-size: var(--text-base);
+  text-shadow: none;
+  overflow-wrap: anywhere;
+}
+.heard small {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: #6f665b;
+}
 @keyframes rise {
   from {
     opacity: 0;

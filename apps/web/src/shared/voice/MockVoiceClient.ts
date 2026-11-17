@@ -5,7 +5,7 @@ import type { CallMode } from '@/entities';
 type DemoTurn = { user: string; ai: string; cueCategory?: string };
 
 /** 데모 대화. 한 번씩 순서대로 흘러가고 끝나면 처음으로 돌아간다. */
-const DEMO_TURNS: readonly DemoTurn[] = [
+export const DEMO_TURNS: readonly DemoTurn[] = [
   { user: '오늘 발표를 망쳐서…', ai: '발표가 마음에 걸리는구나.' },
   {
     user: '준비는 많이 했는데 머리가 하얘졌어.',
